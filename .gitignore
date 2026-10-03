@@ -1,0 +1,36 @@
+# Credenciais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519
+mcp-server.json
+
+# Agentes / arquivos de IA locais
+.agents/
+agents/
+**/.agents/
+**/agents/
+
+# Dependencias e ambientes
+node_modules/
+.venv/
+venv/
+__pycache__/
+
+# Temporarios
+.tmp/
+.temp_ag_kit/
+.ag-kit-backups/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Repositorio privado - nunca incluir no cursos-senai publico
+agy/senai-agy-pv/
+
+# Pasta local
+por-favor-nao-apague/

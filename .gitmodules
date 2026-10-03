@@ -1,0 +1,6 @@
+[submodule "agy/senai-antigravity"]
+	path = agy/senai-antigravity
+	url = https://github.com/siteprofissional1/senai-antigravity.git
+[submodule "gpt/2-curso-chat-gpt-quinta-e-sexta"]
+	path = gpt/2-curso-chat-gpt-quinta-e-sexta
+	url = https://github.com/siteprofissional1/senai-gpt.git
