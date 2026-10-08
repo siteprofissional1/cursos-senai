@@ -18,3 +18,8 @@ quero que voce organize por pastas e projetos, vai ter projeto que fiz mais de u
 ```text
 agora analisa e me da o link do github pages de todas as LPs que criei tanto no do gpt quanto no do agy, me fala tambem o total de quantas criei em cada curso
 ```
+
+### Prompt 4 (08/10/2026)
+```text
+cria um txt com os links do githube pages para que eu acesse os index para ver os sites
+```

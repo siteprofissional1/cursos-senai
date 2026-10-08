@@ -1,0 +1,126 @@
+================================================================================
+  CATÁLOGO DE LINKS - GITHUB PAGES - CURSOS SENAI (ANTIGRAVITY & CHATGPT)
+  Repositório Oficial: https://github.com/siteprofissional1/cursos-senai
+================================================================================
+
+URL Base do GitHub Pages:
+https://siteprofissional1.github.io/cursos-senai/
+
+Caso o domínio personalizado (CNAME portfoliodesites.online) esteja ativo no Pages:
+http://portfoliodesites.online/
+
+
+--------------------------------------------------------------------------------
+1. CURSO GOOGLE ANTIGRAVITY (/agy) - LANDING PAGES & SISTEMAS
+--------------------------------------------------------------------------------
+
+[Aula 01] Mecânica William (v1):
+https://siteprofissional1.github.io/cursos-senai/agy/aula01-mecanica-william-e-diesel/1-projeto-mecanica-william.html
+
+[Aula 01] Mecânica do Vin Diesel:
+https://siteprofissional1.github.io/cursos-senai/agy/aula01-mecanica-william-e-diesel/mecanicadovindiiesel.html
+
+[Aula 01] Mecânica William (v2 - Antigravity 2):
+https://siteprofissional1.github.io/cursos-senai/agy/aula01-mecanica-william-e-diesel/projeto-mecanica-william-antigravity2.html
+
+[Aula 02] Mecânica de Luxo (Oficina Premium):
+https://siteprofissional1.github.io/cursos-senai/agy/aula02-mecanica-luxo/index.html
+
+[Aula 03] Cofre Transparente (v1 Inicial):
+https://siteprofissional1.github.io/cursos-senai/agy/aula03-landing-pages-iniciais/projeto-cofre-transparente-v1/index.html
+
+[Aula 03] Hamburgueria do Joselito (v1 Inicial):
+https://siteprofissional1.github.io/cursos-senai/agy/aula03-landing-pages-iniciais/projeto-hamburgueria-do-joselito-v1/index.html
+
+[Aula 03] Ray-Ban Meta Smart Glasses (v1 Inicial):
+https://siteprofissional1.github.io/cursos-senai/agy/aula03-landing-pages-iniciais/projeto-oculos-meta-v1/index.html
+
+[Projeto Final] Cofre Transparente / TripCard Fintech (v2):
+https://siteprofissional1.github.io/cursos-senai/agy/projeto-cofre-transparente-v2-tripcard/index.html
+
+[Projeto Final] Security Weekend FATEC Ourinhos:
+https://siteprofissional1.github.io/cursos-senai/agy/projeto-evento-security-weekend-fatec/index.html
+
+[Projeto Final] Hamburgueria do Joselito (v2 Aprimorada):
+https://siteprofissional1.github.io/cursos-senai/agy/projeto-hamburgueria-do-joselito-v2/index.html
+
+[Projeto Final] Ray-Ban Meta Smart Glasses (v2 Interativa):
+https://siteprofissional1.github.io/cursos-senai/agy/projeto-oculos-meta-v2/index.html
+
+[Projeto Final] Studio de Yoga & Meditação Minimalista:
+https://siteprofissional1.github.io/cursos-senai/agy/projeto-yoga-minimalista/index.html
+
+[Aula 07] BurgerSync (Aplicação do Cliente / Pedidos):
+https://siteprofissional1.github.io/cursos-senai/agy/aula07-projeto-burguersync/index.html
+
+[Aula 07] BurgerSync (Painel Administrativo):
+https://siteprofissional1.github.io/cursos-senai/agy/aula07-projeto-burguersync/admin.html
+
+[Aula 05] Gerenciador de Tarefas To-Do List:
+https://siteprofissional1.github.io/cursos-senai/agy/aula05-projeto-todolist/frontend/index.html
+
+[Aula 05] Analisador de Dados:
+https://siteprofissional1.github.io/cursos-senai/agy/aula05-projeto-analisador/frontend/index.html
+
+
+--------------------------------------------------------------------------------
+2. CURSO CHATGPT & IA GENERATIVA (/gpt) - LANDING PAGES & CHATBOTS
+--------------------------------------------------------------------------------
+
+[Aula 06] Academia Nadbem (Versão Antigravity):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula06-lp-academia-nadbem/agy/index.html
+
+[Aula 06] Academia Nadbem (Versão ChatGPT):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula06-lp-academia-nadbem/gpt/index.html
+
+[Aula 06] Barbearia Tradicional (Old Barbearia):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula06-lp-barbearia/index.html
+
+[Aula 06] Old Barbearia (Protótipo Old GPT):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula06-old-gpt/index.html
+
+[Aula 07] The Ribs Cardápio Digital (Antigravity v1):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula07-the-ribs/agy/agy-cardapio-theribs-v1/index.html
+
+[Aula 07] The Ribs Cardápio Digital (Antigravity v2):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula07-the-ribs/agy/agy-cardapio-theribs-v2/index.html
+
+[Aula 07] The Ribs Cardápio & Sistema (Antigravity v3):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula07-the-ribs/agy/agy-cardpio-sistema-theribs-v3/index.html
+
+[Aula 07] The Ribs Cardápio Digital (Versão Gemini):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula07-the-ribs/gemini-theribs/card_pio_the_ribs.html
+
+[Aula 07] The Ribs Cardápio Digital (Versão GPT):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula07-the-ribs/gpt/index.html
+
+[Aula 08] Chatbot SENAI (Landing Page de Funil de Conversão):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula08-chatbot-senai-iaweb/gpt-index-senai-chatbot-funil.html
+
+[Aula 08] Chatbot SENAI (Netlify Web Interface):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula08-chatbot-senai-iaweb/chatbot-senai-netlify/index.html
+
+[Aula 08] Chatbot SENAI Institucional (v1):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula08-chatbot-senai/index.html
+
+[Aula 09] D'Thales Pizza Delivery (Landing Page & Cardápio):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-pizzaria/frontend/index.html
+
+[Aula 09] D'Thales Pizza Delivery (Tela de Pedido Online):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-pizzaria/frontend/pedido/index.html
+
+[Aula 09] Chatbot Especialista ANEEL (Norma 1000):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-ia-especialista-aneel/index.html
+
+[Aula 09] Chatbot de Relacionamento (Standalone):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-relacionamento-standalone/0210-gem-relacionamentochatbot.html
+
+[Aula 09] Chatbot de Relacionamento (v1 Web):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-relacionamento-v1/frontend/index.html
+
+[Aula 09] Chatbot de Relacionamento (v2 GPT):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-relacionamento-v2-gpt/index.html
+
+================================================================================
+site desenvolvido por siteprofissional.pro (https://siteprofissional.pro)
+================================================================================
