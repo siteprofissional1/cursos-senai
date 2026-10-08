@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ribs Hamburgueria | Ourinhos - SP</title>
+  
+  <!-- Fontes Google: Inter e Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              darkest: '#120d0a',
+              dark: '#1c1410',
+              surface: '#281d17',
+              border: '#402e23',
+              amber: '#f59e0b',
+              amberLight: '#fbbf24',
+              orange: '#ea580c',
+              orangeLight: '#f97316',
+              cream: '#fcf6ee',
+              muted: '#ab9787'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilização da barra de rolagem nas cores da marca */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #120d0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #402e23;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Brilho quente âmbar/laranja */
+    .glow-amber {
+      box-shadow: 0 0 25px -5px rgba(234, 88, 12, 0.25);
+    }
+    .glow-button {
+      box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.35);
+    }
+  </style>
+</head>
+
+<body class="bg-brand-darkest text-brand-cream font-sans min-h-screen selection:bg-brand-orange selection:text-white flex flex-col justify-between">
+
+  <!-- Top Bar: Avisos e Status de Funcionamento -->
+  <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      
+      <!-- Identificação e Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10" 
+          alt="The Ribs Hamburgueria" 
+          class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-brand-amber/80 shadow-md group-hover:scale-105 transition-transform"
+          onerror="this.src='https://placehold.co/100x100/281d17/f59e0b?text=THE+RIBS'"
+        >
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brand-amber font-semibold block">Cardápio Digital</span>
+          <h1 class="text-lg md:text-xl font-extrabold font-display tracking-tight text-white flex items-center gap-1.5">
+            The Ribs <span class="text-brand-orange">Burguer</span>
+          </h1>
+          <p class="text-xs text-brand-muted hidden sm:block">Ourinhos - SP</p>
+        </div>
+      </a>
+
+      <!-- Status em Tempo Real & Botão Rápido -->
+      <div class="flex items-center gap-2">
+        <div id="statusBadge" class="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-surface border border-brand-border">
+          <span id="statusDot" class="w-2.5 h-2.5 rounded-full bg-brand-amber animate-pulse"></span>
+          <span id="statusText" class="text-brand-muted">Verificando...</span>
+        </div>
+
+        <button 
+          onclick="openWaiterModal()" 
+          class="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-brand-amber to-brand-orange text-brand-darkest font-bold text-xs uppercase tracking-wider rounded-xl hover:opacity-95 transition-opacity shadow-md"
+          title="Chamar garçom ou pedir no balcão"
+        >
+          <span>🛎️</span>
+          <span>Chamar Garçom</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Banner Informativo da Casa -->
+  <section class="bg-gradient-to-b from-brand-dark to-brand-darkest border-b border-brand-border/60 py-8 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 bg-brand-orange/20 border border-brand-orange/40 text-brand-orangeLight text-xs font-bold uppercase rounded-full mb-3 tracking-wider">
+        🔥 O Verdadeiro Sabor da Costela Defumada
+      </span>
+      <h2 class="text-2xl md:text-4xl font-extrabold font-display text-white mb-3">
+        Escolha o seu burger favorito
+      </h2>
+      <p class="text-sm md:text-base text-brand-muted max-w-2xl mx-auto mb-6">
+        Cardápio de visualização para sua mesa. Escolha seus itens e solicite ao nosso garçom para anotar seu pedido ou envie pelo nosso WhatsApp.
+      </p>
+
+      <!-- Botões de Redes e Contato Rápido -->
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium">
+        <a href="https://www.instagram.com/ribsburguerourinhos/" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-border text-brand-cream transition-colors border border-brand-border">
+          <span>📸</span> Instagram
+        </a>
+        <a href="https://www.facebook.com/ribsburguerourinhos/?locale=pt_BR" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-border text-brand-cream transition-colors border border-brand-border">
+          <span>👍</span> Facebook
+        </a>
+        <a href="https://www.ifood.com.br/delivery/ourinhos-sp/the-ribs-hamburgueria-jardim-paulista/f878b518-a9f0-4b1f-a7a3-e2fce547f584" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface hover:bg-brand-border text-brand-cream transition-colors border border-brand-border">
+          <span>🛵</span> iFood
+        </a>
+        <a href="https://wa.me/5514999027734" target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-amber/20 hover:bg-brand-amber/30 text-brand-amberLight transition-colors border border-brand-amber/40">
+          <span>📱</span> (14) 99902-7734
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Barra de Busca e Filtro de Categorias -->
+  <nav class="sticky top-[69px] z-30 bg-brand-darkest/95 backdrop-blur-md pt-4 pb-3 border-b border-brand-border/60">
+    <div class="max-w-6xl mx-auto px-4 space-y-3">
+      
+      <!-- Input de Busca -->
+      <div class="relative max-w-lg mx-auto">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-brand-muted">
+          🔍
+        </span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Buscar por nome ou ingrediente (ex: costela, bacon, cheddar)..." 
+          class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-brand-surface border border-brand-border text-sm text-brand-cream placeholder-brand-muted focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition-all"
+        >
+      </div>
+
+      <!-- Abas de Categorias com Rolagem Horizontal -->
+      <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1 text-sm font-medium">
+        <button onclick="filterCategory('todos')" class="category-btn active-category whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border bg-brand-amber text-brand-darkest font-bold border-brand-amber" data-category="todos">
+          ✨ Todos
+        </button>
+        <button onclick="filterCategory('ribs')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="ribs">
+          🥩 Ribs (Costela)
+        </button>
+        <button onclick="filterCategory('classicos')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="classicos">
+          🍔 Clássicos
+        </button>
+        <button onclick="filterCategory('agridoce')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="agridoce">
+          🍯 Agridoce
+        </button>
+        <button onclick="filterCategory('chicken')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="chicken">
+          🍗 Chicken
+        </button>
+        <button onclick="filterCategory('kids')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="kids">
+          🧒 Kids
+        </button>
+        <button onclick="filterCategory('smash')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="smash">
+          💥 Smash
+        </button>
+        <button onclick="filterCategory('vegetarianos')" class="category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50" data-category="vegetarianos">
+          🌱 Vegetarianos
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Container Principal dos Produtos -->
+  <main class="max-w-6xl mx-auto px-4 py-8 w-full flex-grow">
+    
+    <!-- Contador / Feedback da busca -->
+    <div id="resultsCount" class="text-xs font-semibold text-brand-muted mb-6 uppercase tracking-wider">
+      Mostrando todos os lanches disponíveis
+    </div>
+
+    <!-- Grid dos Hambúrgueres -->
+    <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- ================= SEÇÃO: RIBS (COSTELA) ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="ribs"
+        data-name="The Grand Cheddar Ribs"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g costela defumada molho cheddar bacon queijo mussarela especial"
+        data-price="40,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥩</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Ribs (Costela)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Grand Cheddar Ribs</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Costela Defumada + Molho Cheddar + Bacon + Queijo Mussarela + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 40,50</span>
+          </div>
+          <button onclick="requestItem('The Grand Cheddar Ribs', 'R$ 40,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="ribs"
+        data-name="The Ribs"
+        data-ingredients="pão brioche costela defumada 170g queijo mussarela bacon alface tomate cebola molho barbecue molho especial"
+        data-price="34,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥓</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Ribs (Costela)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Ribs</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche + Costela Defumada 170g + Queijo Mussarela + Bacon + Alface + Tomate + Cebola + Molho Barbecue + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 34,50</span>
+          </div>
+          <button onclick="requestItem('The Ribs', 'R$ 34,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="ribs"
+        data-name="The Ribs Cheddar"
+        data-ingredients="pão brioche costela desfiada queijo mussarela cheddar bacon especial"
+        data-price="35,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🧀</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Ribs (Costela)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Ribs Cheddar</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche, Costela Desfiada, Queijo Mussarela, Cheddar, Bacon e Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 35,00</span>
+          </div>
+          <button onclick="requestItem('The Ribs Cheddar', 'R$ 35,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="ribs"
+        data-name="The Super Big Ribs"
+        data-ingredients="costela defumada desfiada queijo mussarela bacon cebola caramelizada molho especial"
+        data-price="37,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🧅</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Ribs (Costela)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Super Big Ribs</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Costela Defumada Desfiada + Queijo Mussarela + Bacon + Cebola Caramelizada + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 37,00</span>
+          </div>
+          <button onclick="requestItem('The Super Big Ribs', 'R$ 37,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: CLÁSSICOS ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Cheese Bacon"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo prato bacon alface tomate cebola molho especial"
+        data-price="31,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍔</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Cheese Bacon</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Alface + Tomate + Cebola + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 31,50</span>
+          </div>
+          <button onclick="requestItem('The Cheese Bacon', 'R$ 31,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Cheese Burger"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo prato molho especial simples tradicional"
+        data-price="26,90">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍔</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Cheese Burger</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 26,90</span>
+          </div>
+          <button onclick="requestItem('The Cheese Burger', 'R$ 26,90')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Cheese Bacon Egg"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo prato bacon alface tomate cebola ovo frito molho especial"
+        data-price="33,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍳</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Cheese Bacon Egg</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Alface + Tomate + Cebola + Ovo + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 33,50</span>
+          </div>
+          <button onclick="requestItem('The Cheese Bacon Egg', 'R$ 33,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Cheese Burguer Salada"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo prato alface tomate cebola salada molho especial"
+        data-price="29,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥗</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Cheese Burguer Salada</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Alface, Tomate e Cebola + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 29,50</span>
+          </div>
+          <button onclick="requestItem('The Cheese Burguer Salada', 'R$ 29,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Especial Cheese"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo prato bacon cebola crispy picles molho especial crocante"
+        data-price="36,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥒</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Especial Cheese</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Cebola Crispy + Picles + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 36,50</span>
+          </div>
+          <button onclick="requestItem('The Especial Cheese', 'R$ 36,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Gran Chorizo"
+        data-ingredients="pão francês curitibano hamburguer linguiça toscana 160g queijo coalho vinagrete molho especial"
+        data-price="33,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥖</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Gran Chorizo</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Francês Curitibano, Hambúrguer de Linguiça Toscana 160g, Queijo Coalho, Vinagrete e Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 33,00</span>
+          </div>
+          <button onclick="requestItem('The Gran Chorizo', 'R$ 33,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="classicos"
+        data-name="The Super 4 Cheese"
+        data-ingredients="pão brioche hambúrguer 170g 4 queijos mussarela queijo cheddar catupiry queijo prato repolho cremoso bacon molho especial"
+        data-price="35,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🧀</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Clássicos
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Super 4 Cheese</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche + Hambúrguer 170g + 4 Queijos (mussarela, cheddar, catupiry, queijo prato) + Repolho Cremoso + Bacon + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 35,00</span>
+          </div>
+          <button onclick="requestItem('The Super 4 Cheese', 'R$ 35,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: AGRIDOCE ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="agridoce"
+        data-name="The Cheese Gorgon"
+        data-ingredients="pão de brioche hambúrguer artesanal 170g queijo gorgonzola rúcula cebola crispy mel molho especial doce"
+        data-price="37,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍯</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amberLight bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Agridoce
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Cheese Gorgon</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Gorgonzola + Rúcula + Cebola Crispy + Mel + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 37,00</span>
+          </div>
+          <button onclick="requestItem('The Cheese Gorgon', 'R$ 37,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="agridoce"
+        data-name="The Provobacon Pepper"
+        data-ingredients="pão de brioche hamburguer 180g queijo prato provolone empanado bacon geleia de pimenta molho especial"
+        data-price="39,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🌶️</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amberLight bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Agridoce
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Provobacon Pepper</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche, Hambúrguer 180g, Queijo Prato, Provolone Empanado, Bacon, Geleia de Pimenta e Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 39,00</span>
+          </div>
+          <button onclick="requestItem('The Provobacon Pepper', 'R$ 39,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="agridoce"
+        data-name="The Empanadinho"
+        data-ingredients="pão brioche hambúrguer artesanal 170g catupiry empanado cebola caramelizada molho especial"
+        data-price="37,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🧀</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amberLight bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Agridoce
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Empanadinho</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche + Hambúrguer Artesanal 170g + Catupiry Empanado + Cebola Caramelizada + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 37,00</span>
+          </div>
+          <button onclick="requestItem('The Empanadinho', 'R$ 37,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="agridoce"
+        data-name="The Tropical Cheese"
+        data-ingredients="pão de brioche hamburguer 170g bacon abacaxi grelhado mel e canela queijo coalho grelhado especial doce"
+        data-price="37,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍍</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amberLight bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Agridoce
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Tropical Cheese</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche, Hambúrguer 170g, Bacon, Abacaxi Grelhado com Mel e Canela, Queijo Coalho Grelhado + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 37,00</span>
+          </div>
+          <button onclick="requestItem('The Tropical Cheese', 'R$ 37,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: CHICKEN ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="chicken"
+        data-name="The Chicken"
+        data-ingredients="pão de brioche chicken de sobrecoxa empanada cream cheese alface tomate cebola molho especial frango"
+        data-price="32,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍗</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Chicken (Frango)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Chicken</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + Chicken de Sobrecoxa Empanada + Cream Cheese + Alface + Tomate + Cebola + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 32,50</span>
+          </div>
+          <button onclick="requestItem('The Chicken', 'R$ 32,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="chicken"
+        data-name="The Chicken Classico"
+        data-ingredients="pão de brioche hamburguer peito de frango empanado crocante tomate alface molho especial chicken"
+        data-price="30,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🥪</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Chicken (Frango)
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Chicken Clássico</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche, Hambúrguer de Peito de Frango Empanado e Crocante, Tomate, Alface e Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 30,00</span>
+          </div>
+          <button onclick="requestItem('The Chicken Clássico', 'R$ 30,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: KIDS ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="kids"
+        data-name="The Kids"
+        data-ingredients="pão brioche 50g hamburguer smash 100g queijo prato molho especial infantil crianca"
+        data-price="21,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🧒</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Kids
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Kids</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche 50g, Hambúrguer Smash 100g + Queijo Prato e Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 21,00</span>
+          </div>
+          <button onclick="requestItem('The Kids', 'R$ 21,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="kids"
+        data-name="The Kids Combo"
+        data-ingredients="pão brioche 50g hamburguer smash 100g queijo prato 4 chicken supreme fritas batata suco kapo infantil combo"
+        data-price="32,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🍟</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-orangeLight bg-brand-orange/10 border border-brand-orange/30 px-2.5 py-1 rounded-full">
+              Kids
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Kids Combo</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche 50g + Hambúrguer Smash 100g + Queijo Prato + 4 Chicken Supreme + Fritas + 1 Suco Kapo.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 32,00</span>
+          </div>
+          <button onclick="requestItem('The Kids Combo', 'R$ 32,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: SMASH ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="smash"
+        data-name="The Smash Duplo Especial"
+        data-ingredients="pão de brioche 2 hamburguer smash 100g crostinha bacon queijo prato picles molho especial duplo"
+        data-price="35,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">💥</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-brand-amber bg-brand-amber/10 border border-brand-amber/30 px-2.5 py-1 rounded-full">
+              Smash
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Smash Duplo Especial</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão de Brioche + 2 Hambúrguer Smash de 100g Cada com Crostinha + Bacon + Queijo Prato + Picles + Molho Especial.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 35,00</span>
+          </div>
+          <button onclick="requestItem('The Smash Duplo Especial', 'R$ 35,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= SEÇÃO: VEGETARIANOS ================= -->
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="vegetarianos"
+        data-name="The Vegetariano 2"
+        data-ingredients="pão brioche hambúrguer vegetariano defumado lentilha beterraba catupiry empanado queijo prato cebola caramelizada sem carne"
+        data-price="36,00">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🌱</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2.5 py-1 rounded-full">
+              Vegetariano
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Vegetariano 2</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche + Hambúrguer Vegetariano Defumado à Base de Lentilha e Beterraba + Catupiry Empanado + Queijo Prato + Cebola Caramelizada.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 36,00</span>
+          </div>
+          <button onclick="requestItem('The Vegetariano 2', 'R$ 36,00')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+      <article class="burger-card bg-brand-dark border border-brand-border rounded-2xl p-5 flex flex-col justify-between hover:border-brand-amber/60 hover:shadow-xl transition-all duration-200"
+        data-category="vegetarianos"
+        data-name="The Vegetariano 1"
+        data-ingredients="pão brioche hambúrguer vegetariano defumado lentilha beterraba queijo prato repolho cremoso sem carne"
+        data-price="29,50">
+        <div>
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="text-3xl p-3 bg-brand-surface rounded-2xl border border-brand-border" aria-hidden="true">🌱</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/10 border border-amber-500/30 px-2.5 py-1 rounded-full">
+              Vegetariano
+            </span>
+          </div>
+          <h3 class="text-lg font-bold font-display text-white mb-2">The Vegetariano 1</h3>
+          <p class="text-sm text-brand-muted leading-relaxed mb-4">
+            Pão Brioche + Hambúrguer Vegetariano Defumado à Base de Lentilha e Beterraba + Queijo Prato + Repolho Cremoso.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-brand-border/60 flex items-center justify-between gap-2">
+          <div>
+            <span class="text-[11px] text-brand-muted block">A partir de</span>
+            <span class="text-xl font-extrabold text-brand-amberLight font-display">R$ 29,50</span>
+          </div>
+          <button onclick="requestItem('The Vegetariano 1', 'R$ 29,50')" class="px-3 py-2 bg-brand-surface hover:bg-brand-amber hover:text-brand-darkest text-brand-cream border border-brand-border rounded-xl text-xs font-semibold transition-colors flex items-center gap-1">
+            <span>🛎️</span> Pedir Item
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Mensagem de Nenhum Item Encontrado -->
+    <div id="noResults" class="hidden text-center py-16 px-4 bg-brand-dark border border-brand-border rounded-3xl mt-6">
+      <span class="text-5xl mb-3 block">🔍</span>
+      <h3 class="text-lg font-bold text-white mb-1">Nenhum hambúrguer encontrado</h3>
+      <p class="text-sm text-brand-muted mb-4">Tente buscar por outro ingrediente ou selecione outra categoria.</p>
+      <button onclick="resetFilters()" class="px-4 py-2 bg-brand-amber text-brand-darkest font-bold text-xs uppercase tracking-wider rounded-xl">
+        Ver todo o cardápio
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Rodapé com Informações, Endereço e Horários -->
+  <footer class="bg-brand-dark border-t border-brand-border pt-12 pb-24 md:pb-12 px-4 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+      
+      <!-- Sobre e Contato -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10" 
+            alt="The Ribs" 
+            class="w-10 h-10 rounded-full border border-brand-amber object-cover"
+            onerror="this.src='https://placehold.co/80x80/281d17/f59e0b?text=RIBS'"
+          >
+          <span class="font-extrabold font-display text-white text-lg">The Ribs Hamburgueria</span>
+        </div>
+        <p class="text-sm text-brand-muted leading-relaxed mb-4">
+          Especialistas em hambúrguer artesanal e costela defumada de verdade em Ourinhos/SP. Sabor autêntico e produtos de altíssima qualidade.
+        </p>
+        <p class="text-xs text-brand-muted">
+          Telefone & WhatsApp:<br>
+          <a href="https://wa.me/5514999027734" class="text-brand-amberLight font-bold text-sm hover:underline">
+            (14) 99902-7734
+          </a>
+        </p>
+      </div>
+
+      <!-- Localização com Link para o Maps -->
+      <div>
+        <h4 class="text-sm font-bold uppercase tracking-wider text-brand-amber mb-4 font-display">
+          📍 Onde Estamos
+        </h4>
+        <p class="text-sm text-brand-cream/90 leading-relaxed mb-3">
+          Av. Antônio Almeida Leite, 805<br>
+          Jardim Paulista, Ourinhos - SP<br>
+          CEP: 19908-095
+        </p>
+        <a 
+          href="https://www.google.com/maps/search/?api=1&query=Av.+Ant%C3%B4nio+Almeida+Leite%2C+805+-+Jardim+Paulista%2C+Ourinhos+-+SP%2C+19908-095" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-brand-surface hover:bg-brand-border text-xs font-semibold text-brand-amberLight rounded-xl border border-brand-border transition-colors"
+        >
+          <span>🗺️</span> Abrir no Google Maps
+        </a>
+      </div>
+
+      <!-- Horários de Funcionamento Detalhados -->
+      <div>
+        <h4 class="text-sm font-bold uppercase tracking-wider text-brand-amber mb-4 font-display">
+          ⏰ Horário de Atendimento
+        </h4>
+        <ul class="text-xs space-y-1.5 text-brand-muted">
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Segunda-feira:</span>
+            <span class="text-amber-200/60 font-semibold">Fechado</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Terça-feira:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Quarta-feira:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Quinta-feira:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Sexta-feira:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+          <li class="flex justify-between py-1 border-b border-brand-border/40">
+            <span>Sábado:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+          <li class="flex justify-between py-1">
+            <span>Domingo:</span>
+            <span class="text-white font-medium">18:15 – 23:15</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Linha Final de Copyright -->
+    <div class="max-w-6xl mx-auto pt-6 border-t border-brand-border/50 text-center text-xs text-brand-muted">
+      <p>© 2026 The Ribs Hamburgueria Ourinhos/SP. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante Fixo (Chamar Garçom / Pedir) -->
+  <div class="fixed bottom-4 right-4 z-40">
+    <button 
+      onclick="openWaiterModal()" 
+      class="glow-button flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-brand-amber via-brand-amberLight to-brand-orange text-brand-darkest font-black text-sm uppercase tracking-wider rounded-2xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
+      aria-label="Chamar o garçom ou pedir pelo WhatsApp"
+    >
+      <span class="text-xl animate-bounce">🛎️</span>
+      <span class="flex flex-col text-left">
+        <span class="leading-none text-[11px] opacity-80 font-bold">Na mesa ou viagem</span>
+        <span class="leading-tight">Chamar Garçom / Pedir</span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Modal: Chamar Garçom / Pedir pelo WhatsApp -->
+  <div id="waiterModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brand-dark border border-brand-border rounded-3xl max-w-md w-full p-6 relative shadow-2xl text-left" role="dialog" aria-modal="true">
+      
+      <!-- Botão Fechar -->
+      <button 
+        onclick="closeWaiterModal()" 
+        class="absolute top-4 right-4 text-brand-muted hover:text-white p-2 rounded-full hover:bg-brand-surface transition-colors"
+        aria-label="Fechar janela"
+      >
+        ✕
+      </button>
+
+      <!-- Cabeçalho do Modal -->
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-2xl bg-brand-surface border border-brand-amber/30 flex items-center justify-center text-2xl">
+          🛎️
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-display text-white">Chamar Atendimento</h3>
+          <p class="text-xs text-brand-muted">The Ribs • Ourinhos/SP</p>
+        </div>
+      </div>
+
+      <!-- Aviso Presencial -->
+      <div class="p-3.5 rounded-2xl bg-brand-surface border border-brand-border/80 mb-4 text-xs text-brand-cream/90 flex gap-2.5 items-start">
+        <span class="text-base">👋</span>
+        <div>
+          <strong class="text-brand-amberLight block mb-0.5">Está presente no restaurante?</strong>
+          Você também pode acenar tranquilamente para nossa equipe que iremos até a sua mesa para anotar seu pedido!
+        </div>
+      </div>
+
+      <!-- Formulário para WhatsApp -->
+      <form id="orderForm" onsubmit="sendWhatsAppOrder(event)" class="space-y-3">
+        <div>
+          <label for="tableNumber" class="block text-xs font-semibold text-brand-cream mb-1">
+            Número da sua mesa (opcional se for delivery ou viagem):
+          </label>
+          <input 
+            type="text" 
+            id="tableNumber" 
+            placeholder="Ex: Mesa 04 (ou Viagem)" 
+            class="w-full px-3.5 py-2.5 rounded-xl bg-brand-surface border border-brand-border text-sm text-brand-cream placeholder-brand-muted focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber"
+          >
+        </div>
+
+        <div>
+          <label for="orderNotes" class="block text-xs font-semibold text-brand-cream mb-1">
+            Itens desejados ou recado para o garçom:
+          </label>
+          <textarea 
+            id="orderNotes" 
+            rows="3" 
+            placeholder="Ex: Gostaria de pedir 1 The Ribs Cheddar ao ponto e chamar o garçom..."
+            class="w-full px-3.5 py-2.5 rounded-xl bg-brand-surface border border-brand-border text-sm text-brand-cream placeholder-brand-muted focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber"
+          ></textarea>
+        </div>
+
+        <div class="pt-2 flex flex-col gap-2">
+          <button 
+            type="submit" 
+            class="w-full py-3 bg-gradient-to-r from-brand-amber to-brand-orange text-brand-darkest font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-lg hover:opacity-95 transition-opacity flex items-center justify-center gap-2"
+          >
+            <span>📱</span> Enviar pelo WhatsApp
+          </button>
+          <button 
+            type="button" 
+            onclick="closeWaiterModal()" 
+            class="w-full py-2.5 bg-brand-surface hover:bg-brand-border text-brand-muted hover:text-brand-cream text-xs font-semibold rounded-xl transition-colors"
+          >
+            Apenas continuar vendo o cardápio
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- JavaScript da Aplicação -->
+  <script>
+    // 1. Verificação Automática do Horário de Funcionamento
+    // Horário: Terça a Domingo das 18:15 às 23:15. Segunda-feira fechado.
+    function checkOpenStatus() {
+      const now = new Date();
+      const day = now.getDay(); // 0 = Domingo, 1 = Segunda, 2 = Terça, ..., 6 = Sábado
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      
+      const openMinutes = 18 * 60 + 15;  // 18:15 = 1095 minutos
+      const closeMinutes = 23 * 60 + 15; // 23:15 = 1395 minutos
+
+      const badge = document.getElementById('statusBadge');
+      const dot = document.getElementById('statusDot');
+      const text = document.getElementById('statusText');
+
+      const isMonday = (day === 1);
+      const isWithinHours = (currentMinutes >= openMinutes && currentMinutes <= closeMinutes);
+
+      if (!isMonday && isWithinHours) {
+        // Aberto Agora
+        dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
+        text.className = "text-emerald-400 font-semibold";
+        text.textContent = "Aberto Agora (18:15 às 23:15)";
+      } else {
+        // Fechado
+        dot.className = "w-2.5 h-2.5 rounded-full bg-brand-amber";
+        text.className = "text-brand-muted font-medium";
+        if (isMonday) {
+          text.textContent = "Fechado hoje (Segunda-feira)";
+        } else {
+          text.textContent = "Fechado (Abre às 18:15)";
+        }
+      }
+    }
+
+    // 2. Filtro de Categorias e Busca em Tempo Real
+    let currentCategory = 'todos';
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.burger-card');
+    const resultsCount = document.getElementById('resultsCount');
+    const noResults = document.getElementById('noResults');
+
+    function filterMenu() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardName = card.getAttribute('data-name').toLowerCase();
+        const cardIngredients = card.getAttribute('data-ingredients').toLowerCase();
+
+        const matchesCategory = (currentCategory === 'todos' || cardCategory === currentCategory);
+        const matchesSearch = query === '' || cardName.includes(query) || cardIngredients.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Atualiza mensagens na tela
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        resultsCount.textContent = "Nenhum resultado encontrado";
+      } else {
+        noResults.classList.add('hidden');
+        if (query) {
+          resultsCount.textContent = `Encontrado(s) ${visibleCount} item(ns) para "${query}"`;
+        } else if (currentCategory === 'todos') {
+          resultsCount.textContent = "Mostrando todos os lanches disponíveis";
+        } else {
+          resultsCount.textContent = `Mostrando ${visibleCount} opção(ões) da categoria`;
+        }
+      }
+    }
+
+    function filterCategory(category) {
+      currentCategory = category;
+      
+      // Atualiza botões
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.className = "category-btn active-category whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border bg-brand-amber text-brand-darkest font-bold border-brand-amber shadow-md";
+        } else {
+          btn.className = "category-btn whitespace-nowrap px-4 py-2 rounded-xl transition-all duration-200 border border-brand-border bg-brand-surface text-brand-cream hover:border-brand-amber/50";
+        }
+      });
+
+      filterMenu();
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      filterCategory('todos');
+    }
+
+    searchInput.addEventListener('input', filterMenu);
+
+    // 3. Gerenciamento do Modal de Chamado / Pedido
+    const waiterModal = document.getElementById('waiterModal');
+    const tableInput = document.getElementById('tableNumber');
+    const orderNotes = document.getElementById('orderNotes');
+
+    function openWaiterModal(defaultNote = '') {
+      if (defaultNote) {
+        orderNotes.value = defaultNote;
+      }
+      waiterModal.classList.remove('hidden');
+      waiterModal.classList.add('flex');
+      tableInput.focus();
+    }
+
+    function closeWaiterModal() {
+      waiterModal.classList.add('hidden');
+      waiterModal.classList.remove('flex');
+    }
+
+    // Ao clicar em "Pedir Item" dentro de qualquer card
+    function requestItem(burgerName, price) {
+      const note = `Olá! Gostaria de pedir: 1x ${burgerName} (${price})`;
+      openWaiterModal(note);
+    }
+
+    // Fechar ao clicar fora da caixa do modal
+    waiterModal.addEventListener('click', (e) => {
+      if (e.target === waiterModal) {
+        closeWaiterModal();
+      }
+    });
+
+    // 4. Envio do Pedido via WhatsApp para (14) 99902-7734
+    function sendWhatsAppOrder(e) {
+      e.preventDefault();
+      
+      const phone = "5514999027734"; // Telefone informado
+      const table = tableInput.value.trim();
+      const notes = orderNotes.value.trim();
+
+      let message = "🍔 *The Ribs Hamburgueria - Solicitação de Mesa*\n\n";
+
+      if (table) {
+        message += `📍 *Local/Mesa:* ${table}\n`;
+      } else {
+        message += `📍 *Local:* Atendimento Presencial / Retirada\n`;
+      }
+
+      if (notes) {
+        message += `📝 *Pedido / Observação:*\n${notes}\n\n`;
+      } else {
+        message += `🛎️ *Chamado:* Gostaria de chamar um garçom até a mesa por favor!\n\n`;
+      }
+
+      message += `Enviado através do Cardápio Digital.`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+      window.open(whatsappUrl, '_blank');
+      closeWaiterModal();
+    }
+
+    // Executa a verificação de horário na inicialização
+    document.addEventListener('DOMContentLoaded', () => {
+      checkOpenStatus();
+      // Atualiza o relógio a cada 1 minuto
+      setInterval(checkOpenStatus, 60000);
+    });
+  </script>
+
+</body>
+</html>

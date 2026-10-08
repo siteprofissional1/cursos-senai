@@ -1,0 +1,103 @@
+{
+  "pizzaria": {
+    "nome": "D Thales Pizza Delivery",
+    "cidade": "Ourinhos - SP",
+    "endereco": "R. Rubéns Saladine, 199 - Jardim São Silvestre, Ourinhos - SP, 19902-446",
+    "telefone": "(14) 99608-1601",
+    "whatsapp": "5514996081601",
+    "instagram": "https://www.instagram.com/dthalespizza/",
+    "facebook": "https://www.facebook.com/Dthalespizza/",
+    "googleMaps": "https://share.google/U6z1ScsJX85yfl40X",
+    "horarioFuncionamento": {
+      "dias": "Segunda a Domingo",
+      "abertura": "18:30",
+      "fechamento": "23:30"
+    }
+  },
+  "tamanhos": [
+    {
+      "id": "pequena",
+      "nome": "Pequena",
+      "pedacos": 1,
+      "maxSabores": 1,
+      "precoBase": 40.00,
+      "descricao": "Individual generosa salgada (1 pedaço gigante) ou 4 pedaços doce"
+    },
+    {
+      "id": "grande",
+      "nome": "Grande",
+      "pedacos": 8,
+      "maxSabores": 2,
+      "precoBase": 60.00,
+      "descricao": "Tamanho família 8 pedaços, permite até 2 sabores"
+    }
+  ],
+  "categorias": [
+    { "id": "tradicional", "nome": "Tradicionais" },
+    { "id": "especial", "nome": "Especiais Gourmet" },
+    { "id": "doce", "nome": "Doces" }
+  ],
+  "pizzas": [
+    { "id": "p1", "categoria": "tradicional", "nome": "4 Queijos", "ingredientes": "Molho de tomate artesanal, mussarela, catupiry, provolone, parmesão, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p2", "categoria": "especial", "nome": "5 Queijos", "ingredientes": "Molho de tomate artesanal, mussarela, requeijão, provolone, parmesão, gorgonzola, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p3", "categoria": "tradicional", "nome": "Americana", "ingredientes": "Molho de tomate artesanal, bacon, ovo, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p4", "categoria": "tradicional", "nome": "Atum", "ingredientes": "Molho de tomate artesanal, mussarela, atum, tomate, cebola, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p5", "categoria": "tradicional", "nome": "Baiana", "ingredientes": "Molho de tomate artesanal, presunto, calabresa, ovo, cebola, pimenta, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p6", "categoria": "tradicional", "nome": "Bauru", "ingredientes": "Molho de tomate artesanal, presunto, mussarela, tomate, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p7", "categoria": "tradicional", "nome": "Brócolis", "ingredientes": "Molho de tomate artesanal, brócolis, bacon, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p8", "categoria": "especial", "nome": "Burguesa", "ingredientes": "Molho artesanal, presunto, palmito, bacon, ovo, milho, requeijão, mussarela, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p9", "categoria": "especial", "nome": "Caipira", "ingredientes": "Molho artesanal, presunto, frango, milho, palmito, catupiry, mussarela, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p10", "categoria": "tradicional", "nome": "Calabresa", "ingredientes": "Molho de tomate artesanal, mussarela, calabresa fatiada, cebola, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p11", "categoria": "tradicional", "nome": "Campineira", "ingredientes": "Molho artesanal, presunto, palmito, champignon, bacon, catupiry, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p12", "categoria": "especial", "nome": "Canadense", "ingredientes": "Molho artesanal, mussarela, lombo, catupiry, gorgonzola, tomate seco, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p13", "categoria": "especial", "nome": "Catulombo", "ingredientes": "Molho artesanal, mussarela, lombo canadense, catupiry, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p14", "categoria": "especial", "nome": "Croata", "ingredientes": "Molho artesanal, lombo, champignon, cebola, catupiry, parmesão, alho frito, tomate seco e orégano", "precoPequena": 50.00, "precoGrande": 72.00 },
+    { "id": "p15", "categoria": "especial", "nome": "Dadona", "ingredientes": "Molho artesanal, frango, brócolis, milho, bacon, mussarela, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p16", "categoria": "especial", "nome": "Da Gleice", "ingredientes": "Molho artesanal, frango, palmito, mussarela, lombo, cebola, tomate seco e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p17", "categoria": "especial", "nome": "Delicia", "ingredientes": "Molho artesanal, frango, milho, mussarela, lombo, cebola, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p18", "categoria": "especial", "nome": "Do Cheff", "ingredientes": "Molho artesanal, presunto, mussarela, lombo, cebola, parmesão, provolone, gorgonzola e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p19", "categoria": "especial", "nome": "Doritos", "ingredientes": "Molho artesanal, frango desfiado, bacon crocante, milho, cheddar, mussarela e Doritos crocante", "precoPequena": 50.00, "precoGrande": 72.00 },
+    { "id": "p20", "categoria": "tradicional", "nome": "Escarola", "ingredientes": "Molho artesanal, escarola refogada, bacon, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p21", "categoria": "especial", "nome": "Francesa", "ingredientes": "Molho artesanal, presunto, milho, bacon, catupiry, mussarela, calabresa, azeitonas e orégano", "precoPequena": 43.00, "precoGrande": 65.00 },
+    { "id": "p22", "categoria": "tradicional", "nome": "Frango com Mussarela", "ingredientes": "Molho artesanal, frango desfiado temperado, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p23", "categoria": "especial", "nome": "Frango com Catupiry", "ingredientes": "Molho artesanal, frango desfiado, milho, catupiry original, mussarela, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p24", "categoria": "especial", "nome": "Fricassê", "ingredientes": "Molho artesanal, frango desfiado, milho, catupiry, mussarela, azeitonas e batata palha", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p25", "categoria": "especial", "nome": "Hot Dog", "ingredientes": "Molho, salsicha fatiada, tomate, cebola, milho, bacon, calabresa, mussarela e batata palha", "precoPequena": 43.00, "precoGrande": 65.00 },
+    { "id": "p26", "categoria": "especial", "nome": "Lenheira", "ingredientes": "Molho artesanal, atum, palmito, ovo, cebola, mussarela, azeitonas e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p27", "categoria": "tradicional", "nome": "Lombo Canadense", "ingredientes": "Molho de tomate artesanal, mussarela, lombo canadense, tomate, cebola, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p28", "categoria": "tradicional", "nome": "Marguerita", "ingredientes": "Molho artesanal, mussarela, tomate fatiado, azeitonas, orégano e manjericão fresco", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p29", "categoria": "tradicional", "nome": "Milho Verde", "ingredientes": "Molho artesanal, milho verde selecionado, catupiry, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p30", "categoria": "tradicional", "nome": "Mussarela Tradicional", "ingredientes": "Molho artesanal especial, mussarela farta, tomate fatiado, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p31", "categoria": "tradicional", "nome": "Napoletana", "ingredientes": "Molho artesanal, mussarela, queijo parmesão ralado, tomate fatiado, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p32", "categoria": "tradicional", "nome": "Palmito", "ingredientes": "Molho artesanal, palmito nobre macio, mussarela, azeitonas e orégano", "precoPequena": 40.00, "precoGrande": 60.00 },
+    { "id": "p33", "categoria": "especial", "nome": "Palmito Especial", "ingredientes": "Molho artesanal, palmito, catupiry, mussarela, alho dourado, tomate seco e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p34", "categoria": "especial", "nome": "Portuguesa", "ingredientes": "Molho artesanal, presunto, milho, ervilha, ovo, palmito, cebola, mussarela e orégano", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p35", "categoria": "especial", "nome": "Siciliana", "ingredientes": "Molho artesanal, palmito, bacon crocante, champignon, mussarela e manjericão fresco", "precoPequena": 42.00, "precoGrande": 64.00 },
+    { "id": "p36", "categoria": "especial", "nome": "Strogonoff de Carne", "ingredientes": "Molho artesanal, mussarela, strogonoff de carne macia, champignon e batata palha", "precoPequena": 47.00, "precoGrande": 69.00 },
+    { "id": "p37", "categoria": "especial", "nome": "Vegetariana", "ingredientes": "Molho artesanal, brócolis, palmito, champignon, milho, mussarela e tomate seco", "precoPequena": 46.00, "precoGrande": 68.00 },
+    { "id": "pd1", "categoria": "doce", "nome": "Chocolate Nobre", "ingredientes": "Creme de leite suave, chocolate ao leite nobre e raspas de chocolate branco", "precoPequena": 40.00, "precoGrande": 68.00 },
+    { "id": "pd2", "categoria": "doce", "nome": "Romeu e Julieta", "ingredientes": "Goiabada cremosa especial combinada com queijo mussarela derretido", "precoPequena": 40.00, "precoGrande": 68.00 }
+  ],
+  "bordas": {
+    "salgada": [
+      { "id": "bs1", "nome": "Catupiry Original", "preco": 7.00 },
+      { "id": "bs2", "nome": "Cheddar Cremoso", "preco": 9.00 },
+      { "id": "bs3", "nome": "Mussarela Especial", "preco": 12.00 },
+      { "id": "bs4", "nome": "Presunto e Mussarela", "preco": 18.00 }
+    ],
+    "doce": [
+      { "id": "bd1", "nome": "Chocolate Nobre", "preco": 18.00 },
+      { "id": "bd2", "nome": "Romeu e Julieta", "preco": 18.00 }
+    ]
+  },
+  "bebidas": [
+    { "id": "b1", "nome": "Coca-Cola 2L Gelada", "preco": 16.00 },
+    { "id": "b2", "nome": "Coca-Cola Zero 2L Gelada", "preco": 16.00 },
+    { "id": "b3", "nome": "Fanta Laranja 2L", "preco": 14.00 },
+    { "id": "b4", "nome": "Guaraná Conquista 2L", "preco": 9.00 },
+    { "id": "b5", "nome": "Guaraná Antarctica 2L", "preco": 15.00 },
+    { "id": "b6", "nome": "Coca-Cola Lata 350ml", "preco": 5.00 },
+    { "id": "b7", "nome": "Guaraná Antarctica Lata 350ml", "preco": 5.00 },
+    { "id": "b8", "nome": "H2OH! Limoneto 500ml", "preco": 4.50 }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "project": "Mecânica do Vin Diesel - Landing Page Assets",
+  "generator": "Nano Banana / Imagen 3 / Midjourney v6",
+  "style_guide": "Cinematic automotive photography, photorealistic 8k, dramatic lighting, dark carbon fiber & red neon nitro accents, studio HDR, sharp focus, octane render style, highly detailed mechanics",
+  "images": [
+    {
+      "id": "hero_garage_supercar",
+      "filename": "hero_garage_supercar.jpg",
+      "section": "Hero Principal",
+      "aspect_ratio": "16:9",
+      "prompt": "Cinematic wide angle shot of an elite high performance tuning auto repair garage at night, modified black muscle car with red accents on a lift with underglow, tool racks, neon red glowing sign, hyper realistic, 8k resolution, photorealistic, Unreal Engine 5 render style, volumetric smoke, dramatic rim lighting",
+      "negative_prompt": "blurry, low quality, cartoon, watermark, distorted, text, ugly, draft"
+    },
+    {
+      "id": "story_v8_engine",
+      "filename": "story_v8_engine.jpg",
+      "section": "A Garagem & O Legado",
+      "aspect_ratio": "16:9",
+      "prompt": "Close-up macro photography of a twin-turbo V8 racing engine block on an engine stand, polished chrome intake, red silicone hoses, carbon fiber valve covers, clean high-tech tuning workshop background, cinematic lighting, 8k resolution, crisp metallic textures",
+      "negative_prompt": "rusty, broken, dirty messy, blurry, low resolution, 3d glitch"
+    },
+    {
+      "id": "service_remap_ecu",
+      "filename": "service_remap_ecu.jpg",
+      "section": "Serviço 1: Injeção & Remap ECU",
+      "aspect_ratio": "16:9",
+      "prompt": "Automotive technician diagnostic laptop connected to engine bay of a modern sports car, glowing digital telemetry and fuel mapping graphs on screen, illuminated engine bay with red LED accents, crisp hyper-detailed photography, 8k",
+      "negative_prompt": "blurry, generic laptop, low quality, deformed hands"
+    },
+    {
+      "id": "service_revisao_geral",
+      "filename": "service_revisao_geral.jpg",
+      "section": "Serviço 2: Revisão 60 Itens",
+      "aspect_ratio": "16:9",
+      "prompt": "Modern spotless automotive repair center with sports cars raised on hydraulic lifts, mechanic inspecting suspension and chassis under bright clean shop lights, professional automotive tools, 8k photorealistic",
+      "negative_prompt": "messy, dirty, blurry, cartoon, low resolution"
+    },
+    {
+      "id": "service_motor_retifica",
+      "filename": "service_motor_retifica.jpg",
+      "section": "Serviço 3: Motores & Cabeçotes",
+      "aspect_ratio": "16:9",
+      "prompt": "Forged pistons, connecting rods and crankshaft disassembled on a clean workbench next to an engine block, precision automotive engineering, metallic reflection, shallow depth of field, 8k hyper-realistic",
+      "negative_prompt": "rust, greasy junk, blur, low quality"
+    },
+    {
+      "id": "service_freios_sport",
+      "filename": "service_freios_sport.jpg",
+      "section": "Serviço 4: Freios Esportivos",
+      "aspect_ratio": "16:9",
+      "prompt": "High performance drilled and slotted carbon ceramic brake rotor with red multi-piston Brembo caliper installed on alloy wheel rim, close-up dynamic angle, carbon fiber dust shield, studio automotive lighting, 8k",
+      "negative_prompt": "damaged, dirty, out of focus, poor render"
+    },
+    {
+      "id": "service_suspensao_coilover",
+      "filename": "service_suspensao_coilover.jpg",
+      "section": "Serviço 5: Suspensão & Coilovers",
+      "aspect_ratio": "16:9",
+      "prompt": "Adjustable racing coilover suspension strut with bright red spring and anodized aluminum top mount, installed in car wheel well, precision stance, clean technical lighting, 8k photography",
+      "negative_prompt": "broken, rusted, blurry, ugly render"
+    },
+    {
+      "id": "service_cambio_embreagem",
+      "filename": "service_cambio_embreagem.jpg",
+      "section": "Serviço 6: Câmbio & Embreagens",
+      "aspect_ratio": "16:9",
+      "prompt": "Heavy-duty ceramic racing clutch disc with lightened flywheel and sequential gearbox assembly on assembly table, mechanical gears, precise engineering, studio rim light, 8k",
+      "negative_prompt": "grimy, low poly, bad lighting, blur"
+    },
+    {
+      "id": "service_troca_oleo",
+      "filename": "service_troca_oleo.jpg",
+      "section": "Serviço 7: Óleo 100% Sintético",
+      "aspect_ratio": "16:9",
+      "prompt": "Pouring golden synthetic high-performance engine oil into a clean engine cap, translucent amber fluid stream, pristine engine bay with carbon fiber engine cover, macro automotive photography, 8k",
+      "negative_prompt": "sludge, dirty, spilling everywhere, low resolution"
+    },
+    {
+      "id": "service_escapamento_inox",
+      "filename": "service_escapamento_inox.jpg",
+      "section": "Serviço 8: Escapamento Inox & Downpipe",
+      "aspect_ratio": "16:9",
+      "prompt": "Custom welded 304 stainless steel exhaust downpipe and valvetronic catback system with titanium burnt blue and purple tips, TIG welding rainbow discoloration, dark industrial tuning workshop, 8k",
+      "negative_prompt": "rusted iron, bent pipes, low quality, blur"
+    },
+    {
+      "id": "project_golf_gti",
+      "filename": "project_golf_gti.jpg",
+      "section": "Projeto 1: VW Golf GTI Stage 2",
+      "aspect_ratio": "16:9",
+      "prompt": "Tuned metallic dark grey Volkswagen Golf GTI MK7.5 on dyno rollers with glowing red brake calipers, front splitter, quad exhaust tips, smoke and dyno fan airflow, high octane automotive photography, 8k",
+      "negative_prompt": "stock car, damaged, cartoon, text, blur"
+    },
+    {
+      "id": "project_camaro_ss",
+      "filename": "project_camaro_ss.jpg",
+      "section": "Projeto 2: Chevrolet Camaro SS V8",
+      "aspect_ratio": "16:9",
+      "prompt": "Aggressive black Chevrolet Camaro SS with red rally stripes parked in modern industrial dark garage, glowing headlights, widebody kit, low stance, reflection on polished concrete floor, 8k",
+      "negative_prompt": "cracked glass, low resolution, ugly render"
+    },
+    {
+      "id": "project_toyota_hilux",
+      "filename": "project_toyota_hilux.jpg",
+      "section": "Projeto 3: Toyota Hilux 2.8 Offroad",
+      "aspect_ratio": "16:9",
+      "prompt": "Heavy-duty lifted Toyota Hilux GR Sport pickup truck with all-terrain beadlock tires, LED light bar on roof, dark metallic finish, prepared for endurance off-road, rugged aesthetic, 8k photorealistic",
+      "negative_prompt": "crashed, mud covering everything, blur, bad proportions"
+    },
+    {
+      "id": "project_bmw_330i",
+      "filename": "project_bmw_330i.jpg",
+      "section": "Projeto 4: BMW 330i M Sport",
+      "aspect_ratio": "16:9",
+      "prompt": "Sleek BMW 330i M Sport sedan in frozen black with M performance carbon fiber aero kit, red ambient neon reflection, studio automotive commercial shot, 8k resolution",
+      "negative_prompt": "distorted badge, low quality, artifacts"
+    },
+    {
+      "id": "project_mustang_gt",
+      "filename": "project_mustang_gt.jpg",
+      "section": "Projeto 5: Ford Mustang GT 5.0",
+      "aspect_ratio": "16:9",
+      "prompt": "Ford Mustang GT 5.0 V8 with open vented hood revealing polished supercharger, red Brembo brakes, aggressive front grille, track day garage pit box setting, 8k cinematic photography",
+      "negative_prompt": "stock, deformed, blurry, cartoon"
+    },
+    {
+      "id": "project_audi_rs3",
+      "filename": "project_audi_rs3.jpg",
+      "section": "Projeto 6: Audi RS3 Quattro",
+      "aspect_ratio": "16:9",
+      "prompt": "Audi RS3 Sportback in Nardo Grey with black optic package, large front intercooler visible behind honeycomb grille, performance wheels, aggressive stance in dyno room, 8k",
+      "negative_prompt": "deformed wheels, low quality, glitch"
+    }
+  ]
+}

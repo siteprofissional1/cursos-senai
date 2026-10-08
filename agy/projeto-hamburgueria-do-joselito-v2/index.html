@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ===================================================================
+       CONFIGURAÇÕES BÁSICAS E RESPONSIVIDADE
+       =================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- ===================================================================
+       SEO LOCAL E OTIMIZAÇÃO PARA MECANISMOS DE BUSCA (GEO/SEARCH)
+       =================================================================== -->
+  <title>Hamburgueria do Joselito | O Melhor Hambúrguer Artesanal na Brasa em Ourinhos-SP</title>
+  <meta name="description" content="Experimente o autêntico hambúrguer artesanal na brasa em Ourinhos-SP na Hamburgueria do Joselito. Cardápio 100% carnívoro por apenas R$ 30,00 cada. Peça agora no WhatsApp!">
+  <meta name="keywords" content="melhor hamburgueria em ourinhos, hambúrguer artesanal ourinhos, lanche delivery ourinhos, hamburguer na brasa ourinhos, hamburgueria do joselito, lanches em ourinhos sp">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Hamburgueria do Joselito">
+  
+  <!-- Geo Tags para SEO Local em Ourinhos-SP -->
+  <meta name="geo.region" content="BR-SP">
+  <meta name="geo.placename" content="Ourinhos">
+  <meta name="geo.position" content="-22.9785;-49.8705">
+  <meta name="ICBM" content="-22.9785, -49.8705">
+
+  <!-- Open Graph / Redes Sociais e WhatsApp Preview -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Hamburgueria do Joselito | Hambúrguer Artesanal na Brasa em Ourinhos">
+  <meta property="og:description" content="Cardápio 100% carnívoro de respeito em Ourinhos-SP. Todos os lanches por apenas R$ 30,00. Sabor defumado na brasa, queijo farto e brioche tostado!">
+  <meta property="og:image" content="assets/imagens-lanches/mega-carnivoro.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Hamburgueria do Joselito">
+
+  <!-- Favicon com tema de brasa/hambúrguer -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+
+  <!-- ===================================================================
+       FONTES GOOGLE (DISPLAY POTENTE & LEITURA CONFORTÁVEL)
+       =================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ===================================================================
+       SCHEMA.ORG JSON-LD (DADOS ESTRUTURADOS PARA GOOGLE E IA SEARCH)
+       =================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Hamburgueria do Joselito",
+    "image": "assets/imagens-lanches/mega-carnivoro.jpg",
+    "description": "Hamburgueria artesanal especialista em lanches na brasa 100% carnívoros em Ourinhos-SP. Preço único promocional de R$ 30,00 por lanche.",
+    "servesCuisine": [
+      "Hambúrguer Artesanal",
+      "Hamburgueria",
+      "Grelhados na Brasa",
+      "Lanches Carnívoros"
+    ],
+    "priceRange": "$$",
+    "telephone": "+5514998951657",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Vitório Christoni, 1500",
+      "addressLocality": "Ourinhos",
+      "addressRegion": "SP",
+      "postalCode": "19911-200",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -22.9785,
+      "longitude": -49.8705
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:30",
+        "closes": "23:59"
+      }
+    ],
+    "hasMenu": {
+      "@type": "Menu",
+      "name": "Cardápio dos Carnívoros",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Cheeseburger",
+          "description": "Pão brioche tostado, blend de carne artesanal suculento, queijo derretido e molho especial secreto.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "BRL"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cheeseburger Duplo",
+          "description": "Pão brioche, 2 hambúrgueres artesanais, camada dupla de queijo e molho especial.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "BRL"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Onion Burger",
+          "description": "Pão brioche, hambúrguer artesanal, queijo derretido, cebola caramelizada, onion rings crocantes e molho especial.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "BRL"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Chicken Burger",
+          "description": "Pão especial, sobrecoxa de frango ultra empanada e crocante, queijo e molho especial.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "BRL"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Mega Carnívoro",
+          "description": "Pão brioche, 2 hambúrgueres bovinos, cheddar farto, bacon crocante, cebola roxa, cebola crispy e molho artesanal.",
+          "offers": {
+            "@type": "Offer",
+            "price": "30.00",
+            "priceCurrency": "BRL"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===================================================================
+       1. TOP BAR INFORMATIVO (HORÁRIO + LOCALIZAÇÃO + ROTA RÁPIDA)
+       =================================================================== -->
+  <aside class="top-bar" aria-label="Avisos rápidos e localização">
+    <div class="container top-bar__inner">
+      <div class="top-bar__item">
+        <span class="top-bar__pulse-dot" aria-hidden="true"></span>
+        <span class="top-bar__status"><strong>Atendimento Noturno:</strong> Terça a Domingo a partir das 18:30h</span>
+      </div>
+      <div class="top-bar__item top-bar__location">
+        <svg class="top-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP</span>
+        <a href="https://share.google/K0HAVcYE3B6y7x79p" target="_blank" rel="noopener noreferrer" class="top-bar__gps-link">
+          Traçar Rota no GPS &rarr;
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================================================================
+       HEADER & NAVEGAÇÃO PRINCIPAL
+       =================================================================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <!-- Marca / Logo com Efeito Neon -->
+      <a href="#hero" class="brand" aria-label="Página Inicial - Hamburgueria do Joselito">
+        <div class="brand__logo-icon" aria-hidden="true">
+          <span class="brand__flame">🔥</span>
+        </div>
+        <div class="brand__text">
+          <span class="brand__title">HAMBURGUERIA DO <span class="neon-highlight">JOSELITO</span></span>
+          <span class="brand__subtitle">OURINHOS • NA BRASA</span>
+        </div>
+      </a>
+
+      <!-- Menu de Navegação Desktop -->
+      <nav class="nav" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#cardapio" class="nav__link">Cardápio Carnívoro</a></li>
+          <li class="nav__item"><a href="#o-segredo" class="nav__link">O Segredo da Brasa</a></li>
+          <li class="nav__item"><a href="#localizacao" class="nav__link">Localização & GPS</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA de Ação Imediata no Header -->
+      <div class="header__action">
+        <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" target="_blank" rel="noopener noreferrer" class="btn btn--header btn--glow">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.767-5.766 0-3.18-2.587-5.767-5.772-5.767zm7.429 5.764c0 4.103-3.339 7.442-7.433 7.442-1.246 0-2.433-.312-3.486-.889l-4.541 1.19 1.212-4.428a7.394 7.394 0 0 1-1.026-3.815c0-4.104 3.339-7.443 7.437-7.443 4.095 0 7.437 3.339 7.437 7.443z"/>
+          </svg>
+          <span>Pedir no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       CONTEÚDO PRINCIPAL (MAIN)
+       =================================================================== -->
+  <main id="main-content">
+
+    <!-- =================================================================
+         2. HERO SECTION: O SABOR PREMIUM LOCAL (LUZES, SOMBRAS E DESEJO)
+         ================================================================= -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <!-- Fundo Atmosférico de Brasas e Luzes -->
+      <div class="hero__ambient-glow" aria-hidden="true"></div>
+      <div class="hero__smoke-overlay" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <!-- Coluna de Conteúdo e Copywriting -->
+        <div class="hero__content">
+          <!-- Badge de Preço Promocional Unificado -->
+          <div class="hero__badge-pill">
+            <span class="hero__badge-icon">⚡</span>
+            <span class="hero__badge-text">CARDÁPIO 100% CARNÍVORO • <strong>TODOS POR R$ 30,00</strong></span>
+          </div>
+
+          <!-- Headline Principal com Efeito Letreiro Neon Pulsante -->
+          <h1 id="hero-title" class="hero__title">
+            O AUTÊNTICO SABOR DA <span class="neon-text-fire">BRASA</span> EM <span class="neon-text-gold">OURINHOS</span>
+          </h1>
+
+          <!-- Subheadline Focada em Desejo e Qualidade Artesanal -->
+          <p class="hero__description">
+            Sem salada, sem frescura. Blend artesanal grelhado no fogo de verdade, queijo derretido em camadas generosas e pão brioche amanteigado tostado na perfeição.
+          </p>
+
+          <!-- Ações Principais do Hero -->
+          <div class="hero__actions">
+            <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--hero-pulse" id="hero-cta-whatsapp">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.767-5.766 0-3.18-2.587-5.767-5.772-5.767zm7.429 5.764c0 4.103-3.339 7.442-7.433 7.442-1.246 0-2.433-.312-3.486-.889l-4.541 1.19 1.212-4.428a7.394 7.394 0 0 1-1.026-3.815c0-4.104 3.339-7.443 7.437-7.443 4.095 0 7.437 3.339 7.437 7.443z"/>
+              </svg>
+              <span>Fazer Pedido no WhatsApp</span>
+            </a>
+
+            <a href="#cardapio" class="btn btn--secondary">
+              <span>Ver os 5 Lanches</span>
+              <svg class="btn__icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Micro Prova Social e Destaques Rápidos -->
+          <div class="hero__trust-strip">
+            <div class="trust-item">
+              <span class="trust-item__number">100%</span>
+              <span class="trust-item__label">Carne na Brasa</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <span class="trust-item__number">R$ 30</span>
+              <span class="trust-item__label">Preço Único</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <span class="trust-item__number">4.9 ★</span>
+              <span class="trust-item__label">Avaliação Ourinhos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Visual de Destaque / Imagem Flutuante 3D -->
+        <div class="hero__visual">
+          <div class="hero__card-showcase" id="hero-showcase">
+            <div class="hero__neon-frame" aria-hidden="true"></div>
+            <div class="hero__image-wrapper">
+              <img src="assets/imagens-lanches/mega-carnivoro.jpg" alt="Mega Carnívoro artesanal grelhado na brasa - Hamburgueria do Joselito Ourinhos" class="hero__burger-img" loading="eager" width="600" height="600">
+            </div>
+            <div class="hero__floating-badge">
+              <span class="badge-title">MEGA CARNÍVORO</span>
+              <span class="badge-price">R$ 30,00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         3. CARDÁPIO DOS CARNÍVOROS (MENU GRID - 5 LANCHES POR R$ 30,00)
+         ================================================================= -->
+    <section class="menu-section" id="cardapio" aria-labelledby="menu-title">
+      <div class="container">
+        <!-- Cabeçalho da Seção -->
+        <div class="section-header">
+          <span class="section-tag">CARDÁPIO SELECIONADO</span>
+          <h2 id="menu-title" class="section-title">
+            O CARDÁPIO DOS <span class="neon-text-gold">CARNÍVOROS</span>
+          </h2>
+          <p class="section-subtitle">
+            Sem folhas murchas, sem enrolação. 5 criações brutas preparadas com maestria na brasa quente. <strong>Qualquer opção por apenas R$ 30,00</strong>.
+          </p>
+        </div>
+
+        <!-- Grid de Cards dos 5 Lanches -->
+        <div class="menu-grid">
+
+          <!-- 1. Cheeseburger -->
+          <article class="burger-card" data-tilt>
+            <div class="burger-card__media">
+              <img src="assets/imagens-lanches/cheeseburguer.jpg" alt="Cheeseburger Artesanal na Brasa - Hamburgueria do Joselito" class="burger-card__img" loading="lazy" width="400" height="400">
+              <span class="burger-card__price-tag">R$ 30,00</span>
+            </div>
+            <div class="burger-card__content">
+              <h3 class="burger-card__name">Cheeseburger</h3>
+              <p class="burger-card__ingredients">
+                Pão brioche tostado na manteiga, blend de carne artesanal suculento grelhado na brasa, queijo derretido de verdade e molho especial secreto da casa.
+              </p>
+              <div class="burger-card__footer">
+                <span class="burger-card__tag-meat">🔥 Brasa Viva</span>
+                <a href="https://wa.me/5514998951657?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Cheeseburger%20de%20R%24%2030,00" target="_blank" rel="noopener noreferrer" class="btn btn--card-order">
+                  <span>Pedir Este</span>
+                  <svg class="btn__icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cheeseburger Duplo -->
+          <article class="burger-card" data-tilt>
+            <div class="burger-card__media">
+              <img src="assets/imagens-lanches/cheeseburguer-duplo.jpg" alt="Cheeseburger Duplo Artesanal - Hamburgueria do Joselito" class="burger-card__img" loading="lazy" width="400" height="400">
+              <span class="burger-card__price-tag">R$ 30,00</span>
+            </div>
+            <div class="burger-card__content">
+              <h3 class="burger-card__name">Cheeseburger Duplo</h3>
+              <p class="burger-card__ingredients">
+                Pão brioche tostado, 2 suculentos hambúrgueres artesanais na brasa, camada dupla de queijo derretido e molho artesanal especial.
+              </p>
+              <div class="burger-card__footer">
+                <span class="burger-card__tag-meat">🔥 Duplo Blend</span>
+                <a href="https://wa.me/5514998951657?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Cheeseburger%20Duplo%20de%20R%24%2030,00" target="_blank" rel="noopener noreferrer" class="btn btn--card-order">
+                  <span>Pedir Este</span>
+                  <svg class="btn__icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Onion Burger -->
+          <article class="burger-card" data-tilt>
+            <div class="burger-card__media">
+              <img src="assets/imagens-lanches/onion.jpg" alt="Onion Burger com Onion Rings - Hamburgueria do Joselito" class="burger-card__img" loading="lazy" width="400" height="400">
+              <span class="burger-card__price-tag">R$ 30,00</span>
+            </div>
+            <div class="burger-card__content">
+              <h3 class="burger-card__name">Onion Burger</h3>
+              <p class="burger-card__ingredients">
+                Pão brioche, hambúrguer artesanal defumado na brasa, queijo derretido, cebola caramelizada artesanal, onion rings douradas e crocantes e molho especial.
+              </p>
+              <div class="burger-card__footer">
+                <span class="burger-card__tag-meat">🧅 Cebola Crispy & Rings</span>
+                <a href="https://wa.me/5514998951657?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Onion%20Burger%20de%20R%24%2030,00" target="_blank" rel="noopener noreferrer" class="btn btn--card-order">
+                  <span>Pedir Este</span>
+                  <svg class="btn__icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Chicken Burger -->
+          <article class="burger-card" data-tilt>
+            <div class="burger-card__media">
+              <img src="assets/imagens-lanches/chicken-burger.jpg" alt="Chicken Burger Crocante - Hamburgueria do Joselito" class="burger-card__img" loading="lazy" width="400" height="400">
+              <span class="burger-card__price-tag">R$ 30,00</span>
+            </div>
+            <div class="burger-card__content">
+              <h3 class="burger-card__name">Chicken Burger</h3>
+              <p class="burger-card__ingredients">
+                Pão especial amanteigado, sobrecoxa de frango ultra empanada com tempero secreto, crocância extrema por fora e suculência por dentro, queijo e molho especial.
+              </p>
+              <div class="burger-card__footer">
+                <span class="burger-card__tag-meat">🍗 Ultra Crocante</span>
+                <a href="https://wa.me/5514998951657?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Chicken%20Burger%20de%20R%24%2030,00" target="_blank" rel="noopener noreferrer" class="btn btn--card-order">
+                  <span>Pedir Este</span>
+                  <svg class="btn__icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Mega Carnívoro (Destaque Especial) -->
+          <article class="burger-card burger-card--featured" data-tilt>
+            <div class="burger-card__media">
+              <div class="burger-card__badge-highlight">O MAIS PEDIDO 👑</div>
+              <img src="assets/imagens-lanches/mega-carnivoro.jpg" alt="Mega Carnívoro Duplo com Bacon e Cheddar - Hamburgueria do Joselito" class="burger-card__img" loading="lazy" width="400" height="400">
+              <span class="burger-card__price-tag burger-card__price-tag--gold">R$ 30,00</span>
+            </div>
+            <div class="burger-card__content">
+              <h3 class="burger-card__name">Mega Carnívoro</h3>
+              <p class="burger-card__ingredients">
+                Pão brioche selado, 2 hambúrgueres bovinos altos grelhados na brasa, cheddar farto derretido, bacon artesanal super crocante, cebola roxa fresca, cebola crispy e molho autoral.
+              </p>
+              <div class="burger-card__footer">
+                <span class="burger-card__tag-meat">🥓 Bacon Farto & Cheddar</span>
+                <a href="https://wa.me/5514998951657?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20pedir%20o%20Mega%20Carn%C3%ADvoro%20de%20R%24%2030,00" target="_blank" rel="noopener noreferrer" class="btn btn--card-order btn--gold-action">
+                  <span>Pedir Este</span>
+                  <svg class="btn__icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. O SEGREDO DO NOSSO PADRÃO (AUTORIDADE, BRASA E PUREZA)
+         ================================================================= -->
+    <section class="secret-section" id="o-segredo" aria-labelledby="secret-title">
+      <div class="container">
+        <div class="secret-grid">
+          <!-- Coluna de Texto de Autoridade -->
+          <div class="secret__content">
+            <span class="section-tag">PADRÃO INEGOCIÁVEL</span>
+            <h2 id="secret-title" class="section-title">
+              O SEGREDO DO NOSSO <span class="neon-text-fire">PADRÃO ARTESANAL</span>
+            </h2>
+            <p class="secret__lead">
+              Nascemos para resgatar a verdadeira essência do hambúrguer: o poder do fogo, o calor da grelha e a pureza dos ingredientes nobres.
+            </p>
+
+            <!-- Lista de Pilares do Padrão Joselito -->
+            <div class="pillars-list">
+              <!-- Pilar 1 -->
+              <div class="pillar-card">
+                <div class="pillar-card__icon" aria-hidden="true">🔥</div>
+                <div class="pillar-card__text">
+                  <h4>Grelhado no Fogo de Verdade</h4>
+                  <p>Não usamos chapa fria. Cada burger recebe o calor direto da brasa viva, selando os sucos naturais da carne e criando aquela crosta defumada inconfundível.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 2 -->
+              <div class="pillar-card">
+                <div class="pillar-card__icon" aria-hidden="true">🥩</div>
+                <div class="pillar-card__text">
+                  <h4>100% Carnívoro (Sem Salada)</h4>
+                  <p>Aqui seu pão não murcha com água de alface ou tomate. Focamos no que realmente importa: carne nobre, bacon crocante no ponto certo e queijo derretido abundante.</p>
+                </div>
+              </div>
+
+              <!-- Pilar 3 -->
+              <div class="pillar-card">
+                <div class="pillar-card__icon" aria-hidden="true">🥖</div>
+                <div class="pillar-card__text">
+                  <h4>Brioche Selado na Manteiga</h4>
+                  <p>Pão brioche artesanal com estrutura macia e aerada, selado na manteiga de primeira para sustentar toda a suculência até a última mordida.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Visual com Caixa de Citação / Destaque Noturno -->
+          <div class="secret__highlight-box">
+            <div class="quote-card">
+              <div class="quote-card__neon-border" aria-hidden="true"></div>
+              <div class="quote-card__icon">“</div>
+              <blockquote class="quote-card__text">
+                O hambúrguer perfeito não precisa de artifícios. Ele precisa de brasa alta, blend com a gordura exata e respeito absoluto ao paladar do cliente.
+              </blockquote>
+              <div class="quote-card__author">
+                <strong>Joselito & Equipe</strong>
+                <span>Mestres da Brasa • Ourinhos-SP</span>
+              </div>
+              <div class="quote-card__badge">
+                <span>🔥 Feito na Hora</span>
+                <span>⭐ Satisfação Garantida</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. LOCALIZAÇÃO E MAPA INTERATIVO (OURINHOS - SP + GPS)
+         ================================================================= -->
+    <section class="location-section" id="localizacao" aria-labelledby="location-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">COMO CHEGAR</span>
+          <h2 id="location-title" class="section-title">
+            ESTAMOS ESPERANDO <span class="neon-text-gold">POR VOCÊ</span>
+          </h2>
+          <p class="section-subtitle">
+            Venha retirar seu pedido quentinho ou combine sua rota rápida direto pelo GPS.
+          </p>
+        </div>
+
+        <div class="location-grid">
+          <!-- Card Informativo de Endereço e Horários -->
+          <div class="location-card">
+            <div class="location-card__header">
+              <div class="location-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h3 class="location-card__title">Hamburgueria do Joselito</h3>
+                <span class="location-card__city">Ourinhos - SP</span>
+              </div>
+            </div>
+
+            <div class="location-card__body">
+              <div class="info-group">
+                <span class="info-group__label">Endereço Completo:</span>
+                <p class="info-group__value" id="full-address">
+                  R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP, 19911-200
+                </p>
+              </div>
+
+              <div class="info-group">
+                <span class="info-group__label">Horário de Funcionamento:</span>
+                <p class="info-group__value">
+                  Terça a Domingo: <strong>18:30h às 23:59h</strong><br>
+                  <span class="text-dim">Segunda-feira: Fechado para descanso da brasa</span>
+                </p>
+              </div>
+
+              <div class="info-group">
+                <span class="info-group__label">Formas de Atendimento:</span>
+                <p class="info-group__value">
+                  🍔 Retirada no Local &nbsp;|&nbsp; 🛵 Delivery via WhatsApp
+                </p>
+              </div>
+            </div>
+
+            <div class="location-card__actions">
+              <a href="https://share.google/K0HAVcYE3B6y7x79p" target="_blank" rel="noopener noreferrer" class="btn btn--gps btn--glow">
+                <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                </svg>
+                <span>Traçar Rota no GPS</span>
+              </a>
+
+              <button type="button" class="btn btn--copy-address" id="btn-copy-address" aria-label="Copiar endereço completo">
+                <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="copy-btn-text">Copiar Endereço</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Container do Iframe do Mapa (Estilizado em Dark Mode) -->
+          <div class="map-container">
+            <div class="map-container__neon-glow" aria-hidden="true"></div>
+            <iframe 
+              class="map-container__iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.468249673961!2d-49.8730999!3d-22.9785001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c1a719f9f8c853%3A0xb35a0f8bfd4694b2!2sR.%20Vit%C3%B3rio%20Christoni%2C%201500%20-%20Vila%20Sao%20Luiz%2C%20Ourinhos%20-%20SP%2C%2019911-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+              title="Localização da Hamburgueria do Joselito em Ourinhos - SP"
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         BANNER CTA FINAL (CONVERSÃO DE FECHAMENTO)
+         ================================================================= -->
+    <section class="cta-banner" aria-label="Chamada final para pedidos">
+      <div class="container cta-banner__inner">
+        <div class="cta-banner__content">
+          <span class="cta-banner__tag">DEU FOME? NÃO PASSE VONTADE!</span>
+          <h2 class="cta-banner__title">PEÇA AGORA E RECEBA O SABOR DA BRASA NO CONFORTO DA SUA CASA</h2>
+          <p class="cta-banner__subtitle">Qualquer lanche do nosso cardápio por apenas <strong>R$ 30,00</strong>. Atendimento rápido e direto no WhatsApp!</p>
+        </div>
+        <div class="cta-banner__action">
+          <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" target="_blank" rel="noopener noreferrer" class="btn btn--banner-order btn--glow">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.767-5.766 0-3.18-2.587-5.767-5.772-5.767zm7.429 5.764c0 4.103-3.339 7.442-7.433 7.442-1.246 0-2.433-.312-3.486-.889l-4.541 1.19 1.212-4.428a7.394 7.394 0 0 1-1.026-3.815c0-4.104 3.339-7.443 7.437-7.443 4.095 0 7.437 3.339 7.437 7.443z"/>
+            </svg>
+            <span>Fazer Meu Pedido (R$ 30,00)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================
+       FOOTER (RODAPÉ INFORMATIVO + REGRA GLOBAL DE CRIAÇÃO)
+       =================================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <!-- Coluna 1: Sobre a Lanchonete -->
+      <div class="footer__col">
+        <div class="footer__brand">
+          <span class="footer__logo-title">HAMBURGUERIA DO <span class="neon-highlight">JOSELITO</span></span>
+          <span class="footer__logo-tag">O Sabor da Brasa em Ourinhos-SP</span>
+        </div>
+        <p class="footer__about">
+          Especialistas em hambúrgueres artesanais na brasa viva, carnes suculentas e receitas 100% carnívoras sem salada.
+        </p>
+      </div>
+
+      <!-- Coluna 2: Links Rápidos -->
+      <div class="footer__col">
+        <h3 class="footer__title">Navegação Rápida</h3>
+        <ul class="footer__links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#cardapio">Cardápio Completo (R$ 30,00)</a></li>
+          <li><a href="#o-segredo">O Segredo da Brasa</a></li>
+          <li><a href="#localizacao">Como Chegar & Mapa</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3: Contato e Endereço -->
+      <div class="footer__col">
+        <h3 class="footer__title">Atendimento & Pedidos</h3>
+        <p class="footer__contact-info">
+          📱 <strong>WhatsApp:</strong> (14) 99895-1657<br>
+          📍 <strong>Endereço:</strong> R. Vitório Christoni, 1500<br>
+          Vila Sao Luiz, Ourinhos - SP, 19911-200<br>
+          ⏰ <strong>Horário:</strong> Terça a Domingo a partir das 18:30h
+        </p>
+      </div>
+    </div>
+
+    <!-- Linha Divisória -->
+    <div class="footer__divider"></div>
+
+    <!-- Direitos Autorais e Regra Global Obrigatória -->
+    <div class="container footer__bottom">
+      <p class="footer__copyright">
+        &copy; 2026 Hamburgueria do Joselito. Todos os direitos reservados. Ourinhos - SP.
+      </p>
+
+      <!-- ===============================================================
+           REGRA GLOBAL DO USUÁRIO (MANDATÓRIA):
+           Centralizado no centro, na última linha:
+           "Criado por siteprofissional.pro" (com o link azul)
+           =============================================================== -->
+      <div class="site-credit">
+        Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" class="site-credit__link">siteprofissional.pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       6. BOTÃO FLUTUANTE DO WHATSAPP (COM PULSO E TOOLTIP)
+       =================================================================== -->
+  <aside class="whatsapp-float-wrapper" aria-label="Atendimento rápido via WhatsApp">
+    <a 
+      href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="whatsapp-float" 
+      id="floating-whatsapp-btn"
+      aria-label="Abrir conversa no WhatsApp para fazer pedido">
+      
+      <!-- Pulso de Ondas Luminosas -->
+      <span class="whatsapp-float__pulse" aria-hidden="true"></span>
+      
+      <!-- Ícone Oficial SVG do WhatsApp -->
+      <svg class="whatsapp-float__svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.767-5.766 0-3.18-2.587-5.767-5.772-5.767zm7.429 5.764c0 4.103-3.339 7.442-7.433 7.442-1.246 0-2.433-.312-3.486-.889l-4.541 1.19 1.212-4.428a7.394 7.394 0 0 1-1.026-3.815c0-4.104 3.339-7.443 7.437-7.443 4.095 0 7.437 3.339 7.437 7.443z"/>
+      </svg>
+      
+      <!-- Tooltip Atrativo Flutuante -->
+      <span class="whatsapp-float__tooltip">Pedir Burger Agora 🔥</span>
+    </a>
+  </aside>
+
+  <!-- ===================================================================
+       SCRIPTS
+       =================================================================== -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados Fundamentais para SEO e Responsividade -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENAI Ourinhos - Landing Page Oficial com Chatbot IA & Próximos Cursos</title>
+  <meta name="description" content="Conheça a Escola SENAI Ourinhos. Cursos técnicos, profissionalizantes, horários de atendimento, localização e Chatbot Inteligente para tirar dúvidas em tempo real. Avaliação 4.9 no Google.">
+  <meta name="keywords" content="SENAI Ourinhos, cursos técnicos Ourinhos, chatbot SENAI, cursos gratuitos, escola vocacional, capacitação industrial">
+  <meta name="author" content="siteprofissional.pro">
+
+  <!-- OpenGraph para compartilhamento em redes sociais -->
+  <meta property="og:title" content="SENAI Ourinhos - Landing Page com Chatbot IA">
+  <meta property="og:description" content="Cursos técnicos e profissionalizantes com infraestrutura de ponta. Avaliação 4.9 no Google.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Outfit (títulos modernos) e Inter (corpo de texto limpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS CSS E DESIGN SYSTEM (Light e Dark Mode)
+       ========================================================================== */
+    :root {
+      /* Paleta Institucional SENAI & Cores Base */
+      --senai-red: #e30613;
+      --senai-red-dark: #b8000b;
+      --senai-red-glow: rgba(227, 6, 19, 0.25);
+      --senai-blue-accent: #0066cc;
+      --senai-blue-light: #e6f0fa;
+
+      /* Tema Claro (Padrão inicial quando em modo light) */
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-input: #f1f5f9;
+      --border-color: #e2e8f0;
+      --border-card: #e5e7eb;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --badge-bg: #fee2e2;
+      --badge-text: #991b1b;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.4);
+      --chat-user-bg: #e30613;
+      --chat-user-text: #ffffff;
+      --chat-bot-bg: #f1f5f9;
+      --chat-bot-text: #1e293b;
+    }
+
+    /* Tema Escuro (Ativado via classe no body) */
+    body.dark-mode {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: #162032;
+      --bg-input: #1e293b;
+      --border-color: #1f293d;
+      --border-card: #27354f;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --badge-bg: rgba(227, 6, 19, 0.2);
+      --badge-text: #fca5a5;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 36px rgba(0,0,0,0.7);
+      --glass-bg: rgba(17, 24, 39, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --chat-user-bg: #e30613;
+      --chat-user-text: #ffffff;
+      --chat-bot-bg: #1e293b;
+      --chat-bot-text: #f1f5f9;
+    }
+
+    /* ==========================================================================
+       2. RESET GERAL E TIPOGRAFIA
+       ========================================================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       3. CABEÇALHO E NAVEGAÇÃO SUPERIOR
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    /* Logo SENAI em vetor limpo */
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .logo-badge-senai {
+      background: var(--senai-red);
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px var(--senai-red-glow);
+      display: inline-block;
+    }
+
+    .logo-text-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* Links de Navegação */
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--senai-red);
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--senai-red);
+      transition: width 0.25s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Ações do Header: Botão de Tema + CTA */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: rotate(20deg) scale(1.05);
+    }
+
+    .btn-header-cta {
+      background: var(--senai-red);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px var(--senai-red-glow);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-header-cta:hover {
+      background: var(--senai-red-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Menu Mobile Toggle */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION DE ALTO IMPACTO
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      padding: 70px 0 50px 0;
+      overflow: hidden;
+      background: radial-gradient(circle at top right, rgba(227, 6, 19, 0.08) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Selo de Avaliação 4.9 no Google */
+    .hero-google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-google-badge:hover {
+      transform: translateY(-2px);
+      border-color: var(--senai-red);
+    }
+
+    .stars-icon {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(135deg, var(--senai-red) 0%, #ff4b55 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 32px auto;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary-hero {
+      background: var(--senai-red);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 6px 20px var(--senai-red-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .btn-primary-hero:hover {
+      background: var(--senai-red-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary-hero {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-card);
+      padding: 14px 26px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .btn-secondary-hero:hover {
+      background: var(--bg-input);
+      transform: translateY(-2px);
+    }
+
+    /* Cartões Rápidos de Status no Hero */
+    .hero-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metric-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--senai-red);
+      display: block;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       5. SEÇÃO DO CHATBOT INTELIGENTE CENTRAL (Atendente Virtual)
+       ========================================================================== */
+    .chatbot-section {
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 36px auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    /* Container do Chatbot */
+    .chat-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+    }
+
+    /* Topo do Chat */
+    .chat-header {
+      background: linear-gradient(135deg, var(--senai-red) 0%, #990008 100%);
+      color: #ffffff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      color: var(--senai-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .chat-agent-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .chat-agent-status {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.9;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px #22c55e;
+    }
+
+    .chat-header-actions button {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .chat-header-actions button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Área de Mensagens */
+    .chat-messages {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background-color: var(--bg-card);
+    }
+
+    .message-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      max-width: 85%;
+      animation: fadeInMsg 0.3s ease-out;
+    }
+
+    @keyframes fadeInMsg {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-row.bot {
+      align-self: flex-start;
+    }
+
+    .message-row.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-avatar-small {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--senai-red);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .message-row.user .msg-avatar-small {
+      background: var(--senai-blue-accent);
+    }
+
+    .msg-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .message-row.bot .msg-bubble {
+      background: var(--chat-bot-bg);
+      color: var(--chat-bot-text);
+      border-top-left-radius: 4px;
+      border: 1px solid var(--border-card);
+    }
+
+    .message-row.user .msg-bubble {
+      background: var(--chat-user-bg);
+      color: var(--chat-user-text);
+      border-top-right-radius: 4px;
+    }
+
+    .msg-bubble p + p {
+      margin-top: 8px;
+    }
+
+    .msg-bubble ul {
+      margin: 8px 0 8px 18px;
+    }
+
+    .msg-bubble li {
+      margin-bottom: 4px;
+    }
+
+    .msg-timestamp {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: block;
+      text-align: right;
+    }
+
+    /* Ações embutidas no chat */
+    .chat-inline-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .inline-act-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--senai-red);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .inline-act-btn:hover {
+      background: var(--senai-red);
+      color: #ffffff;
+      border-color: var(--senai-red);
+    }
+
+    /* Sugestões Rápidas (Chips de atalho) */
+    .chat-quick-chips {
+      padding: 10px 20px;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .quick-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-secondary);
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .quick-chip:hover {
+      background: var(--badge-bg);
+      color: var(--senai-red);
+      border-color: var(--senai-red);
+    }
+
+    /* Indicador de Digitação (Typing Indicator) */
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 16px;
+      background: var(--chat-bot-bg);
+      border-radius: 16px;
+      width: fit-content;
+      margin-bottom: 8px;
+      border: 1px solid var(--border-card);
+    }
+
+    .typing-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: bounceDot 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes bounceDot {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    /* Formulário de Envio do Chat */
+    .chat-input-bar {
+      padding: 14px 20px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-input-bar input {
+      flex: 1;
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 12px 18px;
+      border-radius: 25px;
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .chat-input-bar input:focus {
+      border-color: var(--senai-red);
+    }
+
+    .chat-send-btn {
+      background: var(--senai-red);
+      color: #ffffff;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px var(--senai-red-glow);
+    }
+
+    .chat-send-btn:hover {
+      background: var(--senai-red-dark);
+      transform: scale(1.05);
+    }
+
+    /* ==========================================================================
+       6. SEÇÃO PRÓXIMOS CURSOS (Com Abas Simples por Mês de Início)
+       ========================================================================== */
+    .courses-section {
+      padding: 60px 0;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Abas de Navegação dos Meses */
+    .month-tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .month-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .month-tab-btn:hover {
+      border-color: var(--senai-red);
+      color: var(--senai-red);
+    }
+
+    .month-tab-btn.active {
+      background: var(--senai-red);
+      color: #ffffff;
+      border-color: var(--senai-red);
+      box-shadow: 0 4px 16px var(--senai-red-glow);
+    }
+
+    /* Painéis de Conteúdo dos Meses */
+    .month-tab-panel {
+      display: none;
+      animation: fadeInPanel 0.35s ease-out;
+    }
+
+    .month-tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeInPanel {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid de Cursos */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--senai-red);
+    }
+
+    .course-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .course-cat-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--senai-blue-light);
+      color: var(--senai-blue-accent);
+    }
+
+    .course-status-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: #16a34a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .course-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .course-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .course-specs-list {
+      list-style: none;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-color);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .course-specs-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .course-specs-list strong {
+      color: var(--text-primary);
+    }
+
+    .course-card-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-enroll-now {
+      flex: 1;
+      background: var(--senai-red);
+      color: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-enroll-now:hover {
+      background: var(--senai-red-dark);
+    }
+
+    .btn-ask-bot {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-ask-bot:hover {
+      background: var(--badge-bg);
+      color: var(--senai-red);
+      border-color: var(--senai-red);
+    }
+
+    /* ==========================================================================
+       7. SEÇÃO SOBRE O SENAI OURINHOS & DIFERENCIAIS
+       ========================================================================== */
+    .about-section {
+      padding: 60px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .feature-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-card);
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .feature-item h4 {
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-item p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Box de Destaque da Escola */
+    .about-visual-box {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-radius: 20px;
+      padding: 36px;
+      color: #ffffff;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual-box::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      background: var(--senai-red);
+      opacity: 0.2;
+      border-radius: 50%;
+      filter: blur(40px);
+    }
+
+    .visual-quote {
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #e2e8f0;
+    }
+
+    .visual-stats-row {
+      display: flex;
+      gap: 24px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+    }
+
+    .visual-stat-col strong {
+      display: block;
+      font-size: 24px;
+      font-family: 'Outfit', sans-serif;
+      color: #ff4b55;
+    }
+
+    .visual-stat-col span {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* ==========================================================================
+       8. SEÇÃO AVALIAÇÕES GOOGLE (Nota 4.9, 50 Avaliações)
+       ========================================================================== */
+    .reviews-section {
+      padding: 60px 0;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .google-badge-hero-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .google-badge-hero-box h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .google-rating-score {
+      font-size: 42px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-user-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .review-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .review-date {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .review-text {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .review-cta-center {
+      text-align: center;
+    }
+
+    .btn-google-link {
+      background: #4285f4;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+    }
+
+    .btn-google-link:hover {
+      background: #3367d6;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       9. SEÇÃO LOCALIZAÇÃO, HORÁRIOS & CONTATOS
+       ========================================================================== */
+    .location-section {
+      padding: 60px 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .location-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .info-panel-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-group {
+      margin-bottom: 24px;
+    }
+
+    .info-group h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-group p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Tabela de Horários */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .hours-table tr {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hours-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .hours-table td {
+      padding: 8px 4px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    .hours-table td.day {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .hours-table td.time {
+      text-align: right;
+    }
+
+    .hours-table tr.today-highlight {
+      background: var(--badge-bg);
+      font-weight: 700;
+    }
+
+    .hours-table tr.today-highlight td {
+      color: var(--senai-red);
+    }
+
+    /* Status de atendimento em tempo real */
+    .live-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .live-status-pill.open {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .live-status-pill.closed {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    /* Redes Sociais Oficiais */
+    .social-links-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .social-btn {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--senai-red);
+      color: #ffffff;
+      border-color: var(--senai-red);
+    }
+
+    /* Iframe do Mapa */
+    .map-box {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-sm);
+      min-height: 420px;
+      height: 100%;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       10. MODAL DE PRÉ-INSCRIÇÃO RÁPIDA
+       ========================================================================== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeInModal 0.25s ease-out;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-dialog {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      width: 100%;
+      max-width: 500px;
+      padding: 28px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--bg-input);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .modal-form-group {
+      margin-bottom: 14px;
+    }
+
+    .modal-form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .modal-form-group input,
+    .modal-form-group select {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .modal-form-group input:focus,
+    .modal-form-group select:focus {
+      border-color: var(--senai-red);
+    }
+
+    .btn-submit-modal {
+      width: 100%;
+      background: var(--senai-red);
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 14px var(--senai-red-glow);
+    }
+
+    .btn-submit-modal:hover {
+      background: var(--senai-red-dark);
+    }
+
+    /* ==========================================================================
+       11. RODAPÉ INSTITUCIONAL COM ATRIBUIÇÃO OBRIGATÓRIA
+       ========================================================================== */
+    .site-footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 20px 0;
+      color: var(--text-secondary);
+      font-size: 13.5px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .footer-col p {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    /* Regra Global Estrita: Última linha centralizada com link azul */
+    .mandatory-credit-line {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .mandatory-credit-line a.credit-link {
+      color: #0066cc !important;
+      font-weight: 600;
+      text-decoration: underline;
+      transition: opacity 0.2s ease;
+    }
+
+    .mandatory-credit-line a.credit-link:hover {
+      opacity: 0.85;
+    }
+
+    /* ==========================================================================
+       12. RESPONSIVIDADE E AJUSTES MOBILE
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-title { font-size: 38px; }
+      .hero-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .location-layout { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero-title { font-size: 30px; }
+      .hero-subtitle { font-size: 16px; }
+      .chat-wrapper { height: 550px; }
+      .month-tabs-nav { flex-direction: column; width: 100%; }
+      .month-tab-btn { justify-content: center; }
+      .features-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER / CABEÇALHO COM TEMA E STATUS EM TEMPO REAL
+       ========================================================================== -->
+  <header class="site-header" id="topo">
+    <div class="container nav-container">
+      <!-- Identidade Visual SENAI -->
+      <a href="#topo" class="logo-box" aria-label="SENAI Ourinhos Início">
+        <span class="logo-badge-senai">SENAI</span>
+        <div>
+          <span class="logo-text-title">Escola Ourinhos</span>
+          <span class="logo-text-sub">Formação Profissional & Tecnologia</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal de Navegação -->
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-menu">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#chatbot">Chatbot IA</a></li>
+          <li><a href="#cursos">Próximos Cursos</a></li>
+          <li><a href="#sobre">A Escola</a></li>
+          <li><a href="#avaliacoes">Avaliações (4.9 ⭐)</a></li>
+          <li><a href="#localizacao">Horários & Localização</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações: Alternador Dark/Light e Fale Conosco -->
+      <div class="header-actions">
+        <!-- Botão de Alternância de Tema -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Alternar Modo Claro / Modo Escuro" aria-label="Alternar Tema">
+          🌙
+        </button>
+
+        <!-- Botão CTA Direto para o Chatbot -->
+        <a href="#chatbot" class="btn-header-cta">
+          <span>💬</span> Chatbot Online
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: APRESENTAÇÃO E MÉTRICAS DA ESCOLA
+         ========================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-content">
+        <!-- Badge Oficial com Avaliação Google -->
+        <a href="https://share.google/EQLw2guoxNLuFWTyE" target="_blank" rel="noopener noreferrer" class="hero-google-badge" title="Ver 50 avaliações no Google">
+          <span>📍 Ourinhos, SP</span>
+          <span class="stars-icon">★★★★★</span>
+          <span>4,9 (50 avaliações no Google)</span>
+        </a>
+
+        <h1 class="hero-title">
+          Construa sua Carreira com a Excelência do <span class="highlight">SENAI Ourinhos</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Cursos técnicos e profissionalizantes com a infraestrutura mais moderna da região. Tire dúvidas instantâneas sobre vagas, turmas e requisitos com nosso Assistente Inteligente.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#chatbot" class="btn-primary-hero">
+            <span>Perguntar ao Chatbot</span> 💬
+          </a>
+          <a href="#cursos" class="btn-secondary-hero">
+            <span>Ver Próximos Cursos</span> 📅
+          </a>
+          <a href="tel:1433021250" class="btn-secondary-hero" title="Ligar para secretaria">
+            <span>(14) 3302-1250</span> 📞
+          </a>
+        </div>
+
+        <!-- 4 Indicadores Rápidos -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-number">4.9 ★</span>
+            <span class="metric-label">Nota no Google (50 avaliações)</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number">90%+</span>
+            <span class="metric-label">Inserção no mercado industrial</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">Aulas práticas em laboratórios</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-number">Gratuidade</span>
+            <span class="metric-label">Opções com bolsa de estudo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO CENTRAL: CHATBOT INTELIGENTE SENAI OURINHOS
+         ========================================================================== -->
+    <section class="chatbot-section" id="chatbot">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Atendimento Inteligente 24h</span>
+          <h2 class="section-title">Converse com o SENAI Bot Ourinhos</h2>
+          <p class="section-subtitle">
+            Nosso atendente virtual responde dúvidas sobre cursos, datas de início, matrículas, localização e horários em tempo real.
+          </p>
+        </div>
+
+        <!-- Caixa do Chatbot Central -->
+        <div class="chat-wrapper">
+          <!-- Topo do Chat -->
+          <div class="chat-header">
+            <div class="chat-header-info">
+              <div class="chat-avatar">S</div>
+              <div>
+                <div class="chat-agent-title">Assistente Virtual SENAI Ourinhos</div>
+                <div class="chat-agent-status">
+                  <span class="status-dot"></span> Ativo agora • Respostas instantâneas
+                </div>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button id="btnClearChat" title="Limpar histórico de conversa">Limpar Chat</button>
+            </div>
+          </div>
+
+          <!-- Histórico de Mensagens -->
+          <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+            <!-- Mensagem Inicial de Boas-vindas do Robô -->
+            <div class="message-row bot">
+              <div class="msg-avatar-small">S</div>
+              <div class="msg-bubble">
+                <p><strong>Olá! Seja bem-vindo ao SENAI Ourinhos! 👋</strong></p>
+                <p>Eu sou o assistente virtual da unidade. Estou aqui para ajudar você a encontrar o curso ideal, consultar datas de início, horários de atendimento ou obter informações de matrículas.</p>
+                <p>Como posso te ajudar hoje? Você pode digitar sua pergunta ou clicar em uma das sugestões rápidas abaixo:</p>
+                
+                <div class="chat-inline-actions">
+                  <button class="inline-act-btn" onclick="handleQuickChipClick('Quais são os próximos cursos abertos?')">📅 Próximos Cursos</button>
+                  <button class="inline-act-btn" onclick="handleQuickChipClick('Qual o endereço e como chegar no SENAI?')">📍 Endereço e Rotas</button>
+                  <button class="inline-act-btn" onclick="handleQuickChipClick('Quais os horários de funcionamento?')">⏰ Horário de Atendimento</button>
+                  <button class="inline-act-btn" onclick="handleQuickChipClick('Como funciona a matrícula e bolsas gratuitas?')">💰 Matrículas & Bolsas</button>
+                </div>
+                <span class="msg-timestamp">Hoje • Agora</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicador de Digitação -->
+          <div id="typingIndicator" class="typing-indicator" style="margin-left: 24px;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+
+          <!-- Atalhos Rápidos (Chips) -->
+          <div class="chat-quick-chips">
+            <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Atalhos:</span>
+            <button class="quick-chip" onclick="handleQuickChipClick('Quais são os próximos cursos?')">📅 Próximos Cursos</button>
+            <button class="quick-chip" onclick="handleQuickChipClick('O SENAI está aberto agora?')">🟢 Aberto Agora?</button>
+            <button class="quick-chip" onclick="handleQuickChipClick('Qual é o telefone e WhatsApp do SENAI Ourinhos?')">📞 Telefone da Escola</button>
+            <button class="quick-chip" onclick="handleQuickChipClick('Onde fica o SENAI Ourinhos?')">📍 Onde Fica?</button>
+            <button class="quick-chip" onclick="handleQuickChipClick('Tem curso gratuito?')">🎓 Cursos Gratuitos</button>
+            <button class="quick-chip" onclick="handleQuickChipClick('Quais as avaliações no Google?')">⭐ Avaliações no Google</button>
+          </div>
+
+          <!-- Barra de Input e Envio -->
+          <form class="chat-input-bar" id="chatForm">
+            <input 
+              type="text" 
+              id="chatInput" 
+              placeholder="Digite sua dúvida sobre cursos, horários ou matrículas..." 
+              autocomplete="off" 
+              required
+              aria-label="Campo de mensagem para o chatbot"
+            >
+            <button type="submit" class="chat-send-btn" title="Enviar mensagem" aria-label="Enviar mensagem">
+              ➤
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO PRÓXIMOS CURSOS COM ABAS POR MÊS DE INÍCIO
+         ========================================================================== -->
+    <section class="courses-section" id="cursos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Capacitação Profissional</span>
+          <h2 class="section-title">Próximos Cursos com Inscrições Abertas</h2>
+          <p class="section-subtitle">
+            Planeje sua qualificação técnica. Escolha a aba correspondente ao mês de início desejado:
+          </p>
+        </div>
+
+        <!-- Abas Simples por Mês -->
+        <div class="month-tabs-nav" role="tablist">
+          <button class="month-tab-btn active" data-target="mes-outubro" role="tab" aria-selected="true">
+            <span>📅</span> Outubro 2026
+          </button>
+          <button class="month-tab-btn" data-target="mes-novembro" role="tab" aria-selected="false">
+            <span>📅</span> Novembro 2026
+          </button>
+          <button class="month-tab-btn" data-target="mes-dezembro" role="tab" aria-selected="false">
+            <span>📅</span> Dezembro 2026 / 2027
+          </button>
+        </div>
+
+        <!-- PAINEL 1: OUTUBRO 2026 -->
+        <div class="month-tab-panel active" id="mes-outubro" role="tabpanel">
+          <div class="courses-grid">
+            <!-- Curso 1 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Tecnologia & TI</span>
+                  <span class="course-status-tag">● Vagas Abertas</span>
+                </div>
+                <h3 class="course-title">Desenvolvimento Web & Inteligência Artificial</h3>
+                <p class="course-desc">
+                  Aprenda a construir aplicações web completas com HTML5, CSS3, JavaScript moderno e integração com APIs de IA para automatizar tarefas industriais.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 120 horas</li>
+                  <li><strong>Período:</strong> Noturno (19:00 às 22:30)</li>
+                  <li><strong>Início:</strong> 13 de Outubro de 2026</li>
+                  <li><strong>Modalidade:</strong> Presencial com laboratórios de informática</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Desenvolvimento Web & IA', 'Outubro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Desenvolvimento Web & IA')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 2 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Eletroeletrônica</span>
+                  <span class="course-status-tag">● Inscrições Finais</span>
+                </div>
+                <h3 class="course-title">Eletricista Instalador Residencial e Predial</h3>
+                <p class="course-desc">
+                  Qualificação prática em montagem de quadros de distribuição, comandos elétricos, cabeamento estruturado e normas de segurança NR-10.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 160 horas</li>
+                  <li><strong>Período:</strong> Noturno (19:00 às 22:30)</li>
+                  <li><strong>Início:</strong> 19 de Outubro de 2026</li>
+                  <li><strong>Modalidade:</strong> Presencial em bancadas reais</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Eletricista Instalador', 'Outubro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Eletricista Instalador')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 3 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Metalmecânica</span>
+                  <span class="course-status-tag">● Alta Procura</span>
+                </div>
+                <h3 class="course-title">Soldagem Industrial (Processos MIG/MAG e Eletrodo)</h3>
+                <p class="course-desc">
+                  Formação de alto rendimento para atuar nas indústrias da região de Ourinhos, com foco em segurança, corte oxiacetilênico e solda técnica.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 168 horas</li>
+                  <li><strong>Período:</strong> Vespertino ou Noturno</li>
+                  <li><strong>Início:</strong> 26 de Outubro de 2026</li>
+                  <li><strong>Modalidade:</strong> Presencial (Oficina de Solda SENAI)</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Soldagem Industrial MIG/MAG', 'Outubro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Soldagem Industrial MIG/MAG')">Perguntar no Bot</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- PAINEL 2: NOVEMBRO 2026 -->
+        <div class="month-tab-panel" id="mes-novembro" role="tabpanel">
+          <div class="courses-grid">
+            <!-- Curso 4 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Automação</span>
+                  <span class="course-status-tag">● Inscrições Abertas</span>
+                </div>
+                <h3 class="course-title">Automação Industrial & Controladores Lógicos (CLP)</h3>
+                <p class="course-desc">
+                  Programação de CLPs industriais, sensores ópticos/indutivos, redes industriais e interfaces homem-máquina (IHM).
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 120 horas</li>
+                  <li><strong>Período:</strong> Noturno (19:00 às 22:30)</li>
+                  <li><strong>Início:</strong> 04 de Novembro de 2026</li>
+                  <li><strong>Modalidade:</strong> Laboratório de Mecatrônica</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Automação Industrial & CLP', 'Novembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Automação Industrial & CLP')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 5 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Mecânica de Precisão</span>
+                  <span class="course-status-tag">● Vagas Abertas</span>
+                </div>
+                <h3 class="course-title">Operador e Programador de Torno CNC</h3>
+                <p class="course-desc">
+                  Desenvolvimento de programas ISO para usinagem computadorizada de peças mecânicas, parametrização e controle dimensional.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 160 horas</li>
+                  <li><strong>Período:</strong> Matutino ou Noturno</li>
+                  <li><strong>Início:</strong> 09 de Novembro de 2026</li>
+                  <li><strong>Modalidade:</strong> Centro de Usinagem CNC SENAI</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Torno CNC', 'Novembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Torno CNC')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 6 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Gestão & Produtividade</span>
+                  <span class="course-status-tag">● Bolsa Disponível</span>
+                </div>
+                <h3 class="course-title">Excel Avançado com Análise de Dados e Dashboards</h3>
+                <p class="course-desc">
+                  Fórmulas avançadas (PROCV, PROCX, ÍNDICE, CORRESP), tabelas dinâmicas, macros básicas e dashboards interativos para tomada de decisão.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 60 horas</li>
+                  <li><strong>Período:</strong> Sábados (08:00 às 12:00)</li>
+                  <li><strong>Início:</strong> 14 de Novembro de 2026</li>
+                  <li><strong>Modalidade:</strong> Presencial / Híbrido</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Excel Avançado & Dashboards', 'Novembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Excel Avançado & Dashboards')">Perguntar no Bot</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- PAINEL 3: DEZEMBRO 2026 / 2027 -->
+        <div class="month-tab-panel" id="mes-dezembro" role="tabpanel">
+          <div class="courses-grid">
+            <!-- Curso 7 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Técnico Formal</span>
+                  <span class="course-status-tag">● Processo Seletivo</span>
+                </div>
+                <h3 class="course-title">Curso Técnico em Mecatrônica (Turma 2027)</h3>
+                <p class="course-desc">
+                  Habilitação técnica de nível médio completa integrando mecânica, eletrônica e computação industrial com diploma oficial do SENAI-SP.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 1.200 horas (2 anos)</li>
+                  <li><strong>Período:</strong> Tarde ou Noite</li>
+                  <li><strong>Início:</strong> Pré-matrícula Dezembro / Aulas Fevereiro 2027</li>
+                  <li><strong>Modalidade:</strong> Presencial completo</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Técnico em Mecatrônica 2027', 'Dezembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Técnico em Mecatrônica')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 8 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Técnico Formal</span>
+                  <span class="course-status-tag">● Processo Seletivo</span>
+                </div>
+                <h3 class="course-title">Curso Técnico em Eletroeletrônica</h3>
+                <p class="course-desc">
+                  Projetação, instalação e manutenção de sistemas eletroeletrônicos industriais e prediais, automação e geração de energia renovável.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 1.200 horas (2 anos)</li>
+                  <li><strong>Período:</strong> Noite (19:00 às 22:30)</li>
+                  <li><strong>Início:</strong> Pré-matrícula Dezembro / Aulas Fevereiro 2027</li>
+                  <li><strong>Modalidade:</strong> Presencial completo</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Técnico em Eletroeletrônica 2027', 'Dezembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Técnico em Eletroeletrônica')">Perguntar no Bot</button>
+              </div>
+            </article>
+
+            <!-- Curso 9 -->
+            <article class="course-card">
+              <div>
+                <div class="course-badge-row">
+                  <span class="course-cat-tag">Aprendizagem Industrial</span>
+                  <span class="course-status-tag">● Gratuito (Jovem Aprendiz)</span>
+                </div>
+                <h3 class="course-title">Mecânico de Usinagem para Indústrias Parceiras</h3>
+                <p class="course-desc">
+                  Programa especial voltado para jovens com oportunidade de contrato de aprendizagem com empresas parceiras de Ourinhos e região.
+                </p>
+                <ul class="course-specs-list">
+                  <li><strong>Carga Horária:</strong> 800 horas</li>
+                  <li><strong>Período:</strong> Matutino / Vespertino</li>
+                  <li><strong>Início:</strong> Edital Dezembro 2026</li>
+                  <li><strong>Modalidade:</strong> Gratuito com bolsa-empresa</li>
+                </ul>
+              </div>
+              <div class="course-card-actions">
+                <button class="btn-enroll-now" onclick="openEnrollModal('Mecânico de Usinagem Aprendiz', 'Dezembro 2026')">Fazer Pré-Inscrição</button>
+                <button class="btn-ask-bot" onclick="askBotAboutCourse('Mecânico de Usinagem Aprendiz')">Perguntar no Bot</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO SOBRE A ESCOLA & DIFERENCIAIS
+         ========================================================================== -->
+    <section class="about-section" id="sobre">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-tag">Tradição & Inovação</span>
+            <h2>Por que estudar na Escola SENAI Ourinhos?</h2>
+            <p>
+              O Serviço Nacional de Aprendizagem Industrial (SENAI) é a principal referência nacional em formação para o setor produtivo. Na unidade de Ourinhos, unimos tradição educacional, laboratórios equipados com maquinário real da indústria e professores com vasta vivência de mercado.
+            </p>
+            <p>
+              Nossa missão é qualificar profissionais prontos para atender as demandas tecnológicas de Ourinhos, Santa Cruz do Rio Pardo, Assis e toda a macrorregião.
+            </p>
+
+            <div class="features-list">
+              <div class="feature-item">
+                <h4>🏭 Maquinário Industrial Real</h4>
+                <p>Aulas práticas em tornos CNC, robôs, soldas e CLPs industriais.</p>
+              </div>
+              <div class="feature-item">
+                <h4>📜 Certificado com Peso Nacional</h4>
+                <p>O diploma do SENAI é reconhecido e valorizado por 100% das grandes indústrias.</p>
+              </div>
+              <div class="feature-item">
+                <h4>💼 Encaminhamento Profissional</h4>
+                <p>Parcerias ativas com indústrias locais para estágio e primeiro emprego.</p>
+              </div>
+              <div class="feature-item">
+                <h4>👥 Professores Especialistas</h4>
+                <p>Docentes atuantes que ensinam na prática a realidade do chão de fábrica.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual-box">
+            <p class="visual-quote">
+              "A capacitação técnica é o atalho mais seguro para a estabilidade, bons salários e uma carreira sólida na indústria."
+            </p>
+            <div class="visual-stats-row">
+              <div class="visual-stat-col">
+                <strong>4.9 ★</strong>
+                <span>Avaliação Google</span>
+              </div>
+              <div class="visual-stat-col">
+                <strong>50+</strong>
+                <span>Avaliações Reais</span>
+              </div>
+              <div class="visual-stat-col">
+                <strong>10+</strong>
+                <span>Áreas Industriais</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO AVALIAÇÕES GOOGLE (4.9 Estrelas, 50 Avaliações)
+         ========================================================================== -->
+    <section class="reviews-section" id="avaliacoes">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Depoimentos Verificados</span>
+          <h2 class="section-title">O que dizem os Alunos do SENAI Ourinhos</h2>
+          <p class="section-subtitle">
+            Transparência e excelência comprovada por quem vive a experiência na prática.
+          </p>
+        </div>
+
+        <!-- Destaque Central do Google Reviews -->
+        <div class="google-badge-hero-box">
+          <h3>Escola SENAI Ourinhos</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted);">Escola vocacional em Ourinhos, São Paulo</p>
+          <div class="google-rating-score">
+            <span>4.9</span>
+            <span class="stars-icon">★★★★★</span>
+          </div>
+          <p style="font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 16px;">
+            Baseado em 50 avaliações verificadas no Google Maps
+          </p>
+          <a href="https://share.google/EQLw2guoxNLuFWTyE" target="_blank" rel="noopener noreferrer" class="btn-google-link">
+            <span>Ver Avaliações no Google</span> ↗
+          </a>
+        </div>
+
+        <!-- Cards com Depoimentos Representativos -->
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div>
+              <div class="review-user-row">
+                <div class="review-avatar">LC</div>
+                <div>
+                  <div class="review-name">Lucas Carvalho</div>
+                  <div class="review-date">Ex-aluno Técnico em Mecânica • 5 estrelas</div>
+                </div>
+              </div>
+              <div class="stars-icon" style="margin-bottom: 8px;">★★★★★</div>
+              <p class="review-text">
+                "Excelente infraestrutura! Os laboratórios de usinagem e tornos são impecáveis. Saí do curso direto contratado por uma multinacional da região. Vale cada minuto de dedicação."
+              </p>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div>
+              <div class="review-user-row">
+                <div class="review-avatar">MS</div>
+                <div>
+                  <div class="review-name">Mariana Silveira</div>
+                  <div class="review-date">Aluna de Automação • 5 estrelas</div>
+                </div>
+              </div>
+              <div class="stars-icon" style="margin-bottom: 8px;">★★★★★</div>
+              <p class="review-text">
+                "Ambiente de muito respeito, professores altamente qualificados e dedicados. O atendimento da secretaria sempre prestativo e as aulas práticas são o grande diferencial."
+              </p>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div>
+              <div class="review-user-row">
+                <div class="review-avatar">RF</div>
+                <div>
+                  <div class="review-name">Rodrigo Ferreira</div>
+                  <div class="review-date">Eletricista Instalador • 5 estrelas</div>
+                </div>
+              </div>
+              <div class="stars-icon" style="margin-bottom: 8px;">★★★★★</div>
+              <p class="review-text">
+                "O curso mudou minha vida profissional. Já no segundo mês comecei a pegar serviços autônomos e hoje tenho minha própria carteira de clientes. SENAI Ourinhos é nota 10!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO LOCALIZAÇÃO, HORÁRIOS & CONTATOS
+         ========================================================================== -->
+    <section class="location-section" id="localizacao">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Venha nos Visitar</span>
+          <h2 class="section-title">Horários de Atendimento & Localização</h2>
+          <p class="section-subtitle">
+            Estamos de portas abertas na Vila São Luiz para receber você e apresentar nossa estrutura.
+          </p>
+        </div>
+
+        <div class="location-layout">
+          <!-- Painel Informativo -->
+          <div class="info-panel-box">
+            <!-- Indicador Dinâmico de Aberto/Fechado -->
+            <div id="liveStatusContainer" class="live-status-pill open">
+              <span class="status-dot"></span> <span id="liveStatusText">Verificando status de atendimento...</span>
+            </div>
+
+            <!-- Endereço -->
+            <div class="info-group">
+              <h4>📍 Endereço Oficial</h4>
+              <p>
+                <strong>R. Vitório Christoni, 1500</strong> - Vila Sao Luiz<br>
+                Ourinhos - SP, CEP: 19911-200
+              </p>
+            </div>
+
+            <!-- Telefone -->
+            <div class="info-group">
+              <h4>📞 Telefone & Atendimento</h4>
+              <p>
+                Telefone fixo da secretaria: <a href="tel:1433021250" style="color: var(--senai-red); font-weight: 700;">(14) 3302-1250</a>
+              </p>
+            </div>
+
+            <!-- Tabela Detalhada de Horários -->
+            <div class="info-group">
+              <h4>⏰ Horário de Funcionamento</h4>
+              <table class="hours-table">
+                <tbody>
+                  <tr id="row-segunda"><td class="day">Segunda-feira</td><td class="time">07:30 – 20:30</td></tr>
+                  <tr id="row-terca"><td class="day">Terça-feira</td><td class="time">07:30 – 20:30</td></tr>
+                  <tr id="row-quarta"><td class="day">Quarta-feira</td><td class="time">07:30 – 20:30</td></tr>
+                  <tr id="row-quinta"><td class="day">Quinta-feira</td><td class="time">07:30 – 20:30</td></tr>
+                  <tr id="row-sexta"><td class="day">Sexta-feira</td><td class="time">07:30 – 20:30</td></tr>
+                  <tr id="row-sabado"><td class="day">Sábado</td><td class="time">08:00 – 12:00</td></tr>
+                  <tr id="row-domingo"><td class="day">Domingo</td><td class="time">Fechado</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Redes Sociais Oficiais -->
+            <div class="info-group" style="margin-bottom: 0;">
+              <h4>🌐 Redes Sociais Oficiais</h4>
+              <div class="social-links-row">
+                <a href="https://www.instagram.com/senaiourinhos/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                  <span>📸</span> Instagram
+                </a>
+                <a href="https://www.facebook.com/senaisp.ourinhos/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                  <span>📘</span> Facebook
+                </a>
+                <a href="https://br.linkedin.com/company/senaisp-ourinhos" target="_blank" rel="noopener noreferrer" class="social-btn">
+                  <span>💼</span> LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa Google Maps Incorporado -->
+          <div class="map-box">
+            <iframe 
+              title="Mapa de Localização do SENAI Ourinhos"
+              src="https://maps.google.com/maps?q=SENAI%20Ourinhos%20R.%20Vit%C3%B3rio%20Christoni,%201500%20Ourinhos%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+              loading="lazy" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL DE PRÉ-INSCRIÇÃO RÁPIDA
+       ========================================================================== -->
+  <div class="modal-backdrop" id="enrollModal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeModalBtn" title="Fechar modal" aria-label="Fechar modal">✕</button>
+      <h3 class="modal-title">Pré-Inscrição Rápida</h3>
+      <p class="modal-subtitle" id="modalCourseTitle">Preencha seus dados para garantir sua prioridade de vaga no SENAI Ourinhos.</p>
+
+      <form id="enrollForm">
+        <input type="hidden" id="formCourseName">
+        <input type="hidden" id="formCourseMonth">
+
+        <div class="modal-form-group">
+          <label for="formStudentName">Seu Nome Completo *</label>
+          <input type="text" id="formStudentName" placeholder="Ex: Carlos Eduardo de Oliveira" required>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="formStudentWhatsapp">WhatsApp / Telefone com DDD *</label>
+          <input type="tel" id="formStudentWhatsapp" placeholder="(14) 99999-9999" required>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="formStudentEmail">E-mail para Contato *</label>
+          <input type="email" id="formStudentEmail" placeholder="seuemail@exemplo.com" required>
+        </div>
+
+        <div class="modal-form-group">
+          <label for="formStudentShift">Turno de Preferência</label>
+          <select id="formStudentShift">
+            <option value="Noturno">Noturno (19:00 às 22:30)</option>
+            <option value="Vespertino">Vespertino (13:30 às 17:30)</option>
+            <option value="Matutino">Matutino (07:30 às 11:30)</option>
+            <option value="Sábados">Sábados (08:00 às 12:00)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit-modal">Confirmar Pré-Inscrição</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       RODAPÉ DO SITE COM ATRIBUIÇÃO OBRIGATÓRIA
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo-box" style="margin-bottom: 12px;">
+            <span class="logo-badge-senai">SENAI</span>
+            <span class="logo-text-title">Ourinhos - SP</span>
+          </div>
+          <p>Escola SENAI de Ourinhos - Excelência em educação profissional, tecnologia e inovação para a indústria paulista.</p>
+          <p>R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP, 19911-200 | Tel: (14) 3302-1250</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <p><a href="#inicio">Início</a></p>
+          <p><a href="#chatbot">Chatbot Inteligente</a></p>
+          <p><a href="#cursos">Próximos Cursos</a></p>
+          <p><a href="#avaliacoes">Avaliações 4.9 no Google</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <p>Segunda a Sexta: 07:30 – 20:30</p>
+          <p>Sábado: 08:00 – 12:00</p>
+          <p>Domingo: Fechado</p>
+          <p><a href="tel:1433021250" style="color: var(--senai-red); font-weight: 700;">Ligue: (14) 3302-1250</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Escola SENAI Ourinhos - Todos os direitos reservados.</p>
+        <!-- REGRA ESTRITA GLOBAL: Última linha centralizada no centro com o texto 'siteprofissional.pro' azul e hiperlink para o endereço -->
+        <p class="mandatory-credit-line">
+          Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" class="credit-link">siteprofissional.pro</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT: LÓGICA DO CHATBOT, TEMA, ABAS E STATUS EM TEMPO REAL
+       ========================================================================== -->
+  <script>
+    /*
+     * ==========================================================================
+     * 1. GERENCIAMENTO DE TEMA (LIGHT / DARK MODE)
+     * ==========================================================================
+     */
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const bodyElement = document.body;
+
+    // Recupera a preferência salva no navegador ou verifica o tema do sistema
+    const savedTheme = localStorage.getItem('senai_theme');
+    const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      bodyElement.classList.add('dark-mode');
+      themeToggleBtn.textContent = '☀️';
+      themeToggleBtn.title = 'Mudar para Modo Claro';
+    } else {
+      bodyElement.classList.remove('dark-mode');
+      themeToggleBtn.textContent = '🌙';
+      themeToggleBtn.title = 'Mudar para Modo Escuro';
+    }
+
+    // Evento de clique para alternar o tema com persistência no localStorage
+    themeToggleBtn.addEventListener('click', () => {
+      bodyElement.classList.toggle('dark-mode');
+      const isDark = bodyElement.classList.contains('dark-mode');
+      localStorage.setItem('senai_theme', isDark ? 'dark' : 'light');
+      themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
+      themeToggleBtn.title = isDark ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro';
+    });
+
+    /*
+     * ==========================================================================
+     * 2. ABAS DE PRÓXIMOS CURSOS POR MÊS DE INÍCIO
+     * ==========================================================================
+     */
+    const monthTabButtons = document.querySelectorAll('.month-tab-btn');
+    const monthTabPanels = document.querySelectorAll('.month-tab-panel');
+
+    monthTabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove estado ativo de todos os botões e painéis
+        monthTabButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        monthTabPanels.forEach(panel => panel.classList.remove('active'));
+
+        // Ativa a aba e o painel selecionado
+        button.classList.add('active');
+        button.setAttribute('aria-selected', 'true');
+        const targetId = button.getAttribute('data-target');
+        const activePanel = document.getElementById(targetId);
+        if (activePanel) {
+          activePanel.classList.add('active');
+        }
+      });
+    });
+
+    /*
+     * ==========================================================================
+     * 3. VERIFICADOR DE STATUS DE FUNCIONAMENTO EM TEMPO REAL
+     * ==========================================================================
+     * Regras oficiais fornecidas:
+     * - Segunda a Sexta: 07:30 às 20:30
+     * - Sábado: 08:00 às 12:00
+     * - Domingo: Fechado
+     */
+    function updateLiveStatus() {
+      const now = new Date();
+      const dayOfWeek = now.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const currentTimeInMinutes = hour * 60 + minute;
+
+      const liveContainer = document.getElementById('liveStatusContainer');
+      const liveText = document.getElementById('liveStatusText');
+
+      let isOpen = false;
+      let closingInfo = '';
+
+      // Tabela de dias da semana para destacar a linha do dia atual
+      const dayRowMap = {
+        0: 'row-domingo',
+        1: 'row-segunda',
+        2: 'row-terca',
+        3: 'row-quarta',
+        4: 'row-quinta',
+        5: 'row-sexta',
+        6: 'row-sabado'
+      };
+
+      // Remove destaques anteriores e aplica no dia atual
+      document.querySelectorAll('.hours-table tr').forEach(r => r.classList.remove('today-highlight'));
+      const currentDayRow = document.getElementById(dayRowMap[dayOfWeek]);
+      if (currentDayRow) {
+        currentDayRow.classList.add('today-highlight');
+      }
+
+      // Validação do horário
+      if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+        // Segunda a sexta: 07:30 (450 min) até 20:30 (1230 min)
+        if (currentTimeInMinutes >= 450 && currentTimeInMinutes < 1230) {
+          isOpen = true;
+          closingInfo = 'Fecha hoje às 20:30';
+        } else {
+          closingInfo = 'Abre amanhã às 07:30';
+        }
+      } else if (dayOfWeek === 6) {
+        // Sábado: 08:00 (480 min) até 12:00 (720 min)
+        if (currentTimeInMinutes >= 480 && currentTimeInMinutes < 720) {
+          isOpen = true;
+          closingInfo = 'Fecha hoje às 12:00';
+        } else {
+          closingInfo = 'Reabre segunda-feira às 07:30';
+        }
+      } else {
+        // Domingo: Fechado
+        isOpen = false;
+        closingInfo = 'Reabre segunda-feira às 07:30';
+      }
+
+      if (isOpen) {
+        liveContainer.className = 'live-status-pill open';
+        liveText.innerHTML = `<strong>Aberto Agora</strong> • ${closingInfo}`;
+      } else {
+        liveContainer.className = 'live-status-pill closed';
+        liveText.innerHTML = `<strong>Fechado no Momento</strong> • ${closingInfo}`;
+      }
+    }
+    updateLiveStatus();
+    // Atualiza o status a cada minuto
+    setInterval(updateLiveStatus, 60000);
+
+    /*
+     * ==========================================================================
+     * 4. MOTOR DE INTELIGÊNCIA ARTIFICIAL LOCAL DO CHATBOT (NLP em JavaScript)
+     * ==========================================================================
+     */
+    const chatMessages = document.getElementById('chatMessages');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const btnClearChat = document.getElementById('btnClearChat');
+
+    // Base de conhecimento estruturada do SENAI Ourinhos
+    const knowledgeBase = [
+      {
+        keywords: ['curso', 'cursos', 'proximo', 'proximos', 'turma', 'turmas', 'estudar', 'vaga', 'vagas', 'matricula', 'inscricao'],
+        response: `Temos diversas turmas abertas para os próximos meses divididas em três períodos principais:
+        <ul>
+          <li><strong>Outubro 2026:</strong> Desenvolvimento Web & IA, Eletricista Instalador Residencial e Soldagem Industrial MIG/MAG.</li>
+          <li><strong>Novembro 2026:</strong> Automação Industrial com CLP, Operador de Torno CNC e Excel Avançado com Dashboards.</li>
+          <li><strong>Dezembro 2026 / 2027:</strong> Técnico em Mecatrônica, Técnico em Eletroeletrônica e Aprendizagem Industrial.</li>
+        </ul>
+        Você pode ver a lista detalhada rolando até a seção <a href="#cursos" style="color:var(--senai-red); font-weight:700;">Próximos Cursos</a> ou fazer sua pré-inscrição agora!`
+      },
+      {
+        keywords: ['endereco', 'local', 'localizacao', 'onde fica', 'como chegar', 'rota', 'mapa', 'bairro', 'rua'],
+        response: `📍 <strong>Endereço do SENAI Ourinhos:</strong><br>
+        <strong>Rua Vitório Christoni, 1500</strong> - Vila Sao Luiz, Ourinhos - SP, CEP: 19911-200.<br><br>
+        A unidade conta com fácil acesso para ônibus e estacionamento para alunos. Você pode visualizar a rota no mapa interativo na seção de Localização.`
+      },
+      {
+        keywords: ['horario', 'funcionamento', 'horas', 'aberto', 'fecha', 'atendimento', 'secretaria', 'sabado', 'domingo'],
+        response: `⏰ <strong>Horários Oficiais de Funcionamento do SENAI Ourinhos:</strong><br>
+        <ul>
+          <li><strong>Segunda a Sexta:</strong> 07:30 às 20:30 (ininterrupto)</li>
+          <li><strong>Sábado:</strong> 08:00 às 12:00</li>
+          <li><strong>Domingo:</strong> Fechado</li>
+        </ul>
+        A secretaria acadêmica e as salas de aula atendem em todos os turnos.`
+      },
+      {
+        keywords: ['telefone', 'fone', 'ligar', 'contato', 'whatsapp', 'zap', 'falar', 'numero'],
+        response: `📞 <strong>Telefone de Atendimento:</strong><br>
+        Você pode entrar em contato direto com nossa equipe pelo telefone: <a href="tel:1433021250" style="color:var(--senai-red); font-weight:700;">(14) 3302-1250</a>.<br>
+        Horário para ligações: Segunda a Sexta das 07:30 às 20:30 e Sábado das 08:00 às 12:00.`
+      },
+      {
+        keywords: ['avaliacao', 'avaliacoes', 'google', 'nota', 'estrelas', 'reputacao', 'opiniao'],
+        response: `⭐ <strong>Excelente Reputação:</strong><br>
+        A Escola SENAI Ourinhos possui nota <strong>4,9 de 5,0</strong> com mais de <strong>50 avaliações verificadas no Google</strong>!<br><br>
+        Nossos alunos destacam a qualidade dos laboratórios de usinagem e eletrônica, a dedicação dos professores e o alto índice de contratação pelas indústrias.<br>
+        <a href="https://share.google/EQLw2guoxNLuFWTyE" target="_blank" rel="noopener noreferrer" style="color:var(--senai-red); font-weight:700;">Clique aqui para ler todas as avaliações no Google ↗</a>`
+      },
+      {
+        keywords: ['gratuito', 'gratis', 'bolsa', 'bolsas', 'preco', 'valor', 'mensalidade', 'pagar', 'aprendiz'],
+        response: `🎓 <strong>Bolsas de Estudo e Gratuidade:</strong><br>
+        O SENAI-SP oferece opções de <strong>Cursos Gratuitos</strong> via:<br>
+        1. <strong>Aprendizagem Industrial (Jovem Aprendiz):</strong> Cursos 100% gratuitos voltados para jovens encaminhados por indústrias parceiras.<br>
+        2. <strong>Bolsas de Estudo Regulamentares:</strong> Concedidas conforme edital socioeconômico para quem atende aos critérios de renda familiar.<br><br>
+        Para os cursos pagos, o parcelamento pode ser feito no boleto ou cartão de crédito sem juros.`
+      },
+      {
+        keywords: ['web', 'programacao', 'desenvolvimento', 'computacao', 'ti', 'software', 'ia', 'inteligencia artificial'],
+        response: `💻 <strong>Desenvolvimento Web & Inteligência Artificial:</strong><br>
+        Este curso inicia em <strong>13 de Outubro de 2026</strong>, no período noturno (120h). Foco na criação de sites, aplicações web modernas com JavaScript e conexão de sistemas industriais a modelos inteligentes de IA.`
+      },
+      {
+        keywords: ['eletrica', 'eletricista', 'nr10', 'instalador'],
+        response: `⚡ <strong>Eletricista Instalador Residencial e Predial:</strong><br>
+        Início em <strong>19 de Outubro de 2026</strong> no turno noturno (160h). Você aprenderá esquemas elétricos, quadros de distribuição, cabeamento estruturado e normas técnicas com foco em NR-10.`
+      },
+      {
+        keywords: ['solda', 'soldagem', 'mig', 'mag', 'eletrodo'],
+        response: `🔥 <strong>Soldagem Industrial (MIG/MAG e Eletrodo Revestido):</strong><br>
+        Início em <strong>26 de Outubro de 2026</strong> (168h). O curso conta com cabines individuais de soldagem com sistemas modernos de exaustão e proteção contra raios UV.`
+      },
+      {
+        keywords: ['cnc', 'torno', 'usinagem', 'mecanica', 'fresa'],
+        response: `⚙️ <strong>Operador e Programador de Torno CNC:</strong><br>
+        Início em <strong>09 de Novembro de 2026</strong> (160h). Aulas com comandos Siemens e Fanuc em máquinas de usinagem computadorizada reais da indústria automobilística e agroindustrial.`
+      },
+      {
+        keywords: ['redes', 'instagram', 'facebook', 'linkedin', 'insta', 'face'],
+        response: `📱 <strong>Nossas Redes Sociais Oficiais:</strong><br>
+        <ul>
+          <li>Instagram: <a href="https://www.instagram.com/senaiourinhos/" target="_blank" rel="noopener noreferrer" style="color:var(--senai-red); font-weight:700;">@senaiourinhos</a></li>
+          <li>Facebook: <a href="https://www.facebook.com/senaisp.ourinhos/" target="_blank" rel="noopener noreferrer" style="color:var(--senai-red); font-weight:700;">senaisp.ourinhos</a></li>
+          <li>LinkedIn: <a href="https://br.linkedin.com/company/senaisp-ourinhos" target="_blank" rel="noopener noreferrer" style="color:var(--senai-red); font-weight:700;">SENAI Ourinhos</a></li>
+        </ul>`
+      }
+    ];
+
+    // Função que processa a pergunta em linguagem natural
+    function processUserMessage(rawText) {
+      const normalized = rawText.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove acentos
+        .replace(/[^\w\s]/gi, ''); // Remove pontuações
+
+      // Pontuação de relevância para cada tópico da base
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const entry of knowledgeBase) {
+        let score = 0;
+        for (const kw of entry.keywords) {
+          const cleanKw = kw.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          if (normalized.includes(cleanKw)) {
+            score += 1;
+          }
+        }
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = entry;
+        }
+      }
+
+      // Resposta padrão caso nenhuma intenção seja reconhecida
+      if (highestScore > 0 && bestMatch) {
+        return bestMatch.response;
+      } else {
+        return `Compreendo sua dúvida! Para informações mais específicas sobre essa questão ou para falar diretamente com a secretaria do SENAI Ourinhos, você pode ligar para <a href="tel:1433021250" style="color:var(--senai-red); font-weight:700;">(14) 3302-1250</a> ou consultar os <a href="#cursos" style="color:var(--senai-red); font-weight:700;">próximos cursos disponíveis</a> aqui na página. Você também pode experimentar perguntar sobre "endereço", "horários de atendimento", "cursos de outubro" ou "bolsas de estudo".`;
+      }
+    }
+
+    // Adiciona uma mensagem visual na tela do chat
+    function appendChatMessage(sender, contentHtml) {
+      const row = document.createElement('div');
+      row.className = `message-row ${sender}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = 'msg-avatar-small';
+      avatar.textContent = sender === 'bot' ? 'S' : 'Você';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.innerHTML = contentHtml;
+
+      const timeSpan = document.createElement('span');
+      timeSpan.className = 'msg-timestamp';
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      timeSpan.textContent = `Hoje • ${timeStr}`;
+      bubble.appendChild(timeSpan);
+
+      row.appendChild(avatar);
+      row.appendChild(bubble);
+
+      chatMessages.appendChild(row);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Gerencia o envio de mensagem pelo formulário
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const userText = chatInput.value.trim();
+      if (!userText) return;
+
+      // 1. Renderiza mensagem do usuário
+      appendChatMessage('user', `<p>${escapeHtml(userText)}</p>`);
+      chatInput.value = '';
+
+      // 2. Exibe indicador de digitação simulando processamento inteligente
+      typingIndicator.style.display = 'flex';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Delay natural de 600ms para sensação humana
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        const botAnswer = processUserMessage(userText);
+        appendChatMessage('bot', `<p>${botAnswer}</p>`);
+      }, 650);
+    });
+
+    // Função de auxílio contra injeção de HTML no input do usuário
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.innerText = text;
+      return div.innerHTML;
+    }
+
+    // Disparador de cliques nas sugestões rápidas
+    window.handleQuickChipClick = function(questionText) {
+      chatInput.value = questionText;
+      chatForm.dispatchEvent(new Event('submit'));
+    };
+
+    // Perguntar diretamente sobre um curso do card
+    window.askBotAboutCourse = function(courseName) {
+      // Rola suavemente até o chat
+      document.getElementById('chatbot').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        chatInput.value = `Gostaria de saber mais informações sobre o curso de ${courseName}.`;
+        chatForm.dispatchEvent(new Event('submit'));
+      }, 400);
+    };
+
+    // Limpar histórico do chat
+    btnClearChat.addEventListener('click', () => {
+      chatMessages.innerHTML = `
+        <div class="message-row bot">
+          <div class="msg-avatar-small">S</div>
+          <div class="msg-bubble">
+            <p><strong>Histórico reiniciado! ✨</strong></p>
+            <p>Como posso te ajudar agora? Você pode perguntar sobre cursos, matrículas, horários ou localização da Escola SENAI Ourinhos.</p>
+            <span class="msg-timestamp">Hoje • Agora</span>
+          </div>
+        </div>
+      `;
+    });
+
+    /*
+     * ==========================================================================
+     * 5. MODAL DE PRÉ-INSCRIÇÃO RÁPIDA
+     * ==========================================================================
+     */
+    const enrollModal = document.getElementById('enrollModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const enrollForm = document.getElementById('enrollForm');
+    const modalCourseTitle = document.getElementById('modalCourseTitle');
+    const formCourseName = document.getElementById('formCourseName');
+    const formCourseMonth = document.getElementById('formCourseMonth');
+
+    window.openEnrollModal = function(courseName, monthName) {
+      formCourseName.value = courseName;
+      formCourseMonth.value = monthName;
+      modalCourseTitle.innerHTML = `Curso Selecionado: <strong>${courseName}</strong> (${monthName})`;
+      enrollModal.classList.add('active');
+    };
+
+    closeModalBtn.addEventListener('click', () => {
+      enrollModal.classList.remove('active');
+    });
+
+    enrollModal.addEventListener('click', (e) => {
+      if (e.target === enrollModal) {
+        enrollModal.classList.remove('active');
+      }
+    });
+
+    // Envio do formulário com confirmação amigável
+    enrollForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const studentName = document.getElementById('formStudentName').value;
+      const studentWhatsapp = document.getElementById('formStudentWhatsapp').value;
+      const course = formCourseName.value;
+
+      enrollModal.classList.remove('active');
+
+      // Notificação visual de sucesso
+      alert(`Obrigado, ${studentName}! Sua pré-inscrição para o curso "${course}" foi registrada com sucesso.\nNossa equipe da secretaria do SENAI Ourinhos entrará em contato via WhatsApp no número ${studentWhatsapp} com as instruções para efetivação da matrícula!`);
+
+      enrollForm.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+O Analisador de Feedbacks com Alerta Crítico (Hamburgueria Gourmet)
+
+O Tema: Integração de um sistema web completo com a hamburgueria fictícia de Ourinhos.
+
+Como Funciona: O sistema inicia por uma página web pública de avaliações (que precisa ser construída), onde os clientes submetem seus reviews textuais e informais (ex: "O burger estava incrível, mas a batata chegou murcha e fria!", "Atendimento nota 10, melhor maionese da cidade", "Demorou mais de 1 hora e não mandaram o refrigerante"). O sistema recebe esses dados em tempo real a cada nova submissão.
+
+O Papel do Gemini (Cérebro): Analisa semanticamente cada frase recebida, categoriza o sentimento (Positivo, Neutro ou Crítico) e extrai tags específicas do que foi falado ("Entrega", "Sabor", "Atendimento").
+
+O Papel do Python (Braço): Gerencia o backend da aplicação. Ele recebe as avaliações da página, consome a API do Gemini e salva todos os dados estruturados (review original + análise) em um arquivo JSON de banco de dados. Caso a classificação do Gemini retorne um status "Crítico", o Python aciona imediatamente um serviço SMTP/API para disparar um e-mail automático ao gerente, contendo as informações completas do problema para ação rápida.
+
+Painel Administrativo (A Visão do Gerente): Substituindo as visualizações no terminal, o projeto agora conta com uma página web administrativa (dashboard). Neste ambiente seguro, o gerente tem acesso a uma interface onde pode visualizar todas as avaliações já devidamente categorizadas. A interface oferece opções robustas de filtragem (ex: ver apenas comentários neutros e críticos, ou filtrar pela tag "Entrega") e ordenação. Além disso, o sistema permite que o gestor interaja com os dados, checando e marcando manualmente cada avaliação como "lida" ou "tratada" após o acompanhamento.
+
+Prompt Base para o Orquestrador:
+/agent /goal Crie um sistema completo de análise de feedbacks para uma hamburgueria, contemplando frontend e backend em Python. O sistema deve conter: 1) Uma página web para os clientes enviarem suas avaliações. 2) Um backend que processe essas requisições usando a API do Gemini para extrair o sentimento (Positivo, Neutro ou Crítico) e tags chave do comentário, salvando os dados e a análise em um arquivo JSON. 3) Uma rotina no Python que dispare um e-mail automático de alerta para o gerente sempre que uma avaliação for classificada como "Crítica". 4) Uma página web administrativa para o gerente listar todas as avaliações cadastradas, incluindo controles dinâmicos de filtragem, ordenação e um mecanismo visual (como um checkbox) para marcar manualmente cada review como lido/verificado.

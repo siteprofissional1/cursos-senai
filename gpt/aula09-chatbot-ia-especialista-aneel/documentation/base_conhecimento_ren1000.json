@@ -1,0 +1,59 @@
+{
+  "norma": "Resolução Normativa ANEEL nº 1.000, de 7 de dezembro de 2021",
+  "vigencia": "Em vigor, consolidando as regras de prestação do serviço público de distribuição de energia elétrica",
+  "pilares": {
+    "prazos_religacao": {
+      "artigos": "Arts. 360 a 363",
+      "religacao_normal_urbana": "Até 24 horas",
+      "religacao_normal_rural": "Até 48 horas",
+      "religacao_urgencia_urbana": "Até 4 horas",
+      "religacao_urgencia_rural": "Até 8 horas",
+      "regras_chave": "A contagem inicia após o pagamento do débito ou comprovação da quitação. A religação de urgência pode ter cobrança de taxa autorizada pela ANEEL."
+    },
+    "corte_e_suspensao": {
+      "artigos": "Arts. 352 a 359",
+      "aviso_previo": "Obrigatório aviso prévio por escrito com antecedência mínima de 15 dias corridos.",
+      "dias_proibidos": "É terminantemente proibido suspender o fornecimento em sextas-feiras, sábados, domingos, feriados e vésperas de feriados.",
+      "horario_permitido": "Apenas em horário comercial (das 8h às 18h) em dias úteis.",
+      "debitos_preteritos": "Débitos com mais de 90 dias sem suspensão no período não ensejam corte sumário (cobrança pelas vias administrativas/judiciais ordinárias).",
+      "sobrevida": "Unidades com moradores que dependem de equipamentos elétricos de preservação da vida têm procedimento especial e não podem ter a energia cortada sumariamente."
+    },
+    "ressarcimento_danos_eletricos": {
+      "artigos": "Arts. 602 a 626",
+      "prazo_solicitacao_cliente": "Até 5 anos contados da data provável da ocorrência do dano.",
+      "prazo_vistoria_alimentos_medicamentos": "Até 1 dia útil para equipamentos de acondicionamento de alimentos ou medicamentos (geladeira, freezer).",
+      "prazo_vistoria_demais_equipamentos": "Até 10 dias corridos.",
+      "prazo_resposta_distribuidora": "Até 15 dias corridos (sem vistoria) ou até 30 dias corridos (com vistoria).",
+      "prazo_pagamento_ressarcimento": "Até 20 dias corridos após o deferimento.",
+      "proibicoes_distribuidora": "A distribuidora não pode exigir conserto prévio nem laudo de terceiros pagos pelo cliente."
+    },
+    "tarifa_social_tsee": {
+      "artigos": "Arts. 177 a 191",
+      "beneficiarios": "Famílias no CadÚnico com renda per capita de até meio salário mínimo, beneficiários do BPC ou famílias com renda até 3 salários mínimos com pessoa dependente de aparelho elétrico vital.",
+      "faixas_desconto": [
+        "0 a 30 kWh/mês: 65% de desconto",
+        "31 a 100 kWh/mês: 40% de desconto",
+        "101 a 220 kWh/mês: 10% de desconto",
+        "Acima de 220 kWh/mês: 0% de desconto (tarifa normal sobre o excedente)"
+      ],
+      "indigenas_quilombolas": "100% de desconto no consumo de até 50 kWh/mês."
+    },
+    "novas_ligacoes": {
+      "artigos": "Arts. 64 a 74",
+      "prazo_vistoria_urbana": "Até 3 dias úteis",
+      "prazo_vistoria_rural": "Até 5 dias úteis",
+      "prazo_ligacao_urbana": "Até 2 dias úteis após aprovada vistoria",
+      "prazo_ligacao_rural": "Até 5 dias úteis após aprovada vistoria"
+    },
+    "toi_e_irregularidades": {
+      "artigos": "Arts. 589 a 599",
+      "descricao": "Termo de Ocorrência de Inspeção (TOI) para apuração de irregularidades na medição ou desvio de energia.",
+      "direitos": "Cópia imediata entregue ao consumidor, prazo de 15 dias para defesa, possibilidade de perícia técnica pelo órgão metrológico oficial."
+    },
+    "qualidade_compensacoes_dic_fic": {
+      "artigos": "Arts. 444 a 463",
+      "descricao": "Indicadores individuais de continuidade: DIC (Duração de Interrupção), FIC (Frequência de Interrupção), DMIC (Duração Máxima), DICRI (Duração em Dia Crítico).",
+      "compensacao_automatica": "Se a distribuidora violar os limites estabelecidos, deve creditar automaticamente compensação financeira na fatura em até 2 meses após o mês de apuração, sem necessidade de pedido do cliente."
+    }
+  }
+}

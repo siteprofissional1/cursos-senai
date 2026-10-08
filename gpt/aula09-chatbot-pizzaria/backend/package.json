@@ -1,0 +1,18 @@
+{
+  "name": "dthales-pizza-delivery-backend",
+  "version": "1.0.0",
+  "description": "Backend didático e API REST para a D Thales Pizza Delivery (Ourinhos/SP)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "pizza",
+    "delivery",
+    "chatbot",
+    "senai",
+    "antigravity"
+  ],
+  "author": "Agente Antigravity - SENAI Ourinhos Edition",
+  "license": "MIT"
+}

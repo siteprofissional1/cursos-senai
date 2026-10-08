@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & LOCAL RANKING - CHATBOT DE PEDIDOS OURINHOS / SP -->
+    <title>Fazer Pedido Online | D Thales Pizza Delivery Ourinhos/SP</title>
+    <meta name="description" content="Faça seu pedido de pizza online em Ourinhos com o assistente virtual da D Thales Pizza Delivery. Escolha sabores, bordas recheadas, bebidas e receba quentinha!">
+    <meta name="keywords" content="pedir pizza online ourinhos, cardapio pizza d thales ourinhos, chatbot pizzaria ourinhos, delivery pizza whatsapp ourinhos, pizza artesanal delivery ourinhos">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dthalespizza.com.br/pedido/index.html">
+
+    <!-- GEO TAGS -->
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="Ourinhos, São Paulo, Brasil">
+    <meta name="geo.position" content="-22.9794;-49.8706">
+    <meta name="ICBM" content="-22.9794, -49.8706">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="D Thales Pizza Delivery Ourinhos">
+    <meta property="og:title" content="Fazer Pedido de Pizza Online - D Thales Delivery Ourinhos">
+    <meta property="og:description" content="Monte sua pizza artesanal com até 2 sabores, escolha sua borda recheada e envie seu pedido direto para o WhatsApp oficial!">
+    <meta property="og:url" content="https://dthalespizza.com.br/pedido/index.html">
+    <meta property="og:image" content="../assets/images/pizza-destaque.jpg">
+
+    <!-- DADOS ESTRUTURADOS JSON-LD PARA PEDIDO LOCAL -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://dthalespizza.com.br/pedido/index.html",
+        "inLanguage": "pt-BR",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+      },
+      "agent": {
+        "@type": "Pizzeria",
+        "name": "D Thales Pizza Delivery Ourinhos",
+        "telephone": "+55-14-99608-1601",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "R. Rubéns Saladine, 199",
+          "addressLocality": "Ourinhos",
+          "addressRegion": "SP",
+          "postalCode": "19902-446",
+          "addressCountry": "BR"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Google Fonts: Poppins & Playfair Display (Trattoria Moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           TEMA TRATTORIA MODERNA & VIBRANTE
+           Cores: Fundo Creme Suave, Vermelho Napolitano, Verde Manjericão e Dourado
+           ========================================================================== */
+        :root {
+            --bg-page: #f5f1eb;
+            --chat-bg: #ffffff;
+            --header-bg: #ffffff;
+            --bot-bubble-bg: #f8fafc;
+            --bot-bubble-border: #e2e8f0;
+            --user-bubble-bg: #d62828;
+            --user-bubble-text: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-red: #d62828;
+            --accent-red-hover: #b71c1c;
+            --accent-red-soft: #fef2f2;
+            --accent-green: #16a34a;
+            --accent-gold: #f59e0b;
+            --radius-bubble: 20px;
+            --radius-btn: 14px;
+            --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.08);
+            --font-main: 'Poppins', sans-serif;
+            --font-title: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        /* Container do Chatbot em estilo Mobile Moderno */
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            height: 94vh;
+            background-color: var(--chat-bg);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-card);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* --------------------------------------------------------------------------
+           HEADER DO CHAT
+           -------------------------------------------------------------------------- */
+        .chat-header {
+            background-color: var(--header-bg);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--accent-red), #ff4757);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(214, 40, 40, 0.25);
+            flex-shrink: 0;
+        }
+
+        .header-info h1 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-red);
+            line-height: 1.2;
+            font-family: var(--font-title);
+        }
+
+        .header-info p {
+            font-size: 11.5px;
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        .header-info p::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+        }
+
+        /* Botão para voltar ao site */
+        .btn-back-site {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back-site:hover {
+            background-color: var(--accent-red-soft);
+            color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        /* Mini-Barra de Total do Carrinho no Topo */
+        .cart-quick-bar {
+            background-color: #fffbeb;
+            border-bottom: 1px solid #fef3c7;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .cart-quick-bar .cart-count {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+
+        /* --------------------------------------------------------------------------
+           CORPO DO CHAT (MENSAGENS)
+           -------------------------------------------------------------------------- */
+        .chat-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            scroll-behavior: smooth;
+            background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+        }
+
+        .chat-body::-webkit-scrollbar { width: 5px; }
+        .chat-body::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .message-row {
+            display: flex;
+            width: 100%;
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .msg-bot-row { justify-content: flex-start; }
+        .msg-user-row { justify-content: flex-end; }
+
+        .message {
+            max-width: 86%;
+            padding: 12px 16px;
+            border-radius: var(--radius-bubble);
+            font-size: 14px;
+            line-height: 1.45;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .msg-bot {
+            background-color: var(--bot-bubble-bg);
+            color: var(--text-main);
+            border: 1px solid var(--bot-bubble-border);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .msg-user {
+            background-color: var(--user-bubble-bg);
+            color: var(--user-bubble-text);
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 12px rgba(214, 40, 40, 0.25);
+            font-weight: 500;
+        }
+
+        /* --------------------------------------------------------------------------
+           CONTAINER DE OPÇÕES E BOTÕES INTERATIVOS
+           -------------------------------------------------------------------------- */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+            width: 100%;
+            max-width: 95%;
+            align-self: flex-start;
+            animation: slideUp 0.3s ease forwards;
+        }
+
+        /* Barra de Busca de Sabores Integrada */
+        .search-box-container {
+            margin-bottom: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: #ffffff;
+            padding: 4px 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border-color);
+            font-size: 13px;
+            outline: none;
+            transition: all 0.2s;
+            background-color: #f8fafc;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-red);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.1);
+        }
+
+        /* Abas de Categorias Rápidas */
+        .category-tabs {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            margin-bottom: 6px;
+        }
+        .category-tabs::-webkit-scrollbar { height: 3px; }
+
+        .cat-tab {
+            padding: 5px 12px;
+            border-radius: 14px;
+            background: #f1f5f9;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .cat-tab.active, .cat-tab:hover {
+            background: var(--accent-red);
+            color: #ffffff;
+        }
+
+        /* Botões de Opção */
+        .option-btn {
+            background-color: #ffffff;
+            border: 1.5px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px 14px;
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            font-size: 13.5px;
+            text-align: left;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-red);
+            background-color: var(--accent-red-soft);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(214, 40, 40, 0.12);
+        }
+
+        .option-btn:active {
+            transform: translateY(0);
+        }
+
+        .option-btn.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+            border-color: var(--border-color);
+            color: var(--text-muted);
+            box-shadow: none;
+        }
+
+        .pizza-btn-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 8px;
+        }
+
+        .pizza-title-bold {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .option-price-tag {
+            background-color: #fef2f2;
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 12.5px;
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            border: 1px solid rgba(214, 40, 40, 0.15);
+        }
+
+        .pizza-ingredients-text {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* --------------------------------------------------------------------------
+           FOOTER DO CHAT (INPUT E BOTÃO DE ENVIO)
+           -------------------------------------------------------------------------- */
+        .chat-footer {
+            padding: 12px 16px;
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            background-color: #f8fafc;
+            border: 1.5px solid var(--border-color);
+            color: var(--text-main);
+            padding: 12px 16px;
+            border-radius: 25px;
+            outline: none;
+            font-size: 14px;
+            transition: border 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-red);
+            background-color: #ffffff;
+        }
+
+        .chat-input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background-color: #f1f5f9;
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, var(--accent-red), #e11d48);
+            border: none;
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(214, 40, 40, 0.25);
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            background: var(--accent-red-hover);
+        }
+
+        .send-btn:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Indicador de Digitação (Typing Animation) */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 6px 4px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-red);
+            border-radius: 50%;
+            animation: bounce 1.3s linear infinite;
+        }
+        .dot:nth-child(2) { animation-delay: 0.15s; }
+        .dot:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --------------------------------------------------------------------------
+           MODAL / OVERLAY QUANDO FORA DO HORÁRIO (18:30 ÀS 23:30)
+           -------------------------------------------------------------------------- */
+        .closed-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.96);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+        }
+
+        .closed-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            animation: pulse-icon 2s infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .closed-title {
+            font-family: var(--font-title);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 10px;
+        }
+
+        .closed-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .closed-hours-box {
+            background: #ffffff;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-btn);
+            padding: 16px 24px;
+            font-size: 13.5px;
+            color: var(--text-main);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+        }
+
+        .closed-hours-box span {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .btn-view-menu-anyway {
+            background-color: var(--accent-red);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-view-menu-anyway:hover {
+            background-color: var(--accent-red-hover);
+        }
+
+        /* --------------------------------------------------------------------------
+           RODAPÉ MANDATÓRIO (REGRA GLOBAL & SENAI)
+           -------------------------------------------------------------------------- */
+        .bot-signature {
+            text-align: center;
+            padding: 8px 12px;
+            background-color: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .bot-signature a {
+            color: #2563eb;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container do Chatbot da D Thales -->
+    <div class="app-container">
+        <!-- Header da Aplicação -->
+        <header class="chat-header" id="chat-header">
+            <div class="header-left">
+                <div class="avatar">🍕</div>
+                <div class="header-info">
+                    <h1>D Thales Pizza</h1>
+                    <p id="status-text">Assistente Online • Aberto</p>
+                </div>
+            </div>
+
+            <!-- Botão de Navegação: Retornar à Landing Page -->
+            <a href="../index.html" class="btn-back-site">
+                <span>← Voltar ao Site</span>
+            </a>
+        </header>
+
+        <!-- Barra Rápida de Carrinho (Atualização Dinâmica) -->
+        <div class="cart-quick-bar" id="cart-quick-bar">
+            <span>🛒 Carrinho: <span class="cart-count" id="cart-count">0 itens</span></span>
+            <span id="cart-total-badge">Subtotal: R$ 0,00</span>
+        </div>
+
+        <!-- Overlay de Loja Fechada (Exibido fora das 18:30 às 23:30) -->
+        <div class="closed-overlay" id="closed-overlay" style="display:none;">
+            <div class="closed-icon">🍕</div>
+            <div class="closed-title">Pizzaria Fechada no Momento</div>
+            <div class="closed-text">
+                Nosso sistema de pedidos e entregas funciona durante nosso horário de atendimento noturno.
+            </div>
+            <div class="closed-hours-box">
+                🗓️ <strong>Segunda a Domingo</strong><br>
+                <span>18:30</span> às <span>23:30</span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+                <button class="btn-view-menu-anyway" onclick="permitirVerCardapio()">
+                    👁️ Ver Cardápio / Montar Simulação
+                </button>
+                <a href="../index.html" class="btn-back-site" style="padding:10px 16px;">
+                    Voltar para o Site
+                </a>
+            </div>
+        </div>
+
+        <!-- Área de Conversa do Bot -->
+        <main class="chat-body" id="chat-body"></main>
+
+        <!-- Footer com Campo de Texto e Botão -->
+        <footer class="chat-footer">
+            <input type="text" id="user-input" class="chat-input" placeholder="Selecione uma opção acima..." disabled autocomplete="off">
+            <button id="send-btn" class="send-btn" disabled aria-label="Enviar mensagem">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </footer>
+
+        <!-- OBRIGAÇÃO MANDATÓRIA: Última linha centralizada com link azul -->
+        <div class="bot-signature">
+            Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer">siteprofissional.pro</a>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+         LÓGICA CONVERSACIONAL E REGRAS DE NEGÓCIO - D THALES PIZZA DELIVERY
+         ======================================================================== -->
+    <script>
+        // Número Oficial do WhatsApp da D Thales Pizza Delivery: (14) 99608-1601
+        const ZAP_NUMBER = "5514996081601";
+
+        // BASE DE DADOS COMPLETA DO CARDÁPIO IFOOD DA D THALES PIZZA DELIVERY
+        const CARDAPIO = {
+            tamanhos: {
+                'pequena': { 
+                    id: 'pequena', 
+                    label: 'Pequena (1 Pedaço Generoso / Doce 4 Pedaços)', 
+                    maxSabores: 1, 
+                    precoBaseSalgada: 40.00,
+                    precoBaseDoce: 40.00
+                },
+                'grande': { 
+                    id: 'grande', 
+                    label: 'Grande (8 Pedaços - até 2 Sabores)', 
+                    maxSabores: 2, 
+                    precoBaseSalgada: 60.00,
+                    precoBaseDoce: 68.00
+                }
+            },
+            pizzas: [
+                // === SALGADAS TRADICIONAIS E ESPECIAIS ===
+                { id: 'p1', categoria: 'tradicional', name: '4 Queijos', ingredients: 'Molho de tomate artesanal, mussarela, catupiry, provolone, parmesão, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p2', categoria: 'especial', name: '5 Queijos', ingredients: 'Molho de tomate artesanal, mussarela, requeijão, provolone, parmesão, gorgonzola, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p3', categoria: 'tradicional', name: 'Americana', ingredients: 'Molho de tomate artesanal, bacon, ovo, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p4', categoria: 'tradicional', name: 'Atum', ingredients: 'Molho de tomate artesanal, mussarela, atum, tomate, cebola, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p5', categoria: 'tradicional', name: 'Baiana', ingredients: 'Molho de tomate artesanal, presunto, calabresa, ovo, cebola, pimenta, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p6', categoria: 'tradicional', name: 'Bauru', ingredients: 'Molho de tomate artesanal, presunto, mussarela, tomate, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p7', categoria: 'tradicional', name: 'Brócolis', ingredients: 'Molho de tomate artesanal, brócolis, bacon, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p8', categoria: 'especial', name: 'Burguesa', ingredients: 'Molho artesanal, presunto, palmito, bacon, ovo, milho, requeijão, mussarela, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p9', categoria: 'especial', name: 'Caipira', ingredients: 'Molho artesanal, presunto, frango, milho, palmito, catupiry, mussarela, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p10', categoria: 'tradicional', name: 'Calabresa', ingredients: 'Molho de tomate artesanal, mussarela, calabresa fatiada, cebola, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p11', categoria: 'tradicional', name: 'Campineira', ingredients: 'Molho artesanal, presunto, palmito, champignon, bacon, catupiry, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p12', categoria: 'especial', name: 'Canadense', ingredients: 'Molho artesanal, mussarela, lombo, catupiry, gorgonzola, tomate seco, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p13', categoria: 'especial', name: 'Catulombo', ingredients: 'Molho artesanal, mussarela, lombo canadense, catupiry, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p14', categoria: 'especial', name: 'Croata', ingredients: 'Molho artesanal, lombo, champignon, cebola, catupiry, parmesão, alho frito, tomate seco e orégano', precoPequena: 50.00, precoGrande: 72.00 },
+                { id: 'p15', categoria: 'especial', name: 'Dadona', ingredients: 'Molho artesanal, frango, brócolis, milho, bacon, mussarela, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p16', categoria: 'especial', name: 'Da Gleice', ingredients: 'Molho artesanal, frango, palmito, mussarela, lombo, cebola, tomate seco e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p17', categoria: 'especial', name: 'Delicia', ingredients: 'Molho artesanal, frango, milho, mussarela, lombo, cebola, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p18', categoria: 'especial', name: 'Do Cheff', ingredients: 'Molho artesanal, presunto, mussarela, lombo, cebola, parmesão, provolone, gorgonzola e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p19', categoria: 'especial', name: 'Doritos', ingredients: 'Molho artesanal, frango desfiado, bacon crocante, milho, cheddar, mussarela e Doritos crocante', precoPequena: 50.00, precoGrande: 72.00 },
+                { id: 'p20', categoria: 'tradicional', name: 'Escarola', ingredients: 'Molho artesanal, escarola refogada, bacon, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p21', categoria: 'especial', name: 'Francesa', ingredients: 'Molho artesanal, presunto, milho, bacon, catupiry, mussarela, calabresa, azeitonas e orégano', precoPequena: 43.00, precoGrande: 65.00 },
+                { id: 'p22', categoria: 'tradicional', name: 'Frango com Mussarela', ingredients: 'Molho artesanal, frango desfiado temperado, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p23', categoria: 'especial', name: 'Frango com Catupiry', ingredients: 'Molho artesanal, frango desfiado, milho, catupiry original, mussarela, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p24', categoria: 'especial', name: 'Fricassê', ingredients: 'Molho artesanal, frango desfiado, milho, catupiry, mussarela, azeitonas e batata palha', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p25', categoria: 'especial', name: 'Hot Dog', ingredients: 'Molho, salsicha fatiada, tomate, cebola, milho, bacon, calabresa, mussarela e batata palha', precoPequena: 43.00, precoGrande: 65.00 },
+                { id: 'p26', categoria: 'especial', name: 'Lenheira', ingredients: 'Molho artesanal, atum, palmito, ovo, cebola, mussarela, azeitonas e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p27', categoria: 'tradicional', name: 'Lombo Canadense', ingredients: 'Molho de tomate artesanal, mussarela, lombo canadense, tomate, cebola, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p28', categoria: 'tradicional', name: 'Marguerita', ingredients: 'Molho artesanal, mussarela, tomate fatiado, azeitonas, orégano e manjericão fresco', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p29', categoria: 'tradicional', name: 'Milho Verde', ingredients: 'Molho artesanal, milho verde selecionado, catupiry, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p30', categoria: 'tradicional', name: 'Mussarela Tradicional', ingredients: 'Molho artesanal especial, mussarela farta, tomate fatiado, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p31', categoria: 'tradicional', name: 'Napoletana', ingredients: 'Molho artesanal, mussarela, queijo parmesão ralado, tomate fatiado, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p32', categoria: 'tradicional', name: 'Palmito', ingredients: 'Molho artesanal, palmito nobre macio, mussarela, azeitonas e orégano', precoPequena: 40.00, precoGrande: 60.00 },
+                { id: 'p33', categoria: 'especial', name: 'Palmito Especial', ingredients: 'Molho artesanal, palmito, catupiry, mussarela, alho dourado, tomate seco e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p34', categoria: 'especial', name: 'Portuguesa', ingredients: 'Molho artesanal, presunto, milho, ervilha, ovo, palmito, cebola, mussarela e orégano', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p35', categoria: 'especial', name: 'Siciliana', ingredients: 'Molho artesanal, palmito, bacon crocante, champignon, mussarela e manjericão fresco', precoPequena: 42.00, precoGrande: 64.00 },
+                { id: 'p36', categoria: 'especial', name: 'Strogonoff de Carne', ingredients: 'Molho artesanal, mussarela, strogonoff de carne macia, champignon e batata palha', precoPequena: 47.00, precoGrande: 69.00 },
+                { id: 'p37', categoria: 'especial', name: 'Vegetariana', ingredients: 'Molho artesanal, brócolis, palmito, champignon, milho, mussarela e tomate seco', precoPequena: 46.00, precoGrande: 68.00 },
+                
+                // === PIZZAS DOCES ===
+                { id: 'pd1', categoria: 'doce', name: 'Chocolate Nobre', ingredients: 'Creme de leite suave, chocolate ao leite nobre e raspas de chocolate branco', precoPequena: 40.00, precoGrande: 68.00 },
+                { id: 'pd2', categoria: 'doce', name: 'Romeu e Julieta', ingredients: 'Goiabada cremosa especial combinada com queijo mussarela derretido', precoPequena: 40.00, precoGrande: 68.00 }
+            ],
+            bordas: {
+                salgada: [
+                    { id: 'bs1', name: 'Catupiry Original', preco: 7.00 },
+                    { id: 'bs2', name: 'Cheddar Cremoso', preco: 9.00 },
+                    { id: 'bs3', name: 'Mussarela Especial', preco: 12.00 },
+                    { id: 'bs4', name: 'Presunto e Mussarela', preco: 18.00 }
+                ],
+                doce: [
+                    { id: 'bd1', name: 'Chocolate Nobre', preco: 18.00 },
+                    { id: 'bd2', name: 'Romeu e Julieta', preco: 18.00 }
+                ]
+            },
+            bebidas: [
+                { id: 'b1', name: 'Coca-Cola 2L Gelada', preco: 16.00 },
+                { id: 'b2', name: 'Coca-Cola Zero 2L Gelada', preco: 16.00 },
+                { id: 'b3', name: 'Fanta Laranja 2L', preco: 14.00 },
+                { id: 'b4', name: 'Guaraná Conquista 2L', preco: 9.00 },
+                { id: 'b5', name: 'Guaraná Antarctica 2L', preco: 15.00 },
+                { id: 'b6', name: 'Coca-Cola Lata 350ml', preco: 5.00 },
+                { id: 'b7', name: 'Guaraná Antarctica Lata 350ml', preco: 5.00 },
+                { id: 'b8', name: 'H2OH! Limoneto 500ml', preco: 4.50 }
+            ]
+        };
+
+        // Estado Global da Aplicação
+        let cart = [];
+        let state = 'INIT';
+        let tempOrder = {};
+        let cliente = { nome: '', telefone: '', tipoEntrega: '', rua: '', numero: '', bairro: '', complemento: '', pagamento: '', troco: '' };
+        let currentFilterCategory = 'todas';
+
+        const chatBody = document.getElementById('chat-body');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const cartCountEl = document.getElementById('cart-count');
+        const cartTotalEl = document.getElementById('cart-total-badge');
+
+        // Formatação de Moeda BRL
+        function formatarMoeda(valor) {
+            return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Calcula o total atual do carrinho
+        function calcularTotalCarrinho() {
+            return cart.reduce((total, item) => total + (item.preco || 0), 0);
+        }
+
+        // Atualiza a barra superior de resumo
+        function atualizarBarraCarrinho() {
+            const total = calcularTotalCarrinho();
+            const qtd = cart.length;
+            cartCountEl.textContent = `${qtd} ${qtd === 1 ? 'item' : 'itens'}`;
+            cartTotalEl.textContent = `Subtotal: ${formatarMoeda(total)}`;
+        }
+
+        function scrollToBottom() {
+            setTimeout(() => { chatBody.scrollTop = chatBody.scrollHeight; }, 60);
+        }
+
+        function desabilitarBotoesAnteriores() {
+            document.querySelectorAll('.option-btn:not(.disabled)').forEach(btn => {
+                btn.classList.add('disabled');
+                btn.removeAttribute('onclick');
+            });
+            const searchContainer = document.querySelector('.search-box-container');
+            if (searchContainer) searchContainer.remove();
+        }
+
+        function setInputMode(enabled, placeholder = "") {
+            userInput.disabled = !enabled;
+            sendBtn.disabled = !enabled;
+            userInput.placeholder = placeholder || (enabled ? "Digite aqui..." : "Selecione uma opção acima...");
+            if (enabled) {
+                userInput.focus();
+                userInput.onkeypress = function(e) { if(e.key === 'Enter') handleTextInput(); };
+                sendBtn.onclick = handleTextInput;
+            }
+        }
+
+        function addUserMessage(text) {
+            desabilitarBotoesAnteriores();
+            chatBody.insertAdjacentHTML('beforeend', `
+                <div class="message-row msg-user-row">
+                    <div class="message msg-user">${text}</div>
+                </div>
+            `);
+            scrollToBottom();
+        }
+
+        function addBotMessage(text, options = null, isFlavorSelection = false) {
+            desabilitarBotoesAnteriores();
+            
+            const typingId = 'typing-' + Date.now();
+            chatBody.insertAdjacentHTML('beforeend', `
+                <div class="message-row msg-bot-row" id="${typingId}">
+                    <div class="message msg-bot">
+                        <div class="typing-indicator">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+            `);
+            scrollToBottom();
+
+            setTimeout(() => {
+                const typingEl = document.getElementById(typingId);
+                if (typingEl) typingEl.remove();
+                
+                chatBody.insertAdjacentHTML('beforeend', `
+                    <div class="message-row msg-bot-row">
+                        <div class="message msg-bot">${text}</div>
+                    </div>
+                `);
+                
+                if (options && options.length > 0) {
+                    let optionsHtml = `<div class="options-container" id="options-box">`;
+                    
+                    // Se for seleção de sabores, injeta barra de pesquisa e abas de categoria
+                    if (isFlavorSelection) {
+                        optionsHtml += `
+                            <div class="search-box-container">
+                                <input type="text" id="flavor-search-input" class="search-input" placeholder="🔍 Buscar sabor ou ingrediente..." oninput="filtrarSaboresNaTela(this.value)">
+                                <div class="category-tabs" style="margin-top:6px;">
+                                    <button class="cat-tab active" onclick="filtrarCategoria('todas')">Todas</button>
+                                    <button class="cat-tab" onclick="filtrarCategoria('tradicional')">Tradicionais</button>
+                                    <button class="cat-tab" onclick="filtrarCategoria('especial')">Especiais Gourmet</button>
+                                    <button class="cat-tab" onclick="filtrarCategoria('doce')">Doces</button>
+                                </div>
+                            </div>
+                            <div id="flavors-list-wrapper" style="display:flex; flex-direction:column; gap:8px;">
+                        `;
+                    }
+
+                    options.forEach(opt => {
+                        const param = typeof opt.value === 'string' ? `'${opt.value}'` : (opt.value !== undefined ? opt.value : 'null');
+                        const priceHtml = opt.price ? `<span class="option-price-tag">${formatarMoeda(opt.price)}</span>` : '';
+                        const catAttr = opt.category ? `data-category="${opt.category}"` : '';
+                        const searchData = opt.ingredients ? `${opt.label} ${opt.ingredients}`.toLowerCase() : opt.label.toLowerCase();
+
+                        if (opt.ingredients) {
+                            optionsHtml += `
+                                <button class="option-btn flavor-card-item" ${catAttr} data-search="${searchData}" onclick="handleOptionClick('${opt.action}', ${param}, '${opt.label.replace(/'/g, "\\'")}')">
+                                    <div class="pizza-btn-top">
+                                        <span class="pizza-title-bold">${opt.label}</span>
+                                        ${priceHtml}
+                                    </div>
+                                    <span class="pizza-ingredients-text">${opt.ingredients}</span>
+                                </button>`;
+                        } else {
+                            optionsHtml += `
+                                <button class="option-btn" ${catAttr} onclick="handleOptionClick('${opt.action}', ${param}, '${opt.label.replace(/'/g, "\\'")}')">
+                                    <div class="pizza-btn-top">
+                                        <span class="pizza-title-bold">${opt.label}</span>
+                                        ${priceHtml}
+                                    </div>
+                                </button>`;
+                        }
+                    });
+
+                    if (isFlavorSelection) {
+                        optionsHtml += `</div>`; // fecha flavors-list-wrapper
+                    }
+
+                    optionsHtml += `</div>`;
+                    chatBody.insertAdjacentHTML('beforeend', optionsHtml);
+                }
+                scrollToBottom();
+            }, 500);
+        }
+
+        // Filtro em tempo real de sabores pelo campo de busca
+        window.filtrarSaboresNaTela = function(termo) {
+            const query = termo.toLowerCase().trim();
+            const cards = document.querySelectorAll('.flavor-card-item');
+            cards.forEach(card => {
+                const text = card.getAttribute('data-search') || '';
+                const cat = card.getAttribute('data-category') || '';
+                const matchCategory = currentFilterCategory === 'todas' || cat === currentFilterCategory;
+                const matchSearch = text.includes(query);
+                card.style.display = (matchCategory && matchSearch) ? 'flex' : 'none';
+            });
+        };
+
+        // Filtro por abas de categoria
+        window.filtrarCategoria = function(categoria) {
+            currentFilterCategory = categoria;
+            document.querySelectorAll('.cat-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            const searchInput = document.getElementById('flavor-search-input');
+            filtrarSaboresNaTela(searchInput ? searchInput.value : '');
+        };
+
+        // ─── Verificação de Horário Oficial D Thales (18:30 às 23:30, Todos os Dias) ───
+        function verificarHorarioFuncionamento() {
+            const agora = new Date();
+            const hora = agora.getHours();
+            const minuto = agora.getMinutes();
+            const totalMinutos = hora * 60 + minuto;
+
+            const abertura = 18 * 60 + 30;  // 18:30
+            const fechamento = 23 * 60 + 30; // 23:30
+
+            // Segunda a Domingo (todos os dias)
+            return totalMinutos >= abertura && totalMinutos < fechamento;
+        }
+
+        window.permitirVerCardapio = function() {
+            document.getElementById('closed-overlay').style.display = 'none';
+            iniciarChatbot();
+        };
+
+        window.onload = () => {
+            const estaAberto = verificarHorarioFuncionamento();
+            if (!estaAberto) {
+                document.getElementById('closed-overlay').style.display = 'flex';
+                document.getElementById('status-text').textContent = 'Fechado no momento (Abertura 18:30)';
+                document.getElementById('status-text').style.color = '#ff4757';
+                return;
+            }
+            iniciarChatbot();
+        };
+
+        function iniciarChatbot() {
+            atualizarBarraCarrinho();
+            addBotMessage("Olá! 👋 Seja muito bem-vindo à <b>D Thales Pizza Delivery</b> de Ourinhos.");
+            setTimeout(perguntarTipoEntrega, 1000);
+        }
+
+        function perguntarTipoEntrega() {
+            state = 'TIPO_ENTREGA';
+            addBotMessage("Para começarmos, você gostaria de receber por <b>Delivery</b> ou fazer a <b>Retirada no Balcão</b>?", [
+                { label: '🛵 Delivery (Entregar na minha casa)', action: 'ESCOLHER_ENTREGA', value: 'entrega' },
+                { label: '🏪 Retirada no Balcão (R. Rubéns Saladine, 199)', action: 'ESCOLHER_ENTREGA', value: 'retirada' }
+            ]);
+        }
+
+        // ==========================================================================
+        // MÁQUINA DE ESTADOS & DISPATCHER DE CLIQUE DE BOTÕES
+        // ==========================================================================
+        window.handleOptionClick = function(action, value, label) {
+            addUserMessage(label);
+            
+            switch(action) {
+                case 'ESCOLHER_ENTREGA':    escolherTipoEntrega(value); break;
+                case 'MENU_PRINCIPAL':      mostrarMenuPrincipal(); break;
+                case 'VER_PIZZAS':          iniciarPedidoPizza(); break;
+                case 'VER_BEBIDAS':         iniciarPedidoBebida(); break;
+                case 'VER_CARRINHO':        mostrarCarrinho(); break;
+                case 'FINALIZAR':           iniciarFinalizacao(); break;
+                case 'SET_PIZZA_SIZE':      selecionarTamanhoPizza(value); break;
+                case 'SET_PIZZA_QTD_SABOR': selecionarQtdSabores(value); break;
+                case 'ADD_PIZZA_SABOR':     adicionarSaborPizza(value); break;
+                case 'SEM_ALTERACAO':       confirmarSaborSemAlteracao(); break;
+                case 'PEDIR_ALTERACAO':
+                    state = 'WAITING_ALTERACAO';
+                    setTimeout(() => {
+                        addBotMessage("Por favor, digite qual alteração deseja no sabor:");
+                        setInputMode(true, "Ex: sem cebola, bem assada, sem tomate...");
+                    }, 250);
+                    break;
+                case 'ADD_BEBIDA':          adicionarBebidaCarrinho(value); break;
+                case 'ESCOLHER_TIPO_BORDA': escolherTipoBorda(value); break;
+                case 'SET_BORDA':           selecionarBorda(value); break;
+                case 'SEM_BORDA':           finalizarMontagemPizza(null); break;
+                case 'CANCELAR_ITEM':
+                    tempOrder = {};
+                    addBotMessage("Item cancelado. Voltando ao menu.");
+                    mostrarMenuPrincipal();
+                    break;
+                case 'PAGAMENTO_CARTAO':
+                    cliente.pagamento = 'Cartão de Crédito / Débito (Maquininha na entrega)';
+                    enviarParaWhatsApp();
+                    break;
+                case 'PAGAMENTO_PIX':
+                    cliente.pagamento = 'Pix (Chave informada no WhatsApp)';
+                    enviarParaWhatsApp();
+                    break;
+                case 'PAGAMENTO_DINHEIRO':
+                    cliente.pagamento = 'Dinheiro';
+                    perguntarTroco();
+                    break;
+                case 'TROCO_NAO':
+                    cliente.troco = 'Sem necessidade de troco (Valor exato)';
+                    enviarParaWhatsApp();
+                    break;
+            }
+        };
+
+        // Entrada de texto pelo usuário
+        function handleTextInput() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            addUserMessage(text);
+            userInput.value = '';
+
+            if (state === 'WAITING_NAME_ENTREGA') {
+                cliente.nome = text;
+                state = 'WAITING_RUA';
+                setTimeout(() => { 
+                    addBotMessage(`Prazer, <b>${cliente.nome}</b>! Agora digite a sua <b>Rua</b> para a entrega:`); 
+                    setInputMode(true, "Nome da rua..."); 
+                }, 400);
+            } else if (state === 'WAITING_RUA') {
+                cliente.rua = text;
+                state = 'WAITING_NUMERO';
+                setTimeout(() => { 
+                    addBotMessage("Qual o <b>número</b> da sua residência?"); 
+                    setInputMode(true, "Número..."); 
+                }, 400);
+            } else if (state === 'WAITING_NUMERO') {
+                cliente.numero = text;
+                state = 'WAITING_BAIRRO';
+                setTimeout(() => { 
+                    addBotMessage("Qual o seu <b>bairro</b> aqui em Ourinhos?"); 
+                    setInputMode(true, "Nome do bairro..."); 
+                }, 400);
+            } else if (state === 'WAITING_BAIRRO') {
+                cliente.bairro = text;
+                state = 'WAITING_COMPLEMENTO';
+                setTimeout(() => { 
+                    addBotMessage("Possui algum <b>complemento ou ponto de referência</b>? (Caso não tenha, digite apenas <b>Não</b>):"); 
+                    setInputMode(true, "Ex: Apto 12, Bloco B ou 'Não'..."); 
+                }, 400);
+            } else if (state === 'WAITING_COMPLEMENTO') {
+                cliente.complemento = text;
+                setInputMode(false);
+                state = 'MENU';
+                setTimeout(() => { 
+                    addBotMessage(`Perfeito, ${cliente.nome}! Endereço cadastrado com sucesso. Agora vamos ao seu pedido! 🍕`); 
+                    setTimeout(mostrarMenuPrincipal, 700); 
+                }, 400);
+            } else if (state === 'WAITING_NAME_RETIRADA') {
+                cliente.nome = text;
+                setInputMode(false);
+                state = 'MENU';
+                setTimeout(() => { 
+                    addBotMessage(`Ótimo, ${cliente.nome}! Vamos montar sua pizza para retirada no balcão. 🍕`); 
+                    setTimeout(mostrarMenuPrincipal, 700); 
+                }, 400);
+            } else if (state === 'WAITING_TROCO') {
+                cliente.troco = `Troco para R$ ${text}`;
+                setInputMode(false);
+                state = 'DONE';
+                setTimeout(enviarParaWhatsApp, 400);
+            } else if (state === 'WAITING_ALTERACAO') {
+                const idx = tempOrder.saboresSelecionados.length - 1;
+                tempOrder.saboresSelecionados[idx].observacao = text;
+                setInputMode(false);
+                const sabor = tempOrder.saboresSelecionados[idx];
+                setTimeout(() => {
+                    addBotMessage(`✏️ Anotado: <i>"${text}"</i> para a metade de <b>${sabor.name}</b>.`);
+                    setTimeout(solicitarProximoSabor, 500);
+                }, 400);
+            }
+        }
+
+        function escolherTipoEntrega(tipo) {
+            cliente.tipoEntrega = tipo;
+            if (tipo === 'entrega') {
+                state = 'WAITING_NAME_ENTREGA';
+                setTimeout(() => { 
+                    addBotMessage("Excelente! Para entrega, qual é o seu <b>nome completo</b>?"); 
+                    setInputMode(true, "Digite seu nome..."); 
+                }, 400);
+            } else {
+                state = 'WAITING_NAME_RETIRADA';
+                setTimeout(() => { 
+                    addBotMessage("Combinado! Para quem deixamos a pizza reservada no balcão? Digite seu <b>nome</b>:"); 
+                    setInputMode(true, "Digite seu nome..."); 
+                }, 400);
+            }
+        }
+
+        function mostrarMenuPrincipal() {
+            state = 'MENU';
+            const opcoes = [
+                { label: '🍕 Escolher Pizza (Pequena ou Grande)', action: 'VER_PIZZAS' },
+                { label: '🥤 Escolher Bebidas', action: 'VER_BEBIDAS' }
+            ];
+            if (cart.length > 0) {
+                opcoes.push({ label: `📦 Ver Carrinho (${cart.length} itens - Total: ${formatarMoeda(calcularTotalCarrinho())})`, action: 'VER_CARRINHO' });
+                opcoes.push({ label: '✅ Finalizar e Enviar Pedido no WhatsApp', action: 'FINALIZAR' });
+            }
+            addBotMessage("Como você deseja prosseguir?", opcoes);
+        }
+
+        // ==========================================================================
+        // FLUXO DE MONTAGEM DE PIZZA (COM CÁLCULO DINÂMICO REAL)
+        // ==========================================================================
+        function iniciarPedidoPizza() {
+            tempOrder = { 
+                tipo: 'pizza', 
+                tamanhoId: '', 
+                tamanhoLabel: '', 
+                maxSabores: 0, 
+                saboresSelecionados: [],
+                borda: null,
+                precoFinal: 0
+            };
+            addBotMessage("Escolha o tamanho da sua pizza artesanal:", [
+                { 
+                    label: '🍕 Pequena (1 Sabor) - A partir de R$ 40,00', 
+                    action: 'SET_PIZZA_SIZE', 
+                    value: 'pequena',
+                    price: 40.00
+                },
+                { 
+                    label: '🍕 Grande 8 Pedaços (até 2 Sabores) - A partir de R$ 60,00', 
+                    action: 'SET_PIZZA_SIZE', 
+                    value: 'grande',
+                    price: 60.00
+                },
+                { label: '⬅️ Voltar ao Menu Principal', action: 'MENU_PRINCIPAL' }
+            ]);
+        }
+
+        function selecionarTamanhoPizza(tamanhoId) {
+            const tam = CARDAPIO.tamanhos[tamanhoId];
+            tempOrder.tamanhoId = tamanhoId;
+            tempOrder.tamanhoLabel = tam.label;
+            
+            if (tam.maxSabores === 1) {
+                tempOrder.maxSabores = 1;
+                solicitarProximoSabor();
+            } else {
+                // Tamanho Grande permite 1 ou 2 sabores
+                addBotMessage(`Você escolheu a <b>${tam.label}</b>. Deseja 1 sabor inteiro ou metade/metade (2 sabores)?`, [
+                    { label: '1 Sabor Inteiro', action: 'SET_PIZZA_QTD_SABOR', value: 1 },
+                    { label: '2 Sabores (Metade / Metade)', action: 'SET_PIZZA_QTD_SABOR', value: 2 },
+                    { label: '❌ Cancelar', action: 'CANCELAR_ITEM' }
+                ]);
+            }
+        }
+
+        function selecionarQtdSabores(qtd) {
+            tempOrder.maxSabores = qtd;
+            solicitarProximoSabor();
+        }
+
+        function solicitarProximoSabor() {
+            const numAtual = tempOrder.saboresSelecionados.length + 1;
+            
+            if (numAtual <= tempOrder.maxSabores) {
+                const tituloEtapa = tempOrder.maxSabores > 1 
+                    ? `Escolha o <b>${numAtual}º sabor</b> (metade):` 
+                    : `Escolha o sabor da sua pizza:`;
+
+                const opcoes = CARDAPIO.pizzas.map(p => {
+                    const precoExibicao = tempOrder.tamanhoId === 'pequena' ? p.precoPequena : p.precoGrande;
+                    return {
+                        label: p.name,
+                        ingredients: p.ingredients,
+                        category: p.categoria,
+                        price: precoExibicao,
+                        action: 'ADD_PIZZA_SABOR',
+                        value: p.id
+                    };
+                });
+                
+                opcoes.push({ label: '❌ Cancelar pizza', action: 'CANCELAR_ITEM' });
+                addBotMessage(tituloEtapa, opcoes, true);
+            } else {
+                perguntarBorda(); 
+            }
+        }
+
+        function adicionarSaborPizza(saborId) {
+            const sabor = CARDAPIO.pizzas.find(p => p.id === saborId);
+            tempOrder.saboresSelecionados.push({ ...sabor, observacao: '' });
+            perguntarAlteracao(sabor);
+        }
+
+        function perguntarAlteracao(sabor) {
+            addBotMessage(
+                `Você escolheu <b>${sabor.name}</b>! 🍕<br>Deseja fazer alguma alteração ou observação de ingredientes?`,
+                [
+                    { label: '✏️ Sim, quero alterar (ex: sem cebola)', action: 'PEDIR_ALTERACAO', value: sabor.id },
+                    { label: '✅ Manter receita original', action: 'SEM_ALTERACAO', value: sabor.id }
+                ]
+            );
+        }
+
+        function confirmarSaborSemAlteracao() {
+            solicitarProximoSabor();
+        }
+
+        function perguntarBorda() {
+            addBotMessage("Deseja adicionar uma <b>borda recheada</b> especial na sua pizza? 😋", [
+                { label: '🧀 Sim, Borda Salgada (Catupiry, Cheddar, Mussarela)', action: 'ESCOLHER_TIPO_BORDA', value: 'salgada' },
+                { label: '🍫 Sim, Borda Doce (Chocolate, Romeu e Julieta)', action: 'ESCOLHER_TIPO_BORDA', value: 'doce' },
+                { label: '❌ Sem borda recheada (Massa Tradicional)', action: 'SEM_BORDA', value: 'nenhuma' }
+            ]);
+        }
+
+        function escolherTipoBorda(tipo) {
+            const lista = CARDAPIO.bordas[tipo];
+            const opcoes = lista.map(b => ({
+                label: b.name,
+                price: b.preco,
+                action: 'SET_BORDA',
+                value: b.id
+            }));
+            opcoes.push({ label: '⬅️ Sem borda', action: 'SEM_BORDA', value: 'nenhuma' });
+            addBotMessage(`Escolha o recheio da borda <b>${tipo}</b>:`, opcoes);
+        }
+
+        function selecionarBorda(bordaId) {
+            const todasBordas = [...CARDAPIO.bordas.salgada, ...CARDAPIO.bordas.doce];
+            const borda = todasBordas.find(b => b.id === bordaId);
+            finalizarMontagemPizza(borda);
+        }
+
+        // Calcula o preço da pizza e adiciona ao carrinho
+        // Regra de pizzaria: para pizzas com 2 sabores, cobra-se o valor do maior sabor (ou média ponderada transparente)
+        function finalizarMontagemPizza(bordaEscolhida = null) {
+            const sabores = tempOrder.saboresSelecionados;
+            if (sabores.length === 0) return;
+
+            // Calcula preço dos sabores baseado no tamanho
+            let precosSabores = sabores.map(s => tempOrder.tamanhoId === 'pequena' ? s.precoPequena : s.precoGrande);
+            // Preço da pizza: maior sabor escolhido (padrão de mercado brasileiro de pizzarias)
+            let precoPizza = Math.max(...precosSabores);
+
+            let valorBorda = 0;
+            if (bordaEscolhida) {
+                tempOrder.borda = bordaEscolhida;
+                valorBorda = bordaEscolhida.preco;
+            }
+
+            const totalItem = precoPizza + valorBorda;
+
+            const saboresDesc = sabores.map(s =>
+                s.observacao ? `${s.name} [Obs: ${s.observacao}]` : s.name
+            ).join(' / ');
+
+            const bordaDesc = bordaEscolhida ? ` + Borda Recheada ${bordaEscolhida.name} (+${formatarMoeda(valorBorda)})` : '';
+            const descricaoCompleta = `Pizza ${tempOrder.tamanhoLabel} (${saboresDesc})${bordaDesc}`;
+
+            cart.push({
+                tipo: 'pizza',
+                descricao: descricaoCompleta,
+                preco: totalItem
+            });
+
+            atualizarBarraCarrinho();
+
+            addBotMessage(`✅ <b>${descricaoCompleta}</b> adicionada ao carrinho!<br>Valor do item: <b>${formatarMoeda(totalItem)}</b>.`);
+            tempOrder = {};
+            setTimeout(mostrarMenuPrincipal, 700);
+        }
+
+        // ==========================================================================
+        // FLUXO DE BEBIDAS
+        // ==========================================================================
+        function iniciarPedidoBebida() {
+            const opcoes = CARDAPIO.bebidas.map(b => ({
+                label: b.name,
+                price: b.preco,
+                action: 'ADD_BEBIDA',
+                value: b.id
+            }));
+            opcoes.push({ label: '⬅️ Voltar ao Menu Principal', action: 'MENU_PRINCIPAL' });
+            addBotMessage("Escolha a bebida geladinha para acompanhar:", opcoes);
+        }
+
+        function adicionarBebidaCarrinho(bebidaId) {
+            const bebida = CARDAPIO.bebidas.find(b => b.id === bebidaId);
+            cart.push({
+                tipo: 'bebida',
+                descricao: bebida.name,
+                preco: bebida.preco
+            });
+            atualizarBarraCarrinho();
+            addBotMessage(`✅ <b>${bebida.name}</b> adicionada ao seu pedido (+${formatarMoeda(bebida.preco)})!`);
+            setTimeout(mostrarMenuPrincipal, 600);
+        }
+
+        // ==========================================================================
+        // VISUALIZAÇÃO DO CARRINHO & FINALIZAÇÃO
+        // ==========================================================================
+        function mostrarCarrinho() {
+            if (cart.length === 0) {
+                addBotMessage("Seu carrinho ainda está vazio. Que tal escolher uma pizza artesanal quentinha?", [
+                    { label: '🍕 Ver Sabores de Pizza', action: 'VER_PIZZAS' }
+                ]);
+                return;
+            }
+
+            const total = calcularTotalCarrinho();
+            let resumo = "<b>📋 Resumo Atual do seu Pedido:</b><br><br>";
+            cart.forEach((item, index) => {
+                resumo += `${index + 1}. <b>${item.descricao}</b> — ${formatarMoeda(item.preco)}<br>`;
+            });
+            resumo += `<br><div style="font-size:15px; font-weight:700; color:var(--accent-red);">Total dos Itens: ${formatarMoeda(total)}</div>`;
+            resumo += `<span style="font-size:12px; color:var(--text-muted)">* Taxa de entrega (se aplicável) informada pelo atendente.</span>`;
+
+            addBotMessage(resumo, [
+                { label: '🍕 Adicionar mais itens', action: 'MENU_PRINCIPAL' },
+                { label: '✅ Finalizar Pedido Agora', action: 'FINALIZAR' }
+            ]);
+        }
+
+        function iniciarFinalizacao() {
+            if (cart.length === 0) {
+                addBotMessage("Você precisa adicionar pelo menos um item antes de finalizar.", [
+                    { label: '🍕 Ver Pizzas', action: 'VER_PIZZAS' }
+                ]);
+                return;
+            }
+
+            if (cliente.tipoEntrega === 'entrega') {
+                perguntarFormaPagamento();
+            } else {
+                perguntarFormaPagamento();
+            }
+        }
+
+        function perguntarFormaPagamento() {
+            state = 'PAGAMENTO';
+            addBotMessage("Como você prefere realizar o pagamento?", [
+                { label: '💳 Cartão de Crédito / Débito na Entrega', action: 'PAGAMENTO_CARTAO', value: 'cartao' },
+                { label: '📱 Pix (Chave enviada no WhatsApp)', action: 'PAGAMENTO_PIX', value: 'pix' },
+                { label: '💵 Dinheiro', action: 'PAGAMENTO_DINHEIRO', value: 'dinheiro' }
+            ]);
+        }
+
+        function perguntarTroco() {
+            addBotMessage("Vai precisar de <b>troco</b> para dinheiro?", [
+                { label: '✅ Não preciso de troco (Valor certinho)', action: 'TROCO_NAO', value: 'nao' }
+            ]);
+            setTimeout(() => {
+                addBotMessage("Se precisar de troco, digite para quanto (ex: 50, 100):");
+                setInputMode(true, "Troco para R$...");
+                state = 'WAITING_TROCO';
+            }, 500);
+        }
+
+        // ==========================================================================
+        // GERAÇÃO DO LINK E DISPARO PROFISSIONAL PARA O WHATSAPP
+        // ==========================================================================
+        function gerarLinkWhatsApp() {
+            let itensTexto = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                itensTexto += `${index + 1}x ${item.descricao} - ${formatarMoeda(item.preco)}\n`;
+                total += item.preco;
+            });
+
+            let enderecoTexto = cliente.tipoEntrega === 'entrega'
+                ? `*Tipo:* 🛵 Delivery\n*Endereço:* ${cliente.rua}, Nº ${cliente.numero}\n*Bairro:* ${cliente.bairro}${cliente.complemento && cliente.complemento.toLowerCase() !== 'não' ? '\n*Complemento:* ' + cliente.complemento : ''}`
+                : `*Tipo:* 🏪 Retirada no Balcão (R. Rubéns Saladine, 199)`;
+
+            let pagamentoTexto = `\n*Forma de Pagamento:* ${cliente.pagamento}`;
+            if (cliente.troco) {
+                pagamentoTexto += ` (${cliente.troco})`;
+            }
+
+            const mensagem = 
+`*NOVO PEDIDO - D THALES PIZZA DELIVERY* 🍕
+
+*Cliente:* ${cliente.nome}
+${enderecoTexto}${pagamentoTexto}
+
+*ITENS DO PEDIDO:*
+-----------------------------------
+${itensTexto}-----------------------------------
+*SUBTOTAL:* ${formatarMoeda(total)}
+
+_Pedido gerado pelo assistente virtual D Thales. Por favor, confirme o tempo estimado e a taxa de entrega!_`;
+
+            return `https://wa.me/${ZAP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+        }
+
+        function mostrarBotaoWhatsApp() {
+            const linkWhatsapp = gerarLinkWhatsApp();
+            const total = calcularTotalCarrinho();
+            addBotMessage(`🎉 Tudo pronto, <b>${cliente.nome}</b>! Seu pedido totalizou <b>${formatarMoeda(total)}</b>.<br>Clique no botão abaixo para abrir seu WhatsApp e enviar diretamente à equipe da <b>D Thales Pizza Delivery</b>!`);
+            
+            setTimeout(() => {
+                chatBody.insertAdjacentHTML('beforeend', `
+                    <div class="options-container" style="margin-top:12px;">
+                        <a href="${linkWhatsapp}" target="_blank" style="text-decoration:none;">
+                            <button class="option-btn" style="background: linear-gradient(135deg, #22c55e, #16a34a); color: #ffffff; border-color: #16a34a; font-weight: bold; justify-content: center; font-size: 15px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.35);">
+                                📱 Enviar Pedido no WhatsApp da D Thales
+                            </button>
+                        </a>
+                        <button class="option-btn" onclick="location.reload()" style="justify-content:center; color: var(--text-muted);">
+                            🔄 Iniciar Novo Pedido
+                        </button>
+                    </div>
+                `);
+                scrollToBottom();
+            }, 400);
+        }
+
+        function enviarParaWhatsApp() {
+            state = 'DONE';
+            setInputMode(false, "Pedido concluído!");
+            setTimeout(mostrarBotaoWhatsApp, 600);
+        }
+    </script>
+</body>
+</html>

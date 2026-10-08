@@ -1,0 +1,38 @@
+﻿# Ignorar todos os arquivos por padrão
+*
+
+# Permitir pastas para o Git conseguir navegar na estrutura
+!*/
+
+# Manter este arquivo
+!.gitignore
+
+# Permitir index.html em qualquer nível
+!index.html
+!**/index.html
+
+# Permitir qualquer pasta assets e tudo dentro dela
+!**/assets/
+!**/assets/**
+
+# Segredos locais
+**/.env
+**/.env.*
+!**/.env.example
+
+# Agentes locais
+**/agents/
+**/.agents/
+
+# Chaves locais
+**/*.pem
+**/*.key
+**/id_rsa
+**/id_ed25519
+**/mcp-server.json
+
+# Dependencias/cache
+**/node_modules/
+**/.venv/
+**/venv/
+**/__pycache__/

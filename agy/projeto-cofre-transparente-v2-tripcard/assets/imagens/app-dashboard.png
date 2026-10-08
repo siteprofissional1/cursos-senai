@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" width="100%" height="100%">
+  <!-- Gradientes e Glow do Interface do App Mobile Banking Futurista -->
+  <defs>
+    <linearGradient id="appBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090E1E" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="cardWidgetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.12)" />
+      <stop offset="100%" stop-color="rgba(0, 240, 255, 0.04)" />
+    </linearGradient>
+
+    <linearGradient id="neonGlowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="50%" stop-color="#7000FF" />
+      <stop offset="100%" stop-color="#00FF94" />
+    </linearGradient>
+
+    <filter id="shadowApp">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#000" flood-opacity="0.8" />
+      <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="#00F0FF" flood-opacity="0.2" />
+    </filter>
+  </defs>
+
+  <!-- Moldura do Smartphone Futurista com Vidro Curvado -->
+  <g filter="url(#shadowApp)" transform="translate(50, 40)">
+    <rect x="0" y="0" width="500" height="820" rx="48" fill="url(#appBgGrad)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="3" />
+    
+    <!-- Notch / Ilha Dinâmica Superior -->
+    <rect x="190" y="18" width="120" height="26" rx="13" fill="#000" />
+    <circle cx="285" cy="31" r="5" fill="#00F0FF" />
+
+    <!-- Barra de Status do Sistema -->
+    <text x="40" y="36" font-family="'Inter', sans-serif" font-size="12" font-weight="bold" fill="#FFF">9:41</text>
+    <g transform="translate(420, 26)" fill="#FFF">
+      <rect x="0" y="0" width="18" height="10" rx="2" fill="none" stroke="#FFF" stroke-width="1" />
+      <rect x="2" y="2" width="10" height="6" fill="#00FF94" />
+    </g>
+
+    <!-- Cabeçalho do Usuário Nômade -->
+    <g transform="translate(30, 80)">
+      <circle cx="24" cy="24" r="24" fill="rgba(0, 240, 255, 0.2)" stroke="#00F0FF" stroke-width="1.5" />
+      <text x="18" y="30" font-family="'Outfit', sans-serif" font-size="18" font-weight="bold" fill="#00F0FF">CN</text>
+
+      <text x="60" y="20" font-family="'Inter', sans-serif" font-size="12" fill="rgba(255, 255, 255, 0.6)">Bem-vindo de volta,</text>
+      <text x="60" y="38" font-family="'Outfit', sans-serif" font-size="18" font-weight="bold" fill="#FFF">Alex Vance • Nômade Pro</text>
+
+      <rect x="380" y="5" width="36" height="36" rx="10" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.15)" />
+      <circle cx="398" cy="23" r="6" fill="none" stroke="#00F0FF" stroke-width="2" />
+    </g>
+
+    <!-- Card de Saldo Multimoeda Total (Glassmorphism Principal) -->
+    <g transform="translate(30, 150)">
+      <rect x="0" y="0" width="440" height="170" rx="24" fill="url(#cardWidgetGrad)" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5" />
+      
+      <text x="25" y="35" font-family="'Inter', sans-serif" font-size="12" fill="#00F0FF" letter-spacing="1.5">SALDO GLOBAL CONSOLIDADO</text>
+      <text x="25" y="80" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" fill="#FFFFFF">$ 142.850,90</text>
+      <text x="285" y="75" font-family="'Inter', sans-serif" font-size="13" font-weight="bold" fill="#00FF94">+ 4.2% este mês</text>
+
+      <!-- Divisor com Gradiente Glow -->
+      <rect x="25" y="105" width="390" height="1" fill="url(#neonGlowGrad)" opacity="0.6" />
+
+      <!-- Pequenos Saldos das Moedas Secundárias (USD, EUR, BRL, BTC) -->
+      <g transform="translate(25, 125)" font-family="'Inter', sans-serif" font-size="12" fill="#FFF">
+        <text x="0" y="18"><tspan fill="#00F0FF">🇺🇸 USD:</tspan> $68.400</text>
+        <text x="120" y="18"><tspan fill="#7000FF">🇪🇺 EUR:</tspan> €42.150</text>
+        <text x="240" y="18"><tspan fill="#00FF94">🇧🇷 BRL:</tspan> R$120.000</text>
+        <text x="350" y="18"><tspan fill="#FF9900">₿ BTC:</tspan> 0.85</text>
+      </g>
+    </g>
+
+    <!-- Botões de Ação Rápida (Enviar, Converter, Cartões, Cofre) -->
+    <g transform="translate(30, 340)">
+      <!-- Ação 1: Câmbio Instantâneo -->
+      <g transform="translate(0, 0)">
+        <rect width="95" height="80" rx="18" fill="rgba(0, 240, 255, 0.1)" stroke="#00F0FF" stroke-width="1" />
+        <circle cx="47" cy="30" r="14" fill="#00F0FF" opacity="0.2" />
+        <text x="47" y="35" text-anchor="middle" fill="#00F0FF" font-size="16">⇄</text>
+        <text x="47" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#FFF">Câmbio</text>
+      </g>
+
+      <!-- Ação 2: Enviar Pix / SWIFT -->
+      <g transform="translate(115, 0)">
+        <rect width="95" height="80" rx="18" fill="rgba(112, 0, 255, 0.1)" stroke="#7000FF" stroke-width="1" />
+        <text x="47" y="35" text-anchor="middle" fill="#7000FF" font-size="16">➔</text>
+        <text x="47" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#FFF">Enviar</text>
+      </g>
+
+      <!-- Ação 3: Gestão de Cartões -->
+      <g transform="translate(230, 0)">
+        <rect width="95" height="80" rx="18" fill="rgba(0, 255, 148, 0.1)" stroke="#00FF94" stroke-width="1" />
+        <text x="47" y="35" text-anchor="middle" fill="#00FF94" font-size="16">💳</text>
+        <text x="47" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#FFF">Cartões</text>
+      </g>
+
+      <!-- Ação 4: Segurança / Vault -->
+      <g transform="translate(345, 0)">
+        <rect width="95" height="80" rx="18" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" />
+        <text x="47" y="35" text-anchor="middle" fill="#FFF" font-size="16">🔒</text>
+        <text x="47" y="62" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#FFF">Cofre</text>
+      </g>
+    </g>
+
+    <!-- Gráfico Analítico de Gastos Sem IOF -->
+    <g transform="translate(30, 445)">
+      <rect x="0" y="0" width="440" height="200" rx="24" fill="url(#cardWidgetGrad)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
+      <text x="25" y="30" font-family="'Outfit', sans-serif" font-size="15" font-weight="bold" fill="#FFF">Economia de IOF por País</text>
+      <text x="320" y="30" font-family="'Inter', sans-serif" font-size="12" fill="#00FF94">Economizou R$ 8.420</text>
+
+      <!-- Linha do Gráfico Interativo de Alta Precisão -->
+      <path d="M 25 150 Q 80 120 140 140 T 260 80 T 360 110 T 415 50" fill="none" stroke="url(#neonGlowGrad)" stroke-width="3.5" filter="url(#shadowApp)" />
+      
+      <!-- Pontos de Interesse (Tóquio, Paris, Nova York) -->
+      <circle cx="140" cy="140" r="5" fill="#00F0FF" />
+      <circle cx="260" cy="80" r="5" fill="#7000FF" />
+      <circle cx="415" cy="50" r="6" fill="#00FF94" />
+      
+      <text x="125" y="165" font-family="'Inter', sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">Tóquio</text>
+      <text x="245" y="105" font-family="'Inter', sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">Paris</text>
+      <text x="385" y="40" font-family="'Inter', sans-serif" font-size="10" fill="#00FF94" font-weight="bold">NYC (-6.38%)</text>
+    </g>
+
+    <!-- Transações Recentes Globais -->
+    <g transform="translate(30, 665)">
+      <rect x="0" y="0" width="440" height="110" rx="20" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)" />
+      
+      <!-- Transação 1 -->
+      <circle cx="35" cy="35" r="16" fill="rgba(0, 240, 255, 0.15)" />
+      <text x="35" y="40" text-anchor="middle" font-size="12">✈️</text>
+      <text x="65" y="32" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" fill="#FFF">Emirates Business Lounge</text>
+      <text x="65" y="48" font-family="'Inter', sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Dubai • Câmbio Direto AED</text>
+      <text x="350" y="38" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" fill="#FFF">- 450.00 AED</text>
+
+      <!-- Transação 2 -->
+      <circle cx="35" cy="80" r="16" fill="rgba(0, 255, 148, 0.15)" />
+      <text x="35" y="85" text-anchor="middle" font-size="12">💻</text>
+      <text x="65" y="77" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" fill="#FFF">Stripe Payout Client (US)</text>
+      <text x="65" y="93" font-family="'Inter', sans-serif" font-size="11" fill="rgba(255, 255, 255, 0.5)">Nova York • Recebimento USD</text>
+      <text x="340" y="83" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" fill="#00FF94">+ $ 12,500.00</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados Fundamentais & SEO Local -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>The Ribs Hamburgueria | Sistema Integrado de Pedidos & Cozinha</title>
+  <meta name="description" content="Portal oficial da The Ribs Hamburgueria em Ourinhos/SP. Acesso ao cardápio digital com carrinho para clientes e painel administrativo da cozinha.">
+  <meta name="author" content="The Ribs Hamburgueria">
+
+  <!-- Cores de Navegador Mobile -->
+  <meta name="theme-color" content="#11100E">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10">
+
+  <!-- Tipografia Otimizada (Google Fonts Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIÁVEIS DE DESIGN & TEMA (CORES QUENTES E RÚSTICAS: THE RIBS)
+       ========================================================================== */
+    :root {
+      --color-bg-base: #11100E;
+      --color-surface-card: #1B1814;
+      --color-surface-hover: #24201A;
+      --color-surface-elevated: #28221B;
+      --color-border: #2C261F;
+      --color-border-gold: rgba(216, 155, 52, 0.35);
+
+      --color-wood: #5A351F;
+      --color-wood-dark: #382012;
+      --color-gold: #D89B34;
+      --color-gold-light: #F5BC58;
+      --color-orange: #E67E22;
+
+      --color-text-title: #FAF7F2;
+      --color-text-body: #D1C7BD;
+      --color-text-muted: #9E9184;
+
+      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--color-bg-base);
+      color: var(--color-text-body);
+      font-family: var(--font-family);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Vinheta quente de fundo */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(90, 53, 31, 0.25) 0%, rgba(17, 16, 14, 0.98) 75%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ==========================================================================
+       HERO / APRESENTAÇÃO DO PORTAL
+       ========================================================================== */
+    .portal-hero {
+      text-align: center;
+      padding: 50px 0 30px 0;
+    }
+
+    .portal-logo-wrap {
+      width: 76px;
+      height: 76px;
+      border-radius: var(--radius-full);
+      background-color: var(--color-surface-elevated);
+      border: 3px solid var(--color-gold);
+      overflow: hidden;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portal-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(90, 53, 31, 0.35);
+      border: 1px solid rgba(216, 155, 52, 0.35);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-gold-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .portal-title {
+      font-size: clamp(2rem, 5.5vw, 3rem);
+      font-weight: 800;
+      color: var(--color-text-title);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .portal-title span {
+      background: linear-gradient(120deg, var(--color-gold-light), var(--color-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .portal-description {
+      font-size: clamp(1rem, 2.8vw, 1.15rem);
+      color: var(--color-text-body);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       CARDS DE ACESSO DIRETO (CLIENTE VS ADMIN/COZINHA)
+       ========================================================================== */
+    .portal-cards-section {
+      padding: 30px 0 50px 0;
+      flex: 1;
+    }
+
+    .portal-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .portal-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .access-card {
+      background: var(--color-surface-card);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .access-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-orange));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .access-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-gold);
+      background: var(--color-surface-hover);
+      box-shadow: 0 14px 36px rgba(216, 155, 52, 0.2), 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .access-card:hover::before {
+      opacity: 1;
+    }
+
+    .access-card-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-md);
+      background: rgba(90, 53, 31, 0.35);
+      border: 1px solid rgba(216, 155, 52, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .access-card-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-text-title);
+      margin-top: 10px;
+    }
+
+    .access-card-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-body);
+      line-height: 1.55;
+    }
+
+    .access-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+    }
+
+    .access-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .access-features-list li span:first-child {
+      color: var(--color-gold-light);
+      font-weight: bold;
+    }
+
+    .btn-access {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .btn-access-primary {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      color: #11100E;
+      box-shadow: 0 4px 16px rgba(216, 155, 52, 0.35);
+    }
+
+    .btn-access-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(216, 155, 52, 0.45);
+    }
+
+    .btn-access-secondary {
+      background: linear-gradient(135deg, var(--color-wood), var(--color-wood-dark));
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold-light);
+    }
+
+    .btn-access-secondary:hover {
+      background: var(--color-wood);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       RODAPÉ MANDATÓRIO
+       ========================================================================== */
+    .site-footer {
+      background: #090807;
+      border-top: 1px solid var(--color-border);
+      padding: 30px 0 24px 0;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-text-title);
+    }
+
+    .footer-meta {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer-creator-line {
+      margin-top: 12px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .footer-creator-link {
+      color: #2563eb !important;
+      text-decoration: underline;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .footer-creator-link:hover {
+      color: #3b82f6 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       APRESENTAÇÃO DO PORTAL THE RIBS
+       ========================================================================== -->
+  <header class="portal-hero">
+    <div class="container">
+      <div class="portal-logo-wrap">
+        <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10" 
+          alt="The Ribs Hamburgueria"
+          class="portal-logo-img"
+        >
+      </div>
+      <div class="portal-badge">📍 Ourinhos - SP • Sistema Integrado</div>
+      <h1 class="portal-title">The Ribs <span>Hamburgueria</span></h1>
+      <p class="portal-description">
+        Solução completa de autoatendimento e cozinha: cardápio online com carrinho de compras, resumo do pedido em tempo real e painel KDS administrativo para a equipe.
+      </p>
+    </div>
+  </header>
+
+  <main class="portal-cards-section">
+    <div class="container">
+      <div class="portal-cards-grid">
+        
+        <!-- CARD 1: CARDÁPIO DO CLIENTE -->
+        <article class="access-card">
+          <div>
+            <div class="access-card-icon">🍔</div>
+            <h2 class="access-card-title">Cardápio do Cliente</h2>
+            <p class="access-card-desc">
+              Interface moderna e otimizada para smartphones e computadores. O cliente navega pelos lanches, adiciona ao carrinho e acompanha seu pedido.
+            </p>
+          </div>
+
+          <ul class="access-features-list">
+            <li><span>✓</span> Botão de adicionar lanches ao carrinho</li>
+            <li><span>✓</span> Personalização de quantidade e observações</li>
+            <li><span>✓</span> Tela de resumo do pedido com status ao vivo</li>
+            <li><span>✓</span> Envio direto para o LocalStorage da cozinha</li>
+          </ul>
+
+          <a href="frontend/cliente/index.html" class="btn-access btn-access-primary">
+            <span>Acessar Cardápio Online</span>
+            <span>→</span>
+          </a>
+        </article>
+
+        <!-- CARD 2: PAINEL DA COZINHA (KDS) -->
+        <article class="access-card">
+          <div>
+            <div class="access-card-icon">👨‍🍳</div>
+            <h2 class="access-card-title">Painel da Cozinha (Admin)</h2>
+            <p class="access-card-desc">
+              Painel de visualização KDS (Kitchen Display System) para a equipe da cozinha receber e gerenciar a fila de pedidos em tempo real.
+            </p>
+          </div>
+
+          <ul class="access-features-list">
+            <li><span>✓</span> Fila organizada por ordem de chegada</li>
+            <li><span>✓</span> Destaque para número da mesa e observações</li>
+            <li><span>✓</span> Botão "Marcar como Concluído / Entregue"</li>
+            <li><span>✓</span> Sincronização instantânea com a tela do cliente</li>
+          </ul>
+
+          <a href="frontend/admin/index.html" class="btn-access btn-access-secondary">
+            <span>Acessar Painel da Cozinha</span>
+            <span>→</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ (COM ASSINATURA OBRIGATÓRIA CENTRALIZADA)
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content">
+      <div class="footer-brand">The Ribs Hamburgueria</div>
+      <div class="footer-meta">Ourinhos - SP • Sistema de Gestão de Pedidos e Cardápio Digital</div>
+
+      <div class="footer-copyright">
+        © <span id="currentYear">2026</span> The Ribs Hamburgueria. Todos os direitos reservados.
+      </div>
+
+      <!-- Assinatura Centralizada Mandatória -->
+      <div class="footer-creator-line">
+        Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" class="footer-creator-link">siteprofissional.pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza automaticamente o ano vigente no rodapé
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

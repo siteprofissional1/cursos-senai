@@ -1,0 +1,48 @@
+# 🍔 The Ribs Hamburgueria - Cardápio Digital Premium
+
+[![Google Antigravity](https://img.shields.io/badge/Developed%20with-Google%20Antigravity-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://antigravity.google)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
+[![SEO Local](https://img.shields.io/badge/SEO-Local%20%26%20Schema.org-success?style=for-the-badge)](#)
+
+---
+
+## 🇧🇷 Português (Brasil)
+
+### 📌 Visão Geral do Projeto
+Cardápio digital moderno, ultraveloz e responsivo desenvolvido sob medida para **The Ribs Hamburgueria** em Ourinhos/SP. Projetado especificamente para consulta presencial no salão, priorizando experiência móvel (mobile-first), elegância rústica artesanal, contraste refinado e alto desempenho com zero dependências externas pesadas.
+
+### 🌟 Destaques Tecnológicos & Google Antigravity
+Construído com assistência avançada do ecossistema **Google Antigravity**, aplicando engenharia de software de ponta, acessibilidade e padrões modernos da web:
+- **Zero Frameworks:** HTML5 semântico, CSS3 puro com variáveis e JavaScript Vanilla em arquitetura de arquivo único autocontido (`index.html`).
+- **Design System Temático:** Tons de preto, marrom defumado, dourado âmbar e toques quentes sem o uso de vermelho, refletindo a estética de churrasco, costela defumada e hambúrguer artesanal.
+- **SEO Local Avançado:** Schema.org (`Restaurant` / `FastFoodRestaurant`), Open Graph, Twitter Cards e meta tags otimizadas para busca local em Ourinhos/SP ("lanches em Ourinhos", "hambúrguer artesanal", "costela").
+- **Experiência Presencial com Suporte:** Mensagem de atendimento pelo garçom, status em tempo real de funcionamento e botão de contato direto via WhatsApp.
+
+### 🤖 Agentes e Skills Utilizados
+- **Agentes:** `frontend-specialist`, `orchestrator`, `seo-specialist`
+- **Skill Packs:** `clean-code`, `frontend-design`, `design-spec`, `seo-fundamentals`
+
+### 🚀 Como Executar
+Basta abrir o arquivo `index.html` diretamente em qualquer navegador web moderno em celular, tablet ou computador.
+
+---
+
+## 🇺🇸 English
+
+### 📌 Project Overview
+A modern, ultra-fast, and responsive digital menu tailored for **The Ribs Hamburgueria** in Ourinhos/SP, Brazil. Designed specifically for in-restaurant dining consultation, focusing on mobile-first experience, artisanal rustic elegance, refined contrast, and peak performance with zero bloated external dependencies.
+
+### 🌟 Technological Highlights & Google Antigravity
+Built with advanced guidance from the **Google Antigravity** platform:
+- **Zero Frameworks:** Semantic HTML5, pure CSS3 with custom properties, and Vanilla JavaScript in a self-contained single-file architecture (`index.html`).
+- **Themed Design System:** Deep blacks, smoked brown, amber gold, and warm accents without reds, capturing the essence of barbecue, smoked ribs, and craft burgers.
+- **Local SEO & Schema.org:** Rich structured data (`Restaurant`), Open Graph tags, and localized search optimization for Ourinhos/SP.
+
+### 🤖 Agents & Skills Used
+- **Agents:** `frontend-specialist`, `orchestrator`, `seo-specialist`
+- **Skill Packs:** `clean-code`, `frontend-design`, `design-spec`, `seo-fundamentals`
+
+---
+*Desenvolvido com excelência técnica - Perfil SENAI & Google Antigravity*

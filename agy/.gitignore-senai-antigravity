@@ -1,0 +1,45 @@
+# Antigravity / agentes locais
+**/.agents/
+**/.ag-kit-backups/
+
+# Dependências
+**/node_modules/
+
+# Variáveis e segredos
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+
+# Sistema/editor
+.DS_Store
+Thumbs.db
+
+# Temporarios
+**/.tmp/
+**/.temp_ag_kit/
+**/.agents/
+**/.ag-kit-backups/
+**/node_modules/
+
+# Segredos locais
+**/.env
+**/.env.*
+!**/.env.example
+
+# Agentes locais
+**/agents/
+**/.agents/
+
+# Chaves locais
+**/*.pem
+**/*.key
+**/id_rsa
+**/id_ed25519
+**/mcp-server.json
+
+# Dependencias/cache
+**/node_modules/
+**/.venv/
+**/venv/
+**/__pycache__/

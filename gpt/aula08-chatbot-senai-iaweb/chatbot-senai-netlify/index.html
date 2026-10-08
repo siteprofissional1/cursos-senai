@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento - SENAI Ourinhos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --senai-red: #ea0000;
+            --senai-dark: #1a1a1a;
+            --senai-light: #f4f4f4;
+            --senai-border: #e0e0e0;
+            --text-main: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--senai-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--text-main);
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            height: 90vh;
+            max-height: 800px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: var(--senai-red);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .chat-header h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .chat-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #fafafa;
+        }
+
+        /* Estilos das Mensagens */
+        .msg-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        .msg-wrapper.bot {
+            justify-content: flex-start;
+        }
+
+        .msg-wrapper.user {
+            justify-content: flex-end;
+        }
+
+        .msg-bubble {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .msg-wrapper.bot .msg-bubble {
+            background-color: #ffffff;
+            color: var(--text-main);
+            border: 1px solid var(--senai-border);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .msg-wrapper.user .msg-bubble {
+            background-color: var(--senai-dark);
+            color: #ffffff;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* Listas dentro do balão do bot */
+        .msg-bubble ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .msg-bubble ul li {
+            margin-bottom: 5px;
+        }
+        
+        .msg-bubble a {
+            color: var(--senai-red);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .msg-bubble a:hover {
+            text-decoration: underline;
+        }
+
+        /* Área de Opções (Botões) */
+        .chat-options {
+            padding: 15px 20px 20px;
+            background-color: #ffffff;
+            border-top: 1px solid var(--senai-border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-option {
+            background-color: transparent;
+            border: 2px solid var(--senai-red);
+            color: var(--senai-red);
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-option::after {
+            content: '→';
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .btn-option:hover {
+            background-color: var(--senai-red);
+            color: #ffffff;
+        }
+
+        .btn-option:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsividade para Mobile */
+        @media (max-width: 500px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <header class="chat-header">
+            <h1>SENAI Ourinhos</h1>
+            <p>Atendimento Virtual ⭐ 4,95 (Google)</p>
+        </header>
+
+        <main class="chat-messages" id="chat-messages">
+            <!-- Mensagens serão inseridas aqui via JavaScript -->
+        </main>
+
+        <footer class="chat-options" id="chat-options">
+            <!-- Botões de opção serão inseridos aqui via JavaScript -->
+        </footer>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const chatMessages = document.getElementById('chat-messages');
+        const chatOptionsArea = document.getElementById('chat-options');
+
+        // Estrutura de Decisão do Chatbot (Mapa Mental / Funil)
+        const chatFlow = {
+            'inicio': {
+                botMessage: "Olá! Bem-vindo ao atendimento virtual da Escola SENAI Ourinhos. Como posso ajudar você hoje?",
+                options: [
+                    { label: "Ver próximos cursos", nextNode: "cursos" },
+                    { label: "Horários de funcionamento", nextNode: "horarios" },
+                    { label: "Endereço e Contato", nextNode: "contato" },
+                    { label: "Redes Sociais", nextNode: "redes" }
+                ]
+            },
+            'cursos': {
+                botMessage: "Temos excelentes opções de formação profissional! Escolha a área de seu interesse para saber mais:",
+                options: [
+                    { label: "Tecnologia da Informação", nextNode: "curso_ti" },
+                    { label: "Mecânica e Usinagem", nextNode: "curso_mecanica" },
+                    { label: "Eletroeletrônica", nextNode: "curso_eletro" },
+                    { label: "⬅️ Voltar ao menu principal", nextNode: "inicio" }
+                ]
+            },
+            'curso_ti': {
+                botMessage: "Na área de TI, destacamos o curso de Desenvolvimento de Sistemas. Você aprenderá a criar aplicações web modernas e entrará em um dos mercados que mais crescem.",
+                options: [
+                    { label: "Como me inscrever?", nextNode: "contato" },
+                    { label: "⬅️ Ver outras áreas", nextNode: "cursos" }
+                ]
+            },
+            'curso_mecanica': {
+                botMessage: "Na área de Mecânica de Usinagem, você aprende a operar tornos, fresadoras e máquinas CNC com alta precisão, preparando-se diretamente para a indústria local.",
+                options: [
+                    { label: "Como me inscrever?", nextNode: "contato" },
+                    { label: "⬅️ Ver outras áreas", nextNode: "cursos" }
+                ]
+            },
+            'curso_eletro': {
+                botMessage: "Em Eletroeletrônica, formamos profissionais para montagem, manutenção e projetos de circuitos e painéis industriais. Uma área fundamental para qualquer indústria.",
+                options: [
+                    { label: "Como me inscrever?", nextNode: "contato" },
+                    { label: "⬅️ Ver outras áreas", nextNode: "cursos" }
+                ]
+            },
+            'horarios': {
+                botMessage: "Nossos horários de funcionamento são:<br><br><ul><li><strong>Segunda a Sexta:</strong> 07:30 às 20:30</li><li><strong>Sábado:</strong> 08:00 às 12:00</li><li><strong>Domingo:</strong> Fechado</li></ul>",
+                options: [
+                    { label: "Ver endereço", nextNode: "contato" },
+                    { label: "⬅️ Voltar ao menu principal", nextNode: "inicio" }
+                ]
+            },
+            'contato': {
+                botMessage: "Aqui estão nossos dados de contato e localização:<br><br><ul><li><strong>📍 Endereço:</strong> R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP, 19911-200</li><li><strong>📞 Telefone:</strong> (14) 3302-1250</li></ul>",
+                options: [
+                    { label: "Ver horários", nextNode: "horarios" },
+                    { label: "⬅️ Voltar ao menu principal", nextNode: "inicio" }
+                ]
+            },
+            'redes': {
+                botMessage: "Acompanhe o SENAI Ourinhos nas redes sociais para ficar por dentro das novidades, vagas e cursos abertos:<br><br><ul><li><a href='https://www.instagram.com/senaiourinhos/' target='_blank'>Instagram Oficial</a></li><li><a href='https://www.facebook.com/senaisp.ourinhos/' target='_blank'>Página no Facebook</a></li><li><a href='https://br.linkedin.com/company/senaisp-ourinhos' target='_blank'>LinkedIn</a></li></ul>",
+                options: [
+                    { label: "⬅️ Voltar ao menu principal", nextNode: "inicio" }
+                ]
+            }
+        };
+
+        // Função para renderizar mensagem na tela
+        function renderMessage(text, sender) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('msg-wrapper', sender);
+
+            const bubble = document.createElement('div');
+            bubble.classList.add('msg-bubble');
+            bubble.innerHTML = text; // Permite HTML para listas e links
+
+            wrapper.appendChild(bubble);
+            chatMessages.appendChild(wrapper);
+            
+            // Rola para o final
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Função para carregar uma etapa do fluxo
+        function loadNode(nodeId) {
+            const node = chatFlow[nodeId];
+            
+            // Limpa as opções atuais para dar a sensação de processamento
+            chatOptionsArea.innerHTML = '';
+
+            // Simula um tempo de digitação do bot (leve atraso)
+            setTimeout(() => {
+                renderMessage(node.botMessage, 'bot');
+
+                // Renderiza os novos botões de opção
+                node.options.forEach(option => {
+                    const btn = document.createElement('button');
+                    btn.classList.add('btn-option');
+                    btn.textContent = option.label;
+                    
+                    btn.addEventListener('click', () => {
+                        // Quando o usuário clica, mostra a escolha dele
+                        renderMessage(option.label, 'user');
+                        // Carrega o próximo nó
+                        loadNode(option.nextNode);
+                    });
+
+                    chatOptionsArea.appendChild(btn);
+                });
+                
+                // Rola para o final caso os botões empurrem o conteúdo
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            }, 400); // 400ms de atraso
+        }
+
+        // Iniciar o chatbot automaticamente
+        window.onload = () => {
+            loadNode('inicio');
+        };
+    </script>
+</body>
+</html>

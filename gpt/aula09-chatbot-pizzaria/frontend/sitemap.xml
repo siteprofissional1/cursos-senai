@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Página Inicial / Landing Page -->
+  <url>
+    <loc>https://dthalespizza.com.br/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dthalespizza.com.br/assets/images/hero-pizza.jpg</image:loc>
+      <image:title>Pizza Artesanal D Thales Delivery Ourinhos</image:title>
+      <image:caption>A melhor pizza artesanal de Ourinhos com forno em alta temperatura e entrega rápida</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Chatbot Interativo de Pedidos -->
+  <url>
+    <loc>https://dthalespizza.com.br/pedido/index.html</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://dthalespizza.com.br/assets/images/pizza-destaque.jpg</image:loc>
+      <image:title>Assistente Virtual de Pedidos D Thales</image:title>
+    </image:image>
+  </url>
+</urlset>

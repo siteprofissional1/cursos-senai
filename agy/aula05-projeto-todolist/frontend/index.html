@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart To-Do List | Ordenação Inteligente com IA</title>
+  <meta name="description" content="Organizador autônomo de afazeres cotidianos com triagem cognitiva e estimativa temporal inteligente via Google Gemini e Google Antigravity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-group">
+        <div class="logo-icon">🧠</div>
+        <div>
+          <h1 class="app-title">Smart To-Do List</h1>
+          <p class="app-subtitle">Triagem Cognitiva & Ordenação Inteligente com Gemini</p>
+        </div>
+      </div>
+      <div class="badges-row">
+        <span class="badge badge-tech">Google Antigravity</span>
+        <span class="badge badge-tech">Arquitetura 3 Camadas</span>
+        <span class="badge badge-live">● Sistema Ativo</span>
+      </div>
+    </header>
+
+    <!-- Ingestão de Afazeres -->
+    <section class="card input-section">
+      <div class="card-header">
+        <h2>📥 Ingestão de Afazeres Caóticos</h2>
+        <span class="hint">Cole sua lista desorganizada de tarefas sem se preocupar com ordem</span>
+      </div>
+      <textarea id="taskInput" class="task-textarea" rows="3" placeholder="Ex: responder e-mail da faculdade, consertar vazamento urgente da pia da cozinha, comprar pão na padaria, finalizar relatório trimestral para o diretor às 15h, levar o cachorro para passear..."></textarea>
+      
+      <div class="actions-bar">
+        <div class="secondary-actions">
+          <button id="btnDemo" class="btn btn-secondary" title="Preenche com os dados padrão de teste">
+            🚀 Carregar Exemplo Demo
+          </button>
+          <button id="btnClear" class="btn btn-ghost" title="Limpar campo de texto">
+            🗑️ Limpar
+          </button>
+        </div>
+        <button id="btnOrganize" class="btn btn-primary">
+          <span class="btn-text">✨ Triar & Organizar com IA</span>
+          <span class="spinner" id="loadingSpinner"></span>
+        </button>
+      </div>
+
+      <!-- Banner de Alerta de E-mail -->
+      <div id="emailAlertBanner" class="alert-banner hidden">
+        <span class="alert-icon">📧</span>
+        <span id="emailAlertText">Alerta de tarefas críticas enviado para o gestor.</span>
+      </div>
+    </section>
+
+    <!-- Métricas e KPIs -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon">⏳</div>
+        <div class="metric-info">
+          <span class="metric-value" id="valTotalTempo">--</span>
+          <span class="metric-label">Carga Total do Dia</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon alert">🚨</div>
+        <div class="metric-info">
+          <span class="metric-value text-red" id="valCriticas">0</span>
+          <span class="metric-label">Urgências Críticas</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-icon">📋</div>
+        <div class="metric-info">
+          <span class="metric-value" id="valTotalTarefas">0</span>
+          <span class="metric-label">Total de Tarefas</span>
+        </div>
+      </div>
+
+      <div class="metric-card metric-card-wide">
+        <div class="metric-icon tip">💡</div>
+        <div class="metric-info">
+          <span class="metric-label">Dica Estratégica de Produtividade</span>
+          <p class="metric-tip-text" id="valDica">Aguardando dados para analisar a estratégia...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de Tarefas Ordenadas -->
+    <section class="card results-section">
+      <div class="results-header">
+        <div>
+          <h2>📋 Agenda Priorizada e Sequenciada</h2>
+          <p class="section-desc">Ordenação determinística: Prioridade máxima (5 ➔ 1) com desempate por rapidez de execução</p>
+        </div>
+        
+        <!-- Filtros de Prioridade -->
+        <div class="filter-pills" id="filterPills">
+          <button class="filter-pill active" data-filter="all">Todas</button>
+          <button class="filter-pill" data-filter="Crítica">🚨 Crítica</button>
+          <button class="filter-pill" data-filter="Alta">⚠️ Alta</button>
+          <button class="filter-pill" data-filter="Média">ℹ️ Média</button>
+          <button class="filter-pill" data-filter="Baixa">✅ Baixa</button>
+        </div>
+      </div>
+
+      <!-- Container das Tarefas -->
+      <div id="tasksList" class="tasks-container">
+        <div class="empty-state">
+          <div class="empty-icon">⏳</div>
+          <p>Carregando dados consolidados ou execute uma triagem com o botão acima.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rodapé Obrigatório -->
+    <footer class="app-footer">
+      <p>Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" class="credit-link">siteprofissional.pro</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

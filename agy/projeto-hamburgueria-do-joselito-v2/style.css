@@ -1,0 +1,1482 @@
+/* ==========================================================================
+   HAMBURGUERIA DO JOSELITO - OURINHOS/SP
+   DESIGN SYSTEM & FOLHA DE ESTILOS PRINCIPAL (DARK MODE PREMIUM)
+   Tema: "O Sabor Premium Local (Luzes, Sombras e Desejo)"
+   ========================================================================== */
+
+/* ==========================================================================
+   1. VARIÁVEIS CSS (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+  /* Paleta Dark Mode Elegante */
+  --bg-main: #0a0a0a;              /* Preto Profundo de fundo principal */
+  --bg-surface-1: #141414;         /* Grafite escuro para cards e containers */
+  --bg-surface-2: #1e1e1e;         /* Grafite médio para elevações e detalhes */
+  --bg-surface-glass: rgba(20, 20, 20, 0.75); /* Efeito vidro escuro */
+
+  /* Cores de Acento e Brasas */
+  --fire-red: #e50914;             /* Vermelho Brasa vibrante */
+  --fire-red-glow: rgba(229, 9, 20, 0.45);
+  --gold-neon: #ffb800;            /* Amarelo Dourado Neon pulsante */
+  --gold-neon-glow: rgba(255, 184, 0, 0.45);
+  --whatsapp-green: #25d366;       /* Verde oficial WhatsApp */
+  --whatsapp-glow: rgba(37, 211, 102, 0.4);
+
+  /* Tipografia e Textos */
+  --text-primary: #ffffff;         /* Branco puro para títulos */
+  --text-secondary: #d1d5db;       /* Cinza claro para leitura e descrições */
+  --text-muted: #9ca3af;           /* Cinza atenuado para notas secundárias */
+  --text-link-blue: #2563eb;       /* Azul regulamentar para o link de créditos */
+
+  /* Tipografia - Famílias de Fontes */
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Efeitos, Sombras e Transições */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Sombras 3D Profundas */
+  --shadow-elevation: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --shadow-card-hover: 0 20px 40px -10px rgba(229, 9, 20, 0.3), 0 0 25px rgba(255, 184, 0, 0.15);
+}
+
+/* ==========================================================================
+   2. RESET E NORMAS GLOBAIS DE ACESSIBILIDADE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container responsivo unificado */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Links e Imagens */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================================
+   3. ANIMAÇÕES & EFEITOS NEON PULSANTE (@KEYFRAMES)
+   ========================================================================== */
+
+/* Letreiro Neon com Glow em Amarelo Dourado */
+@keyframes neonPulseGold {
+  0%, 100% {
+    text-shadow: 
+      0 0 4px #ffb800,
+      0 0 12px rgba(255, 184, 0, 0.7),
+      0 0 24px rgba(255, 184, 0, 0.5),
+      0 0 40px rgba(255, 184, 0, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px #ffb800,
+      0 0 8px rgba(255, 184, 0, 0.5),
+      0 0 16px rgba(255, 184, 0, 0.3),
+      0 0 28px rgba(255, 184, 0, 0.15);
+  }
+}
+
+/* Letreiro Neon com Glow em Vermelho Brasa */
+@keyframes neonPulseFire {
+  0%, 100% {
+    text-shadow: 
+      0 0 4px #e50914,
+      0 0 14px rgba(229, 9, 20, 0.8),
+      0 0 28px rgba(229, 9, 20, 0.6),
+      0 0 45px rgba(229, 9, 20, 0.35);
+  }
+  50% {
+    text-shadow: 
+      0 0 2px #e50914,
+      0 0 8px rgba(229, 9, 20, 0.5),
+      0 0 18px rgba(229, 9, 20, 0.35),
+      0 0 30px rgba(229, 9, 20, 0.2);
+  }
+}
+
+/* Pulso de Ondas para Botões CTA */
+@keyframes buttonPulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.6), 0 8px 20px rgba(229, 9, 20, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(229, 9, 20, 0), 0 8px 25px rgba(229, 9, 20, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0), 0 8px 20px rgba(229, 9, 20, 0.3);
+  }
+}
+
+/* Pulso Verde do WhatsApp Flutuante */
+@keyframes whatsappPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7), 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0), 0 8px 25px rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Flutuação suave da Imagem Showcase do Hero */
+@keyframes burgerFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+/* Pulso do ponto de status da Top Bar */
+@keyframes statusDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* Classes Utilitárias de Texto Neon */
+.neon-text-gold {
+  color: #fff4d1;
+  animation: neonPulseGold 2.5s ease-in-out infinite;
+}
+
+.neon-text-fire {
+  color: #ffe6e6;
+  animation: neonPulseFire 2.5s ease-in-out infinite;
+}
+
+.neon-highlight {
+  color: var(--gold-neon);
+  text-shadow: 0 0 10px var(--gold-neon-glow);
+}
+
+/* ==========================================================================
+   4. TOP BAR INFORMATIVA
+   ========================================================================== */
+.top-bar {
+  background-color: #050505;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  padding: 8px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.top-bar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.top-bar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar__pulse-dot {
+  width: 9px;
+  height: 9px;
+  background-color: var(--gold-neon);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gold-neon);
+  animation: statusDotPulse 1.8s infinite;
+}
+
+.top-bar__status strong {
+  color: var(--text-primary);
+}
+
+.top-bar__location {
+  color: var(--text-muted);
+}
+
+.top-bar__icon {
+  width: 15px;
+  height: 15px;
+  color: var(--fire-red);
+  flex-shrink: 0;
+}
+
+.top-bar__gps-link {
+  color: var(--gold-neon);
+  font-weight: 600;
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1px dashed var(--gold-neon);
+}
+
+.top-bar__gps-link:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  text-shadow: 0 0 8px var(--gold-neon);
+}
+
+/* ==========================================================================
+   5. HEADER & NAVEGAÇÃO
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background-color var(--transition-smooth), padding var(--transition-smooth);
+  padding: 14px 0;
+}
+
+.header.scrolled {
+  background: rgba(5, 5, 5, 0.95);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  padding: 10px 0;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo / Marca */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand__logo-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #1f1f1f, #0d0d0d);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.25);
+  transition: transform var(--transition-bounce);
+}
+
+.brand:hover .brand__logo-icon {
+  transform: scale(1.08) rotate(-4deg);
+  border-color: var(--fire-red);
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.brand__subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--fire-red);
+}
+
+/* Menu de Links */
+.nav__list {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+.nav__link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--fire-red), var(--gold-neon));
+  transition: width var(--transition-smooth);
+}
+
+.nav__link:hover {
+  color: var(--text-primary);
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   6. BOTÕES (SISTEMA DE AÇÕES E CONVERSÃO)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Botão Primário (Vermelho Brasa) */
+.btn--primary {
+  background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ff1a26 0%, #cc0812 100%);
+  box-shadow: 0 10px 28px rgba(229, 9, 20, 0.6);
+}
+
+.btn--primary:active {
+  transform: translateY(1px);
+}
+
+/* Botão Secundário (Grafite com Borda Neon) */
+.btn--secondary {
+  background-color: var(--bg-surface-2);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn--secondary:hover {
+  background-color: #282828;
+  border-color: var(--gold-neon);
+  transform: translateY(-2px);
+  color: var(--gold-neon);
+}
+
+.btn__icon-arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.btn--secondary:hover .btn__icon-arrow {
+  transform: translateY(3px);
+}
+
+/* Botão Header Compacto */
+.btn--header {
+  background: linear-gradient(135deg, #25d366 0%, #1da851 100%);
+  color: #ffffff;
+  padding: 9px 18px;
+  font-size: 0.88rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+}
+
+.btn--header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Botão Hero com Pulso */
+.btn--hero-pulse {
+  animation: buttonPulseGlow 2.5s infinite;
+  padding: 16px 32px;
+  font-size: 1.05rem;
+}
+
+/* Botão do Cardápio */
+.btn--card-order {
+  background-color: #242424;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.btn--card-order:hover {
+  background: linear-gradient(135deg, #e50914, #b20710);
+  border-color: #e50914;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+}
+
+.btn--gold-action {
+  background: linear-gradient(135deg, #ffb800, #d49a00);
+  color: #0a0a0a;
+  font-weight: 800;
+  border: none;
+}
+
+.btn--gold-action:hover {
+  background: linear-gradient(135deg, #ffc526, #e5a700);
+  box-shadow: 0 8px 24px rgba(255, 184, 0, 0.5);
+  color: #000000;
+}
+
+/* ==========================================================================
+   7. HERO SECTION (ATMOSFERA DE BRASA & LUZES)
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding: 70px 0 90px;
+  background: radial-gradient(circle at 75% 30%, rgba(229, 9, 20, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 20% 70%, rgba(255, 184, 0, 0.08) 0%, transparent 50%),
+              #0a0a0a;
+  overflow: hidden;
+}
+
+.hero__ambient-glow {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.22) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge de Preço Unificado */
+.hero__badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 9, 20, 0.12);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.hero__badge-pill strong {
+  color: var(--gold-neon);
+}
+
+.hero__badge-icon {
+  font-size: 1rem;
+}
+
+/* Headline Principal */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.hero__description {
+  font-size: 1.12rem;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 34px;
+  line-height: 1.65;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+/* Trust Strip (Mini Métricas) */
+.hero__trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-item__number {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--gold-neon);
+  line-height: 1.1;
+}
+
+.trust-item__label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Visual Showcase (Coluna Direita) */
+.hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__card-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  animation: burgerFloat 5s ease-in-out infinite;
+}
+
+.hero__neon-frame {
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.4) 0%, rgba(255, 184, 0, 0.15) 50%, transparent 70%);
+  filter: blur(25px);
+  z-index: 1;
+}
+
+.hero__image-wrapper {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid rgba(255, 184, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(229, 9, 20, 0.3);
+}
+
+.hero__burger-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.hero__card-showcase:hover .hero__burger-img {
+  transform: scale(1.05);
+}
+
+.hero__floating-badge {
+  position: absolute;
+  bottom: -15px;
+  right: -10px;
+  z-index: 3;
+  background: linear-gradient(135deg, #1f1f1f, #121212);
+  border: 1px solid var(--gold-neon);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 184, 0, 0.3);
+}
+
+.badge-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.badge-price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--gold-neon);
+}
+
+/* ==========================================================================
+   8. CARDÁPIO DOS CARNÍVOROS (GRID DE LANCHES)
+   ========================================================================== */
+.menu-section {
+  padding: 90px 0;
+  background-color: #0e0e0e;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--fire-red);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+/* Grid de Lanches */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Card Individual de Lanche */
+.burger-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  position: relative;
+  box-shadow: var(--shadow-elevation);
+}
+
+/* Efeito de Profundidade 3D / Hover nos Cards */
+.burger-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(229, 9, 20, 0.4);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.burger-card__media {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.burger-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter var(--transition-smooth);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+.burger-card:hover .burger-card__img {
+  transform: scale(1.08);
+}
+
+/* Badge de Preço Flutuante no Card */
+.burger-card__price-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--fire-red);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 900;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.burger-card__price-tag--gold {
+  border-color: var(--gold-neon);
+  color: var(--gold-neon);
+  box-shadow: 0 0 15px rgba(255, 184, 0, 0.3);
+}
+
+.burger-card__badge-highlight {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #e50914, #b20710);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(229, 9, 20, 0.5);
+}
+
+/* Conteúdo Textual do Card */
+.burger-card__content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.burger-card__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.burger-card__ingredients {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.burger-card__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.burger-card__tag-meat {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-neon);
+}
+
+.btn__icon-cart {
+  width: 17px;
+  height: 17px;
+}
+
+/* Card Destacado (Mega Carnívoro) */
+.burger-card--featured {
+  border-color: rgba(255, 184, 0, 0.3);
+}
+
+/* ==========================================================================
+   9. O SEGREDO DO NOSSO PADRÃO (AUTORIDADE & BRASA)
+   ========================================================================== */
+.secret-section {
+  padding: 90px 0;
+  background: radial-gradient(circle at 10% 50%, rgba(229, 9, 20, 0.08) 0%, transparent 60%),
+              #0a0a0a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.secret-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.secret__lead {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.pillar-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background-color: var(--bg-surface-1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.pillar-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(229, 9, 20, 0.35);
+}
+
+.pillar-card__icon {
+  font-size: 1.6rem;
+  background: #1f1f1f;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pillar-card__text h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.pillar-card__text p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Caixa de Citação Noturna */
+.secret__highlight-box {
+  display: flex;
+  justify-content: center;
+}
+
+.quote-card {
+  background: linear-gradient(145deg, #141414, #0d0d0d);
+  border: 1px solid rgba(255, 184, 0, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 184, 0, 0.1);
+}
+
+.quote-card__icon {
+  font-family: serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--gold-neon);
+  opacity: 0.4;
+  margin-bottom: -15px;
+}
+
+.quote-card__text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.quote-card__author strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--gold-neon);
+}
+
+.quote-card__author span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.quote-card__badge {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   10. LOCALIZAÇÃO E MAPA INTERATIVO (OURINHOS-SP)
+   ========================================================================== */
+.location-section {
+  padding: 90px 0;
+  background-color: #0e0e0e;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.location-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-elevation);
+}
+
+.location-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.location-card__icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid var(--fire-red);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fire-red);
+}
+
+.location-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.location-card__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.location-card__city {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold-neon);
+}
+
+.info-group {
+  margin-bottom: 20px;
+}
+
+.info-group__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.info-group__value {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.text-dim {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.location-card__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn--gps {
+  background: linear-gradient(135deg, #ffb800, #d49a00);
+  color: #0a0a0a;
+  font-weight: 800;
+  flex: 1;
+}
+
+.btn--gps:hover {
+  background: linear-gradient(135deg, #ffc526, #e5a700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 184, 0, 0.4);
+}
+
+.btn--copy-address {
+  background-color: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.btn--copy-address:hover {
+  background-color: #282828;
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Container do Mapa */
+.map-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-elevation);
+  min-height: 380px;
+}
+
+.map-container__iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+/* ==========================================================================
+   11. BANNER CTA FINAL
+   ========================================================================== */
+.cta-banner {
+  padding: 70px 0;
+  background: linear-gradient(135deg, #140304 0%, #1f080a 50%, #0a0a0a 100%);
+  border-top: 1px solid rgba(229, 9, 20, 0.3);
+  border-bottom: 1px solid rgba(229, 9, 20, 0.3);
+  position: relative;
+}
+
+.cta-banner__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.cta-banner__tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--gold-neon);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.cta-banner__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  max-width: 650px;
+}
+
+.cta-banner__subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+.cta-banner__subtitle strong {
+  color: var(--gold-neon);
+}
+
+.btn--banner-order {
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: #ffffff;
+  font-size: 1.05rem;
+  padding: 16px 32px;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn--banner-order:hover {
+  background: linear-gradient(135deg, #2ae26f, #22ba5b);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.55);
+}
+
+/* ==========================================================================
+   12. FOOTER (RODAPÉ INFORMATIVO + REGRA GLOBAL)
+   ========================================================================== */
+.footer {
+  background-color: #050505;
+  padding: 70px 0 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer__logo-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  display: block;
+}
+
+.footer__logo-tag {
+  font-size: 0.75rem;
+  color: var(--fire-red);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer__about {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__links a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer__links a:hover {
+  color: var(--gold-neon);
+  padding-left: 4px;
+}
+
+.footer__contact-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.footer__contact-info strong {
+  color: var(--text-secondary);
+}
+
+.footer__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.06);
+  margin-bottom: 24px;
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.footer__copyright {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   REGRA GLOBAL DO USUÁRIO (MANDATÓRIA):
+   "Criado por siteprofissional.pro" - Centralizado na última linha,
+   com 'siteprofissional.pro' azul e hiperlink.
+   ========================================================================== */
+.site-credit {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  text-align: center;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.site-credit__link {
+  color: #2563eb !important; /* Azul regulamentar */
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.site-credit__link:hover {
+  color: #3b82f6 !important;
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+}
+
+/* ==========================================================================
+   13. BOTÃO FLUTUANTE DO WHATSAPP
+   ========================================================================== */
+.whatsapp-float-wrapper {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+}
+
+.whatsapp-float {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  position: relative;
+  animation: whatsappPulse 2.2s infinite;
+  transition: transform var(--transition-bounce);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+}
+
+.whatsapp-float__svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Tooltip do WhatsApp */
+.whatsapp-float__tooltip {
+  position: absolute;
+  right: 72px;
+  background-color: #141414;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.whatsapp-float:hover .whatsapp-float__tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   14. RESPONSIVIDADE (MOBILE-FIRST & ADAPTAÇÕES)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__trust-strip {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    order: -1;
+  }
+
+  .secret-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar__inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav {
+    display: none; /* Em telas móveis mantemos foco direto no CTA */
+  }
+
+  .header__inner {
+    justify-content: space-between;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-banner__inner {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .cta-banner__action {
+    width: 100%;
+  }
+
+  .cta-banner__action .btn {
+    width: 100%;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer__about {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .location-card {
+    padding: 24px;
+  }
+
+  .whatsapp-float-wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float__tooltip {
+    display: none;
+  }
+}
+
+/* Suporte para preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

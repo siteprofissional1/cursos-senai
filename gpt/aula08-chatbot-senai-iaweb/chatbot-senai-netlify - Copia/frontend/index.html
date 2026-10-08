@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento Virtual & Cursos - SENAI Ourinhos</title>
+    
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="Chatbot oficial e interativo do SENAI Ourinhos. Conheça nossos cursos de TI, IA, Robótica, Mecânica e Elétrica com navegação rápida em funil.">
+    <meta name="author" content="siteprofissional.pro">
+    <meta name="theme-color" content="#d90000">
+
+    <!-- Tipografia moderna Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilização clássica e minimalista -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container Central do Chatbot Funil -->
+    <main class="chat-container" role="main" aria-label="Janela do Chatbot de Atendimento">
+        <!-- Cabeçalho Institucional -->
+        <header class="chat-header">
+            <div class="chat-header-info">
+                <h1>SENAI Ourinhos</h1>
+                <p><span class="status-dot"></span> Atendimento Virtual • Cursos & Indústria</p>
+            </div>
+            <!-- Botão para reiniciar o fluxo do funil -->
+            <button id="btn-reset-flow" class="btn-reset-header" type="button" title="Reiniciar conversa">
+                🔄 Início
+            </button>
+        </header>
+
+        <!-- Área de Conversas e Balões -->
+        <section class="chat-messages" id="chat-messages" aria-live="polite">
+            <!-- Mensagens são geradas dinamicamente via app.js -->
+        </section>
+
+        <!-- Área de Botões do Funil (Sem input de texto, 100% por botões) -->
+        <nav class="chat-options-area" id="chat-options" aria-label="Opções de navegação do funil">
+            <!-- Botões verticais são injetados dinamicamente via app.js -->
+        </nav>
+    </main>
+
+    <!-- Rodapé Obrigatório Institucional e de Autoria -->
+    <footer class="footer-container">
+        <p class="app-credit">Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer">siteprofissional.pro</a></p>
+    </footer>
+
+    <!-- Lógica do Chatbot -->
+    <script src="app.js"></script>
+</body>
+</html>

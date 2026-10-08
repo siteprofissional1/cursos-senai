@@ -1,0 +1,1129 @@
+/* ==========================================================================
+   COFRE TRANSPARENTE - SISTEMA DE DESIGN & ESTILOS FUTURISTAS (GLASSMORPHISM 3D)
+   Desenvolvido para Nômades Digitais e Startups Globais de Finanças.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS DE DESIGN SYSTEM & PALETA DE CORES (DARK FINTECH LUXURY)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Cores Principais do Cofre Transparente */
+  --bg-dark-primary: #050811;      /* Fundo ultra-escuro cibernético */
+  --bg-dark-secondary: #0a0f1d;    /* Fundo dos cartões e contêineres */
+  --glass-bg: rgba(255, 255, 255, 0.08); /* Vidro fosco Glassmorphism puro */
+  --glass-bg-hover: rgba(255, 255, 255, 0.14); /* Vidro em hover */
+  --glass-border: rgba(255, 255, 255, 0.18);  /* Borda translúcida reluzente */
+  --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Sombra de profundidade 3D */
+
+  /* Cores de Destaque Neon */
+  --neon-cyan: #00F0FF;           /* Ciano neon elétrico */
+  --cyber-purple: #7000FF;        /* Roxo violeta cibernético */
+  --soft-neon-green: #00FF94;     /* Verde neon suave para confirmação e ganhos */
+  --accent-gold: #FFB800;         /* Dourado metálico */
+
+  /* Cores de Texto e Leitura */
+  --text-main: #F5F7FA;           /* Texto branco prateado principal */
+  --text-muted: #8E9BAE;          /* Texto secundário/suave */
+  --text-dark: #050811;           /* Texto sobre fundos claros */
+
+  /* Fontes Modernas (Google Fonts) */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Efeitos e Transição */
+  --backdrop-filter: blur(16px) saturate(180%);
+  --transition-fast: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET GLOBAL & CONFIGURAÇÕES BASE
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-dark-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   3. BACKGROUND CANVAS INTERATIVO & MESH GRADIENTS FLUIDOS
+   -------------------------------------------------------------------------- */
+/* Canvas cibernético de partículas que responde ao movimento do mouse */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Gradientes radiais contínuos no fundo criando brilho holográfico */
+.background-glows {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: orbPulse 12s infinite alternate ease-in-out;
+}
+
+.glow-orb-1 {
+  top: -10%;
+  left: 20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--cyber-purple) 0%, rgba(0,0,0,0) 70%);
+}
+
+.glow-orb-2 {
+  top: 40%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, var(--neon-cyan) 0%, rgba(0,0,0,0) 70%);
+}
+
+.glow-orb-3 {
+  bottom: -10%;
+  left: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, var(--soft-neon-green) 0%, rgba(0,0,0,0) 70%);
+}
+
+@keyframes orbPulse {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.15) translate(30px, -20px); }
+  100% { transform: scale(0.9) translate(-20px, 30px); }
+}
+
+/* --------------------------------------------------------------------------
+   4. CLASSE DE UTILIDADE GLASSMORPHISM PURO
+   -------------------------------------------------------------------------- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-fast);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 240, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   5. TOP BAR INFORMATIVA (AUTORIDADE & LOCALIZAÇÃO)
+   -------------------------------------------------------------------------- */
+.top-bar {
+  background: rgba(5, 8, 17, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 100;
+}
+
+.top-bar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.top-bar-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar-item i {
+  color: var(--neon-cyan);
+}
+
+.top-bar-link {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.top-bar-link:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.top-bar-ticker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.ticker-badge {
+  background: rgba(0, 255, 148, 0.12);
+  color: var(--soft-neon-green);
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 148, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   6. HEADER & NAVEGAÇÃO PRINCIPAL
+   -------------------------------------------------------------------------- */
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  padding: 16px 0;
+  background: rgba(5, 8, 17, 0.75);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo da Marca */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon-box {
+  width: 42px;
+  height: 42px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.logo-icon-box svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--neon-cyan);
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #FFF;
+}
+
+.brand-name span {
+  color: var(--neon-cyan);
+  font-weight: 300;
+}
+
+/* Links do Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--cyber-purple));
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--neon-cyan);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Botões de Ação no Header */
+.header-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   7. BOTÕES E COMPONENTES CTA (NEON & GLASS)
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #050811;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--soft-neon-green) 100%);
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.7);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--text-main);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--backdrop-filter);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFF;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  box-shadow: 0 0 35px rgba(37, 211, 102, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   8. HERO SECTION 3D (DESAFIO TÉCNICO CARTÃO DE CRISTAL LEVITANTE)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 80px 0 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: #FFF;
+}
+
+.hero-title .gradient-text {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--cyber-purple) 50%, var(--soft-neon-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Container do Cartão 3D e Perspectiva */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px; /* Ativa profundidade tridimensional */
+}
+
+/* O Cartão 3D Translúcido */
+.card-3d-wrapper {
+  width: 100%;
+  max-width: 520px;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite; /* Levitação 3D contínua */
+  cursor: pointer;
+  transition: transform 0.1s ease-out;
+}
+
+/* Animação Keyframes Float 3D */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(10deg) rotateX(5deg);
+  }
+  50% {
+    transform: translateY(-16px) rotateY(-8deg) rotateX(-5deg);
+  }
+  100% {
+    transform: translateY(0px) rotateY(10deg) rotateX(5deg);
+  }
+}
+
+.card-3d-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 25px rgba(0, 240, 255, 0.3));
+}
+
+/* Halo Neon de Brilho sob o Cartão */
+.hero-card-glow {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.35) 0%, rgba(112, 0, 255, 0.2) 50%, rgba(0,0,0,0) 75%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. PILARES DE VALOR (GRID GLASSMORPHISM)
+   -------------------------------------------------------------------------- */
+.pillars-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 60px auto;
+}
+
+.section-tag {
+  color: var(--neon-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFF;
+  margin-bottom: 16px;
+}
+
+.section-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.pillars-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.pillar-card {
+  padding: 36px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--neon-cyan);
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.pillar-card:nth-child(2) .pillar-icon-box {
+  background: rgba(112, 0, 255, 0.1);
+  border-color: rgba(112, 0, 255, 0.3);
+  color: var(--cyber-purple);
+  box-shadow: 0 0 20px rgba(112, 0, 255, 0.2);
+}
+
+.pillar-card:nth-child(3) .pillar-icon-box {
+  background: rgba(0, 255, 148, 0.1);
+  border-color: rgba(0, 255, 148, 0.3);
+  color: var(--soft-neon-green);
+  box-shadow: 0 0 20px rgba(0, 255, 148, 0.2);
+}
+
+.pillar-card:nth-child(4) .pillar-icon-box {
+  background: rgba(255, 184, 0, 0.1);
+  border-color: rgba(255, 184, 0, 0.3);
+  color: var(--accent-gold);
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.2);
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 12px;
+}
+
+.pillar-text {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. DEMONSTRAÇÃO DO APP & SIMULADOR DE CÂMBIO INSTANTÂNEO
+   -------------------------------------------------------------------------- */
+.app-demo-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.app-demo-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Simulador de Câmbio de Moedas em Tempo Real */
+.fx-simulator-card {
+  padding: 40px;
+}
+
+.fx-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFF;
+  margin-bottom: 8px;
+}
+
+.fx-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+.calculator-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.calc-input-box {
+  background: rgba(5, 8, 17, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-input-box label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.calc-input-box input {
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  outline: none;
+  width: 60%;
+}
+
+.calc-select {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.calc-select option {
+  background: #050811;
+  color: #FFF;
+}
+
+.fx-savings-badge {
+  background: rgba(0, 255, 148, 0.12);
+  border: 1px solid rgba(0, 255, 148, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  color: var(--soft-neon-green);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.fx-savings-badge span {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+/* Visual do Dashboard Mockup */
+.app-mockup-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.app-mockup-img {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 36px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   11. DEPOIMENTOS DE NÔMADES & FOUNDERS
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.testimonials-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.testimonial-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-text {
+  color: var(--text-main);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-cyan);
+  background: var(--bg-dark-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--neon-cyan);
+}
+
+.user-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #FFF;
+  font-size: 1.05rem;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.user-stars {
+  color: var(--accent-gold);
+  margin-top: 4px;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. FAQ ESTRUTURADO (ACCORDION INTERATIVO)
+   -------------------------------------------------------------------------- */
+.faq-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.accordion-item {
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 24px 28px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: #FFF;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.accordion-header:hover {
+  background: var(--glass-bg-hover);
+  color: var(--neon-cyan);
+}
+
+.accordion-icon {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+  color: var(--neon-cyan);
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg); /* Gira o ícone + para virar x */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+  background: rgba(5, 8, 17, 0.4);
+  padding: 0 28px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 300px;
+  padding: 20px 28px 24px 28px;
+}
+
+/* --------------------------------------------------------------------------
+   13. LOCALIZAÇÃO, MATRIZ CORPORATIVA & GOOGLE MAPS
+   -------------------------------------------------------------------------- */
+.location-section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.location-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.location-info-card {
+  padding: 40px;
+}
+
+.corp-address {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.address-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.address-item i {
+  color: var(--neon-cyan);
+  margin-top: 4px;
+}
+
+.cnpj-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.map-wrapper {
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: invert(90%) hue-rotate(180deg) contrast(1.2); /* Estilização Dark no Maps */
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER INSTITUCIONAL & ASSINATURA OBRIGATÓRIA
+   -------------------------------------------------------------------------- */
+.main-footer {
+  background: rgba(3, 5, 12, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px 0 30px 0;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  margin-top: 16px;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.footer-column h4 {
+  font-family: var(--font-heading);
+  color: #FFF;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--neon-cyan);
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 24px 0 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* REGRA GLOBAL OBRIGATÓRIA DO USUÁRIO */
+.attribution-footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+}
+
+.attribution-footer a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.attribution-footer a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   15. BOTÃO FLUTUANTE WHATSAPP (COM PULSO LUMINOSO CSS)
+   -------------------------------------------------------------------------- */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  z-index: 1000;
+  transition: var(--transition-fast);
+  animation: pulseGlow 2s infinite;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.8);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. ANIMAÇÕES DE REVELAÇÃO SCROLL (INTERSECTION OBSERVER)
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   17. DESIGN RESPONSIVO (MOBILE-FIRST & TABLETS)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-container,
+  .app-demo-container,
+  .location-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-section {
+    padding: 40px 0 60px 0;
+  }
+
+  .nav-menu {
+    display: none; /* Menu mobile retrátil simplificado */
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+
+  .top-bar-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-input-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .calc-input-box input {
+    width: 100%;
+  }
+}

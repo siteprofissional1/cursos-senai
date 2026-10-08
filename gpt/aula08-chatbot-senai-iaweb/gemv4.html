@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SENAI Ourinhos | Formação Profissional, Cursos e Tecnologia</title>
+  <meta name="description" content="Landing page moderna da Escola SENAI Ourinhos com assistente guiado e próximos cursos industriais e técnicos." />
+  
+  <!-- Tipografia Moderna Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       RESET & DESIGN SYSTEM
+    ========================================================== */
+    :root {
+      --primary: #004587;          /* Azul institucional SENAI */
+      --primary-dark: #002d59;
+      --primary-light: #e8f1fa;
+      --accent-red: #E30613;       /* Vermelho oficial SENAI */
+      --accent-red-hover: #b8050f;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --bg-page: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --border-subtle: #E2E8F0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(0, 45, 89, 0.08);
+      --shadow-lg: 0 20px 40px -15px rgba(0, 45, 89, 0.16);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================
+       HEADER & NAVEGAÇÃO
+    ========================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo .tag-badge {
+      background: var(--accent-red);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent-red);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(227, 6, 19, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-red-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: #d8e7f7;
+    }
+
+    /* ==========================================================
+       HERO SECTION
+    ========================================================== */
+    .hero {
+      position: relative;
+      padding: 5rem 0 4rem;
+      background: radial-gradient(circle at top right, rgba(0, 69, 135, 0.06), transparent 50%),
+                  radial-gradient(circle at bottom left, rgba(227, 6, 19, 0.04), transparent 40%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .rating-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+    }
+
+    .rating-pill .stars {
+      color: #F59E0B;
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span {
+      color: var(--accent-red);
+    }
+
+    .hero-lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-highlights {
+      display: flex;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .hero-highlight-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-highlight-item strong {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .hero-highlight-item span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* CARD DO CHATBOT NO HERO */
+    .hero-bot-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .bot-card-header {
+      background: var(--primary);
+      color: #fff;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bot-agent-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bot-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .bot-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #b3d7ff;
+    }
+
+    .bot-status-tag::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+    }
+
+    .hero-bot-body {
+      padding: 20px;
+      background: #FAFBFD;
+      min-height: 380px;
+      max-height: 420px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    /* ==========================================================
+       ESTILOS DE MENSAGENS E FUNIL DO CHATBOT
+    ========================================================== */
+    .chat-msg {
+      display: flex;
+      gap: 10px;
+      max-width: 90%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chat-msg.bot {
+      align-self: flex-start;
+    }
+
+    .chat-msg.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .bubble {
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .chat-msg.bot .bubble {
+      background: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chat-msg.user .bubble {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+      width: 100%;
+    }
+
+    .chat-opt-btn {
+      padding: 10px 14px;
+      background: #FFFFFF;
+      border: 1.5px solid #d3e2f2;
+      border-radius: var(--radius-md);
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .chat-opt-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .chat-opt-btn svg {
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .chat-footer-reset {
+      padding: 10px 18px;
+      background: #fff;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .reset-btn {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-red);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .reset-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================
+       SEÇÃO: PRÓXIMOS CURSOS COM ABAS / FILTROS
+    ========================================================== */
+    .courses-section {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+    }
+
+    .badge-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-red);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* TABS */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-btn {
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+      background: #fff;
+    }
+
+    .course-cat {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status-badge {
+      background: #DCFCE7;
+      color: #15803D;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+    }
+
+    .course-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .course-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .course-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      padding-top: 1rem;
+      margin-bottom: 1.25rem;
+      border-top: 1px dashed var(--border-subtle);
+    }
+
+    .course-meta-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .course-cta {
+      display: flex;
+      gap: 10px;
+    }
+
+    .course-cta .btn {
+      width: 100%;
+      font-size: 0.85rem;
+      padding: 9px 12px;
+    }
+
+    /* ==========================================================
+       SEÇÃO: ESTRUTURA E DIFERENCIAIS
+    ========================================================== */
+    .features-section {
+      padding: 5rem 0;
+      background: #F1F5F9;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================
+       SEÇÃO: LOCALIZAÇÃO & INFORMAÇÕES DA UNIDADE
+    ========================================================== */
+    .info-section {
+      padding: 5rem 0;
+      background: #FFFFFF;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+    }
+
+    .info-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schedule-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .schedule-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .schedule-item.closed {
+      color: #94A3B8;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--border-subtle);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Card de Avaliações Google */
+    .google-badge-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f4f8fc 100%);
+      border: 1px solid #cfe0f2;
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .google-badge-card .score {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .google-badge-card .stars-big {
+      color: #F59E0B;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    /* ==========================================================
+       CHATBOT FLUTUANTE MODAL (TOGGLE)
+    ========================================================== */
+    .bot-floating-trigger {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      background: var(--accent-red);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 25px rgba(227, 6, 19, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .bot-floating-trigger:hover {
+      background: var(--accent-red-hover);
+      transform: scale(1.04);
+    }
+
+    .floating-bot-modal {
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      width: 380px;
+      max-width: calc(100vw - 48px);
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: popIn 0.25s ease-out forwards;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.95) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .floating-bot-modal.active {
+      display: flex;
+    }
+
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .site-footer {
+      background: var(--primary-dark);
+      color: #94a3b8;
+      padding: 3rem 0 2rem;
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand h5 {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col h6 {
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 992px) {
+      .hero-grid, .info-grid, .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================
+       HEADER INSTITUCIONAL
+  ========================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#" class="brand-logo">
+        <span>SENAI</span>
+        <span class="tag-badge">OURINHOS</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#cursos">Próximos Cursos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#unidade">A Unidade</a></li>
+        <li><a href="#atendimento">Horários & Contato</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <button class="btn btn-primary" onclick="openBotModal()">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          Assistente Virtual
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================
+       HERO COM CHATBOT EMBUTIDO
+  ========================================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <a href="https://share.google/EQLw2guoxNLuFWTyE" target="_blank" class="rating-pill">
+          <span class="stars">★★★★★</span>
+          <span>4,9 no Google</span>
+          <span style="color: var(--text-muted); font-weight: 500;">(+50 avaliações de alunos)</span>
+        </a>
+
+        <h1 class="hero-title">
+          Construa seu futuro profissional na melhor escola de <span>Ourinhos e região</span>.
+        </h1>
+
+        <p class="hero-lead">
+          Laboratórios de ponta, metodologia voltada para a Indústria 4.0 e reconhecimento nacional. Explore nossos próximos cursos ou deixe nosso assistente inteligente guiar você.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#cursos" class="btn btn-primary">Ver Próximos Cursos</a>
+          <a href="https://maps.google.com/?q=SENAI+Ourinhos" target="_blank" class="btn btn-secondary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Como Chegar
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="hero-highlight-item">
+            <strong>+90%</strong>
+            <span>Empregabilidade técnica</span>
+          </div>
+          <div class="hero-highlight-item">
+            <strong>100%</strong>
+            <span>Aulas práticas em oficina</span>
+          </div>
+          <div class="hero-highlight-item">
+            <strong>MEC / CFE</strong>
+            <span>Diplomas reconhecidos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULADOR / FUNIL INTERATIVO DE ATENDIMENTO -->
+      <div class="hero-bot-card">
+        <div class="bot-card-header">
+          <div class="bot-agent-info">
+            <div class="bot-avatar">S</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem;">Guia SENAI Ourinhos</div>
+              <div class="bot-status-tag">Online agora • Resposta imediata</div>
+            </div>
+          </div>
+          <button onclick="resetFunnel('hero-chat')" title="Reiniciar conversa" style="color: #fff; opacity: 0.85;">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </button>
+        </div>
+
+        <div class="hero-bot-body" id="hero-chat">
+          <!-- Inserido dinamicamente via JS -->
+        </div>
+
+        <div class="chat-footer-reset">
+          <span>Dúvidas pontuais? Ligue: <strong>(14) 3302-1250</strong></span>
+          <button class="reset-btn" onclick="resetFunnel('hero-chat')">Recomeçar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SEÇÃO: PRÓXIMOS CURSOS (ABAS E FILTROS)
+  ========================================================== -->
+  <section class="courses-section" id="cursos">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge-label">Oportunidades Abertas</span>
+        <h2 class="section-title">Próximas Turmas & Inscrições</h2>
+        <p class="section-sub">
+          Confira os cursos programados para os próximos meses em nossa unidade de Ourinhos. Escolha por área de formação e garanta sua vaga.
+        </p>
+      </div>
+
+      <!-- FILTRO DE CATEGORIAS -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterCourses('todos', this)">Todos os Cursos</button>
+        <button class="tab-btn" onclick="filterCourses('ti', this)">Tecnologia & Informática</button>
+        <button class="tab-btn" onclick="filterCourses('eletro', this)">Eletroeletrônica & Automação</button>
+        <button class="tab-btn" onclick="filterCourses('mecanica', this)">Metalmecânica</button>
+        <button class="tab-btn" onclick="filterCourses('gestao', this)">Gestão & Logística</button>
+      </div>
+
+      <!-- GRID DE CARDS DOS CURSOS -->
+      <div class="courses-grid" id="coursesGrid">
+        <!-- Curso 1: TI -->
+        <div class="course-card" data-category="ti">
+          <div>
+            <div class="course-cat">
+              <span>Tecnologia & Software</span>
+              <span class="status-badge">Matrículas Abertas</span>
+            </div>
+            <h3 class="course-title">Desenvolvimento de Sistemas</h3>
+            <p class="course-desc">Formação técnica focada em programação full stack, bancos de dados relacionais e criação de aplicações web modernas.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 1.200 horas (Técnico)</li>
+              <li><strong>Período:</strong> Noturno (18:45 às 22:45)</li>
+              <li><strong>Início:</strong> Próxima turma em breve</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20gostaria%20de%20informações%20sobre%20o%20curso%20Técnico%20em%20Desenvolvimento%20de%20Sistemas" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 2: Eletro -->
+        <div class="course-card" data-category="eletro">
+          <div>
+            <div class="course-cat">
+              <span>Eletroeletrônica</span>
+              <span class="status-badge">Últimas Vagas</span>
+            </div>
+            <h3 class="course-title">Eletricista Instalador Residencial e Predial</h3>
+            <p class="course-desc">Aprenda normas técnicas, interpretação de diagramas elétricos e montagem de circuitos com segurança e qualidade profissional.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 160 horas (Qualificação)</li>
+              <li><strong>Período:</strong> Noturno / Sábados</li>
+              <li><strong>Início:</strong> Inscrições abertas</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20quero%20detalhes%20do%20curso%20de%20Eletricista%20Instalador" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 3: Mecânica -->
+        <div class="course-card" data-category="mecanica">
+          <div>
+            <div class="course-cat">
+              <span>Metalmecânica</span>
+              <span class="status-badge">Matrículas Abertas</span>
+            </div>
+            <h3 class="course-title">Torneiro Mecânico & Ajustagem</h3>
+            <p class="course-desc">Usinagem de peças de precisão, leitura de desenho técnico, operação de tornos convencionais e instrumentos metrológicos.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 220 horas</li>
+              <li><strong>Período:</strong> Vespertino e Noturno</li>
+              <li><strong>Início:</strong> Vagas prioritárias</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20tenho%20interesse%20no%20curso%20de%20Torneiro%20Mecânico" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 4: Eletro/Automação -->
+        <div class="course-card" data-category="eletro">
+          <div>
+            <div class="course-cat">
+              <span>Automação Industrial</span>
+              <span class="status-badge">Alta Demanda</span>
+            </div>
+            <h3 class="course-title">Controladores Lógicos Programáveis (CLP)</h3>
+            <p class="course-desc">Programação de CLPs, sensores industriais e inversores de frequência aplicados à automação de linhas de produção.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 80 horas (Aperfeiçoamento)</li>
+              <li><strong>Período:</strong> Sábados ou Noturno</li>
+              <li><strong>Início:</strong> Turmas reduzidas</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20quero%20saber%20sobre%20o%20curso%20de%20CLP%20e%20Automação" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 5: Gestão -->
+        <div class="course-card" data-category="gestao">
+          <div>
+            <div class="course-cat">
+              <span>Gestão & Qualidade</span>
+              <span class="status-badge">Inscrições Abertas</span>
+            </div>
+            <h3 class="course-title">Inspetor de Qualidade & Lean Manufacturing</h3>
+            <p class="course-desc">Controle estatístico de processos, ferramentas da qualidade (5S, Kaizen) e técnicas de inspeção fabril em indústrias modernas.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 120 horas</li>
+              <li><strong>Período:</strong> Noturno</li>
+              <li><strong>Início:</strong> Próxima semana</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20quero%20detalhes%20do%20curso%20de%20Inspetor%20de%20Qualidade" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curso 6: TI -->
+        <div class="course-card" data-category="ti">
+          <div>
+            <div class="course-cat">
+              <span>Tecnologia & Produtividade</span>
+              <span class="status-badge">Rápido & Prático</span>
+            </div>
+            <h3 class="course-title">Excel Avançado & Análise de Dados</h3>
+            <p class="course-desc">Criação de dashboards gerenciais, fórmulas avançadas, tabelas dinâmicas e automações para o ambiente corporativo e industrial.</p>
+          </div>
+          <div>
+            <ul class="course-meta-list">
+              <li><strong>Carga Horária:</strong> 40 horas</li>
+              <li><strong>Período:</strong> Sábados de manhã</li>
+              <li><strong>Início:</strong> Turma aberta</li>
+            </ul>
+            <div class="course-cta">
+              <a href="https://wa.me/551433021250?text=Olá,%20gostaria%20de%20saber%20sobre%20o%20Excel%20Avançado" target="_blank" class="btn btn-primary">Garantir Vaga</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SEÇÃO: DIFERENCIAIS
+  ========================================================== -->
+  <section class="features-section" id="diferenciais">
+    <div class="container">
+      <div class="section-head">
+        <span class="badge-label">Padrão de Excelência</span>
+        <h2 class="section-title">Por que se capacitar no SENAI Ourinhos?</h2>
+        <p class="section-sub">Uma infraestrutura planejada para colocar você um passo à frente no mercado de trabalho regional.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3>Laboratórios Tecnológicos</h3>
+          <p>Equipamentos industriais modernos e softwares reais utilizados pelas principais fábricas de São Paulo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3>Conexão com Empresas</h3>
+          <p>Convênios e parcerias constantes com a indústria regional para indicação direta de alunos e vagas de estágio.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <h3>Certificado de Peso</h3>
+          <p>Certificados reconhecidos e valorizados por recrutadores e gestores industriais em todo o território nacional.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3>Corpo Docente Especialista</h3>
+          <p>Instrutores experientes que vivenciam a rotina da produção e trazem casos práticos para a sala de aula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       SEÇÃO: UNIDADE, HORÁRIOS & ATENDIMENTO
+  ========================================================== -->
+  <section class="info-section" id="unidade">
+    <div class="container">
+      <div class="info-grid" id="atendimento">
+        <!-- Coluna da Esquerda: Dados de Contato e Horários -->
+        <div class="info-box">
+          <div>
+            <span class="badge-label">Atendimento Presencial e Telefônico</span>
+            <h2 class="section-title">Escola SENAI Ourinhos</h2>
+            <p class="section-sub">Venha conhecer nossos laboratórios ou entre em contato com nossa secretaria escolar.</p>
+          </div>
+
+          <div class="info-card">
+            <h4>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Endereço
+            </h4>
+            <p style="font-size: 0.95rem; margin-bottom: 8px;">
+              R. Vitório Christoni, 1500 - Vila São Luiz<br>
+              Ourinhos - SP, CEP 19911-200
+            </p>
+            <a href="https://maps.google.com/?q=SENAI+Ourinhos" target="_blank" style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-decoration: underline;">
+              Abrir no Google Maps & Rotas &rarr;
+            </a>
+          </div>
+
+          <div class="info-card">
+            <h4>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              Telefone e Secretaria
+            </h4>
+            <p style="font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px;">
+              (14) 3302-1250
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Atendimento para dúvidas sobre matrículas, declarações e parcerias industriais.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <h4>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Horário de Funcionamento
+            </h4>
+            <ul class="schedule-list">
+              <li class="schedule-item"><span>Segunda-feira</span> <strong>07:30 – 20:30</strong></li>
+              <li class="schedule-item"><span>Terça-feira</span> <strong>07:30 – 20:30</strong></li>
+              <li class="schedule-item"><span>Quarta-feira</span> <strong>07:30 – 20:30</strong></li>
+              <li class="schedule-item"><span>Quinta-feira</span> <strong>07:30 – 20:30</strong></li>
+              <li class="schedule-item"><span>Sexta-feira</span> <strong>07:30 – 20:30</strong></li>
+              <li class="schedule-item"><span>Sábado</span> <strong>08:00 – 12:00</strong></li>
+              <li class="schedule-item closed"><span>Domingo</span> <em>Fechado</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Reputação Google & Mídias Oficiais -->
+        <div class="info-box">
+          <div class="google-badge-card">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Avaliação Oficial no Google</span>
+            <div class="score">4.9</div>
+            <div class="stars-big">★★★★★</div>
+            <p style="font-size: 0.95rem; font-weight: 600; color: var(--text-main); margin-bottom: 1rem;">
+              Mais de 50 avaliações verificadas de estudantes e comunidade
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              "Excelente estrutura, professores capacitados e ambiente focado na prática profissional e inovação."
+            </p>
+            <a href="https://share.google/EQLw2guoxNLuFWTyE" target="_blank" class="btn btn-secondary" style="font-size: 0.85rem;">
+              Ver avaliações no Google &rarr;
+            </a>
+          </div>
+
+          <div class="info-card">
+            <h4>Redes Oficiais do SENAI Ourinhos</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Acompanhe novidades, projetos de alunos e avisos de novas turmas diretamente nas redes sociais:
+            </p>
+            <div class="social-links">
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/senaiourinhos/" target="_blank" class="social-btn" title="Instagram @senaiourinhos">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/senaisp.ourinhos/" target="_blank" class="social-btn" title="Facebook SENAI Ourinhos">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.667 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z"/></svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a href="https://br.linkedin.com/company/senaisp-ourinhos" target="_blank" class="social-btn" title="LinkedIn SENAI Ourinhos">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+
+              <!-- Portal Oficial SP -->
+              <a href="https://www.sp.senai.br/unidade/ourinhos/" target="_blank" class="social-btn" title="Portal SP SENAI Ourinhos">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       MODAL DO CHATBOT FLUTUANTE
+  ========================================================== -->
+  <button class="bot-floating-trigger" onclick="toggleBotModal()">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+    <span>Orientação Rápida</span>
+  </button>
+
+  <div class="floating-bot-modal" id="floatingBotModal">
+    <div class="bot-card-header">
+      <div class="bot-agent-info">
+        <div class="bot-avatar">S</div>
+        <div>
+          <div style="font-weight: 700; font-size: 0.95rem;">Assistente SENAI</div>
+          <div class="bot-status-tag">Funil Guiado</div>
+        </div>
+      </div>
+      <button onclick="toggleBotModal()" style="color:#fff;">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="hero-bot-body" id="modal-chat" style="min-height: 340px; max-height: 380px;">
+      <!-- Dinâmico via JS -->
+    </div>
+
+    <div class="chat-footer-reset">
+      <button class="reset-btn" onclick="resetFunnel('modal-chat')">Reiniciar fluxo</button>
+      <a href="https://wa.me/551433021250" target="_blank" style="color: #25D366; font-weight: 700; font-size: 0.8rem;">Falar no WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h5>Escola SENAI Ourinhos</h5>
+          <p style="max-width: 420px; line-height: 1.6;">
+            Desenvolvendo competências técnicas, inovação e qualificando profissionais para impulsionar a indústria de Ourinhos e do Vale do Paranapanema.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h6>Links Rápidos</h6>
+          <ul>
+            <li><a href="#cursos">Cursos Abertos</a></li>
+            <li><a href="#diferenciais">Nossa Estrutura</a></li>
+            <li><a href="#unidade">Como Chegar</a></li>
+            <li><a href="https://www.sp.senai.br/unidade/ourinhos/" target="_blank">Portal FIESP / SENAI-SP</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h6>Contato Direto</h6>
+          <ul>
+            <li>(14) 3302-1250</li>
+            <li>R. Vitório Christoni, 1500</li>
+            <li>Vila São Luiz - Ourinhos / SP</li>
+            <li>Seg a Sex: 07:30 às 20:30</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Escola SENAI Ourinhos - Serviço Nacional de Aprendizagem Industrial. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       SCRIPTS: FUNIL INTERATIVO DO CHATBOT & FILTROS
+  ========================================================== -->
+  <script>
+    /* ==========================================================
+       ÁRVORE DE DECISÃO DO CHATBOT (ESTILO FUNIL / MINDMEISTER)
+    ========================================================== */
+    const funnelTree = {
+      start: {
+        text: "Olá! Seja muito bem-vindo ao SENAI Ourinhos! Sou seu assistente guiado. O que você gostaria de explorar hoje?",
+        options: [
+          { label: "🎓 Encontrar o curso ideal para mim", next: "escolha_area" },
+          { label: "📅 Próximas turmas e início das aulas", next: "turmas_abertas" },
+          { label: "📍 Localização e horários de atendimento", next: "info_atendimento" },
+          { label: "💬 Falar diretamente com a Secretaria", next: "secretaria_direta" }
+        ]
+      },
+
+      escolha_area: {
+        text: "Excelente! Em qual dessas áreas você gostaria de se especializar ou iniciar uma carreira?",
+        options: [
+          { label: "💻 Tecnologia & Desenvolvimento de Software", next: "area_ti" },
+          { label: "⚡ Elétrica, Eletrônica & Automação", next: "area_eletro" },
+          { label: "⚙️ Metalmecânica & Usinagem", next: "area_mecanica" },
+          { label: "📊 Gestão Industrial & Qualidade", next: "area_gestao" },
+          { label: "⬅️ Voltar ao início", next: "start" }
+        ]
+      },
+
+      area_ti: {
+        text: "A área de Tecnologia é uma das mais aquecidas da região! Temos o curso <strong>Técnico em Desenvolvimento de Sistemas</strong> e cursos rápidos de <strong>Excel Avançado para Análise de Dados</strong>.",
+        options: [
+          { label: "Quero saber sobre Técnico em TI", actionUrl: "https://wa.me/551433021250?text=Olá,%20gostaria%20de%20detalhes%20do%20Técnico%20em%20Desenvolvimento%20de%20Sistemas" },
+          { label: "Quero curso rápido de Excel/Dados", actionUrl: "https://wa.me/551433021250?text=Olá,%20gostaria%20de%20informações%20sobre%20Excel%20Avançado" },
+          { label: "⬅️ Escolher outra área", next: "escolha_area" }
+        ]
+      },
+
+      area_eletro: {
+        text: "Temos alta demanda para <strong>Eletricista Instalador Predial</strong> e formação avançada em <strong>CLP (Controladores Lógicos) & Automação</strong>.",
+        options: [
+          { label: "Detalhes de Eletricista Instalador", actionUrl: "https://wa.me/551433021250?text=Olá,%20quero%20detalhes%20sobre%20o%20curso%20de%20Eletricista%20Instalador" },
+          { label: "Detalhes de Automação com CLP", actionUrl: "https://wa.me/551433021250?text=Olá,%20quero%20detalhes%20sobre%20o%20curso%20de%20CLP%20e%20Automação" },
+          { label: "⬅️ Escolher outra área", next: "escolha_area" }
+        ]
+      },
+
+      area_mecanica: {
+        text: "Nossos laboratórios mecânicos oferecem treinamento prático em <strong>Torneiro Mecânico & Ajustagem</strong> e usinagem com alta taxa de contratação fabril.",
+        options: [
+          { label: "Ver requisitos e vagas de Torneiro Mecânico", actionUrl: "https://wa.me/551433021250?text=Olá,%20quero%20informações%20sobre%20Torneiro%20Mecânico" },
+          { label: "⬅️ Escolher outra área", next: "escolha_area" }
+        ]
+      },
+
+      area_gestao: {
+        text: "Para quem quer atuar na organização e controle fabril, o curso de <strong>Inspetor de Qualidade & Lean Manufacturing</strong> ensina ferramentas modernas de produtividade.",
+        options: [
+          { label: "Saber mais sobre Inspetor de Qualidade", actionUrl: "https://wa.me/551433021250?text=Olá,%20gostaria%20de%20detalhes%20sobre%20Inspetor%20de%20Qualidade" },
+          { label: "⬅️ Escolher outra área", next: "escolha_area" }
+        ]
+      },
+
+      turmas_abertas: {
+        text: "Temos turmas com matrículas abertas para os períodos Noturno e Sábados. Você pode ver todos os detalhes na nossa seção de cursos ou falar com a secretaria.",
+        options: [
+          { label: "Ver tabela de cursos na página", actionScroll: "#cursos" },
+          { label: "Consultar lista pelo WhatsApp", actionUrl: "https://wa.me/551433021250?text=Olá,%20quais%20são%20as%20próximas%20turmas%20previstas?" },
+          { label: "⬅️ Voltar ao início", next: "start" }
+        ]
+      },
+
+      info_atendimento: {
+        text: "📍 <strong>Endereço:</strong> R. Vitório Christoni, 1500 - Vila São Luiz, Ourinhos - SP.<br><br>⏰ <strong>Horários:</strong><br>• Seg a Sex: 07:30 às 20:30<br>• Sábados: 08:00 às 12:00<br>• Domingos: Fechado.",
+        options: [
+          { label: "Abrir rota no Google Maps", actionUrl: "https://maps.google.com/?q=SENAI+Ourinhos" },
+          { label: "Ligar no (14) 3302-1250", actionUrl: "tel:1433021250" },
+          { label: "⬅️ Voltar ao menu principal", next: "start" }
+        ]
+      },
+
+      secretaria_direta: {
+        text: "Nossa equipe da Secretaria Escolar está disponível para esclarecer dúvidas sobre documentação, bolsas e visitas técnicas.",
+        options: [
+          { label: "💬 Iniciar conversa no WhatsApp da Unidade", actionUrl: "https://wa.me/551433021250?text=Olá,%20gostaria%20de%20falar%20com%20a%20secretaria%20do%20SENAI%20Ourinhos" },
+          { label: "📞 Ligar agora: (14) 3302-1250", actionUrl: "tel:1433021250" },
+          { label: "⬅️ Voltar ao início", next: "start" }
+        ]
+      }
+    };
+
+    /* Renderização do funil em qualquer container */
+    function renderStep(containerId, stepKey) {
+      const chatContainer = document.getElementById(containerId);
+      if (!chatContainer) return;
+
+      const node = funnelTree[stepKey];
+      if (!node) return;
+
+      // Mensagem do Bot
+      const botMsgDiv = document.createElement('div');
+      botMsgDiv.className = 'chat-msg bot';
+      botMsgDiv.innerHTML = `<div class="bubble">${node.text}</div>`;
+      chatContainer.appendChild(botMsgDiv);
+
+      // Opções em botões interativos
+      if (node.options && node.options.length > 0) {
+        const optsContainer = document.createElement('div');
+        optsContainer.className = 'chat-options';
+
+        node.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'chat-opt-btn';
+          btn.innerHTML = `
+            <span>${opt.label}</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          `;
+
+          btn.onclick = () => {
+            // Desabilita botões anteriores após a escolha
+            const allBtns = optsContainer.querySelectorAll('.chat-opt-btn');
+            allBtns.forEach(b => b.disabled = true);
+
+            // Cria bolha com a escolha do usuário
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'chat-msg user';
+            userMsgDiv.innerHTML = `<div class="bubble">${opt.label}</div>`;
+            chatContainer.appendChild(userMsgDiv);
+
+            // Executa ação ou avança o nó do funil
+            if (opt.actionUrl) {
+              window.open(opt.actionUrl, '_blank');
+              // Permite continuar
+              setTimeout(() => {
+                const followUp = document.createElement('div');
+                followUp.className = 'chat-msg bot';
+                followUp.innerHTML = `<div class="bubble">Abri o link em uma nova janela para você! Precisa de mais alguma informação?</div>`;
+                chatContainer.appendChild(followUp);
+                renderStep(containerId, 'start');
+              }, 600);
+            } else if (opt.actionScroll) {
+              document.querySelector(opt.actionScroll)?.scrollIntoView({ behavior: 'smooth' });
+            } else if (opt.next) {
+              setTimeout(() => {
+                renderStep(containerId, opt.next);
+              }, 300);
+            }
+          };
+
+          optsContainer.appendChild(btn);
+        });
+
+        chatContainer.appendChild(optsContainer);
+      }
+
+      // Auto scroll suave
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function resetFunnel(containerId) {
+      const chatContainer = document.getElementById(containerId);
+      if (!chatContainer) return;
+      chatContainer.innerHTML = '';
+      renderStep(containerId, 'start');
+    }
+
+    /* ==========================================================
+       MODAL FLUTUANTE
+    ========================================================== */
+    function toggleBotModal() {
+      const modal = document.getElementById('floatingBotModal');
+      modal.classList.toggle('active');
+      if (modal.classList.contains('active')) {
+        const modalChat = document.getElementById('modal-chat');
+        if (modalChat.children.length === 0) {
+          renderStep('modal-chat', 'start');
+        }
+      }
+    }
+
+    function openBotModal() {
+      const modal = document.getElementById('floatingBotModal');
+      modal.classList.add('active');
+      const modalChat = document.getElementById('modal-chat');
+      if (modalChat.children.length === 0) {
+        renderStep('modal-chat', 'start');
+      }
+      modal.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    /* ==========================================================
+       FILTRO DE CURSOS POR CATEGORIA
+    ========================================================== */
+    function filterCourses(category, btnElement) {
+      const cards = document.querySelectorAll('#coursesGrid .course-card');
+      const buttons = document.querySelectorAll('.filter-tabs .tab-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'todos' || cardCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Inicialização ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+      renderStep('hero-chat', 'start');
+    });
+  </script>
+</body>
+</html>

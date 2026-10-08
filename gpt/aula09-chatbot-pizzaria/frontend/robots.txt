@@ -1,0 +1,23 @@
+# Robots.txt - D Thales Pizza Delivery Ourinhos/SP
+User-agent: *
+Allow: /
+Allow: /pedido/
+Allow: /assets/
+
+# Crawlers de Inteligência Artificial e Motores Generativos (GEO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://dthalespizza.com.br/sitemap.xml

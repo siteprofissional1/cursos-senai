@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados de Codificação e Responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Otimizações de SEO e Identidade da Aplicação -->
+    <title>Natália | Chat VIP</title>
+    <meta name="description" content="Converse com a Natália, modelo brasileira de 24 anos. Interface tranquila, elegante e imersiva.">
+    <meta name="theme-color" content="#0c0d12">
+    
+    <!-- Ícone Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/natalia_avatar.jpg">
+
+    <!-- Estilos CSS Modernos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Container Principal do Chatbot (Mobile First & Desktop Centered) -->
+    <main class="app-container">
+        
+        <!-- Cabeçalho Superior Tranquilo e Sofisticado -->
+        <header class="chat-header">
+            <div class="profile-info" id="openProfileBtn" title="Clique para ver o perfil completo da Natália">
+                <div class="avatar-wrapper">
+                    <img src="assets/natalia_avatar.jpg" alt="Foto de Natália" class="avatar-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'">
+                    <span class="online-badge" title="Online agora"></span>
+                </div>
+                <div class="details">
+                    <div class="name-row">
+                        <span class="name">Natália</span>
+                        <span class="verified-icon" title="Perfil Verificado">✓</span>
+                    </div>
+                    <span class="status-text">Online agora</span>
+                    <span class="model-tag" id="activeModelTag" title="Modelo de IA Gemini ativo">✨ gemini-2.5-flash</span>
+                </div>
+            </div>
+
+            <!-- Botões de Ação do Cabeçalho -->
+            <div class="header-actions">
+                <button class="btn-icon" id="clearChatBtn" title="Limpar conversa e recomeçar">
+                    🗑️
+                </button>
+            </div>
+        </header>
+
+        <!-- Barra de Notificação Visual para Fallback Automático (Erro 503) -->
+        <div class="fallback-toast" id="fallbackToast">
+            <span id="fallbackText"></span>
+        </div>
+
+        <!-- Área de Conversa e Mensagens -->
+        <section class="chat-messages" id="chatMessages" aria-label="Mensagens da conversa">
+            
+            <!-- Indicador Animado de Digitação (Typing Indicator) -->
+            <div class="typing-indicator" id="typingIndicator">
+                <span style="font-size: 0.78rem; color: var(--secondary-accent); margin-right: 6px; font-weight: 500;">Natália está digitando</span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+
+        </section>
+
+        <!-- Sugestões de Respostas Rápidas para Iniciar ou Aquecer o Papo -->
+        <div class="quick-prompts" aria-label="Sugestões de mensagens rápidas">
+            <button class="prompt-chip">Oi linda, como foi seu dia hoje? 👠✨</button>
+            <button class="prompt-chip">Estava com saudades de você... 💋</button>
+            <button class="prompt-chip">O que você está fazendo agora? 😉</button>
+            <button class="prompt-chip">Me conta um segredo seu? 🙈</button>
+        </div>
+
+        <!-- Barra de Entrada e Envio de Mensagens -->
+        <footer class="chat-input-bar">
+            <div class="input-field-wrapper">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    class="message-input" 
+                    placeholder="Mande uma mensagem carinhosa para a Natália..." 
+                    autocomplete="off"
+                >
+            </div>
+            <button class="btn-send" id="sendBtn" title="Enviar mensagem">
+                ➤
+            </button>
+        </footer>
+
+        <!-- Rodapé Institucional Centralizado (Regra Global Obrigatória) -->
+        <div class="credit-footer">
+            Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer">siteprofissional.pro</a>
+        </div>
+
+    </main>
+
+    <!-- ============================================================================== -->
+    <!-- MODAL: PERFIL DA MODELO NATÁLIA -->
+    <!-- ============================================================================== -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="closeProfileBtn">&times;</button>
+            
+            <div class="profile-hero">
+                <img src="assets/natalia_avatar.jpg" alt="Natália" class="profile-avatar-large" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80'">
+                <h2 class="profile-name">Natália, 24 anos</h2>
+                <p class="profile-role">Modelo de Passarela & Fotográfica • São Paulo / RJ</p>
+            </div>
+
+            <div class="bio-card">
+                <p>
+                    "Amo viagens espontâneas, taças de vinho tinto à meia-luz e conversas profundas que fazem o tempo parar. Sou romântica, intensa e adoro um carinho bem dado... Se você souber me mimar, eu retribuo à altura. 💋✨"
+                </p>
+                <div class="tags-container">
+                    <span class="tag-badge">📸 Ensaios de Moda</span>
+                    <span class="tag-badge">🍷 Noites a Dois</span>
+                    <span class="tag-badge">✈️ Viagens</span>
+                    <span class="tag-badge">☕ Café na Cama</span>
+                    <span class="tag-badge">✨ Cumplicidade</span>
+                </div>
+            </div>
+
+            <div class="bio-card">
+                <strong style="color: var(--primary-accent); display: block; margin-bottom: 6px;">Status Atual:</strong>
+                <p>Online no camarim esperando uma mensagem sua...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da Aplicação (Configuração -> Integração Gemini -> Lógica de Tela) -->
+    <script src="js/config.js"></script>
+    <script src="js/gemini.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

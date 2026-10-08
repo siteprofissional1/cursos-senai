@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadata Básica e Configuração do Documento -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cofre Transparente | Cartão de Crédito Digital Multimoeda para Nômades & Startups</title>
+  
+  <!-- SEO Meta Tags Primárias -->
+  <meta name="description" content="O primeiro cartão internacional de cristal para nômades digitais e startups globais. Zero IOF abusivo, câmbio comercial em +70 moedas, segurança por biometria e transparência total.">
+  <meta name="keywords" content="cofre transparente, cartão de crédito digital, cartão multimoeda, nômade digital, cartão internacional, zero iof, fintech startup, câmbio comercial">
+  <meta name="author" content="siteprofissional.pro">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cofretransparente.com.br/">
+  <meta property="og:title" content="Cofre Transparente | Liberdade Financeira Sem Fronteiras">
+  <meta property="og:description" content="Cartão internacional de cristal translúcido para nômades digitais e startups globais. Zero IOF abusivo e conversão instantânea.">
+  <meta property="og:image" content="assets/imagens/cartao-transparente-hero.png">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cofre Transparente | Cartão Multimoeda Futurista">
+  <meta name="twitter:description" content="Liberdade financeira sem fronteiras. IOF zero e câmbio em tempo real para nômades e empresas globais.">
+  <meta name="twitter:image" content="assets/imagens/cartao-transparente-hero.png">
+
+  <!-- Importação de Fontes do Google (Outfit para títulos e Inter para o corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Ícones Globais -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- DADOS ESTRUTURADOS SCHEMA.ORG PARA EXCELÊNCIA EM SEO LOCAL E INTERNACIONAL -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialProduct",
+    "name": "Cofre Transparente",
+    "description": "Cartão de crédito digital multimoeda translúcido com zero IOF e câmbio comercial instantâneo para nômades digitais e startups.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Cofre Transparente Tech Inc."
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Cofre Transparente Brasil",
+      "url": "https://siteprofissional.pro",
+      "logo": "assets/imagens/cartao-transparente-hero.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Vitório Christoni, 1500 - Vila Sao Luiz",
+        "addressLocality": "Ourinhos",
+        "addressRegion": "SP",
+        "postalCode": "19911-200",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5514998951657",
+      "taxID": "45.982.103/0001-87"
+    },
+    "feesAndCommissionsSpecification": "Zero anuidade e Zero IOF abusivo para transações internacionais."
+  }
+  </script>
+</head>
+<body>
+
+  <!--
+  ==========================================================================
+  PROMPTS UTILIZADOS PARA GERAÇÃO DOS ASSETS VISUAIS VIA ANTIGRAVITY / IMAGEN
+  ==========================================================================
+  1. assets/imagens/cartao-transparente-hero.png
+     Prompt: "Ultra-realistic 3D render of a futuristic translucent glass credit card floating in dark space. Frosted crystal material with visible microchip circuitry inside, holographic cybernetic engraved patterns, glowing neon cyan and purple accents, ambient rim light, pure black background, 8k resolution, photorealistic."
+
+  2. assets/imagens/nomade-lifestyle.jpg
+     Prompt: "A modern digital nomad working with a sleek laptop at a luxury airport lounge or high-end co-working terrace overlooking Tokyo or Dubai skyline at dusk, cinematic cool-toned lighting, ultra-detailed, 8k."
+
+  3. assets/imagens/app-dashboard.png
+     Prompt: "Futuristic mobile banking app dashboard floating in dark tech interface, showing global multi-currency balances, holographic graphs, glassmorphism UI widgets, glowing neon blue details, 8k render."
+  ==========================================================================
+  -->
+
+  <!-- Canvas de Partículas Cibernéticas Interativo (Fundo Dinâmico) -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Orbes de Luz Holográfica em Movimento Continuo no Fundo -->
+  <div class="background-glows">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+  </div>
+
+  <!-- 1. TOP BAR INFORMATIVA (AUTORIDADE & LOCALIZAÇÃO INSTITUCIONAL) -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="top-bar-info">
+        <div class="top-bar-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP</span>
+        </div>
+        <div class="top-bar-item">
+          <a href="https://share.google/K0HAVcYE3B6y7x79p" target="_blank" class="top-bar-link">
+            <i class="fa-solid fa-route"></i> Ver Rota no GPS
+          </a>
+        </div>
+      </div>
+      <div class="top-bar-ticker">
+        <span class="ticker-badge">CÂMBIO AO VIVO</span>
+        <span>USD/BRL: <b>R$ 4,92</b></span>
+        <span>EUR/BRL: <b>R$ 5,34</b></span>
+        <span>IOF: <b style="color: var(--soft-neon-green);">0.0% COFRE</b></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. HEADER E MENU DE NAVEGAÇÃO PRINCIPAL -->
+  <header class="main-header">
+    <div class="nav-container">
+      <!-- Logo "COFRE TRANSPARENTE" -->
+      <a href="#" class="brand-logo">
+        <div class="logo-icon-box">
+          <svg opacity="0.9" stroke="currentColor" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" fill="none" stroke-width="2"/>
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="brand-name">
+          COFRE <span>TRANSPARENTE</span>
+        </div>
+      </a>
+
+      <!-- Menu Principal de Links -->
+      <ul class="nav-menu">
+        <li><a href="#beneficios" class="nav-link">Benefícios</a></li>
+        <li><a href="#simulador" class="nav-link">Simulador multimoeda</a></li>
+        <li><a href="#depoimentos" class="nav-link">Nômades & Founders</a></li>
+        <li><a href="#faq" class="nav-link">Dúvidas (FAQ)</a></li>
+        <li><a href="#matriz" class="nav-link">Matriz</a></li>
+      </ul>
+
+      <!-- Botão CTA WhatsApp no Header -->
+      <div class="header-ctas">
+        <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" target="_blank" class="btn-primary btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Falar com Especialista
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION 3D (DESAFIO TÉCNICO: CARTÃO DE CRISTAL LEVITANTE) -->
+  <section class="hero-section">
+    <div class="hero-container">
+      
+      <!-- Lado Esquerdo: Headline e CTAs -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bolt"></i> O Futuro da FinTech Global
+        </div>
+        <h1 class="hero-title">
+          O Cofre Transparente: <br>
+          <span class="gradient-text">Liberdade Financeira</span> Sem Fronteiras.
+        </h1>
+        <p class="hero-subtitle">
+          O primeiro cartão internacional de cristal para nômades digitais e startups globais. Zero IOF abusivo, conversão instantânea em mais de 70 moedas e segurança impenetrável.
+        </p>
+
+        <!-- Botões de Ação Principal -->
+        <div class="hero-ctas">
+          <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" target="_blank" class="btn-primary">
+            <i class="fa-solid fa-credit-card"></i> Pedir Meu Cartão Agora
+          </a>
+          <a href="#simulador" class="btn-secondary">
+            <i class="fa-solid fa-calculator"></i> Simular Economia
+          </a>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Elemento Central Cartão 3D de Cristal com Efeito Tilt e Flutuação -->
+      <div class="hero-visual">
+        <div class="hero-card-glow"></div>
+        <div class="card-3d-wrapper" id="heroCard3D">
+          <!-- Render SVG do Cartão Translúcido com Microchips e Holograma -->
+          <img src="assets/imagens/cartao-transparente-hero.svg" alt="Cartão Transparente de Cristal 3D" class="card-3d-image">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. PILARES DE VALOR (GRID GLASSMORPHISM) -->
+  <section id="beneficios" class="pillars-section">
+    <div class="section-header">
+      <span class="section-tag">POR QUE SOMOS DIFERENTES</span>
+      <h2 class="section-title">Pilares da Revolução Transparente</h2>
+      <p class="section-description">
+        Construído para atender as exigências de quem trabalha, viaja e escala negócios globalmente sem limites geográficos.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      
+      <!-- Pilar 1: Multi-moeda Global -->
+      <article class="glass-card pillar-card reveal-on-scroll">
+        <div class="pillar-icon-box">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+        <h3 class="pillar-title">Multi-Moeda Global</h3>
+        <p class="pillar-text">
+          Gerencie e converta fundos em +70 moedas globais e criptomoedas em tempo real utilizando a cotação comercial oficial sem spread oculto.
+        </p>
+      </article>
+
+      <!-- Pilar 2: Segurança Transparente -->
+      <article class="glass-card pillar-card reveal-on-scroll">
+        <div class="pillar-icon-box">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="pillar-title">Segurança Transparente</h3>
+        <p class="pillar-text">
+          Tokens dinâmicos que se autodestroem após o uso, bloqueio imediato via biometria e monitoramento de transações por Inteligência Artificial.
+        </p>
+      </article>
+
+      <!-- Pilar 3: Cashback Global & Concierge -->
+      <article class="glass-card pillar-card reveal-on-scroll">
+        <div class="pillar-icon-box">
+          <i class="fa-solid fa-plane-departure"></i>
+        </div>
+        <h3 class="pillar-title">Cashback & Concierge 24/7</h3>
+        <p class="pillar-text">
+          Até 3% de cashback em todas as compras internacionais e suporte concierge dedicado para reserva de salas VIP e voos de emergência.
+        </p>
+      </article>
+
+      <!-- Pilar 4: Zero Anuidade -->
+      <article class="glass-card pillar-card reveal-on-scroll">
+        <div class="pillar-icon-box">
+          <i class="fa-solid fa-vault"></i>
+        </div>
+        <h3 class="pillar-title">Zero Anuidade & Zero IOF</h3>
+        <p class="pillar-text">
+          Isenção total de taxas de manutenção anual para nômades digitais e contas corporativas de startups. Transacione pagando 0% de IOF extra.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 5. DEMONSTRAÇÃO DO APP & SIMULADOR DE CÂMBIO INSTANTÂNEO -->
+  <section id="simulador" class="app-demo-section">
+    <div class="app-demo-container">
+      
+      <!-- Simulador Interativo de Câmbio JS -->
+      <div class="glass-card fx-simulator-card reveal-on-scroll">
+        <h3 class="fx-title">Simulador de Câmbio Instantâneo</h3>
+        <p class="fx-subtitle">Veja quanto você economiza em taxas comparado aos bancos tradicionais:</p>
+
+        <div class="calculator-group">
+          <!-- Valor de Entrada -->
+          <div class="calc-input-box">
+            <div>
+              <label for="calcAmount">Você envia ou gasta:</label>
+              <input type="number" id="calcAmount" value="1000" min="10">
+            </div>
+            <select id="calcCurrencyFrom" class="calc-select">
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="BRL" selected>BRL (R$)</option>
+            </select>
+          </div>
+
+          <!-- Valor de Saída Convertido -->
+          <div class="calc-input-box">
+            <div>
+              <label for="calcConverted">Recebe em moeda local:</label>
+              <input type="text" id="calcConverted" value="203.25" readonly>
+            </div>
+            <select id="calcCurrencyTo" class="calc-select">
+              <option value="USD" selected>USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="JPY">JPY (¥)</option>
+              <option value="BTC">BTC (₿)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Badge de Economia Calculada em Tempo Real -->
+        <div class="fx-savings-badge">
+          🎉 Você economiza <span id="calcSavings">R$ 214,50</span> em IOF e tarifas bancárias!
+        </div>
+      </div>
+
+      <!-- Mockup do App Multimoeda -->
+      <div class="app-mockup-wrapper reveal-on-scroll">
+        <img src="assets/imagens/app-dashboard.svg" alt="Dashboard do Aplicativo Cofre Transparente" class="app-mockup-img">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. DEPOIMENTOS DE NÔMADES & FOUNDERS -->
+  <section id="depoimentos" class="testimonials-section">
+    <div class="section-header">
+      <span class="section-tag">RECOMENDADO NO MUNDO TODO</span>
+      <h2 class="section-title">O que dizem os Nômades & Founders</h2>
+      <p class="section-description">Histórias reais de quem utiliza o Cofre Transparente em dezenas de países.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      
+      <!-- Depoimento 1 -->
+      <div class="glass-card testimonial-card reveal-on-scroll">
+        <p class="testimonial-text">
+          "Como desenvolvedor que trabalha entre Tóquio e Bali, economizei mais de $4.000 em taxas no último ano. O cartão transparente é simplesmente incrível e chama atenção em qualquer lugar."
+        </p>
+        <div class="testimonial-user">
+          <div class="user-avatar">AV</div>
+          <div>
+            <div class="user-name">Alex Vance</div>
+            <div class="user-role">Full-stack Engineer • Tóquio</div>
+            <div class="user-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 2 -->
+      <div class="glass-card testimonial-card reveal-on-scroll">
+        <p class="testimonial-text">
+          "Gerenciar os pagamentos da nossa startup em dólares, euros e reais era um pesadelo tributário até encontrarmos o Cofre Transparente. A emissão de cartões virtuais corporativos é instantânea."
+        </p>
+        <div class="testimonial-user">
+          <div class="user-avatar">MB</div>
+          <div>
+            <div class="user-name">Mariana Bastos</div>
+            <div class="user-role">Founder @FinTech Global • Lisboa</div>
+            <div class="user-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Depoimento 3 -->
+      <div class="glass-card testimonial-card reveal-on-scroll">
+        <p class="testimonial-text">
+          "A velocidade do câmbio comercial e o cashback automático em criptomoedas revolucionaram minha rotina de viagens por Dubai e Europa. Recomendo de olhos fechados!"
+        </p>
+        <div class="testimonial-user">
+          <div class="user-avatar">LR</div>
+          <div>
+            <div class="user-name">Lucas Reis</div>
+            <div class="user-role">Growth Marketer • Dubai</div>
+            <div class="user-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. FAQ ESTRUTURADO (ACCORDION INTERATIVO) -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <span class="section-tag">TIRA-DÚVIDAS</span>
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <p class="section-description">Tudo o que você precisa saber sobre o Cofre Transparente.</p>
+    </div>
+
+    <div class="faq-container">
+      
+      <!-- FAQ Item 1 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Como funciona a isenção de IOF no cartão?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>O Cofre Transparente opera com contas internacionais sediadas em jurisdições de câmbio direto. Suas conversões são realizadas via conta internacional própria, aplicando alíquota reduzida de IOF de apenas 1,1% na conversão da conta em vez dos 4,38% cobrados pelos cartões de crédito bancários tradicionais.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Qual é o prazo para entrega do cartão físico de cristal?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>Assim que o seu cadastro for aprovado, o seu cartão virtual é emitido imediatamente na hora no aplicativo. O cartão físico de vidro cristalino translúcido é enviado via courrier expresso com rastreamento internacional em até 3 a 7 dias úteis para qualquer endereço no Brasil, Estados Unidos ou Europa.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Posso abrir uma conta PJ para minha startup?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>Sim! Oferecemos suporte completo para contas PJ internacionais e nacionais, com emissão ilimitada de cartões corporativos virtuais para sua equipe, controle de limites por membro e integração direta via API de pagamentos.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Quais bandeiras e maquininhas aceitam o cartão?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content">
+          <p>O Cofre Transparente utiliza a rede global Mastercard/Visa com tecnologia contactless (NFC) aceita em mais de 210 países e territórios, em milhões de estabelecimentos comerciais, caixas eletrônicos (ATMs) e plataformas digitais.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. LOCALIZAÇÃO, MATRIZ CORPORATIVA & GOOGLE MAPS -->
+  <section id="matriz" class="location-section">
+    <div class="location-container">
+      
+      <!-- Informações da Sede Físico-Corporativa -->
+      <div class="glass-card location-info-card reveal-on-scroll">
+        <span class="section-tag">MATRIZ INSTITUCIONAL</span>
+        <h3 class="pillar-title" style="font-size: 1.8rem;">Visite Nossa Sede</h3>
+        <p class="section-description" style="font-size: 0.95rem;">
+          Conheça nosso centro operacional e laboratório de inovação em tecnologia financeira.
+        </p>
+
+        <div class="corp-address">
+          <div class="address-item">
+            <i class="fa-solid fa-building-columns"></i>
+            <div>
+              <strong>Endereço Corporativo:</strong><br>
+              R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP, 19911-200
+            </div>
+          </div>
+          
+          <div class="address-item">
+            <i class="fa-solid fa-id-card"></i>
+            <div>
+              <span class="cnpj-badge">CNPJ: 45.982.103/0001-87</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botão para Rota no GPS -->
+        <a href="https://share.google/K0HAVcYE3B6y7x79p" target="_blank" class="btn-primary" style="margin-top: 16px;">
+          <i class="fa-solid fa-diamond-turn-right"></i> Traçar Rota no GPS
+        </a>
+      </div>
+
+      <!-- Container do Google Maps Embed Dark Container -->
+      <div class="map-wrapper reveal-on-scroll">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.652756788544!2d-49.8732158!3d-22.9806456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c0ee10787e35b7%3A0x6b4fb4cb21b0aa40!2sR.%20Vit%C3%B3rio%20Christoni%2C%201500%20-%20Vila%20Sao%20Luiz%2C%20Ourinhos%20-%20SP%2C%2019911-200!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. FOOTER INSTITUCIONAL -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-brand">
+        <a href="#" class="brand-logo">
+          <div class="brand-name">COFRE <span>TRANSPARENTE</span></div>
+        </a>
+        <p>
+          Tecnologia financeira global projetada para a próxima geração de trabalhadores remotos e empresas sem fronteiras.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Produto</h4>
+        <ul class="footer-links">
+          <li><a href="#beneficios">Cartão de Cristal 3D</a></li>
+          <li><a href="#simulador">Conta Multimoeda</a></li>
+          <li><a href="#beneficios">Cartões Virtuais PJ</a></li>
+          <li><a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido">Solicitar Cartão</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="#matriz">Nossa Matriz</a></li>
+          <li><a href="#faq">Central de Ajuda</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Segurança</h4>
+        <ul class="footer-links">
+          <li><i class="fa-solid fa-lock" style="color: var(--soft-neon-green);"></i> Criptografia 256-bit</li>
+          <li><i class="fa-solid fa-shield-cat" style="color: var(--neon-cyan);"></i> Regulação Central</li>
+          <li><i class="fa-solid fa-check-double" style="color: var(--cyber-purple);"></i> Proteção de Depósitos</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Cofre Transparente Tech Inc. Todos os direitos reservados. CNPJ: 45.982.103/0001-87</div>
+      <div>R. Vitório Christoni, 1500 - Vila Sao Luiz, Ourinhos - SP</div>
+    </div>
+
+    <!-- REGRA GLOBAL MANDATÓRIA DO USUÁRIO NA ÚLTIMA LINHA CENTRALIZADA -->
+    <div class="attribution-footer">
+      <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer">Criado por siteprofissional.pro</a>
+    </div>
+  </footer>
+
+  <!-- 10. BOTÃO FLUTUANTE DE AÇÃO DIRETA WHATSAPP COM PULSO LUMINOSO -->
+  <a href="https://wa.me/5514998951657?text=oi%20vim%20pelo%20site%20e%20quero%20fazer%20meu%20pedido" 
+     target="_blank" 
+     class="floating-whatsapp" 
+     aria-label="Falar pelo WhatsApp" 
+     title="Falar no WhatsApp com Especialista">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Script JavaScript Principal -->
+  <script src="script.js"></script>
+</body>
+</html>

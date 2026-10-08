@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0F0D0A">
+
+  <title>The Ribs Hamburgueria | Cardápio | Ourinhos SP</title>
+  <meta name="description" content="Cardápio digital da The Ribs Hamburgueria em Ourinhos/SP. Confira burgers artesanais, costela defumada, opções clássicas, chicken, smash, vegetarianos e muito sabor.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="The Ribs Hamburgueria">
+  <meta property="og:title" content="The Ribs Hamburgueria | Cardápio | Ourinhos SP">
+  <meta property="og:description" content="Confira o cardápio da The Ribs Hamburgueria em Ourinhos/SP: burgers artesanais, costela defumada, smash, chicken e muito mais.">
+  <meta property="og:image" content="https://images.pexels.com/photos/23744956/pexels-photo-23744956.jpeg?auto=compress&cs=tinysrgb&w=1200">
+  <meta property="og:url" content="" id="ogUrl">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Ribs Hamburgueria | Cardápio | Ourinhos SP">
+  <meta name="twitter:description" content="Cardápio digital da The Ribs Hamburgueria em Ourinhos/SP.">
+  <meta name="twitter:image" content="https://images.pexels.com/photos/23744956/pexels-photo-23744956.jpeg?auto=compress&cs=tinysrgb&w=1200">
+
+  <link rel="canonical" href="" id="canonicalLink">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FastFoodRestaurant",
+    "name": "The Ribs Hamburgueria",
+    "telephone": "+55 14 99902-7734",
+    "image": "https://images.pexels.com/photos/23744956/pexels-photo-23744956.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10",
+    "servesCuisine": [
+      "Hambúrguer artesanal",
+      "Costela defumada",
+      "Churrasco",
+      "Fast food"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Antônio Almeida Leite, 805 - Jardim Paulista",
+      "addressLocality": "Ourinhos",
+      "addressRegion": "SP",
+      "postalCode": "19908-095",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:15",
+        "closes": "23:15"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/ribsburguerourinhos/",
+      "https://www.facebook.com/ribsburguerourinhos/?locale=pt_BR"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0F0D0A;
+      --bg-soft: #17130F;
+      --card: #211A13;
+      --brown: #3A2618;
+      --brown-light: #6B4326;
+      --gold: #D7952B;
+      --orange: #ED8A19;
+      --text: #F4E9D8;
+      --white: #FFFFFF;
+      --muted: #B9A995;
+      --line: rgba(244, 233, 216, 0.11);
+      --shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+      --radius: 18px;
+      --header-h: 66px;
+      --content-max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 85% -20%, rgba(215, 149, 43, 0.08), transparent 34%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(237, 138, 25, 0.95);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(100% - 28px, var(--content-max));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      min-height: var(--header-h);
+      background: rgba(15, 13, 10, 0.93);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      min-height: var(--header-h);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      flex: 1;
+    }
+
+    .brand-logo-wrap {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--brown);
+      border: 1px solid rgba(215, 149, 43, 0.25);
+      display: grid;
+      place-items: center;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-name {
+      margin: 0;
+      color: var(--white);
+      font-size: 0.96rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.15;
+      white-space: nowrap;
+    }
+
+    .header-instagram {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: var(--gold);
+      background: rgba(215, 149, 43, 0.08);
+      border: 1px solid rgba(215, 149, 43, 0.18);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .header-instagram:hover {
+      transform: translateY(-1px);
+      background: rgba(215, 149, 43, 0.14);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 320px;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+      background: #120f0c;
+    }
+
+    .hero-media,
+    .hero-media::after {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-media {
+      z-index: -2;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 54%;
+    }
+
+    .hero-media::after {
+      content: "";
+      z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(10, 8, 6, 0.18), rgba(10, 8, 6, 0.7) 62%, var(--bg) 100%),
+        linear-gradient(to right, rgba(10, 8, 6, 0.55), transparent 70%);
+    }
+
+    .hero-content {
+      padding: 46px 0 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(2.4rem, 12vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
+    }
+
+    .hero-kicker {
+      margin: 9px 0 0;
+      color: var(--gold);
+      font-size: clamp(1.05rem, 5vw, 1.35rem);
+      font-weight: 800;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 10px 0 0;
+      color: #eadfce;
+      font-size: 0.98rem;
+    }
+
+    .hero-cta-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(15, 13, 10, 0.58);
+      border: 1px solid rgba(244, 233, 216, 0.12);
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 750;
+      backdrop-filter: blur(7px);
+    }
+
+    main {
+      padding-bottom: 24px;
+    }
+
+    .order-notice {
+      margin: 12px auto 14px;
+      padding: 14px 15px;
+      border: 1px solid rgba(215, 149, 43, 0.23);
+      background: rgba(215, 149, 43, 0.07);
+      border-radius: 16px;
+    }
+
+    .order-notice strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.94rem;
+    }
+
+    .order-notice span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .category-shell {
+      position: sticky;
+      top: var(--header-h);
+      z-index: 35;
+      padding: 8px 0;
+      background: linear-gradient(to bottom, rgba(15, 13, 10, 0.98), rgba(15, 13, 10, 0.90));
+      border-bottom: 1px solid rgba(244, 233, 216, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .category-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      padding: 2px 14px;
+      margin-inline: -14px;
+    }
+
+    .category-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 14px;
+      cursor: pointer;
+      color: var(--text);
+      background: var(--bg-soft);
+      font-size: 0.86rem;
+      font-weight: 760;
+      transition: border-color .18s ease, background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .category-btn:hover {
+      border-color: rgba(215, 149, 43, 0.3);
+    }
+
+    .category-btn:active {
+      transform: scale(0.98);
+    }
+
+    .category-btn.active {
+      color: #160f08;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      border-color: transparent;
+      box-shadow: 0 5px 18px rgba(237, 138, 25, 0.16);
+    }
+
+    .menu-section {
+      padding: 22px 0 30px;
+    }
+
+    .menu-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .menu-heading h2 {
+      margin: 0;
+      color: var(--white);
+      font-size: 1.34rem;
+      letter-spacing: -0.025em;
+    }
+
+    .menu-heading p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .menu-count {
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .menu-card {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 112px;
+      gap: 14px;
+      align-items: stretch;
+      overflow: hidden;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.016), transparent 42%),
+        var(--card);
+      box-shadow: 0 7px 24px rgba(0, 0, 0, 0.13);
+      transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
+    }
+
+    .menu-card:hover {
+      border-color: rgba(215, 149, 43, 0.21);
+    }
+
+    .menu-card.entering {
+      opacity: 0;
+      transform: translateY(7px);
+    }
+
+    .product-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-name {
+      margin: 0;
+      color: var(--white);
+      font-size: 1rem;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+    }
+
+    .product-description {
+      margin: 7px 0 13px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.46;
+    }
+
+    .price-wrap {
+      margin-top: auto;
+    }
+
+    .price-label {
+      display: block;
+      color: #9f907e;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 750;
+    }
+
+    .price {
+      display: block;
+      margin-top: 1px;
+      color: var(--gold);
+      font-size: 1.28rem;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .product-media {
+      position: relative;
+      min-height: 112px;
+      border-radius: 14px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 60% 20%, rgba(237, 138, 25, 0.22), transparent 42%),
+        var(--brown);
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 112px;
+      object-fit: cover;
+    }
+
+    .product-media.image-error img {
+      display: none;
+    }
+
+    .image-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      font-size: 2.2rem;
+    }
+
+    .product-media.image-error .image-fallback {
+      display: grid;
+    }
+
+    .illustrative {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      padding: 4px 6px;
+      border-radius: 7px;
+      color: rgba(255,255,255,0.88);
+      background: rgba(10, 8, 6, 0.7);
+      font-size: 0.58rem;
+      text-align: center;
+      line-height: 1.2;
+      backdrop-filter: blur(5px);
+    }
+
+    .menu-empty {
+      display: none;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+    }
+
+    .info-section {
+      padding: 18px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-card {
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--bg-soft);
+    }
+
+    .info-card h2,
+    .info-card h3 {
+      margin: 0;
+      color: var(--white);
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .wa-main {
+      margin-top: 14px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 13px;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #130e08;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      font-weight: 880;
+      box-shadow: 0 8px 22px rgba(237, 138, 25, 0.15);
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .wa-main:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .hours-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(244, 233, 216, 0.07);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .hours-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .hours-row strong {
+      color: var(--text);
+      font-weight: 720;
+    }
+
+    .location-address {
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    .ghost-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin-top: 13px;
+      padding: 10px 13px;
+      border-radius: 12px;
+      border: 1px solid rgba(215, 149, 43, 0.25);
+      color: var(--gold);
+      background: rgba(215, 149, 43, 0.05);
+      font-size: 0.84rem;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .social-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      font-size: 0.8rem;
+      font-weight: 720;
+    }
+
+    footer {
+      margin-top: 16px;
+      padding: 24px 0 calc(28px + env(safe-area-inset-bottom));
+      color: #8d806f;
+      background: #0b0907;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 0.77rem;
+    }
+
+    .footer-name {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .footer-line {
+      display: block;
+      margin-top: 3px;
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: max(15px, env(safe-area-inset-right));
+      bottom: max(15px, env(safe-area-inset-bottom));
+      z-index: 50;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      text-decoration: none;
+      color: #130e08;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 1.35rem;
+      transition: transform .18s ease;
+    }
+
+    .floating-wa:hover {
+      transform: translateY(-2px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .42s ease, transform .42s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 370px) {
+      .container {
+        width: min(100% - 20px, var(--content-max));
+      }
+
+      .brand-subtitle {
+        font-size: 0.65rem;
+      }
+
+      .menu-card {
+        grid-template-columns: 1fr;
+      }
+
+      .product-media {
+        order: -1;
+        min-height: 155px;
+      }
+
+      .product-media img {
+        min-height: 155px;
+        max-height: 180px;
+      }
+    }
+
+    @media (min-width: 680px) {
+      .hero {
+        min-height: 380px;
+      }
+
+      .hero-content {
+        padding: 64px 0 45px;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-card.contact-card {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 980px) {
+      :root {
+        --header-h: 74px;
+      }
+
+      .header-inner {
+        min-height: var(--header-h);
+      }
+
+      .brand-logo-wrap {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+      }
+
+      .brand-name {
+        font-size: 1.04rem;
+      }
+
+      .brand-subtitle {
+        font-size: 0.76rem;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      .hero-description {
+        font-size: 1.04rem;
+      }
+
+      .category-nav {
+        margin-inline: 0;
+        padding-inline: 0;
+      }
+
+      .menu-section {
+        padding-top: 28px;
+      }
+
+      .menu-grid {
+        gap: 14px;
+      }
+
+      .menu-card {
+        grid-template-columns: minmax(0, 1fr) 138px;
+        padding: 16px;
+      }
+
+      .product-media,
+      .product-media img {
+        min-height: 138px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1.1fr 0.9fr 1fr;
+      }
+
+      .info-card.contact-card {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir para o início do cardápio The Ribs">
+        <span class="brand-logo-wrap">
+          <img
+            class="brand-logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_YmBal-jFCYvtG2ZlEdl4C8myvx4yeR2Guk1IFXfKQ06Fz2AyQ1FXWWk&s=10"
+            alt="Logo da The Ribs Hamburgueria"
+            width="50"
+            height="50"
+          >
+        </span>
+        <span class="brand-copy">
+          <span class="brand-name">THE RIBS</span>
+          <span class="brand-subtitle">Hamburgueria • Ourinhos/SP</span>
+        </span>
+      </a>
+
+      <a
+        class="header-instagram"
+        href="https://www.instagram.com/ribsburguerourinhos/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir Instagram da The Ribs em nova aba"
+        title="Instagram"
+      >
+        ◎
+      </a>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-media" aria-hidden="true">
+      <img
+        src="https://images.pexels.com/photos/23744956/pexels-photo-23744956.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      >
+    </div>
+
+    <div class="container hero-content">
+      <p class="eyebrow">Ourinhos • SP</p>
+      <h1 id="hero-title">THE RIBS</h1>
+      <p class="hero-kicker">Hamburgueria Artesanal</p>
+      <p class="hero-description">Costela defumada, burgers artesanais e muito sabor em Ourinhos.</p>
+      <span class="hero-cta-text">Confira o cardápio <span aria-hidden="true">👇</span></span>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="order-notice reveal" role="note">
+        <strong>🍔 Escolha seu lanche pelo cardápio e chame nosso garçom para fazer o pedido.</strong>
+        <span>O pedido é realizado diretamente na mesa.</span>
+      </div>
+    </div>
+
+    <div class="category-shell">
+      <nav class="container" aria-label="Categorias do cardápio">
+        <div class="category-nav" id="categoryNav">
+          <button class="category-btn active" type="button" data-category="destaques" aria-pressed="true">🔥 Destaques</button>
+          <button class="category-btn" type="button" data-category="ribs" aria-pressed="false">🥩 Ribs</button>
+          <button class="category-btn" type="button" data-category="classicos" aria-pressed="false">🍔 Clássicos</button>
+          <button class="category-btn" type="button" data-category="agridoce" aria-pressed="false">🍯 Agridoce</button>
+          <button class="category-btn" type="button" data-category="chicken" aria-pressed="false">🍗 Chicken</button>
+          <button class="category-btn" type="button" data-category="kids" aria-pressed="false">🧒 Kids</button>
+          <button class="category-btn" type="button" data-category="smash" aria-pressed="false">🔥 Smash</button>
+          <button class="category-btn" type="button" data-category="vegetarianos" aria-pressed="false">🌱 Vegetarianos</button>
+        </div>
+      </nav>
+    </div>
+
+    <section class="menu-section" id="cardapio" aria-labelledby="menuTitle">
+      <div class="container">
+        <div class="menu-heading">
+          <div>
+            <h2 id="menuTitle">🔥 Destaques</h2>
+            <p id="menuSubtitle">Alguns dos favoritos para você começar.</p>
+          </div>
+          <span class="menu-count" id="menuCount" aria-live="polite"></span>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="menu-empty" id="menuEmpty">Nenhum item encontrado nesta categoria.</div>
+      </div>
+    </section>
+
+    <section class="info-section" aria-label="Informações da The Ribs">
+      <div class="container info-grid">
+        <article class="info-card contact-card reveal">
+          <h2>Ficou com alguma dúvida?</h2>
+          <p>Fale com a The Ribs pelo WhatsApp. Este contato é apenas para dúvidas sobre o cardápio.</p>
+          <a
+            class="wa-main js-whatsapp"
+            href="https://wa.me/5514999027734"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chamar a The Ribs no WhatsApp para tirar dúvidas"
+          >
+            💬 Chamar no WhatsApp
+          </a>
+        </article>
+
+        <article class="info-card reveal">
+          <h3>Horário de funcionamento</h3>
+          <div class="hours-list">
+            <div class="hours-row"><strong>Segunda</strong><span>Fechado</span></div>
+            <div class="hours-row"><strong>Terça</strong><span>18:15 às 23:15</span></div>
+            <div class="hours-row"><strong>Quarta</strong><span>18:15 às 23:15</span></div>
+            <div class="hours-row"><strong>Quinta</strong><span>18:15 às 23:15</span></div>
+            <div class="hours-row"><strong>Sexta</strong><span>18:15 às 23:15</span></div>
+            <div class="hours-row"><strong>Sábado</strong><span>18:15 às 23:15</span></div>
+            <div class="hours-row"><strong>Domingo</strong><span>18:15 às 23:15</span></div>
+          </div>
+        </article>
+
+        <article class="info-card reveal">
+          <h3>Onde estamos</h3>
+          <address class="location-address">
+            <strong style="color:var(--text); font-style:normal;">The Ribs Hamburgueria</strong><br>
+            Av. Antônio Almeida Leite, 805<br>
+            Jardim Paulista<br>
+            Ourinhos - SP<br>
+            CEP 19908-095
+          </address>
+
+          <a
+            class="ghost-link"
+            href="https://www.google.com/maps/search/?api=1&query=Av.%20Ant%C3%B4nio%20Almeida%20Leite%2C%20805%20-%20Jardim%20Paulista%2C%20Ourinhos%20-%20SP%2C%2019908-095"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir localização da The Ribs no Google Maps"
+          >
+            📍 Abrir no Google Maps
+          </a>
+
+          <div class="social-links" aria-label="Redes e canais da The Ribs">
+            <a href="https://www.instagram.com/ribsburguerourinhos/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/ribsburguerourinhos/?locale=pt_BR" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.ifood.com.br/delivery/ourinhos-sp/the-ribs-hamburgueria-jardim-paulista/f878b518-a9f0-4b1f-a7a3-e2fce547f584" target="_blank" rel="noopener noreferrer">iFood</a>
+            <a class="js-whatsapp" href="https://wa.me/5514999027734" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span class="footer-name">The Ribs Hamburgueria</span>
+      <span class="footer-line">Ourinhos - SP • Cardápio Digital</span>
+      <span class="footer-line">(14) 99902-7734</span>
+      <span class="footer-line">© <span id="currentYear"></span> The Ribs Hamburgueria</span>
+    </div>
+  </footer>
+
+  <a
+    class="floating-wa js-whatsapp"
+    href="https://wa.me/5514999027734"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp da The Ribs para dúvidas"
+    title="Dúvidas pelo WhatsApp"
+  >
+    💬
+  </a>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const CATEGORY_META = {
+        destaques: {
+          title: "🔥 Destaques",
+          subtitle: "Alguns dos favoritos para você começar."
+        },
+        ribs: {
+          title: "🥩 Ribs / Costela",
+          subtitle: "Costela defumada e combinações marcantes da casa."
+        },
+        classicos: {
+          title: "🍔 Clássicos",
+          subtitle: "Burgers artesanais para quem gosta dos grandes clássicos."
+        },
+        agridoce: {
+          title: "🍯 Agridoce",
+          subtitle: "Contrastes de sabor com mel, geleias, frutas e queijos."
+        },
+        chicken: {
+          title: "🍗 Chicken / Frango",
+          subtitle: "Opções crocantes e suculentas de frango."
+        },
+        kids: {
+          title: "🧒 Kids",
+          subtitle: "Tamanho e combinações pensadas para os pequenos."
+        },
+        smash: {
+          title: "🔥 Smash",
+          subtitle: "Smash com crostinha, bacon, queijo e muito sabor."
+        },
+        vegetarianos: {
+          title: "🌱 Vegetarianos",
+          subtitle: "Burgers vegetarianos defumados à base de lentilha e beterraba."
+        }
+      };
+
+      const CATEGORY_IMAGES = {
+        ribs: "https://images.pexels.com/photos/11653560/pexels-photo-11653560.jpeg?auto=compress&cs=tinysrgb&w=900",
+        classicos: "https://images.pexels.com/photos/20185767/pexels-photo-20185767.jpeg?auto=compress&cs=tinysrgb&w=900",
+        agridoce: "https://images.pexels.com/photos/1362044/pexels-photo-1362044.jpeg?auto=compress&cs=tinysrgb&w=900",
+        chicken: "https://images.pexels.com/photos/7963144/pexels-photo-7963144.jpeg?auto=compress&cs=tinysrgb&w=900",
+        kids: "https://images.pexels.com/photos/27098500/pexels-photo-27098500.jpeg?auto=compress&cs=tinysrgb&w=900",
+        smash: "https://images.pexels.com/photos/10153085/pexels-photo-10153085.jpeg?auto=compress&cs=tinysrgb&w=900",
+        vegetarianos: "https://images.pexels.com/photos/12336023/pexels-photo-12336023.jpeg?auto=compress&cs=tinysrgb&w=900"
+      };
+
+      const PRODUCTS = [
+        {
+          id: "grand-cheddar-ribs",
+          category: "ribs",
+          name: "The Grand Cheddar Ribs",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Costela Defumada + Molho Cheddar + Bacon + Queijo Mussarela + Molho Especial.",
+          price: "R$ 40,50"
+        },
+        {
+          id: "the-ribs",
+          category: "ribs",
+          name: "The Ribs",
+          description: "Pão Brioche + Costela Defumada 170g + Queijo Mussarela + Bacon + Alface + Tomate + Cebola + Molho Barbecue + Molho Especial.",
+          price: "R$ 34,50"
+        },
+        {
+          id: "ribs-cheddar",
+          category: "ribs",
+          name: "The Ribs Cheddar",
+          description: "Pão Brioche + Costela Desfiada + Queijo Mussarela + Cheddar + Bacon + Molho Especial.",
+          price: "R$ 35,00"
+        },
+        {
+          id: "super-big-ribs",
+          category: "ribs",
+          name: "The Super Big Ribs",
+          description: "Costela Defumada Desfiada + Queijo Mussarela + Bacon + Cebola Caramelizada + Molho Especial.",
+          price: "R$ 37,00"
+        },
+
+        {
+          id: "cheese-bacon",
+          category: "classicos",
+          name: "The Cheese Bacon",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Alface + Tomate + Cebola + Molho Especial.",
+          price: "R$ 31,50"
+        },
+        {
+          id: "cheese-burger",
+          category: "classicos",
+          name: "The Cheese Burger",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Molho Especial.",
+          price: "R$ 26,90"
+        },
+        {
+          id: "cheese-bacon-egg",
+          category: "classicos",
+          name: "The Cheese Bacon Egg",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Alface + Tomate + Cebola + Ovo + Molho Especial.",
+          price: "R$ 33,50"
+        },
+        {
+          id: "cheese-burguer-salada",
+          category: "classicos",
+          name: "The Cheese Burguer Salada",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Alface + Tomate + Cebola + Molho Especial.",
+          price: "R$ 29,50"
+        },
+        {
+          id: "especial-cheese",
+          category: "classicos",
+          name: "The Especial Cheese",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Prato + Bacon + Cebola Crispy + Picles + Molho Especial.",
+          price: "R$ 36,50"
+        },
+        {
+          id: "gran-chorizo",
+          category: "classicos",
+          name: "The Gran Chorizo",
+          description: "Pão Francês Curitibano + Hambúrguer de Linguiça Toscana 160g + Queijo Coalho + Vinagrete + Molho Especial.",
+          price: "R$ 33,00"
+        },
+        {
+          id: "super-4-cheese",
+          category: "classicos",
+          name: "The Super 4 Cheese",
+          description: "Pão Brioche + Hambúrguer 170g + 4 Queijos (Mussarela, Cheddar, Catupiry e Queijo Prato) + Repolho Cremoso + Bacon + Molho Especial.",
+          price: "R$ 35,00"
+        },
+
+        {
+          id: "cheese-gorgon",
+          category: "agridoce",
+          name: "The Cheese Gorgon",
+          description: "Pão de Brioche + Hambúrguer Artesanal 170g + Queijo Gorgonzola + Rúcula + Cebola Crispy + Mel + Molho Especial.",
+          price: "R$ 37,00"
+        },
+        {
+          id: "provobacon-pepper",
+          category: "agridoce",
+          name: "The Provobacon Pepper",
+          description: "Pão de Brioche + Hambúrguer 180g + Queijo Prato + Provolone Empanado + Bacon + Geleia de Pimenta + Molho Especial.",
+          price: "R$ 39,00"
+        },
+        {
+          id: "empanadinho",
+          category: "agridoce",
+          name: "The Empanadinho",
+          description: "Pão Brioche + Hambúrguer Artesanal 170g + Catupiry Empanado + Cebola Caramelizada + Molho Especial.",
+          price: "R$ 37,00"
+        },
+        {
+          id: "tropical-cheese",
+          category: "agridoce",
+          name: "The Tropical Cheese",
+          description: "Pão de Brioche + Hambúrguer 170g + Bacon + Abacaxi Grelhado com Mel e Canela + Queijo Coalho Grelhado + Molho Especial.",
+          price: "R$ 37,00"
+        },
+
+        {
+          id: "chicken",
+          category: "chicken",
+          name: "The Chicken",
+          description: "Pão de Brioche + Chicken de Sobrecoxa Empanada + Cream Cheese + Alface + Tomate + Cebola + Molho Especial.",
+          price: "R$ 32,50"
+        },
+        {
+          id: "chicken-classico",
+          category: "chicken",
+          name: "The Chicken Clássico",
+          description: "Pão de Brioche + Hambúrguer de Peito de Frango Empanado e Crocante + Tomate + Alface + Molho Especial.",
+          price: "R$ 30,00"
+        },
+
+        {
+          id: "kids",
+          category: "kids",
+          name: "The Kids",
+          description: "Pão Brioche 50g + Hambúrguer Smash 100g + Queijo Prato + Molho Especial.",
+          price: "R$ 21,00"
+        },
+        {
+          id: "kids-combo",
+          category: "kids",
+          name: "The Kids Combo",
+          description: "Pão Brioche 50g + Hambúrguer Smash 100g + Queijo Prato + 4 Chicken Supreme + Fritas + 1 Suco Kapo.",
+          price: "R$ 32,00"
+        },
+
+        {
+          id: "smash-duplo-especial",
+          category: "smash",
+          name: "The Smash Duplo Especial",
+          description: "Pão de Brioche + 2 Hambúrgueres Smash de 100g cada com crostinha + Bacon + Queijo Prato + Picles + Molho Especial.",
+          price: "R$ 35,00"
+        },
+
+        {
+          id: "vegetariano-2",
+          category: "vegetarianos",
+          name: "The Vegetariano 2",
+          description: "Pão Brioche + Hambúrguer Vegetariano Defumado à base de Lentilha e Beterraba + Catupiry Empanado + Queijo Prato + Cebola Caramelizada.",
+          price: "R$ 36,00"
+        },
+        {
+          id: "vegetariano-1",
+          category: "vegetarianos",
+          name: "The Vegetariano 1",
+          description: "Pão Brioche + Hambúrguer Vegetariano Defumado à base de Lentilha e Beterraba + Queijo Prato + Repolho Cremoso.",
+          price: "R$ 29,50"
+        }
+      ];
+
+      const FEATURED_IDS = [
+        "grand-cheddar-ribs",
+        "the-ribs",
+        "smash-duplo-especial",
+        "cheese-bacon",
+        "tropical-cheese"
+      ];
+
+      const menuGrid = document.getElementById("menuGrid");
+      const menuTitle = document.getElementById("menuTitle");
+      const menuSubtitle = document.getElementById("menuSubtitle");
+      const menuCount = document.getElementById("menuCount");
+      const menuEmpty = document.getElementById("menuEmpty");
+      const categoryButtons = [...document.querySelectorAll(".category-btn")];
+
+      const escapeHtml = (value) =>
+        String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      const getProductsForCategory = (category) => {
+        if (category === "destaques") {
+          return FEATURED_IDS
+            .map((id) => PRODUCTS.find((product) => product.id === id))
+            .filter(Boolean);
+        }
+        return PRODUCTS.filter((product) => product.category === category);
+      };
+
+      const renderProducts = (category) => {
+        const selected = getProductsForCategory(category);
+        const meta = CATEGORY_META[category] || CATEGORY_META.destaques;
+
+        menuTitle.textContent = meta.title;
+        menuSubtitle.textContent = meta.subtitle;
+        menuCount.textContent = `${selected.length} ${selected.length === 1 ? "item" : "itens"}`;
+        menuEmpty.style.display = selected.length ? "none" : "block";
+
+        menuGrid.innerHTML = selected
+          .map((product) => {
+            const imageUrl = CATEGORY_IMAGES[product.category];
+
+            return `
+              <article class="menu-card entering">
+                <div class="product-copy">
+                  <h3 class="product-name">${escapeHtml(product.name)}</h3>
+                  <p class="product-description">${escapeHtml(product.description)}</p>
+                  <div class="price-wrap">
+                    <span class="price-label">A partir de</span>
+                    <span class="price">${escapeHtml(product.price)}</span>
+                  </div>
+                </div>
+
+                <div class="product-media">
+                  <img
+                    src="${escapeHtml(imageUrl)}"
+                    alt="Imagem ilustrativa para ${escapeHtml(product.name)}"
+                    loading="lazy"
+                    decoding="async"
+                    width="320"
+                    height="320"
+                  >
+                  <span class="image-fallback" aria-hidden="true">🍔</span>
+                  <span class="illustrative">Imagem ilustrativa</span>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        menuGrid.querySelectorAll(".product-media img").forEach((img) => {
+          img.addEventListener("error", () => {
+            img.closest(".product-media")?.classList.add("image-error");
+          }, { once: true });
+        });
+
+        requestAnimationFrame(() => {
+          menuGrid.querySelectorAll(".menu-card").forEach((card, index) => {
+            setTimeout(() => card.classList.remove("entering"), Math.min(index * 35, 180));
+          });
+        });
+      };
+
+      categoryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const category = button.dataset.category;
+
+          categoryButtons.forEach((item) => {
+            const active = item === button;
+            item.classList.toggle("active", active);
+            item.setAttribute("aria-pressed", String(active));
+          });
+
+          renderProducts(category);
+
+          button.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+          });
+
+          const menuTop = document.getElementById("cardapio");
+          const offset = parseInt(
+            getComputedStyle(document.documentElement).getPropertyValue("--header-h"),
+            10
+          ) + 62;
+
+          const top = menuTop.getBoundingClientRect().top + window.scrollY - offset;
+
+          if (window.scrollY > top + 220 || window.scrollY < top - 220) {
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        });
+      });
+
+      const whatsappMessage = "Olá! Estou aqui na The Ribs e fiquei com uma dúvida sobre o cardápio.";
+      const whatsappUrl = `https://wa.me/5514999027734?text=${encodeURIComponent(whatsappMessage)}`;
+
+      document.querySelectorAll(".js-whatsapp").forEach((link) => {
+        link.href = whatsappUrl;
+      });
+
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      if (location.protocol === "http:" || location.protocol === "https:") {
+        const cleanUrl = `${location.origin}${location.pathname}`;
+        document.getElementById("canonicalLink").href = cleanUrl;
+        document.getElementById("ogUrl").content = cleanUrl;
+      } else {
+        document.getElementById("canonicalLink").remove();
+        document.getElementById("ogUrl").remove();
+      }
+
+      const revealElements = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealElements.forEach((element) => observer.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("visible"));
+      }
+
+      renderProducts("destaques");
+    })();
+  </script>
+</body>
+</html>

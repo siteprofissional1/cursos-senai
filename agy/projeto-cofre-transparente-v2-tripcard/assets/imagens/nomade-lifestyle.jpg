@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <!-- Estilo e Gradientes de Iluminação Futurista de Lounge / Skylines -->
+  <defs>
+    <linearGradient id="bgNomadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B19" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <linearGradient id="windowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 240, 255, 0.25)" />
+      <stop offset="70%" stop-color="rgba(112, 0, 255, 0.15)" />
+      <stop offset="100%" stop-color="rgba(5, 8, 17, 0.8)" />
+    </linearGradient>
+
+    <linearGradient id="laptopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#7000FF" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo do Ambiente (High-end Lounge Skyline ao Pôr do Sol / Dusk) -->
+  <rect width="800" height="600" fill="url(#bgNomadGrad)" />
+
+  <!-- Janela Panorâmica com Vista para Skyline Futurista (Tóquio / Dubai) -->
+  <path d="M 50 50 L 750 50 L 750 480 L 50 480 Z" fill="url(#windowGrad)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" />
+
+  <!-- Prédios e Arranha-Céus ao Fundo -->
+  <g opacity="0.4" fill="#0D1527">
+    <rect x="80" y="200" width="70" height="280" />
+    <rect x="170" y="140" width="90" height="340" />
+    <polygon points="170,140 215,80 260,140" fill="#00F0FF" opacity="0.3" />
+    <rect x="280" y="220" width="80" height="260" />
+    <rect x="380" y="110" width="110" height="370" />
+    <rect x="510" y="180" width="85" height="300" />
+    <rect x="610" y="150" width="100" height="330" />
+  </g>
+
+  <!-- Luzes de Janelas nos Prédios (Neon Cyan e Purple) -->
+  <g opacity="0.6">
+    <circle cx="215" cy="180" r="3" fill="#00F0FF" />
+    <circle cx="435" cy="150" r="4" fill="#00FF94" />
+    <circle cx="435" cy="180" r="3" fill="#7000FF" />
+    <circle cx="660" cy="210" r="3" fill="#00F0FF" />
+  </g>
+
+  <!-- Terraço / Mesa de Vidro Glassmorphism -->
+  <rect x="0" y="440" width="800" height="160" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5" />
+
+  <!-- Laptop Sleek Ultra-fino Trabalhando com Dashboard de Finanças -->
+  <g transform="translate(250, 360)">
+    <!-- Tela do Laptop -->
+    <rect x="20" y="0" width="260" height="160" rx="10" fill="#0A0F1D" stroke="url(#laptopGrad)" stroke-width="2" />
+    <rect x="25" y="5" width="250" height="150" rx="6" fill="rgba(0, 240, 255, 0.08)" />
+
+    <!-- Gráficos de Câmbio na Tela -->
+    <path d="M 40 120 Q 90 60 140 90 T 240 40" fill="none" stroke="#00F0FF" stroke-width="3" />
+    <circle cx="240" cy="40" r="5" fill="#00FF94" />
+
+    <!-- Base do Laptop na Mesa -->
+    <polygon points="0,160 300,160 280,175 20,175" fill="#1E293B" stroke="#00F0FF" stroke-width="1" />
+  </g>
+
+  <!-- Cartão de Crédito Transparente sobre a Mesa -->
+  <g transform="translate(560, 470) rotate(-15)">
+    <rect width="140" height="85" rx="8" fill="rgba(255, 255, 255, 0.18)" stroke="#00F0FF" stroke-width="1.5" />
+    <circle cx="30" cy="25" r="8" fill="#7000FF" opacity="0.8" />
+    <circle cx="42" cy="25" r="8" fill="#00F0FF" opacity="0.8" />
+    <text x="20" y="60" font-family="monospace" font-size="8" fill="#FFF">TRIPCARD</text>
+  </g>
+
+  <!-- Crachá de Nômade Digital Holográfico / Passaporte Tech -->
+  <g transform="translate(100, 460)">
+    <rect width="110" height="70" rx="10" fill="rgba(112, 0, 255, 0.12)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" />
+    <text x="15" y="25" font-family="'Outfit', sans-serif" font-size="10" font-weight="bold" fill="#00F0FF">PASSPORT</text>
+    <text x="15" y="42" font-family="'Inter', sans-serif" font-size="9" fill="#FFF">GLOBAL CITIZEN</text>
+    <circle cx="85" cy="35" r="12" fill="#00FF94" opacity="0.3" />
+  </g>
+</svg>

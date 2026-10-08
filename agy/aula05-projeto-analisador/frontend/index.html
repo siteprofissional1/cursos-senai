@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburgueria do Joselito | Avalie sua Experiência</title>
+  <meta name="description" content="Envie sua avaliação sobre nossos hambúrgueres artesanais, entrega e atendimento na Hamburgueria do Joselito em Ourinhos.">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Barra de Navegação Superior -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/" class="brand-logo">
+        <span class="brand-icon">🍔</span>
+        <div>
+          <span class="brand-title">Hamburgueria do Joselito</span>
+          <span class="brand-badge">Ourinhos</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="/admin" class="nav-btn nav-btn-secondary">
+          🛡️ Área do Gerente
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="container" style="flex: 1;">
+    <section class="hero-header">
+      <div class="hero-badge">Sua Opinião Faz a Diferença</div>
+      <h1 class="hero-title">Como foi sua <span>Experiência no Joselito</span>?</h1>
+      <p class="hero-subtitle">
+        Conte-nos como estavam o lanche, a rapidez da entrega e a simpatia do nosso atendimento em Ourinhos.
+      </p>
+    </section>
+
+    <!-- Card Principal de Avaliação -->
+    <div class="feedback-card">
+      <form id="feedbackForm">
+        
+        <!-- Dados do Cliente e Pedido -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="clienteNome">
+              Seu Nome: <span style="color: #ef4444;">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="clienteNome" 
+              class="form-input" 
+              placeholder="Ex: João da Silva" 
+              required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="numeroPedido">
+              Número do Pedido: <span style="color: #94a3b8; font-weight: normal;">(Opcional)</span>
+            </label>
+            <input 
+              type="text" 
+              id="numeroPedido" 
+              class="form-input" 
+              placeholder="Ex: #1042">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="clienteContato">
+              Telefone ou E-mail: <span style="color: #94a3b8; font-weight: normal;">(Opcional)</span>
+            </label>
+            <input 
+              type="text" 
+              id="clienteContato" 
+              class="form-input" 
+              placeholder="Ex: (14) 99888-7766">
+          </div>
+        </div>
+
+        <!-- Seção Obrigatória de 3 Categorias de Avaliação (1 a 5 Estrelas) -->
+        <div class="ratings-section">
+          <label class="form-label" style="font-size: 15px; margin-bottom: 12px;">
+            Avalie nossos serviços: <span style="color: #ef4444;">* (Obrigatório selecionar as 3)</span>
+          </label>
+
+          <div class="ratings-grid">
+            <!-- 1. O Lanche -->
+            <div class="rating-item" id="groupLanche">
+              <div class="rating-item-header">
+                <span class="rating-item-icon">🍔</span>
+                <span class="rating-item-title">O Lanche</span>
+                <span class="rating-score-badge" id="scoreLanche">Não avaliado</span>
+              </div>
+              <div class="star-rating-group" data-category="lanche">
+                <button type="button" class="star-btn" data-val="1" title="1 Estrela">★</button>
+                <button type="button" class="star-btn" data-val="2" title="2 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="3" title="3 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="4" title="4 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="5" title="5 Estrelas">★</button>
+              </div>
+              <input type="hidden" id="notaLanche" value="0">
+            </div>
+
+            <!-- 2. A Entrega -->
+            <div class="rating-item" id="groupEntrega">
+              <div class="rating-item-header">
+                <span class="rating-item-icon">🚚</span>
+                <span class="rating-item-title">A Entrega</span>
+                <span class="rating-score-badge" id="scoreEntrega">Não avaliado</span>
+              </div>
+              <div class="star-rating-group" data-category="entrega">
+                <button type="button" class="star-btn" data-val="1" title="1 Estrela">★</button>
+                <button type="button" class="star-btn" data-val="2" title="2 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="3" title="3 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="4" title="4 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="5" title="5 Estrelas">★</button>
+              </div>
+              <input type="hidden" id="notaEntrega" value="0">
+            </div>
+
+            <!-- 3. O Atendimento -->
+            <div class="rating-item" id="groupAtendimento">
+              <div class="rating-item-header">
+                <span class="rating-item-icon">🤝</span>
+                <span class="rating-item-title">O Atendimento</span>
+                <span class="rating-score-badge" id="scoreAtendimento">Não avaliado</span>
+              </div>
+              <div class="star-rating-group" data-category="atendimento">
+                <button type="button" class="star-btn" data-val="1" title="1 Estrela">★</button>
+                <button type="button" class="star-btn" data-val="2" title="2 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="3" title="3 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="4" title="4 Estrelas">★</button>
+                <button type="button" class="star-btn" data-val="5" title="5 Estrelas">★</button>
+              </div>
+              <input type="hidden" id="notaAtendimento" value="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Campo Caixa de Texto: Sua Avaliação -->
+        <div class="form-group" style="margin-top: 20px;">
+          <label class="form-label" for="clienteComentario">
+            Sua Avaliação: <span style="color: #ef4444;">*</span>
+          </label>
+          <textarea 
+            id="clienteComentario" 
+            class="form-textarea" 
+            placeholder="Conte-nos o que você achou dos sabores, do ponto da carne, da velocidade da entrega ou do atendimento..." 
+            required></textarea>
+        </div>
+
+        <!-- Botão de Envio Imediato -->
+        <button type="submit" id="btnSubmit" class="btn-submit">
+          <span id="btnSpinner" class="spinner" style="display: none;"></span>
+          <span id="btnText">Enviar Avaliação</span>
+        </button>
+      </form>
+
+      <!-- Card de Sucesso Imediato para o Cliente (Sem menção a IA, rápido e seguro) -->
+      <div id="successCard" class="success-card" style="display: none;">
+        <div class="success-icon">🎉</div>
+        <h3 class="success-title">Avaliação enviada com sucesso!</h3>
+        <p class="success-message" id="successMessage">
+          Muito obrigado pela sua opinião! Seu feedback já foi entregue diretamente à nossa equipe para continuarmos aprimorando cada detalhe da Hamburgueria do Joselito.
+        </p>
+        <button type="button" id="btnNovoFeedback" class="nav-btn nav-btn-secondary" style="margin-top: 16px; align-self: center;">
+          ✍️ Enviar outra avaliação
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Rodapé Global Obrigatório com link azul centralizado -->
+  <footer class="site-footer" style="text-align: center; padding: 24px; font-size: 14px; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.08); margin-top: auto;">
+    Criado por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none; font-weight: 600;">siteprofissional.pro</a>
+  </footer>
+
+  <script src="/static/js/client.js"></script>
+</body>
+</html>

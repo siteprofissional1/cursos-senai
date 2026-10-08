@@ -1,0 +1,765 @@
+[
+  {
+    "id": "fb_7b7a119a",
+    "cliente_nome": "Mariana Souza",
+    "cliente_contato": "(14) 98888-4321",
+    "numero_pedido": "#2046",
+    "nota_lanche": 1,
+    "nota_entrega": 2,
+    "nota_atendimento": 4,
+    "nota_satisfacao": 1,
+    "comentario": "O pedido atrasou mais de 1 hora e o lanche veio completamente frio e amassado.",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega",
+      "Sabor"
+    ],
+    "resumo": "Reclamação crítica identificada via contingência: O pedido atrasou mais de 1 hora e o lanche veio completament...",
+    "urgencia": true,
+    "justificativa": "Palavras-chave de insatisfação severa detectadas no comentário do cliente.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "smtp_real",
+      "tentativas": 1,
+      "destinatario": "estudantebrasileiro777@gmail.com"
+    },
+    "status": "pendente",
+    "criado_em": "2026-09-05T12:07:01.008063",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_9802fc87",
+    "cliente_nome": "Carlos Eduardo",
+    "cliente_contato": "(14) 99777-1234",
+    "numero_pedido": "#2045",
+    "nota_lanche": 5,
+    "nota_entrega": 4,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "O burger de costela da Hamburgueria do Joselito estava sensacional! Pão fresquinho e maionese defumada no ponto.",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao burger de costela, qualidade do pão e tempero da maionese.",
+    "urgencia": false,
+    "justificativa": "O cliente demonstrou total satisfação com o sabor e os ingredientes do lanche, sem apontar qualquer problema operacional.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T12:06:43.099469",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_57f5bfcf",
+    "cliente_nome": "Carlos Eduardo",
+    "cliente_contato": "(14) 99777-1234",
+    "numero_pedido": "#2045",
+    "nota_lanche": 5,
+    "nota_entrega": 4,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "O burger de costela da Hamburgueria doO burger de costela da Hamburgueria do Joselito estava sensacional! Pao fresquinho e maionese defumada no ponto. Joselito estava sensacional! P",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao hambúrguer de costela, pão fresco e maionese defumada.",
+    "urgencia": false,
+    "justificativa": "O feedback é extremamente positivo, destacando a qualidade e o sabor do hambúrguer, pão e maionese.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T12:01:46.868908",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_52e8cd7c",
+    "cliente_nome": "Cliente Muito Insatisfeito",
+    "cliente_contato": "(14) 99999-0001",
+    "numero_pedido": "#1043",
+    "nota_lanche": 1,
+    "nota_entrega": 2,
+    "nota_atendimento": 1,
+    "nota_satisfacao": 1,
+    "comentario": "Atraso inaceitável e comida fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Reclamação de atraso grave na entrega e comida que chegou fria.",
+    "urgencia": true,
+    "justificativa": "O cliente relatou insatisfação severa com o atraso na entrega e a temperatura fria do alimento.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "smtp_real",
+      "tentativas": 1,
+      "destinatario": "estudantebrasileiro777@gmail.com"
+    },
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:56:06.324573",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_3fb0cd1c",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "numero_pedido": "#1042",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Feedback positivo: Melhor burger artesanal de Ourinhos!...",
+    "urgencia": false,
+    "justificativa": "Elogios claros identificados em relação ao pedido ou atendimento.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:55:51.587831",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_aa02805c",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "numero_pedido": "",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "Processando análise semântica...",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:55:47.969621",
+    "tratado_em": "2026-09-05T11:55:47.978841",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_9e6ee931",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "numero_pedido": "",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:55:47.956655",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_65d4a956",
+    "cliente_nome": "Cliente Muito Insatisfeito",
+    "cliente_contato": "(14) 99999-0001",
+    "numero_pedido": "#1043",
+    "nota_lanche": 1,
+    "nota_entrega": 2,
+    "nota_atendimento": 1,
+    "nota_satisfacao": 1,
+    "comentario": "Atraso inaceitável e comida fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Reclamação por atraso inaceitável e lanche entregue frio.",
+    "urgencia": true,
+    "justificativa": "O comentário apresenta forte insatisfação relacionada ao tempo de espera e à temperatura do produto entregue, caracterizando uma falha crítica no serviço de entrega.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "smtp_real",
+      "tentativas": 1,
+      "destinatario": "estudantebrasileiro777@gmail.com"
+    },
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:55:03.273625",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_c30dfdb1",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "numero_pedido": "#1042",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao hambúrguer artesanal, considerado o melhor de Ourinhos.",
+    "urgencia": false,
+    "justificativa": "O cliente expressou alta satisfação com o produto, elogiando a qualidade do hambúrguer artesanal.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:54:55.952405",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_38d9b35d",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "numero_pedido": "",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "Processando análise semântica...",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:54:51.291691",
+    "tratado_em": "2026-09-05T11:54:51.301334",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_081d2680",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "numero_pedido": "",
+    "nota_lanche": 5,
+    "nota_entrega": 5,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:54:51.276084",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_47a2d9e5",
+    "cliente_nome": "claudio",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "nao gostei pq o entregador deu grau e chacoalhou todo o refri e o pedido veio tudo baguncado tambem",
+    "sentimento": "Neutro",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Avaliação geral: nao gostei pq o entregador deu grau e chacoalhou todo o refr...",
+    "urgencia": false,
+    "justificativa": "Comentário moderado sem termos enfáticos de satisfação ou repúdio.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:48:18.414818",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_99696864",
+    "cliente_nome": "Cliente Muito Insatisfeito",
+    "cliente_contato": "(14) 99999-0001",
+    "nota_satisfacao": 1,
+    "comentario": "Atraso inaceitável e comida fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Reclamação sobre atraso grave na entrega e comida que chegou fria.",
+    "urgencia": true,
+    "justificativa": "O cliente apresentou forte insatisfação devido ao tempo excessivo de espera e à temperatura inadequada do alimento recebido.",
+    "alerta_disparado": true,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:47:00.146751",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_09d84ffc",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio entusiasmado ao hambúrguer artesanal, considerado o melhor da cidade.",
+    "urgencia": false,
+    "justificativa": "O cliente expressou extrema satisfação com o hambúrguer, classificando-o como o melhor de Ourinhos, o que caracteriza sentimento positivo e foco no sabor.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:46:20.939012",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_2adf7b8a",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:45:22.284252",
+    "tratado_em": "2026-09-05T11:45:22.293200",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_71e8829e",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:45:22.267810",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_64fbc22a",
+    "cliente_nome": "Cliente Muito Insatisfeito",
+    "cliente_contato": "(14) 99999-0001",
+    "nota_satisfacao": 1,
+    "comentario": "Atraso inaceitável e comida fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega",
+      "Sabor"
+    ],
+    "resumo": "Reclamação sobre atraso na entrega e comida fria.",
+    "urgencia": true,
+    "justificativa": "O feedback relata insatisfação crítica devido ao atraso no pedido e à temperatura inadequada da comida.",
+    "alerta_disparado": true,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:34:35.767664",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_d0c678a2",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio à qualidade do hambúrguer, considerado o melhor da cidade.",
+    "urgencia": false,
+    "justificativa": "O cliente demonstrou extrema satisfação com o produto, sem relatar nenhum ponto negativo.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:34:03.280954",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_86454acd",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:30:25.544069",
+    "tratado_em": "2026-09-05T11:30:25.551415",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_a1a53ec4",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:30:25.520532",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_25ded5dd",
+    "cliente_nome": "Cliente Muito Insatisfeito",
+    "cliente_contato": "(14) 99999-0001",
+    "nota_satisfacao": 1,
+    "comentario": "Atraso inaceitável e comida fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Cliente reclama de atraso inaceitável na entrega e comida que chegou fria.",
+    "urgencia": true,
+    "justificativa": "O feedback foi classificado como Crítico devido à forte insatisfação com o tempo de entrega e a temperatura do produto, exigindo atenção imediata.",
+    "alerta_disparado": true,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:29:55.166176",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_376c8fbf",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao hambúrguer, considerado o melhor artesanal de Ourinhos.",
+    "urgencia": false,
+    "justificativa": "O cliente expressou alta satisfação com a qualidade do lanche, destacando-o como o melhor da cidade.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:27:40.951100",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_012045ab",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:26:58.253074",
+    "tratado_em": "2026-09-05T11:26:58.262880",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_0b1f3d25",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:26:58.240931",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_2bace807",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao hambúrguer artesanal, considerado o melhor da cidade.",
+    "urgencia": false,
+    "justificativa": "O cliente expressou extrema satisfação com a qualidade do hambúrguer, qualificando-o como o melhor de Ourinhos.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:20:19.418556",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_01697907",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T11:19:19.493870",
+    "tratado_em": "2026-09-05T11:19:19.502986",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_13046e56",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T11:19:19.474797",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_d9d9d1e2",
+    "cliente_nome": "Roberto Carlos",
+    "cliente_contato": "(14) 98111-2222",
+    "nota_satisfacao": 5,
+    "comentario": "Melhor burger artesanal de Ourinhos!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Cliente elogia o lanche, considerando-o o melhor hambúrguer artesanal de Ourinhos.",
+    "urgencia": false,
+    "justificativa": "O cliente expressou extrema satisfação com a qualidade e o sabor do lanche, qualificando-o como o melhor da cidade sem relatar nenhum problema operacional.",
+    "alerta_disparado": false,
+    "status": "pendente",
+    "criado_em": "2026-09-05T10:50:45.730543",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_e89f06e1",
+    "cliente_nome": "Cliente Para Tratativa",
+    "cliente_contato": "",
+    "nota_satisfacao": 5,
+    "comentario": "Reclamação de teste",
+    "sentimento": "Crítico",
+    "tags": [
+      "Atendimento"
+    ],
+    "resumo": "",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T10:50:10.216585",
+    "tratado_em": "2026-09-05T10:50:10.226291",
+    "notas_gerente": "Resolvido com sucesso."
+  },
+  {
+    "id": "fb_8ab692d8",
+    "cliente_nome": "Teste Automatizado",
+    "cliente_contato": "(14) 99999-1111",
+    "nota_satisfacao": 5,
+    "comentario": "Lanche maravilhoso e maionese perfeita!",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Elogio ao lanche",
+    "urgencia": false,
+    "justificativa": "",
+    "alerta_disparado": false,
+    "status": "tratado",
+    "criado_em": "2026-09-05T10:50:10.203065",
+    "tratado_em": "2026-09-05T10:58:10.910318",
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_demo_004",
+    "cliente_nome": "Fernanda Souza",
+    "cliente_contato": "fernanda@exemplo.com",
+    "nota_satisfacao": 3,
+    "comentario": "O lanche é saboroso, porém o ponto da carne veio um pouco além do que pedi. Poderiam ter opção de maionese temperada vegana.",
+    "sentimento": "Neutro",
+    "tags": [
+      "Sabor"
+    ],
+    "resumo": "Feedback moderado com sugestão de ponto da carne e item vegano.",
+    "urgencia": false,
+    "justificativa": "Comentário construtivo com sugestões sem manifestação de indignação.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "tratado",
+    "criado_em": "2026-09-05T10:10:00",
+    "tratado_em": "2026-09-05T10:58:20.560960",
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_demo_003",
+    "cliente_nome": "Rodrigo Ramos",
+    "cliente_contato": "(14) 99123-5566",
+    "nota_satisfacao": 1,
+    "comentario": "Demorou mais de 1 hora e não mandaram o refrigerante, fiquei revoltado!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Entrega"
+    ],
+    "resumo": "Atraso superior a 1 hora e refrigerante não entregue.",
+    "urgencia": true,
+    "justificativa": "Atraso severo na logística de entrega somado à ausência de item faturado.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "simulado_contingencia",
+      "destinatario": "gerente@hamburgueriaourinhos.com.br"
+    },
+    "status": "tratado",
+    "criado_em": "2026-09-05T09:45:00",
+    "tratado_em": "2026-09-05T10:58:30.021335",
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_demo_001",
+    "cliente_nome": "Lucas Martins",
+    "cliente_contato": "(14) 99876-1234",
+    "nota_satisfacao": 2,
+    "comentario": "O hambúrguer estava incrível, mas a batata chegou murcha e fria!",
+    "sentimento": "Crítico",
+    "tags": [
+      "Sabor",
+      "Entrega"
+    ],
+    "resumo": "Hambúrguer excelente, mas batata frita chegou murcha e fria.",
+    "urgencia": true,
+    "justificativa": "Falha na conservação térmica e prazo de entrega prejudicaram a experiência do cliente.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "simulado_contingencia",
+      "destinatario": "gerente@hamburgueriaourinhos.com.br"
+    },
+    "status": "pendente",
+    "criado_em": "2026-09-05T09:15:00",
+    "tratado_em": null,
+    "notas_gerente": ""
+  },
+  {
+    "id": "fb_demo_002",
+    "cliente_nome": "Mariana Silva",
+    "cliente_contato": "mariana.silva@email.com",
+    "nota_satisfacao": 5,
+    "comentario": "Atendimento nota 10, melhor maionese da cidade! Chegou super rápido e bem embalado.",
+    "sentimento": "Positivo",
+    "tags": [
+      "Sabor",
+      "Atendimento",
+      "Entrega"
+    ],
+    "resumo": "Elogio enfático ao atendimento, qualidade da maionese e rapidez.",
+    "urgencia": false,
+    "justificativa": "Cliente altamente satisfeito com múltiplos aspectos do serviço e produto.",
+    "alerta_disparado": false,
+    "resultado_alerta": null,
+    "status": "tratado",
+    "criado_em": "2026-09-05T08:40:00",
+    "tratado_em": "2026-09-05T09:00:00",
+    "notas_gerente": "Cliente fidelizada, enviado cupom de agradecimento pelo WhatsApp."
+  },
+  {
+    "id": "fb_d0745f67",
+    "cliente_nome": "octavio",
+    "cliente_contato": "",
+    "numero_pedido": "",
+    "nota_lanche": 5,
+    "nota_entrega": 1,
+    "nota_atendimento": 5,
+    "nota_satisfacao": 5,
+    "comentario": "entregador deu grau e chacoalhou tudo meu lanche",
+    "sentimento": "Neutro",
+    "tags": [
+      "Entrega",
+      "Sabor"
+    ],
+    "resumo": "Avaliação geral: entregador deu grau e chacoalhou tudo meu lanche...",
+    "urgencia": true,
+    "justificativa": "Comentário moderado sem termos enfáticos de satisfação ou repúdio.",
+    "alerta_disparado": true,
+    "resultado_alerta": {
+      "sucesso": true,
+      "modo": "smtp_real",
+      "tentativas": 1,
+      "destinatario": "estudantebrasileiro777@gmail.com"
+    },
+    "status": "pendente",
+    "criado_em": "2026-09-05T12:15:46.766831",
+    "tratado_em": null,
+    "notas_gerente": ""
+  }
+]

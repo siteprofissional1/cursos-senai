@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e30613">
+  <title>Atendimento Virtual - SENAI Ourinhos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --senai-red: #e30613;
+      --senai-red-dark: #b7000a;
+      --dark: #181818;
+      --muted: #6b7280;
+      --light: #f5f5f5;
+      --border: #e5e7eb;
+      --white: #ffffff;
+      --success: #0f8a4b;
+      --shadow: 0 20px 60px rgba(0,0,0,.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #ffffff 0, #f4f4f4 45%, #ececec 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #262626;
+      padding: 18px;
+    }
+
+    .chat-container {
+      width: min(100%, 560px);
+      height: min(920px, calc(100vh - 36px));
+      background: var(--white);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--senai-red), #c6000b);
+      color: #fff;
+      padding: 18px 20px 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-row { display: flex; gap: 12px; align-items: center; }
+    .bot-avatar {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: #fff; color: var(--senai-red); font-weight: 800; font-size: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      flex: 0 0 auto;
+    }
+    .header-copy { flex: 1; min-width: 0; }
+    .header-copy h1 { font-size: 1.08rem; font-weight: 800; }
+    .header-copy p { font-size: .79rem; opacity: .92; margin-top: 4px; }
+    .status { display: inline-flex; gap: 6px; align-items: center; font-size: .72rem; opacity: .95; margin-top: 6px; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #74f29c; box-shadow: 0 0 0 3px rgba(116,242,156,.18); }
+
+    .demo-notice {
+      background: #fff7e6;
+      color: #7a4a00;
+      border-bottom: 1px solid #f4dfb5;
+      padding: 8px 14px;
+      text-align: center;
+      font-size: .71rem;
+      line-height: 1.35;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px;
+      background: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    .chat-messages::-webkit-scrollbar { width: 7px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: #d7d7d7; border-radius: 99px; }
+
+    .msg-wrapper { width: 100%; display: flex; animation: fadeIn .22s ease; }
+    .msg-wrapper.bot { justify-content: flex-start; }
+    .msg-wrapper.user { justify-content: flex-end; }
+    .msg-bubble {
+      max-width: 88%;
+      padding: 12px 14px;
+      border-radius: 15px;
+      line-height: 1.48;
+      font-size: .9rem;
+    }
+    .bot .msg-bubble {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.035);
+    }
+    .user .msg-bubble {
+      background: var(--dark);
+      color: #fff;
+      border-bottom-right-radius: 5px;
+      font-weight: 600;
+    }
+
+    .msg-bubble strong { font-weight: 800; }
+    .msg-bubble ul { margin: 9px 0 0 18px; }
+    .msg-bubble li { margin: 5px 0; }
+    .pill {
+      display: inline-block;
+      margin: 4px 5px 0 0;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #f2f2f2;
+      border: 1px solid #e6e6e6;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .course-highlight {
+      margin-top: 9px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #f7f7f7;
+      border-left: 3px solid var(--senai-red);
+    }
+
+    .typing {
+      width: fit-content;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 15px 15px 15px 5px;
+      padding: 10px 13px;
+      display: flex;
+      gap: 4px;
+    }
+    .typing span { width: 6px; height: 6px; border-radius: 50%; background: #aaa; animation: bounce 1s infinite ease-in-out; }
+    .typing span:nth-child(2) { animation-delay: .12s; }
+    .typing span:nth-child(3) { animation-delay: .24s; }
+
+    .chat-options {
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 13px 14px 15px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      max-height: 39%;
+      overflow-y: auto;
+    }
+
+    .btn-option {
+      border: 1.5px solid #dedede;
+      background: #fff;
+      color: #222;
+      padding: 12px 13px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-size: .87rem;
+      font-weight: 700;
+      text-align: left;
+      transition: .16s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-option::after { content: '›'; color: var(--senai-red); font-size: 1.2rem; line-height: 1; }
+    .btn-option:hover { border-color: var(--senai-red); background: #fff5f5; transform: translateY(-1px); }
+    .btn-option.primary { background: var(--senai-red); color: #fff; border-color: var(--senai-red); }
+    .btn-option.primary::after { color: #fff; }
+    .btn-option.primary:hover { background: var(--senai-red-dark); }
+    .btn-option.back { color: #555; font-weight: 600; }
+    .btn-option.external::after { content: '↗'; }
+
+    .footer-brand {
+      padding: 8px 14px;
+      text-align: center;
+      font-size: .68rem;
+      color: #8b8b8b;
+      background: #fff;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
+
+    @media (max-width: 600px) {
+      body { padding: 0; background: #fff; }
+      .chat-container { width: 100%; height: 100vh; border-radius: 0; border: 0; }
+      .chat-header { padding-top: max(16px, env(safe-area-inset-top)); }
+      .chat-options { max-height: 42%; }
+    }
+  </style>
+</head>
+<body>
+  <section class="chat-container" aria-label="Chatbot demonstrativo do SENAI Ourinhos">
+    <header class="chat-header">
+      <div class="header-row">
+        <div class="bot-avatar">SENAI</div>
+        <div class="header-copy">
+          <h1>Assistente Virtual • SENAI Ourinhos</h1>
+          <p>Descubra cursos, áreas profissionais e informações da unidade</p>
+          <div class="status"><span class="status-dot"></span> Atendimento disponível</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="demo-notice">Protótipo acadêmico/demonstrativo. Parte dos cursos, cargas horárias e turmas abaixo é ilustrativa.</div>
+
+    <main class="chat-messages" id="chat-messages" aria-live="polite"></main>
+    <footer class="chat-options" id="chat-options"></footer>
+    <div class="footer-brand">Navegação 100% por botões • sem campo de texto</div>
+  </section>
+
+  <script>
+    const chatMessages = document.getElementById('chat-messages');
+    const chatOptions = document.getElementById('chat-options');
+
+    const categories = {
+      ti: {
+        name: '💻 Tecnologia da Informação',
+        intro: 'Ótima escolha! Em <strong>Tecnologia da Informação</strong>, você pode seguir por programação, infraestrutura, dados, nuvem ou segurança.',
+        courses: [
+          { id:'dev', name:'Desenvolvimento de Sistemas', icon:'🧑‍💻', duration:'120 h', level:'Intermediário', mode:'Presencial', description:'Lógica, HTML, CSS, JavaScript, banco de dados e desenvolvimento de aplicações.', skills:['Programação','Web','Banco de dados'] },
+          { id:'python', name:'Python para Automação', icon:'🐍', duration:'60 h', level:'Iniciante', mode:'Presencial', description:'Fundamentos de Python aplicados a scripts, automação de tarefas e manipulação de dados.', skills:['Python','Automação','APIs'] },
+          { id:'cyber', name:'Cibersegurança', icon:'🛡️', duration:'80 h', level:'Intermediário', mode:'Presencial', description:'Redes, hardening, análise de vulnerabilidades, segurança de sistemas e fundamentos de defesa cibernética.', skills:['Redes','Segurança','Linux'] },
+          { id:'redes', name:'Redes de Computadores', icon:'🌐', duration:'80 h', level:'Iniciante', mode:'Presencial', description:'TCP/IP, cabeamento, roteamento, Wi‑Fi, configuração de equipamentos e troubleshooting.', skills:['TCP/IP','Roteadores','Suporte'] },
+          { id:'cloud', name:'Cloud Computing', icon:'☁️', duration:'40 h', level:'Intermediário', mode:'Híbrido', description:'Fundamentos de computação em nuvem, máquinas virtuais, redes, armazenamento e segurança.', skills:['Cloud','Infraestrutura','DevOps'] },
+          { id:'data', name:'Power BI e Análise de Dados', icon:'📊', duration:'40 h', level:'Iniciante', mode:'Presencial', description:'Tratamento de dados, indicadores, dashboards e visualização para tomada de decisão.', skills:['Power BI','Dashboards','Dados'] }
+        ]
+      },
+      mecanica: {
+        name: '⚙️ Mecânica e Usinagem',
+        intro: 'Na área de <strong>Mecânica e Usinagem</strong>, o foco é produção, precisão, fabricação e manutenção industrial.',
+        courses: [
+          { id:'cnc', name:'Operador e Programador CNC', icon:'🏭', duration:'100 h', level:'Intermediário', mode:'Presencial', description:'Preparação, operação e programação básica de tornos e centros de usinagem CNC.', skills:['CNC','Usinagem','Produção'] },
+          { id:'metrologia', name:'Metrologia Industrial', icon:'📐', duration:'32 h', level:'Iniciante', mode:'Presencial', description:'Uso de paquímetro, micrômetro, relógio comparador e leitura de tolerâncias.', skills:['Medição','Qualidade','Precisão'] },
+          { id:'desenho', name:'Desenho Técnico Mecânico', icon:'✏️', duration:'60 h', level:'Iniciante', mode:'Presencial', description:'Leitura e interpretação de desenho, cotagem, vistas, cortes e simbologia técnica.', skills:['Desenho','Projetos','Leitura técnica'] },
+          { id:'cad', name:'CAD 3D para Projetos Mecânicos', icon:'🧩', duration:'80 h', level:'Intermediário', mode:'Presencial', description:'Modelagem de peças e conjuntos 3D, detalhamento e documentação para fabricação.', skills:['CAD','3D','Projeto mecânico'] }
+        ]
+      },
+      eletro: {
+        name: '⚡ Eletroeletrônica',
+        intro: 'Em <strong>Eletroeletrônica</strong>, você trabalha com instalações, comandos, manutenção e sistemas elétricos industriais.',
+        courses: [
+          { id:'eletricista', name:'Eletricista Industrial', icon:'🔌', duration:'100 h', level:'Intermediário', mode:'Presencial', description:'Instalações, leitura de diagramas, manutenção e boas práticas em ambientes industriais.', skills:['Elétrica','Manutenção','Diagramas'] },
+          { id:'comandos', name:'Comandos Elétricos', icon:'🎛️', duration:'60 h', level:'Intermediário', mode:'Presencial', description:'Contatores, relés, motores, partidas e montagem de circuitos de comando.', skills:['Motores','Painéis','Comandos'] },
+          { id:'instalacoes', name:'Instalações Elétricas Prediais', icon:'🏠', duration:'60 h', level:'Iniciante', mode:'Presencial', description:'Circuitos residenciais, dimensionamento, dispositivos de proteção e leitura de projetos.', skills:['Instalações','Projetos','Proteção'] },
+          { id:'solar', name:'Fundamentos de Energia Solar', icon:'☀️', duration:'40 h', level:'Iniciante', mode:'Presencial', description:'Princípios de geração fotovoltaica, componentes, segurança e noções de dimensionamento.', skills:['Solar','Energia','Sustentabilidade'] }
+        ]
+      },
+      automacao: {
+        name: '🤖 Automação e Indústria 4.0',
+        intro: 'Se você gosta de máquinas inteligentes, sensores e controle industrial, <strong>Automação e Indústria 4.0</strong> é uma ótima trilha.',
+        courses: [
+          { id:'clp', name:'Programação de CLP', icon:'🧠', duration:'80 h', level:'Intermediário', mode:'Presencial', description:'Lógica ladder, entradas e saídas, temporizadores, contadores e automação de processos.', skills:['CLP','Ladder','Automação'] },
+          { id:'iot', name:'Internet das Coisas - IoT', icon:'📡', duration:'60 h', level:'Intermediário', mode:'Híbrido', description:'Sensores, microcontroladores, conectividade e coleta de dados de dispositivos.', skills:['IoT','Sensores','Conectividade'] },
+          { id:'robotica', name:'Robótica Industrial', icon:'🦾', duration:'80 h', level:'Intermediário', mode:'Presencial', description:'Fundamentos de robôs industriais, segurança, programação e aplicações em células produtivas.', skills:['Robótica','Programação','Indústria'] },
+          { id:'industria40', name:'Fundamentos da Indústria 4.0', icon:'🏗️', duration:'32 h', level:'Iniciante', mode:'Híbrido', description:'Integração digital, dados industriais, conectividade, automação e manufatura inteligente.', skills:['Indústria 4.0','Digitalização','Processos'] }
+        ]
+      },
+      gestao: {
+        name: '📈 Gestão, Logística e Qualidade',
+        intro: 'Essa trilha combina produtividade, organização, processos e análise para ambientes administrativos e industriais.',
+        courses: [
+          { id:'excel', name:'Excel Profissional', icon:'📗', duration:'40 h', level:'Iniciante', mode:'Presencial', description:'Fórmulas, funções, tabelas, filtros, gráficos e recursos para rotina profissional.', skills:['Excel','Produtividade','Dados'] },
+          { id:'logistica', name:'Logística e Controle de Estoques', icon:'📦', duration:'40 h', level:'Iniciante', mode:'Presencial', description:'Armazenagem, inventário, movimentação, indicadores e organização de estoques.', skills:['Logística','Estoque','Indicadores'] },
+          { id:'lean', name:'Lean Manufacturing', icon:'♻️', duration:'32 h', level:'Intermediário', mode:'Presencial', description:'Redução de desperdícios, melhoria contínua, fluxo de valor e ferramentas lean.', skills:['Lean','Kaizen','Processos'] },
+          { id:'qualidade', name:'Ferramentas da Qualidade', icon:'✅', duration:'32 h', level:'Iniciante', mode:'Presencial', description:'PDCA, 5W2H, Ishikawa, Pareto e métodos para análise e melhoria de processos.', skills:['Qualidade','PDCA','Melhoria contínua'] }
+        ]
+      },
+      seguranca: {
+        name: '🦺 Segurança do Trabalho',
+        intro: 'Aqui o foco é prevenção, boas práticas operacionais e cultura de segurança no ambiente profissional.',
+        courses: [
+          { id:'nr10', name:'Segurança em Eletricidade - NR 10', icon:'⚠️', duration:'40 h', level:'Profissional', mode:'Presencial', description:'Conteúdo demonstrativo relacionado a riscos elétricos, prevenção e procedimentos de segurança.', skills:['Prevenção','Eletricidade','Segurança'] },
+          { id:'nr35', name:'Trabalho em Altura - NR 35', icon:'🧗', duration:'16 h', level:'Profissional', mode:'Presencial', description:'Conteúdo demonstrativo sobre planejamento, proteção e práticas de segurança para trabalho em altura.', skills:['Altura','EPI','Prevenção'] },
+          { id:'primeiros', name:'Primeiros Socorros', icon:'⛑️', duration:'16 h', level:'Iniciante', mode:'Presencial', description:'Noções iniciais de resposta a emergências até a chegada de atendimento especializado.', skills:['Emergência','Prevenção','Resposta'] },
+          { id:'segindustrial', name:'Segurança em Ambiente Industrial', icon:'🏭', duration:'32 h', level:'Iniciante', mode:'Presencial', description:'Percepção de riscos, comportamento seguro, procedimentos e prevenção de acidentes.', skills:['Riscos','EPI','Indústria'] }
+        ]
+      }
+    };
+
+    const profileRecommendations = {
+      tecnologia: ['ti','automacao'],
+      industria: ['mecanica','eletro','automacao'],
+      rapido: ['gestao','seguranca','ti'],
+      emprego: ['ti','mecanica','eletro','gestao'],
+      carreira: ['ti','automacao','mecanica']
+    };
+
+    const staticNodes = {
+      inicio: {
+        message: 'Olá! 👋 Eu sou o assistente virtual deste protótipo do <strong>SENAI Ourinhos</strong>.<br><br>Posso ajudar você a explorar cursos, descobrir uma área profissional ou consultar informações da unidade. O que você quer fazer?',
+        options: [
+          ['🎓 Explorar cursos por área', 'categorias', 'primary'],
+          ['🧭 Me ajude a escolher um curso', 'quiz'],
+          ['📅 Como funcionam as turmas?', 'turmas'],
+          ['📍 Endereço, telefone e horários', 'unidade'],
+          ['📱 Redes sociais oficiais', 'redes']
+        ]
+      },
+      quiz: {
+        message: 'Vamos por um caminho rápido. Qual dessas opções mais combina com o que você procura agora?',
+        options: [
+          ['💻 Quero trabalhar com tecnologia', 'recommend:tecnologia'],
+          ['🏭 Quero trabalhar na indústria', 'recommend:industria'],
+          ['⚡ Quero um curso curto para o currículo', 'recommend:rapido'],
+          ['💼 Quero aumentar minhas chances de emprego', 'recommend:emprego'],
+          ['🚀 Quero mudar ou evoluir de carreira', 'recommend:carreira'],
+          ['⬅️ Voltar ao início', 'inicio', 'back']
+        ]
+      },
+      turmas: {
+        message: '<strong>Como este protótipo funciona:</strong><br><br>As informações de disponibilidade, duração, modalidade e turnos mostradas nos cursos são demonstrativas. Em uma versão real, esse mesmo fluxo poderia consumir uma API ou banco de dados do SENAI e exibir apenas turmas realmente abertas.',
+        options: [
+          ['🎓 Explorar os cursos', 'categorias', 'primary'],
+          ['🧭 Quero ajuda para escolher', 'quiz'],
+          ['⬅️ Voltar ao início', 'inicio', 'back']
+        ]
+      },
+      unidade: {
+        message: '<strong>Escola SENAI Ourinhos</strong><br><br>📍 R. Vitório Christoni, 1500 - Vila São Luiz, Ourinhos - SP, 19911-200<br>📞 (14) 3302-1250<br><br><strong>Horário informado no protótipo:</strong><br>Segunda a sexta: 07:30 às 20:30<br>Sábado: 08:00 às 12:00<br>Domingo: fechado.',
+        options: [
+          ['🎓 Ver cursos', 'categorias'],
+          ['🌐 Abrir página oficial', 'external:https://www.sp.senai.br/unidade/ourinhos', 'external'],
+          ['⬅️ Voltar ao início', 'inicio', 'back']
+        ]
+      },
+      redes: {
+        message: 'Escolha uma rede para abrir o perfil correspondente:',
+        options: [
+          ['📸 Instagram', 'external:https://www.instagram.com/senaiourinhos/', 'external'],
+          ['📘 Facebook', 'external:https://www.facebook.com/senaisp.ourinhos/', 'external'],
+          ['💼 LinkedIn', 'external:https://br.linkedin.com/company/senaisp-ourinhos', 'external'],
+          ['⬅️ Voltar ao início', 'inicio', 'back']
+        ]
+      },
+      contato: {
+        message: 'Para consultar vagas reais, datas, valores, pré-requisitos e inscrições, o próximo passo ideal é abrir a página oficial da unidade ou entrar em contato com o SENAI Ourinhos.',
+        options: [
+          ['🌐 Abrir página oficial do SENAI', 'external:https://www.sp.senai.br/unidade/ourinhos', 'external primary'],
+          ['📞 Ver telefone e endereço', 'unidade'],
+          ['🎓 Continuar vendo cursos', 'categorias'],
+          ['🏠 Voltar ao início', 'inicio', 'back']
+        ]
+      }
+    };
+
+    function renderMessage(html, sender = 'bot') {
+      const wrapper = document.createElement('div');
+      wrapper.className = `msg-wrapper ${sender}`;
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.innerHTML = html;
+      wrapper.appendChild(bubble);
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showTyping(callback) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'msg-wrapper bot';
+      wrapper.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      setTimeout(() => { wrapper.remove(); callback(); }, 260);
+    }
+
+    function setOptions(options) {
+      chatOptions.innerHTML = '';
+      options.forEach(([label, action, extraClass = '']) => {
+        const btn = document.createElement('button');
+        btn.className = `btn-option ${extraClass}`.trim();
+        btn.type = 'button';
+        btn.textContent = label;
+        btn.addEventListener('click', () => handleAction(label, action));
+        chatOptions.appendChild(btn);
+      });
+    }
+
+    function handleAction(label, action) {
+      renderMessage(label, 'user');
+      chatOptions.innerHTML = '';
+
+      if (action.startsWith('external:')) {
+        const url = action.replace('external:', '');
+        window.open(url, '_blank', 'noopener,noreferrer');
+        showTyping(() => {
+          renderMessage('Abri o link em uma nova aba. Quer continuar por aqui?');
+          setOptions([
+            ['🎓 Ver cursos', 'categorias'],
+            ['🏠 Voltar ao início', 'inicio', 'back']
+          ]);
+        });
+        return;
+      }
+
+      if (action.startsWith('category:')) {
+        showCategory(action.split(':')[1]);
+        return;
+      }
+
+      if (action.startsWith('course:')) {
+        const [, categoryId, courseId] = action.split(':');
+        showCourse(categoryId, courseId);
+        return;
+      }
+
+      if (action.startsWith('recommend:')) {
+        showRecommendations(action.split(':')[1]);
+        return;
+      }
+
+      navigate(action);
+    }
+
+    function navigate(nodeId) {
+      if (nodeId === 'categorias') return showCategories();
+      const node = staticNodes[nodeId] || staticNodes.inicio;
+      showTyping(() => {
+        renderMessage(node.message);
+        setOptions(node.options);
+      });
+    }
+
+    function showCategories() {
+      showTyping(() => {
+        renderMessage('Perfeito! Escolha uma <strong>área profissional</strong>. Depois eu mostro os cursos disponíveis dentro dela:');
+        const options = Object.entries(categories).map(([id, category]) => [category.name, `category:${id}`]);
+        options.push(['🧭 Não sei qual escolher', 'quiz']);
+        options.push(['⬅️ Voltar ao início', 'inicio', 'back']);
+        setOptions(options);
+      });
+    }
+
+    function showCategory(categoryId) {
+      const category = categories[categoryId];
+      if (!category) return navigate('categorias');
+
+      showTyping(() => {
+        renderMessage(`${category.intro}<br><br>Escolha um curso para ver mais detalhes:`);
+        const options = category.courses.map(course => [`${course.icon} ${course.name}`, `course:${categoryId}:${course.id}`]);
+        options.push(['⬅️ Ver outras áreas', 'categorias', 'back']);
+        options.push(['🏠 Menu principal', 'inicio', 'back']);
+        setOptions(options);
+      });
+    }
+
+    function showCourse(categoryId, courseId) {
+      const category = categories[categoryId];
+      const course = category?.courses.find(c => c.id === courseId);
+      if (!course) return showCategory(categoryId);
+
+      const skills = course.skills.map(s => `<span class="pill">${s}</span>`).join('');
+      const message = `
+        <strong>${course.icon} ${course.name}</strong>
+        <div class="course-highlight">${course.description}</div>
+        <br><strong>Exemplo de configuração da turma:</strong><br>
+        ⏱️ Carga horária: ${course.duration}<br>
+        📚 Nível: ${course.level}<br>
+        🏫 Modalidade: ${course.mode}<br><br>
+        ${skills}
+        <br><br><small>Os dados desta turma são ilustrativos para enriquecer o protótipo.</small>
+      `;
+
+      showTyping(() => {
+        renderMessage(message);
+        setOptions([
+          ['✅ Tenho interesse neste curso', 'interesse'],
+          ['🔎 Ver outro curso desta área', `category:${categoryId}`],
+          ['🎓 Ver todas as áreas', 'categorias'],
+          ['🏠 Menu principal', 'inicio', 'back']
+        ]);
+      });
+    }
+
+    function showRecommendations(profile) {
+      const ids = profileRecommendations[profile] || ['ti','gestao'];
+      showTyping(() => {
+        renderMessage('Com base na sua escolha, estas áreas podem fazer sentido. Selecione uma para continuar o funil:');
+        const options = ids.map(id => [categories[id].name, `category:${id}`]);
+        options.push(['🔄 Fazer outra escolha', 'quiz', 'back']);
+        options.push(['🎓 Ver todas as áreas', 'categorias']);
+        setOptions(options);
+      });
+    }
+
+    function interesseFlowStep1() {
+      renderMessage('Ótimo. Para simular a qualificação do interessado, qual formato seria melhor para você?');
+      setOptions([
+        ['🌅 Manhã', 'interestTime:Manhã'],
+        ['🌇 Tarde', 'interestTime:Tarde'],
+        ['🌙 Noite', 'interestTime:Noite'],
+        ['📆 Finais de semana', 'interestTime:Finais de semana'],
+        ['🤷 Qualquer horário', 'interestTime:Flexível'],
+        ['⬅️ Voltar aos cursos', 'categorias', 'back']
+      ]);
+    }
+
+    function interesseFlowStep2(time) {
+      renderMessage(`Preferência registrada no protótipo: <strong>${time}</strong>.<br><br>Qual é sua prioridade?`);
+      setOptions([
+        ['💼 Conseguir emprego', 'interestGoal:Emprego'],
+        ['📈 Crescer no trabalho atual', 'interestGoal:Crescimento'],
+        ['🔄 Mudar de área', 'interestGoal:Mudança de carreira'],
+        ['🧠 Aprender por interesse pessoal', 'interestGoal:Aprendizado'],
+        ['🚀 Empreender ou prestar serviços', 'interestGoal:Empreendedorismo']
+      ]);
+    }
+
+    function interesseFlowFinish(goal) {
+      renderMessage(`Perfeito. Objetivo selecionado: <strong>${goal}</strong>.<br><br>Em uma versão conectada ao sistema real, aqui o chatbot poderia consultar turmas abertas, mostrar datas e encaminhar diretamente para inscrição — ainda sem precisar digitar nada.`);
+      setOptions([
+        ['🌐 Consultar página oficial', 'external:https://www.sp.senai.br/unidade/ourinhos', 'external primary'],
+        ['📞 Ver contato da unidade', 'unidade'],
+        ['🎓 Explorar outros cursos', 'categorias'],
+        ['🏠 Encerrar e voltar ao início', 'inicio', 'back']
+      ]);
+    }
+
+    // intercepta estados especiais do funil de interesse
+    const originalHandleAction = handleAction;
+    handleAction = function(label, action) {
+      renderMessage(label, 'user');
+      chatOptions.innerHTML = '';
+
+      if (action === 'interesse') return showTyping(interesseFlowStep1);
+      if (action.startsWith('interestTime:')) return showTyping(() => interesseFlowStep2(action.split(':')[1]));
+      if (action.startsWith('interestGoal:')) return showTyping(() => interesseFlowFinish(action.split(':')[1]));
+
+      if (action.startsWith('external:')) {
+        const url = action.replace('external:', '');
+        window.open(url, '_blank', 'noopener,noreferrer');
+        return showTyping(() => {
+          renderMessage('Abri o link em uma nova aba. Quer continuar por aqui?');
+          setOptions([
+            ['🎓 Ver cursos', 'categorias'],
+            ['🏠 Voltar ao início', 'inicio', 'back']
+          ]);
+        });
+      }
+      if (action.startsWith('category:')) return showCategory(action.split(':')[1]);
+      if (action.startsWith('course:')) {
+        const [, categoryId, courseId] = action.split(':');
+        return showCourse(categoryId, courseId);
+      }
+      if (action.startsWith('recommend:')) return showRecommendations(action.split(':')[1]);
+      navigate(action);
+    };
+
+    window.addEventListener('load', () => navigate('inicio'));
+  </script>
+</body>
+</html>

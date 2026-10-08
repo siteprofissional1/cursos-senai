@@ -29,8 +29,8 @@ __pycache__/
 Thumbs.db
 Desktop.ini
 
-# Repositorio privado - nunca incluir no cursos-senai publico
-agy/senai-agy-pv/
+# Backups de submódulos git
+.backup_git_submodules/
 
 # Pasta local
 por-favor-nao-apague/

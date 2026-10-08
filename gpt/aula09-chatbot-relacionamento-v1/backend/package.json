@@ -1,0 +1,25 @@
+{
+  "name": "chatbot-relacionamento-backend",
+  "version": "1.0.0",
+  "description": "Servidor Node.js/Express para o Chatbot de Relacionamento (Modelo Natália) integrado com a API Google AI Studio Gemini.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "chatbot",
+    "gemini",
+    "google-ai-studio",
+    "antigravity",
+    "senai",
+    "express"
+  ],
+  "author": "Antigravity Expert - SENAI",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
