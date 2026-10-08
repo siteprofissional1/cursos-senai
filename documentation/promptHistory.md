@@ -23,3 +23,11 @@ agora analisa e me da o link do github pages de todas as LPs que criei tanto no 
 ```text
 cria um txt com os links do githube pages para que eu acesse os index para ver os sites
 ```
+
+### Prompt 5 (08/10/2026)
+```text
+acessei o [Site not found · GitHub Pages](https://siteprofissional1.github.io/cursos-senai/agy/aula01-mecanica-william-e-diesel/1-projeto-mecanica-william) e nao aparece, da 404 404
+There isn't a GitHub Pages site here.
+If you're trying to publish one, [read the full documentation](https://help.github.com/pages/) to learn how to set up GitHub Pages for your repository, organization, or user account.
+[GitHub Status](https://githubstatus.com/) — [@githubstatus](https://twitter.com/githubstatus)
+```

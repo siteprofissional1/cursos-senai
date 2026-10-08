@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Projetos SENAI • Google Antigravity & ChatGPT</title>
+  <meta name="description" content="Hub oficial e catálogo interativo de todos os projetos, landing pages e chatbots desenvolvidos nos cursos de IA do SENAI com Google Antigravity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --card-bg: rgba(20, 27, 45, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary-cyan: #06b6d4;
+      --primary-blue: #3b82f6;
+      --senai-red: #e11d48;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(225, 29, 72, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .badge-container {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pill-badge.agy {
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .pill-badge.senai {
+      color: #fb7185;
+      border-color: rgba(251, 113, 133, 0.3);
+      background: rgba(251, 113, 133, 0.1);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* Controls & Filters */
+    .controls-wrapper {
+      max-width: 1200px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .search-box {
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.25rem 1rem 3.25rem;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-cyan);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      color: #fff;
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--primary-cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+
+    /* Grid of cards */
+    main {
+      flex: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+      width: 100%;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--card-border);
+      transition: background 0.3s ease;
+    }
+
+    .project-card[data-course="agy"]::before {
+      background: linear-gradient(90deg, #06b6d4, #3b82f6);
+    }
+
+    .project-card[data-course="gpt"]::before {
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+    }
+
+    .card-tag.agy {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .card-tag.gpt {
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.1);
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      color: var(--primary-cyan);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .card-btn:hover {
+      background: var(--accent-gradient);
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      transform: scale(1.02);
+    }
+
+    /* Footer mandatory rule */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 1.5rem;
+      background: rgba(11, 15, 25, 0.95);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .repo-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .repo-link:hover {
+      color: #fff;
+    }
+
+    .mandatory-footer {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .mandatory-footer a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .mandatory-footer a:hover {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-container">
+      <span class="pill-badge senai"><i class="fa-solid fa-graduation-cap"></i> SENAI Ourinhos</span>
+      <span class="pill-badge agy"><i class="fa-solid fa-bolt"></i> Google Antigravity</span>
+      <span class="pill-badge"><i class="fa-solid fa-robot"></i> ChatGPT & LLMs</span>
+    </div>
+    <h1>Catálogo de Projetos & Landing Pages</h1>
+    <p class="subtitle">
+      Explore todas as landing pages, chatbots e aplicações desenvolvidas na formação prática de Inteligência Artificial Generativa e Antigravity.
+    </p>
+  </header>
+
+  <div class="controls-wrapper">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar projeto por nome ou tecnologia...">
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">Todos os Projetos (<span id="countTotal">23</span>)</button>
+      <button class="filter-btn" data-filter="agy">🚀 Google Antigravity (<span id="countAgy">12</span>)</button>
+      <button class="filter-btn" data-filter="gpt">🤖 Curso ChatGPT (<span id="countGpt">11</span>)</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- ================= AGY PROJECTS ================= -->
+      <div class="project-card" data-course="agy" data-title="Cofre Transparente TripCard Fintech v2">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-credit-card card-icon"></i>
+        </div>
+        <h3 class="card-title">Cofre Transparente / TripCard</h3>
+        <p class="card-desc">Fintech global com simulador multimoeda, visualização de cartão de cristal 3D e alta conversão.</p>
+        <a href="agy/projeto-cofre-transparente-v2-tripcard/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Hamburgueria do Joselito v2">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-burger card-icon"></i>
+        </div>
+        <h3 class="card-title">Hamburgueria do Joselito (v2)</h3>
+        <p class="card-desc">Landing page gastronômica com menu interativo, fotos artesanais e integração com WhatsApp.</p>
+        <a href="agy/projeto-hamburgueria-do-joselito-v2/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Ray-Ban Meta Smart Glasses v2">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-glasses card-icon"></i>
+        </div>
+        <h3 class="card-title">Ray-Ban Meta Glasses (v2)</h3>
+        <p class="card-desc">Apresentação futurista dos óculos inteligentes da Meta com design imersivo em modo escuro.</p>
+        <a href="agy/projeto-oculos-meta-v2/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Security Weekend FATEC">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-shield-halved card-icon"></i>
+        </div>
+        <h3 class="card-title">Security Weekend FATEC</h3>
+        <p class="card-desc">Landing page de evento tecnológico de cibersegurança com contagem regressiva e inscrições.</p>
+        <a href="agy/projeto-evento-security-weekend-fatec/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Yoga Minimalista">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-spa card-icon"></i>
+        </div>
+        <h3 class="card-title">Yoga & Meditação Minimalista</h3>
+        <p class="card-desc">Design zen, estética minimalista e clean focada em bem-estar, agendamentos e serenidade.</p>
+        <a href="agy/projeto-yoga-minimalista/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Mecanica de Luxo Oficina Premium Aula 02">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-car card-icon"></i>
+        </div>
+        <h3 class="card-title">Mecânica de Luxo (Aula 02)</h3>
+        <p class="card-desc">Landing page premium para centro automotivo especializado em veículos esportivos e importados.</p>
+        <a href="agy/aula02-mecanica-luxo/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Mecanica William v1 Aula 01">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-wrench card-icon"></i>
+        </div>
+        <h3 class="card-title">Mecânica William (Aula 01 - v1)</h3>
+        <p class="card-desc">Primeiro projeto prático de landing page automotiva com CTA e tabelas de serviços.</p>
+        <a href="agy/aula01-mecanica-william-e-diesel/1-projeto-mecanica-william.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Mecanica Vin Diesel Aula 01">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-gauge-high card-icon"></i>
+        </div>
+        <h3 class="card-title">Mecânica do Vin Diesel</h3>
+        <p class="card-desc">Projeto temático focado em alta performance e estética inspirada na franquia Velozes e Furiosos.</p>
+        <a href="agy/aula01-mecanica-william-e-diesel/mecanicadovindiiesel.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Mecanica William v2 Antigravity 2">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-screwdriver-wrench card-icon"></i>
+        </div>
+        <h3 class="card-title">Mecânica William (AGY 2.0)</h3>
+        <p class="card-desc">Versão refinada com prompts avançados do Google Antigravity e micro-animações.</p>
+        <a href="agy/aula01-mecanica-william-e-diesel/projeto-mecanica-william-antigravity2.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Cofre Transparente v1 Aula 03">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-vault card-icon"></i>
+        </div>
+        <h3 class="card-title">Cofre Transparente (Aula 03 - v1)</h3>
+        <p class="card-desc">Versão inicial de testes do cartão e conta global em tecnologia financeira transparente.</p>
+        <a href="agy/aula03-landing-pages-iniciais/projeto-cofre-transparente-v1/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Hamburgueria do Joselito v1 Aula 03">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-utensils card-icon"></i>
+        </div>
+        <h3 class="card-title">Hamburgueria Joselito (Aula 03 - v1)</h3>
+        <p class="card-desc">Estrutura inicial de prototipagem rápida da hamburgueria gourmet.</p>
+        <a href="agy/aula03-landing-pages-iniciais/projeto-hamburgueria-do-joselito-v1/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="agy" data-title="Ray-Ban Meta Glasses v1 Aula 03">
+        <div class="card-header">
+          <span class="card-tag agy">Antigravity</span>
+          <i class="fa-solid fa-eye card-icon"></i>
+        </div>
+        <h3 class="card-title">Óculos Meta (Aula 03 - v1)</h3>
+        <p class="card-desc">Primeiro protótipo dos óculos inteligentes com apresentação de recursos de captura.</p>
+        <a href="agy/aula03-landing-pages-iniciais/projeto-oculos-meta-v1/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- ================= GPT PROJECTS ================= -->
+      <div class="project-card" data-course="gpt" data-title="The Ribs Cardapio Sistema v3">
+        <div class="card-header">
+          <span class="card-tag gpt">ChatGPT / AGY</span>
+          <i class="fa-solid fa-fire card-icon"></i>
+        </div>
+        <h3 class="card-title">The Ribs Steakhouse (v3 Sistema)</h3>
+        <p class="card-desc">Cardápio digital premium completo com separação cliente/admin e visual gastronômico rico.</p>
+        <a href="gpt/aula07-the-ribs/agy/agy-cardpio-sistema-theribs-v3/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="The Ribs Cardapio v2">
+        <div class="card-header">
+          <span class="card-tag gpt">ChatGPT / AGY</span>
+          <i class="fa-solid fa-drumstick-bite card-icon"></i>
+        </div>
+        <h3 class="card-title">The Ribs Cardápio (v2)</h3>
+        <p class="card-desc">Segunda versão comparativa com fotos dos pratos assinados, costelas e burgers especiais.</p>
+        <a href="gpt/aula07-the-ribs/agy/agy-cardapio-theribs-v2/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="The Ribs Cardapio v1">
+        <div class="card-header">
+          <span class="card-tag gpt">ChatGPT / AGY</span>
+          <i class="fa-solid fa-book-open card-icon"></i>
+        </div>
+        <h3 class="card-title">The Ribs Cardápio (v1)</h3>
+        <p class="card-desc">Versão inicial de esteira de desenvolvimento acelerado por IA.</p>
+        <a href="gpt/aula07-the-ribs/agy/agy-cardapio-theribs-v1/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="The Ribs Versao Gemini">
+        <div class="card-header">
+          <span class="card-tag gpt">Gemini AI</span>
+          <i class="fa-solid fa-wand-magic card-icon"></i>
+        </div>
+        <h3 class="card-title">The Ribs (Versão Gemini)</h3>
+        <p class="card-desc">Comparação visual da interface construída pelo modelo Google Gemini.</p>
+        <a href="gpt/aula07-the-ribs/gemini-theribs/card_pio_the_ribs.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="The Ribs Versao GPT">
+        <div class="card-header">
+          <span class="card-tag gpt">ChatGPT</span>
+          <i class="fa-solid fa-robot card-icon"></i>
+        </div>
+        <h3 class="card-title">The Ribs (Versão GPT)</h3>
+        <p class="card-desc">Implementação direta do cardápio utilizando o modelo OpenAI ChatGPT.</p>
+        <a href="gpt/aula07-the-ribs/gpt/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="Academia Nadbem Versao AGY">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 06</span>
+          <i class="fa-solid fa-person-swimming card-icon"></i>
+        </div>
+        <h3 class="card-title">Academia Nadbem (Antigravity)</h3>
+        <p class="card-desc">Landing page de natação e fitness criada com Gustavo Borges como embaixador.</p>
+        <a href="gpt/aula06-lp-academia-nadbem/agy/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="Academia Nadbem Versao GPT">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 06</span>
+          <i class="fa-solid fa-dumbbell card-icon"></i>
+        </div>
+        <h3 class="card-title">Academia Nadbem (ChatGPT)</h3>
+        <p class="card-desc">Versão comparativa com estrutura gerada diretamente por prompting no ChatGPT.</p>
+        <a href="gpt/aula06-lp-academia-nadbem/gpt/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="Old Barbearia Tradicional">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 06</span>
+          <i class="fa-solid fa-scissors card-icon"></i>
+        </div>
+        <h3 class="card-title">Barbearia Tradicional (Old)</h3>
+        <p class="card-desc">Landing page com fotos reais de cortes de cabelo, barba e agendamento direto.</p>
+        <a href="gpt/aula06-lp-barbearia/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="Old Barbearia Prototipo">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 06</span>
+          <i class="fa-solid fa-razor card-icon"></i>
+        </div>
+        <h3 class="card-title">Old Barbearia (Protótipo)</h3>
+        <p class="card-desc">Laboratório e estudo de grid de imagens da barbearia.</p>
+        <a href="gpt/aula06-old-gpt/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="Chatbot SENAI Funil de Vendas">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 08</span>
+          <i class="fa-solid fa-comments card-icon"></i>
+        </div>
+        <h3 class="card-title">Chatbot SENAI (Funil Web)</h3>
+        <p class="card-desc">Landing page com chatbot embutido orientada à atração de alunos e captação de leads.</p>
+        <a href="gpt/aula08-chatbot-senai-iaweb/gpt-index-senai-chatbot-funil.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="project-card" data-course="gpt" data-title="D Thales Pizza Delivery">
+        <div class="card-header">
+          <span class="card-tag gpt">Aula 09</span>
+          <i class="fa-solid fa-pizza-slice card-icon"></i>
+        </div>
+        <h3 class="card-title">D'Thales Pizza Delivery</h3>
+        <p class="card-desc">Landing page completa de pizzaria com cardápio digital e integração com bot de pedidos.</p>
+        <a href="gpt/aula09-chatbot-pizzaria/frontend/index.html" class="card-btn">Ver Projeto <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <a href="https://github.com/siteprofissional1/cursos-senai" target="_blank" class="repo-link">
+        <i class="fa-brands fa-github"></i> github.com/siteprofissional1/cursos-senai
+      </a>
+      <div class="mandatory-footer">
+        site desenvolvido por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer">siteprofissional.pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Filtro por categoria (Tabs)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const searchInput = document.getElementById('searchInput');
+
+    let currentFilter = 'all';
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', () => {
+      applyFilters();
+    });
+
+    function applyFilters() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      projectCards.forEach(card => {
+        const matchesCategory = currentFilter === 'all' || card.getAttribute('data-course') === currentFilter;
+        const matchesSearch = query === '' || 
+          card.getAttribute('data-title').toLowerCase().includes(query) ||
+          card.textContent.toLowerCase().includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
