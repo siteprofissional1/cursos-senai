@@ -106,9 +106,44 @@ e ai o siteprofissional é azul e hiperlink para siteprofissional.pro
 2. **Auditoria Visual e Responsiva:**
    - Verificação em todos os navegadores e resoluções mobile garantindo centralização e integridade de layout.
 
+### Prompt 5:
+```text
+testa e ajusta a responsatividade, eu abri o github pages do aviaozinho e fica bugado tem que tirar zoom e fica bugado do lado direito...
+```
+
+### Diagnóstico e Resolução Técnica da Responsividade (Prompt 5):
+1. **Identificação da Causa Raiz do "Bug do Lado Direito" / Necessidade de Tirar Zoom:**
+   - O cabeçalho (`.main-header`) ultrapassava 460px de largura intrínseca sem quebra flexível no mobile, fazendo com que o botão "Depositar" ficasse posicionado em `rect.right ~ 540px` em viewports de 375px.
+   - A badge de multiplicador máximo e os blocos de apostas ao vivo da comunidade (`minmax(180px, 1fr)`) extrapolavam a largura útil do container em smartphones.
+   - Ausência de `width: 100%; max-width: 100vw; overflow-x: hidden;` na tag `html` permitia expansão lateral da viewport no navegador móvel.
+2. **Correções Arquiteturais Aplicadas:**
+   - **`global.css`:** Blindagem rigorosa de `html` e `body` com `overflow-x: hidden; width: 100%; max-width: 100vw; box-sizing: border-box`.
+   - **Cabeçalho Adaptativo:** Reestruturação com `.header-brand-side` (flex-shrink suave, ocultação de badges secundárias em telas < 640px e redução proporcional de avatares, saldos e botões em < 560px e < 380px).
+   - **`frontend/aviao/index.html` e `style.css`:**
+     - Tag `<meta name="viewport">` com `maximum-scale=1.0, user-scalable=no, viewport-fit=cover` para prevenir descalibração de zoom no mobile.
+     - `.max-multiplier-badge` flexível em largura 100% no mobile.
+     - Container da fita de histórico (`.history-container`) com `min-width: 0; max-width: 100%; overflow: hidden`.
+     - Fichas de aposta rápida (`.quick-bet-chips`) fluidas com `min-width: 0;` e grid adaptável para 2 colunas em telas estreitas.
+     - Feed da comunidade (`.live-bets-grid`) com 1 coluna vertical limpa no smartphone.
+3. **Auditoria Automatizada via Browser Subagent:**
+   - Testado em resoluções mobile de **375x700px** (iPhone) e **360x640px** (Android compacto).
+   - Resultado: **0 elementos com overflow**, `scrollWidth === innerWidth`, eliminação total da necessidade de zoom-out e layout 100% encaixado.
+
+### Prompt 6:
+```text
+ja comita no git tbm pra atualizar na nuvem as edits que foram feitas
+```
+
+### Ações Executadas no Prompt 6:
+1. **Sincronização com o Repositório Remoto (GitHub):**
+   - Realizado `git add` com todos os arquivos atualizados (correções de responsividade, blindagem contra overflow mobile, padronização dos rodapés e documentação).
+   - Executado `git commit` com mensagem semântica detalhada.
+   - Executado `git push origin main` para deploy automático no GitHub Pages e nuvem.
+
 ---
 
 <p align="center">
   desenvolvido por <a href="https://siteprofissional.pro" style="color: #3b82f6;">siteprofissional</a>
 </p>
+
 

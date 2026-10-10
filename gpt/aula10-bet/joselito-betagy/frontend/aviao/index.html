@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Aviãozinho Crash - Joselito Bet</title>
   <link rel="icon" type="image/webp" href="../assets/joselito-fav-icon.webp">
   <link rel="stylesheet" href="../shared/css/global.css">
@@ -11,9 +11,8 @@
 <body>
 
   <!-- Barra Superior -->
-  <!-- Barra Superior -->
   <header class="main-header">
-    <div style="display: flex; align-items: center; gap: 0.75rem;">
+    <div class="header-brand-side">
       <a href="../index.html" class="btn btn-back" title="Voltar ao Cassino">
         &larr; Lobby
       </a>
@@ -42,16 +41,16 @@
           <h2>✈️ Aviãozinho Crash VIP</h2>
           <p>O multiplicador decola em tempo real. Faça seu cashout antes da explosão!</p>
         </div>
-        <div style="background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: #fbbf24; padding: 0.4rem 0.85rem; border-radius: 10px; font-weight: 800; font-size: 0.85rem;">
+        <div class="max-multiplier-badge">
           ⚡ Multiplicador Máximo: 500.00x
         </div>
       </div>
 
       <!-- Fita de Histórico de Multiplicadores Recentes (Estilo Aviator) -->
-      <div style="margin-bottom: 0.75rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
-          <span style="font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Últimos Resultados:</span>
-          <span style="font-size: 0.7rem; color: #64748b;">Ao vivo &bull; Provably Fair</span>
+      <div class="history-container">
+        <div class="history-header">
+          <span class="history-title">Últimos Resultados:</span>
+          <span class="history-tag">Ao vivo &bull; Provably Fair</span>
         </div>
         <div class="history-ribbon" id="multiplierHistory">
           <span class="history-pill pill-crash-low">1.12x</span>
@@ -100,23 +99,23 @@
       </div>
 
       <!-- Feed de Apostas Ao Vivo da Mesa -->
-      <div style="margin-top: 1.5rem; background: rgba(18, 20, 31, 0.75); border: 1px solid var(--border-color); border-radius: 16px; padding: 1rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
-          <span style="font-size: 0.8rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase;">🔴 Apostas na Rodada (Comunidade Ao Vivo)</span>
-          <span style="font-size: 0.75rem; color: #10b981; font-weight: 700;">142 jogadores online</span>
+      <div class="live-bets-box">
+        <div class="live-bets-header">
+          <span class="live-bets-title">🔴 Apostas na Rodada (Comunidade Ao Vivo)</span>
+          <span class="live-bets-online">142 jogadores online</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; font-size: 0.8rem;" id="liveBetsGrid">
-          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+        <div class="live-bets-grid" id="liveBetsGrid">
+          <div class="live-bet-item">
             <span>👤 Carlos_SP</span>
-            <span style="color: #fbbf24; font-weight: 700;">R$ 20,00</span>
+            <span class="live-bet-val">R$ 20,00</span>
           </div>
-          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+          <div class="live-bet-item">
             <span>👤 Ana_Trader</span>
-            <span style="color: #fbbf24; font-weight: 700;">R$ 50,00</span>
+            <span class="live-bet-val">R$ 50,00</span>
           </div>
-          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+          <div class="live-bet-item">
             <span>👤 BetKing99</span>
-            <span style="color: #fbbf24; font-weight: 700;">R$ 100,00</span>
+            <span class="live-bet-val">R$ 100,00</span>
           </div>
         </div>
       </div>
