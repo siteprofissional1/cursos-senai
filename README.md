@@ -72,7 +72,7 @@ Todo o ecossistema e a esteira de desenvolvimento foram acelerados e orquestrado
 │   └── projeto-yoga-minimalista/                 # Landing page minimalista de Yoga e Bem-estar
 │
 ├── gpt/                                          # 🤖 CURSO CHATGPT & IA GENERATIVA
-│   ├── aula06-lp-academia-iron/                  # Landing page temática Academia (AGY + GPT)
+│   ├── aula06-lp-academia-nadbem/                # Landing page temática Academia Nadbem (AGY + GPT)
 │   ├── aula06-lp-barbearia/                      # Landing page Barbearia tradicional
 │   ├── aula06-old-gpt/                           # Protótipos e laboratórios iniciais
 │   ├── aula07-the-ribs/                          # Cardápio Digital The Ribs (Comparações AGY, Gemini, GPT)
@@ -83,6 +83,9 @@ Todo o ecossistema e a esteira de desenvolvimento foram acelerados e orquestrado
 │   ├── aula09-chatbot-relacionamento-standalone/ # Chatbot de relacionamento em arquivo único HTML
 │   ├── aula09-chatbot-relacionamento-v1/         # Chatbot de relacionamento (Versão 1)
 │   ├── aula09-chatbot-relacionamento-v2-gpt/     # Chatbot de relacionamento refinado com GPT
+│   ├── aula10-bet/                               # Joselito Bet: Portal Cassino, Crash, Roleta e Tigrinho
+│   ├── aula11/linktree/                          # Linktree personalizado e página de bio
+│   ├── aula11/dashboard/                         # Análise de dados e planilhas de vendas (RJ)
 │   └── aulas.txt                                 # Cronograma e registro das aulas
 │
 ├── documentation/                                # 📚 Documentação e Histórico de Sessões

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joselito Bet - Plataforma Educacional de Cassino</title>
+  <link rel="icon" type="image/webp" href="assets/joselito-fav-icon.webp">
+  <link rel="stylesheet" href="shared/css/global.css">
+  <style>
+    /* Estilos específicos do Lobby / Menu Principal */
+    .hero-section {
+      padding: 3rem 1.5rem 2rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 300px;
+      min-width: 0; /* Previne overflow em telas pequenas */
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--accent-gold);
+      border-radius: 999px;
+      color: var(--accent-gold-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.85rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent-gold-light), #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-avatar-card {
+      position: relative;
+      width: min(260px, 80vw);
+      height: min(260px, 80vw);
+      border-radius: 24px;
+      padding: 8px;
+      background: linear-gradient(135deg, var(--accent-gold), rgba(239, 68, 68, 0.5));
+      box-shadow: 0 0 35px rgba(245, 158, 11, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .hero-avatar-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .hero-avatar-tag {
+      position: absolute;
+      bottom: -12px;
+      background: #111422;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold-light);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+
+    /* Grid de Jogos */
+    .games-section {
+      max-width: 1200px;
+      margin: 1rem auto 4rem auto;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      font-weight: 800;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 1.5rem;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: inherit;
+      color: inherit;
+      transition: var(--transition-normal);
+      position: relative;
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 15px 30px -10px rgba(245, 158, 11, 0.25);
+    }
+
+    .game-thumb {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .game-thumb-1 { background: linear-gradient(135deg, #1e1b4b, #312e81); }
+    .game-thumb-2 { background: linear-gradient(135deg, #450a0a, #7f1d1d); }
+    .game-thumb-3 { background: linear-gradient(135deg, #064e3b, #047857); }
+    .game-thumb-4 { background: linear-gradient(135deg, #78350f, #b45309); }
+
+    .game-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      color: #fde68a;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .game-info {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .game-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .game-pitch {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex: 1;
+    }
+
+    .game-play-btn {
+      width: 100%;
+      padding: 0.65rem;
+      font-size: 0.85rem;
+    }
+
+    /* Media queries específicos do Lobby */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 2rem 1rem 1.5rem 1rem;
+        gap: 2rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-avatar-card {
+        margin: 0.5rem auto 1rem auto;
+      }
+
+      .games-section {
+        padding: 0 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .didactic-box {
+        margin: 0 1rem 2.5rem 1rem;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 1.5rem 0.75rem 1rem 0.75rem;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .games-grid {
+        gap: 1rem;
+      }
+
+      .game-info {
+        padding: 1rem 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra Superior Fixa -->
+  <header class="main-header">
+    <a href="index.html" class="brand-wrapper" title="Joselito Bet - Início">
+      <img src="assets/joselito-perfil.webp" alt="Joselito Perfil" class="brand-avatar" onerror="this.src='assets/joselito-perfil.jpg'">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span class="brand-title">JOSELITO BET</span>
+          <span class="brand-tag">VIP CASINO</span>
+        </div>
+        <small class="brand-subtitle" style="font-size: 0.65rem; color: #fbbf24; font-weight: 700;">★ Cassino Online Oficial &bull; Saques Instantâneos</small>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <div class="balance-card">
+        <span class="balance-label">Saldo em Conta</span>
+        <span class="balance-value" id="headerBalance">R$ 50,00</span>
+      </div>
+      <button class="btn btn-deposit btn-open-deposit" title="Adicionar saldo imediato">
+        <span>+</span> Depositar
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner Ticker de Jackpot e Vitórias em Tempo Real -->
+  <div style="background: rgba(18, 20, 31, 0.95); border-bottom: 1px solid var(--border-color); padding: 0.5rem 1rem; overflow: hidden;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+        <span style="font-size: 0.75rem; font-weight: 800; color: #fde68a; text-transform: uppercase;">🔥 JACKPOT ACUMULADO:</span>
+        <span style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 900; color: #10b981;" id="jackpotVal">R$ 1.849.320,40</span>
+      </div>
+      <div style="font-size: 0.75rem; color: #94a3b8; font-weight: 600;" id="liveWinnersFeed">
+        🏆 <strong>Lucas M.</strong> acabou de ganhar <span style="color: #34d399; font-weight: 800;">R$ 1.250,00</span> no <em>Fortune Tigrinho</em>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Seção Hero VIP -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>💎</span> PLATAFORMA VIP EXCLUSIVA &bull; MULTIPLICADORES ATÉ 500X
+        </div>
+        <h1 class="hero-title">
+          Os Melhores Jogos de <span>Cassino e Slots</span> com Pagamento Imediato!
+        </h1>
+        <p class="hero-desc">
+          Sinta a adrenalina dos jogos mais cobiçados do mundo. Escolha entre o viciante <strong>Fortune Tigrinho</strong>, o dinâmico <strong>Aviãozinho Crash</strong> ou a sofisticação da <strong>Roleta Europeia VIP</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="#jogos" class="btn btn-gold">
+            Explorar Jogos 🎰
+          </a>
+          <button class="btn btn-deposit btn-open-deposit">
+            Depósito Imediato PIX ⚡
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-avatar-card">
+        <img src="assets/joselito-perfil.webp" alt="Joselito Dono da Bet" onerror="this.src='assets/joselito-perfil.jpg'">
+        <div class="hero-avatar-tag">Joselito &bull; CEO & Dono da Banca</div>
+      </div>
+    </section>
+
+    <!-- Grid de Jogos em Destaque -->
+    <section class="games-section" id="jogos">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Jogos Mais Populares</h2>
+          <small style="color: #94a3b8; font-size: 0.85rem;">Os maiores pagamentos e multiplicadores recordes da casa</small>
+        </div>
+        <span style="font-size: 0.85rem; color: var(--accent-gold-light); font-weight: 700; background: rgba(245, 158, 11, 0.1); padding: 0.35rem 0.85rem; border-radius: 999px; border: 1px solid rgba(245, 158, 11, 0.3);">
+          ⚡ 3 Jogos em Alta
+        </span>
+      </div>
+
+      <div class="games-grid">
+        <!-- Jogo 1: Tigrinho Slots -->
+        <a href="tigrinho/index.html" class="game-card">
+          <div class="game-thumb game-thumb-4" style="background: linear-gradient(135deg, #78350f, #b45309, #d97706);">
+            <span>🐯</span>
+            <span class="game-badge">HOT &bull; Paga até 250x</span>
+          </div>
+          <div class="game-info">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+              <h3 class="game-name">Fortune Tigrinho</h3>
+              <span style="font-size: 0.75rem; font-weight: 800; color: #10b981;">RTP 96.8%</span>
+            </div>
+            <p class="game-pitch">
+              O clássico oriental dos slots 3x3! Bobinas com rodada bônus, cartas premiadas e o rugido dourado do Tigre com multiplicadores explosivos.
+            </p>
+            <div class="btn btn-gold game-play-btn">Jogar Fortune Tigrinho &rarr;</div>
+          </div>
+        </a>
+
+        <!-- Jogo 2: Aviãozinho Crash -->
+        <a href="aviao/index.html" class="game-card">
+          <div class="game-thumb game-thumb-2" style="background: linear-gradient(135deg, #581c87, #7e22ce, #b91c1c);">
+            <span>✈️</span>
+            <span class="game-badge">CRASH &bull; Saque até 500x</span>
+          </div>
+          <div class="game-info">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+              <h3 class="game-name">Aviãozinho Crash</h3>
+              <span style="font-size: 0.75rem; font-weight: 800; color: #10b981;">RTP 97.0%</span>
+            </div>
+            <p class="game-pitch">
+              Decole rumo aos céus e acompanhe o multiplicador subir em tempo real. Saque seus lucros antes da explosão súbita da aeronave!
+            </p>
+            <div class="btn btn-gold game-play-btn">Decolar no Aviãozinho &rarr;</div>
+          </div>
+        </a>
+
+        <!-- Jogo 3: Roleta Europeia VIP -->
+        <a href="roleta/index.html" class="game-card">
+          <div class="game-thumb game-thumb-3" style="background: linear-gradient(135deg, #064e3b, #047857, #065f46);">
+            <span>🎡</span>
+            <span class="game-badge">AO VIVO &bull; Roda Clássica</span>
+          </div>
+          <div class="game-info">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+              <h3 class="game-name">Roleta Europeia VIP</h3>
+              <span style="font-size: 0.75rem; font-weight: 800; color: #10b981;">RTP 97.3%</span>
+            </div>
+            <p class="game-pitch">
+              A clássica mesa de feltro verde com roleta de 37 setores (0 a 36). Faça suas apostas em Vermelho, Preto ou no Zero dourado com prêmios de até 14x.
+            </p>
+            <div class="btn btn-gold game-play-btn">Girar a Roleta VIP &rarr;</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Selos de Confiança e Segurança do Cassino -->
+    <div style="max-width: 1200px; margin: 0 auto 3.5rem auto; padding: 1.5rem; background: rgba(18, 20, 31, 0.6); border: 1px solid var(--border-color); border-radius: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center;">
+      <div>
+        <div style="font-size: 2rem; margin-bottom: 0.4rem;">🔒</div>
+        <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; margin-bottom: 0.2rem;">Segurança Máxima</h4>
+        <p style="font-size: 0.8rem; color: #94a3b8;">Criptografia SSL ponta a ponta com proteção de dados bancários.</p>
+      </div>
+      <div>
+        <div style="font-size: 2rem; margin-bottom: 0.4rem;">⚡</div>
+        <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; margin-bottom: 0.2rem;">Depósito Imediato</h4>
+        <p style="font-size: 0.8rem; color: #94a3b8;">Adição de saldo instantânea com confirmação automática.</p>
+      </div>
+      <div>
+        <div style="font-size: 2rem; margin-bottom: 0.4rem;">🔞</div>
+        <h4 style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #fff; margin-bottom: 0.2rem;">Jogo Responsável</h4>
+        <p style="font-size: 0.8rem; color: #94a3b8;">Acesso exclusivo para maiores de 18 anos. Jogue com moderação.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Obrigatório -->
+  <footer class="main-footer">
+    <div class="footer-joselito">
+      <img src="assets/joselito-perfil.webp" alt="Joselito" class="footer-avatar" onerror="this.src='assets/joselito-perfil.jpg'">
+      <span style="font-size: 0.85rem; font-weight: 700; color: #fde68a;">Joselito Bet &copy; 2026 &bull; Plataforma Oficial de Apostas VIP</span>
+    </div>
+    <p class="footer-disclaimer">
+      Joselito Bet é operada sob rígidos protocolos de entretenimento digital. Lembre-se: jogos de aposta envolvem risco financeiro. A casa reserva margem matemática operacional.
+    </p>
+    <div class="footer-credits">
+      desenvolvido por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" style="color: #3b82f6;">siteprofissional</a>
+    </div>
+  </footer>
+
+  <!-- Scripts Compartilhados -->
+  <script src="shared/js/rng-engine.js"></script>
+  <script src="shared/js/audio.js"></script>
+  <script src="shared/js/wallet.js"></script>
+  <script src="shared/js/popup-derrota.js"></script>
+  <script>
+    // Ticker dinâmico de ganhadores recentes
+    (function() {
+      const feedEl = document.getElementById('liveWinnersFeed');
+      const jackpotEl = document.getElementById('jackpotVal');
+      if (!feedEl) return;
+
+      const FAKE_WINS = [
+        { name: 'Lucas M.', amount: 'R$ 1.250,00', game: 'Fortune Tigrinho' },
+        { name: 'Camila R.', amount: 'R$ 480,00', game: 'Aviãozinho Crash' },
+        { name: 'Gabriel S.', amount: 'R$ 2.140,00', game: 'Roleta Europeia' },
+        { name: 'Felipe B.', amount: 'R$ 890,00', game: 'Fortune Tigrinho' },
+        { name: 'Amanda T.', amount: 'R$ 3.500,00', game: 'Aviãozinho Crash' },
+        { name: 'Matheus K.', amount: 'R$ 720,00', game: 'Roleta Europeia' }
+      ];
+
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % FAKE_WINS.length;
+        const win = FAKE_WINS[idx];
+        feedEl.innerHTML = `🏆 <strong>${win.name}</strong> acabou de ganhar <span style="color: #34d399; font-weight: 800;">${win.amount}</span> no <em>${win.game}</em>`;
+      }, 4500);
+
+      // Simula jackpot subindo lentamente
+      let jackpotNumber = 1849320.40;
+      setInterval(() => {
+        jackpotNumber += (Math.random() * 2.5);
+        if (jackpotEl) {
+          jackpotEl.textContent = jackpotNumber.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>
+

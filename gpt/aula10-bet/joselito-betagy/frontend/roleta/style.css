@@ -1,0 +1,315 @@
+/* Estilos específicos do Jogo 3 - Roleta do Joselito */
+.game-container {
+  max-width: 950px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.roulette-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.game-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-headline h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.game-headline p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Área da Roda da Roleta */
+.wheel-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.wheel-container {
+  position: relative;
+  width: min(320px, 80vw);
+  height: min(320px, 80vw);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Ponteiro indicador no topo da roleta */
+.wheel-pointer {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 24px solid var(--accent-gold);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+  z-index: 10;
+}
+
+#rouletteCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), 0 0 15px rgba(251, 191, 36, 0.2);
+  border: 4px solid var(--accent-gold);
+}
+
+.roulette-center-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(38px, 12vw, 50px);
+  height: clamp(38px, 12vw, 50px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fde68a, #d97706);
+  border: 3px solid #1e293b;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  color: #000;
+}
+
+.result-banner {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  font-weight: 800;
+  color: #fff;
+  min-height: 2.2rem;
+  text-align: center;
+}
+
+/* Opções de Aposta da Roleta */
+.betting-table {
+  background: rgba(18, 20, 31, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.table-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.roulette-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-roulette-option {
+  padding: 1.2rem 0.75rem;
+  border-radius: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.btn-roulette-option span.odds {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.btn-opt-red {
+  background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+  color: #fff;
+}
+.btn-opt-red:hover { transform: translateY(-2px); border-color: #f87171; }
+.btn-opt-red.selected { border-color: #fff; box-shadow: 0 0 20px rgba(239, 68, 68, 0.6); }
+
+.btn-opt-black {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.btn-opt-black:hover { transform: translateY(-2px); border-color: #94a3b8; }
+.btn-opt-black.selected { border-color: #fff; box-shadow: 0 0 20px rgba(148, 163, 184, 0.4); }
+
+.btn-opt-green {
+  background: linear-gradient(135deg, #047857 0%, #064e3b 100%);
+  color: #fff;
+}
+.btn-opt-green:hover { transform: translateY(-2px); border-color: #34d399; }
+.btn-opt-green.selected { border-color: #fff; box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
+
+/* Controles de Aposta */
+.bet-controls-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.bet-input-box {
+  flex: 1 1 200px;
+}
+
+.bet-input-box input {
+  width: 100%;
+  background: #090a10;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 0.6rem 0.85rem;
+  outline: none;
+}
+
+.roulette-chips-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.chip-btn {
+  padding: 0.55rem 0.75rem;
+}
+
+.btn-spin-wheel {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1.25rem;
+  border-radius: 16px;
+  margin-top: 1.5rem;
+}
+
+/* Explicação Didática */
+.manipulation-explainer {
+  margin-top: 1.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Breakpoints Responsivos da Roleta */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 0 1rem;
+    margin: 1.25rem auto 3rem auto;
+  }
+
+  .roulette-card {
+    padding: 1.25rem 1rem;
+    border-radius: 20px;
+  }
+
+  .game-headline h2 {
+    font-size: 1.6rem;
+  }
+
+  .betting-table {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .roulette-options-grid {
+    gap: 0.6rem;
+  }
+
+  .btn-roulette-option {
+    padding: 0.9rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .roulette-chips-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .roulette-chips-row .chip-btn {
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-spin-wheel {
+    padding: 0.9rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 0 0.5rem;
+  }
+
+  .roulette-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .game-headline h2 {
+    font-size: 1.35rem;
+  }
+
+  .roulette-options-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .btn-roulette-option {
+    padding: 0.75rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .manipulation-explainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.85rem;
+    font-size: 0.8rem;
+  }
+}

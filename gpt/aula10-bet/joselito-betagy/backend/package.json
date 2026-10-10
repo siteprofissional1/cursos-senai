@@ -1,0 +1,19 @@
+{
+  "name": "joselito-bet-backend",
+  "version": "1.0.0",
+  "description": "Servidor backend de apoio educacional para o projeto Joselito Bet - SENAI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "senai",
+    "educacional",
+    "cassino",
+    "antigravity",
+    "probabilidade"
+  ],
+  "author": "SENAI Ourinhos / Google Antigravity",
+  "license": "MIT"
+}

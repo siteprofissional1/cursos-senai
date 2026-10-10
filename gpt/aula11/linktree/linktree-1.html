@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pizzaria do Joselito | Links Oficiais</title>
+
+  <meta name="description" content="Acesse os principais links da Pizzaria do Joselito: cardápio, WhatsApp, Instagram, localização e pedidos.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --vermelho: #e31b23;
+      --vermelho-escuro: #a80f15;
+      --azul: #0057b8;
+      --azul-escuro: #003b7a;
+      --branco: #ffffff;
+      --cinza: #f5f5f5;
+      --texto: #202020;
+      --sombra: 0 14px 35px rgba(0, 0, 0, 0.16);
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      min-height: 100vh;
+      color: var(--branco);
+      background:
+        radial-gradient(circle at top left, rgba(227, 27, 35, 0.55), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 87, 184, 0.65), transparent 40%),
+        linear-gradient(135deg, #111 0%, #181818 45%, #101010 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 35px 35px;
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(100%, 520px);
+      margin: 0 auto;
+      padding: 40px 20px 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .perfil {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      width: 125px;
+      height: 125px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(135deg, var(--vermelho), var(--azul));
+      border: 5px solid rgba(255,255,255,0.95);
+      box-shadow: var(--sombra);
+      font-size: 55px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .perfil h1 {
+      font-size: 29px;
+      font-weight: 800;
+      margin-bottom: 7px;
+      letter-spacing: -0.8px;
+    }
+
+    .perfil h1 span {
+      color: #ff444b;
+    }
+
+    .perfil p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.76);
+      max-width: 390px;
+      margin: 0 auto;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38dc6a;
+      box-shadow: 0 0 12px #38dc6a;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .link {
+      position: relative;
+      width: 100%;
+      min-height: 68px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--branco);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.12);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .link:hover::before {
+      opacity: 1;
+    }
+
+    .link.vermelho::before {
+      background: linear-gradient(
+        135deg,
+        rgba(227,27,35,0.65),
+        rgba(168,15,21,0.35)
+      );
+    }
+
+    .link.azul::before {
+      background: linear-gradient(
+        135deg,
+        rgba(0,87,184,0.7),
+        rgba(0,59,122,0.35)
+      );
+    }
+
+    .link.destaque {
+      background: linear-gradient(
+        135deg,
+        var(--vermelho),
+        var(--azul)
+      );
+      border: none;
+    }
+
+    .link.destaque:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+
+    .icone {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      width: 45px;
+      height: 45px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      background: rgba(255,255,255,0.13);
+      margin-right: 14px;
+    }
+
+    .link-texto {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .link-texto strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .link-texto small {
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .seta {
+      position: relative;
+      z-index: 2;
+      font-size: 21px;
+      margin-left: 12px;
+      opacity: 0.65;
+      transition: transform 0.25s ease;
+    }
+
+    .link:hover .seta {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    .info-box {
+      margin-top: 27px;
+      padding: 20px;
+      border-radius: 19px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(15px);
+    }
+
+    .info-box h2 {
+      font-size: 15px;
+      margin-bottom: 13px;
+      font-weight: 800;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.72);
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.42);
+    }
+
+    footer strong {
+      color: rgba(255,255,255,0.7);
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding-top: 30px;
+      }
+
+      .logo {
+        width: 108px;
+        height: 108px;
+        font-size: 48px;
+      }
+
+      .perfil h1 {
+        font-size: 25px;
+      }
+
+      .link {
+        min-height: 65px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <section class="perfil">
+
+      <div class="logo">
+        🍕
+      </div>
+
+      <h1>
+        Pizzaria do <span>Joselito</span>
+      </h1>
+
+      <p>
+        Pizza boa é aquela que dá vontade de pedir de novo.
+        Escolha uma opção abaixo e faça seu pedido.
+      </p>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        Aceitando pedidos
+      </div>
+
+    </section>
+
+    <section class="links">
+
+      <a
+        href="https://wa.me/5514999999999?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido."
+        target="_blank"
+        class="link destaque"
+      >
+        <div class="icone">📲</div>
+
+        <div class="link-texto">
+          <strong>Fazer pedido pelo WhatsApp</strong>
+          <small>Fale diretamente com a pizzaria</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+
+      <!-- Botão oficial de acesso ao cardápio completo em PDF -->
+      <a
+        href="cardapio.pdf"
+        target="_blank"
+        class="link vermelho"
+      >
+        <div class="icone">📄</div>
+
+        <div class="link-texto">
+          <strong>Ver cardápio completo (PDF)</strong>
+          <small>Pizzas, doces, bebidas, bordas e promoções</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        class="link azul"
+      >
+        <div class="icone">📸</div>
+
+        <div class="link-texto">
+          <strong>Instagram</strong>
+          <small>Acompanhe novidades e promoções</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+
+      <a
+        href="https://maps.google.com/"
+        target="_blank"
+        class="link vermelho"
+      >
+        <div class="icone">📍</div>
+
+        <div class="link-texto">
+          <strong>Como chegar</strong>
+          <small>Abra nossa localização no Google Maps</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+
+      <a
+        href="tel:+5514999999999"
+        class="link azul"
+      >
+        <div class="icone">☎️</div>
+
+        <div class="link-texto">
+          <strong>Ligar para a pizzaria</strong>
+          <small>Entre em contato diretamente</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+
+      <a
+        href="#"
+        class="link vermelho"
+      >
+        <div class="icone">🔥</div>
+
+        <div class="link-texto">
+          <strong>Promoções do dia</strong>
+          <small>Confira nossas ofertas especiais</small>
+        </div>
+
+        <div class="seta">›</div>
+      </a>
+
+    </section>
+
+
+    <section class="info-box">
+
+      <h2>🍕 Pizzaria do Joselito</h2>
+
+      <div class="info-item">
+        <span>🕒</span>
+        <span>
+          Confira nossos horários de funcionamento antes de realizar seu pedido.
+        </span>
+      </div>
+
+      <div class="info-item">
+        <span>🛵</span>
+        <span>
+          Delivery rápido para você aproveitar sua pizza sem sair de casa.
+        </span>
+      </div>
+
+      <div class="info-item">
+        <span>❤️</span>
+        <span>
+          Feito com sabor, capricho e aquele toque especial do Joselito.
+        </span>
+      </div>
+
+    </section>
+
+
+    <footer>
+      © <span id="ano"></span> <strong>Pizzaria do Joselito</strong>
+      <br>
+      Todos os direitos reservados.
+      <br><br>
+      <div style="text-align: center;">
+        desenvolvido por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" style="color: #0057b8; text-decoration: none; font-weight: 700;">siteprofissional</a>
+      </div>
+    </footer>
+
+  </main>
+
+
+  <script>
+
+    // Ano automático
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+
+
+    // Animação de entrada
+    const elementos = document.querySelectorAll(".link");
+
+    elementos.forEach((elemento, index) => {
+
+      elemento.style.opacity = "0";
+      elemento.style.transform = "translateY(20px)";
+
+      setTimeout(() => {
+
+        elemento.style.transition =
+          "opacity .45s ease, transform .45s ease";
+
+        elemento.style.opacity = "1";
+        elemento.style.transform = "translateY(0)";
+
+      }, 120 * index);
+
+    });
+
+  </script>
+
+</body>
+</html>

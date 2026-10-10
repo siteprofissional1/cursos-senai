@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviãozinho Crash - Joselito Bet</title>
+  <link rel="icon" type="image/webp" href="../assets/joselito-fav-icon.webp">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <!-- Barra Superior -->
+  <header class="main-header">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <a href="../index.html" class="btn btn-back" title="Voltar ao Cassino">
+        &larr; Lobby
+      </a>
+      <a href="../index.html" class="brand-wrapper">
+        <img src="../assets/joselito-perfil.webp" alt="Joselito" class="brand-avatar" onerror="this.src='../assets/joselito-perfil.jpg'">
+        <span class="brand-title">JOSELITO BET</span>
+        <span class="brand-tag">VIP CASINO</span>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="balance-card">
+        <span class="balance-label">Saldo em Conta</span>
+        <span class="balance-value" id="gameBalance">R$ 50,00</span>
+      </div>
+      <button class="btn btn-deposit btn-open-deposit" title="Adicionar saldo imediato">
+        <span>+</span> Depositar
+      </button>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <div class="crash-card">
+      <div class="game-header-bar">
+        <div class="game-headline">
+          <h2>✈️ Aviãozinho Crash VIP</h2>
+          <p>O multiplicador decola em tempo real. Faça seu cashout antes da explosão!</p>
+        </div>
+        <div style="background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: #fbbf24; padding: 0.4rem 0.85rem; border-radius: 10px; font-weight: 800; font-size: 0.85rem;">
+          ⚡ Multiplicador Máximo: 500.00x
+        </div>
+      </div>
+
+      <!-- Fita de Histórico de Multiplicadores Recentes (Estilo Aviator) -->
+      <div style="margin-bottom: 0.75rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+          <span style="font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Últimos Resultados:</span>
+          <span style="font-size: 0.7rem; color: #64748b;">Ao vivo &bull; Provably Fair</span>
+        </div>
+        <div class="history-ribbon" id="multiplierHistory">
+          <span class="history-pill pill-crash-low">1.12x</span>
+          <span class="history-pill pill-crash-low">1.04x</span>
+          <span class="history-pill pill-crash-mid">2.45x</span>
+          <span class="history-pill pill-crash-low">1.01x</span>
+          <span class="history-pill pill-crash-low">1.18x</span>
+          <span class="history-pill pill-crash-high">4.82x</span>
+          <span class="history-pill pill-crash-low">1.08x</span>
+          <span class="history-pill pill-crash-mid">1.94x</span>
+          <span class="history-pill pill-crash-low">1.15x</span>
+        </div>
+      </div>
+
+      <!-- Palco de Voo (Canvas Gráfico) -->
+      <div class="flight-stage" id="flightStage">
+        <canvas id="flightCanvas"></canvas>
+        <div class="multiplier-display-overlay">
+          <div class="current-multiplier" id="multiplierText">1.00x</div>
+          <div class="flight-status-badge" id="flightStatus">Aguardando aposta para decolar</div>
+        </div>
+      </div>
+
+      <!-- Painel de Apostas e Saque -->
+      <div class="crash-controls">
+        <div class="bet-input-box">
+          <label for="betCrashInput">Valor da Aposta (R$)</label>
+          <div class="bet-input-group">
+            <span style="color: var(--text-muted); font-weight: 700;">R$</span>
+            <input type="number" id="betCrashInput" value="10" min="1" step="1">
+          </div>
+          <div class="quick-bet-chips">
+            <button class="chip-btn" data-val="5">R$ 5</button>
+            <button class="chip-btn" data-val="10">R$ 10</button>
+            <button class="chip-btn" data-val="25">R$ 25</button>
+            <button class="chip-btn" data-val="50">R$ 50</button>
+          </div>
+        </div>
+
+        <div>
+          <button id="btnActionCrash" class="btn-action-main btn-start-bet">
+            <span id="btnActionText">APOSTAR</span>
+            <span class="btn-action-subtext" id="btnActionSub">Começar a voar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Feed de Apostas Ao Vivo da Mesa -->
+      <div style="margin-top: 1.5rem; background: rgba(18, 20, 31, 0.75); border: 1px solid var(--border-color); border-radius: 16px; padding: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+          <span style="font-size: 0.8rem; font-weight: 800; color: #cbd5e1; text-transform: uppercase;">🔴 Apostas na Rodada (Comunidade Ao Vivo)</span>
+          <span style="font-size: 0.75rem; color: #10b981; font-weight: 700;">142 jogadores online</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; font-size: 0.8rem;" id="liveBetsGrid">
+          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+            <span>👤 Carlos_SP</span>
+            <span style="color: #fbbf24; font-weight: 700;">R$ 20,00</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+            <span>👤 Ana_Trader</span>
+            <span style="color: #fbbf24; font-weight: 700;">R$ 50,00</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 0.4rem 0.6rem; border-radius: 8px; display: flex; justify-content: space-between;">
+            <span>👤 BetKing99</span>
+            <span style="color: #fbbf24; font-weight: 700;">R$ 100,00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Obrigatório -->
+  <footer class="main-footer">
+    <div class="footer-joselito">
+      <img src="../assets/joselito-perfil.webp" alt="Joselito" class="footer-avatar" onerror="this.src='../assets/joselito-perfil.jpg'">
+      <span style="font-size: 0.85rem; font-weight: 700; color: #fde68a;">Joselito Bet &copy; 2026 &bull; Plataforma Oficial de Apostas VIP</span>
+    </div>
+    <p class="footer-disclaimer">
+      Joselito Bet opera com algoritmos de alta volatilidade. A casa reserva margem matemática operacional. Jogue com responsabilidade.
+    </p>
+    <div class="footer-credits">
+      desenvolvido por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" style="color: #3b82f6;">siteprofissional</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../shared/js/rng-engine.js"></script>
+  <script src="../shared/js/audio.js"></script>
+  <script src="../shared/js/wallet.js"></script>
+  <script src="../shared/js/popup-derrota.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

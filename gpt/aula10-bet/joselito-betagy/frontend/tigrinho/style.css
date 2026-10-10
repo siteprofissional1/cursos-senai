@@ -1,0 +1,317 @@
+/* Estilos específicos do Jogo 4 - Fortune Tigrinho */
+.game-container {
+  max-width: 950px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.slots-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.game-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-headline h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.game-headline p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Moldura das Bobinas do Tigrinho (3x3) */
+.reels-machine {
+  background: linear-gradient(180deg, #1f140e 0%, #0d0907 100%);
+  border: 3px solid var(--accent-gold);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.25), inset 0 0 30px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.reels-machine.near-miss {
+  border-color: #ef4444;
+  box-shadow: 0 0 45px rgba(239, 68, 68, 0.5), inset 0 0 30px rgba(0, 0, 0, 0.8);
+  animation: machineShake 0.4s ease-in-out;
+}
+
+@keyframes machineShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: #000;
+  padding: 1rem;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.reel-column {
+  background: #111422;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 270px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-column.suspense {
+  border-color: #ef4444;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.7);
+  animation: glowRed 0.3s infinite alternate;
+}
+
+@keyframes glowRed {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.3); }
+}
+
+.reel-items-container {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.1s linear;
+}
+
+.reel-symbol {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  user-select: none;
+}
+
+.reel-symbol-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+/* Payline Central Indicator */
+.payline-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 90px;
+  border-top: 2px dashed rgba(245, 158, 11, 0.4);
+  border-bottom: 2px dashed rgba(245, 158, 11, 0.4);
+  pointer-events: none;
+  background: rgba(245, 158, 11, 0.03);
+}
+
+.machine-status {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  min-height: 2.2rem;
+}
+
+/* Painel de Aposta do Tigrinho */
+.slots-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  background: rgba(18, 20, 31, 0.7);
+  padding: 1.5rem;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.bet-input-box {
+  flex: 1 1 200px;
+}
+
+.bet-input-box input {
+  width: 100%;
+  background: #090a10;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 0.6rem 0.85rem;
+  outline: none;
+}
+
+.slots-chips-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.chip-btn {
+  padding: 0.55rem 0.75rem;
+}
+
+.btn-spin-slots {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 900;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #000;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--accent-gold-glow);
+  transition: var(--transition-normal);
+}
+
+.btn-spin-slots:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Explicação Didática */
+.manipulation-explainer {
+  margin-top: 1.5rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Breakpoints Responsivos do Tigrinho */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 0 1rem;
+    margin: 1.25rem auto 3rem auto;
+  }
+
+  .slots-card {
+    padding: 1.25rem 1rem;
+    border-radius: 20px;
+  }
+
+  .game-headline h2 {
+    font-size: 1.6rem;
+  }
+
+  .reels-machine {
+    padding: 1rem 0.75rem;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+  }
+
+  .reels-grid {
+    gap: 0.6rem;
+    padding: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .slots-controls {
+    padding: 1rem;
+  }
+
+  .slots-chips-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .slots-chips-row .chip-btn {
+    text-align: center;
+    padding: 0.5rem 0.2rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-spin-slots {
+    padding: 1rem;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 0 0.5rem;
+  }
+
+  .slots-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .game-headline h2 {
+    font-size: 1.35rem;
+  }
+
+  .reels-machine {
+    padding: 0.75rem 0.4rem;
+    border-width: 2px;
+  }
+
+  .reels-grid {
+    gap: 0.35rem;
+    padding: 0.4rem;
+  }
+
+  .reel-column {
+    height: 240px;
+    border-radius: 10px;
+  }
+
+  .reel-symbol {
+    height: 80px;
+    font-size: 2.2rem;
+  }
+
+  .reel-symbol-name {
+    font-size: 0.55rem;
+  }
+
+  .payline-indicator {
+    height: 80px;
+  }
+
+  .machine-status {
+    font-size: 1rem;
+  }
+
+  .manipulation-explainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.85rem;
+    font-size: 0.8rem;
+  }
+}

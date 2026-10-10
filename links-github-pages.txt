@@ -121,6 +121,24 @@ https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-relacionamen
 [Aula 09] Chatbot de Relacionamento (v2 GPT):
 https://siteprofissional1.github.io/cursos-senai/gpt/aula09-chatbot-relacionamento-v2-gpt/index.html
 
+[Aula 10] Joselito Bet (Portal Principal de Apostas & Cassino):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula10-bet/joselito-betagy/index.html
+
+[Aula 10] Joselito Bet - Jogo do Aviãozinho Crash:
+https://siteprofissional1.github.io/cursos-senai/gpt/aula10-bet/joselito-betagy/frontend/aviao/index.html
+
+[Aula 10] Joselito Bet - Roleta da Sorte:
+https://siteprofissional1.github.io/cursos-senai/gpt/aula10-bet/joselito-betagy/frontend/roleta/index.html
+
+[Aula 10] Joselito Bet - Jogo do Tigrinho:
+https://siteprofissional1.github.io/cursos-senai/gpt/aula10-bet/joselito-betagy/frontend/tigrinho/index.html
+
+[Aula 11] Linktree (Página de Bio & Links Principais):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula11/linktree/index.html
+
+[Aula 11] Linktree (Versão 1 Alternativa):
+https://siteprofissional1.github.io/cursos-senai/gpt/aula11/linktree/linktree-1.html
+
 ================================================================================
 site desenvolvido por siteprofissional.pro (https://siteprofissional.pro)
 ================================================================================

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roleta do Joselito - Joselito Bet</title>
+  <link rel="icon" type="image/webp" href="../assets/joselito-fav-icon.webp">
+  <link rel="stylesheet" href="../shared/css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <header class="main-header">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <a href="../index.html" class="btn btn-back" title="Voltar ao Cassino">
+        &larr; Lobby
+      </a>
+      <a href="../index.html" class="brand-wrapper">
+        <img src="../assets/joselito-perfil.webp" alt="Joselito" class="brand-avatar" onerror="this.src='../assets/joselito-perfil.jpg'">
+        <span class="brand-title">JOSELITO BET</span>
+        <span class="brand-tag">VIP ROULETTE</span>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <div class="balance-card">
+        <span class="balance-label">Saldo em Conta</span>
+        <span class="balance-value" id="gameBalance">R$ 50,00</span>
+      </div>
+      <button class="btn btn-deposit btn-open-deposit" title="Adicionar saldo imediato">
+        <span>+</span> Depositar
+      </button>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <div class="roulette-card">
+      <div class="game-header-bar">
+        <div class="game-headline">
+          <h2>🎡 Roleta Europeia VIP Ao Vivo</h2>
+          <p>Mesa de feltro clássica com 37 números. Escolha seu palpite e sinta a física real da bolinha!</p>
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: #6ee7b7; padding: 0.4rem 0.85rem; border-radius: 10px; font-weight: 700; font-size: 0.85rem;">
+          🟢 Zero da Banca Paga 14x
+        </div>
+      </div>
+
+      <!-- Fita de Histórico de Números Sorteados -->
+      <div style="margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.35rem;">
+          <span style="font-size: 0.75rem; font-weight: 800; color: #94a3b8; text-transform: uppercase;">Últimos Números Sorteados:</span>
+          <span style="font-size: 0.7rem; color: #10b981; font-weight: 700;">● Mesa Ao Vivo</span>
+        </div>
+        <div class="history-ribbon" id="rouletteHistory">
+          <span class="history-pill pill-roulette-red">🔴 32</span>
+          <span class="history-pill pill-roulette-black">⚫ 15</span>
+          <span class="history-pill pill-roulette-red">🔴 19</span>
+          <span class="history-pill pill-roulette-black">⚫ 4</span>
+          <span class="history-pill pill-roulette-red">🔴 21</span>
+          <span class="history-pill pill-roulette-black">⚫ 2</span>
+          <span class="history-pill pill-roulette-red">🔴 25</span>
+          <span class="history-pill pill-roulette-green">🟢 0</span>
+          <span class="history-pill pill-roulette-red">🔴 34</span>
+        </div>
+      </div>
+
+      <!-- Palco da Roleta -->
+      <div class="wheel-stage">
+        <div class="wheel-container">
+          <div class="wheel-pointer"></div>
+          <canvas id="rouletteCanvas" width="320" height="320"></canvas>
+          <div class="roulette-center-pin">JB</div>
+        </div>
+        <div class="result-banner" id="resultBanner">Faça sua aposta na mesa e gire a roleta!</div>
+      </div>
+
+      <!-- Mesa de Apostas VIP -->
+      <div class="betting-table">
+        <div class="table-title">
+          <span>Selecione seu palpite de aposta:</span>
+          <span id="chosenBetLabel" style="color: var(--accent-gold); font-weight: 800;">Nenhuma aposta selecionada</span>
+        </div>
+
+        <!-- Grade Principal de Cores e Zero -->
+        <div class="roulette-options-grid">
+          <button class="btn-roulette-option btn-opt-red" data-type="red">
+            🔴 VERMELHO
+            <span class="odds">Paga 2.00x</span>
+          </button>
+          <button class="btn-roulette-option btn-opt-black" data-type="black">
+            ⚫ PRETO
+            <span class="odds">Paga 2.00x</span>
+          </button>
+          <button class="btn-roulette-option btn-opt-green" data-type="green">
+            🟢 ZERO (CASA)
+            <span class="odds">Paga 14.00x</span>
+          </button>
+        </div>
+
+        <!-- Opções Secundárias Realistas de Cassino (Par/Ímpar, Faixas) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.6rem; margin-bottom: 1.25rem;">
+          <button class="btn-roulette-option" data-type="even" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #fff;">
+            PAR (EVEN)
+            <span class="odds">Paga 2.00x</span>
+          </button>
+          <button class="btn-roulette-option" data-type="odd" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #fff;">
+            ÍMPAR (ODD)
+            <span class="odds">Paga 2.00x</span>
+          </button>
+          <button class="btn-roulette-option" data-type="low" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #fff;">
+            1 A 18 (BAIXO)
+            <span class="odds">Paga 2.00x</span>
+          </button>
+          <button class="btn-roulette-option" data-type="high" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: #fff;">
+            19 A 36 (ALTO)
+            <span class="odds">Paga 2.00x</span>
+          </button>
+        </div>
+
+        <!-- Controles de Valor -->
+        <div class="bet-controls-bar">
+          <div class="bet-input-box">
+            <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">VALOR DA APOSTA (R$)</label>
+            <input type="number" id="betRouletteInput" value="10" min="1" step="1">
+          </div>
+          <div class="roulette-chips-row">
+            <button class="btn btn-back chip-btn" data-val="5">R$ 5</button>
+            <button class="btn btn-back chip-btn" data-val="10">R$ 10</button>
+            <button class="btn btn-back chip-btn" data-val="25">R$ 25</button>
+            <button class="btn btn-back chip-btn" data-val="50">R$ 50</button>
+          </div>
+        </div>
+
+        <button id="btnSpinRoulette" class="btn btn-gold btn-spin-wheel">
+          GIRAR A ROLETA VIP 🎡
+        </button>
+      </div>
+
+      <!-- Estatísticas da Mesa Ao Vivo -->
+      <div style="margin-top: 1.5rem; background: rgba(18, 20, 31, 0.75); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">
+          <span style="font-size: 0.8rem; font-weight: 800; color: #fbbf24; text-transform: uppercase;">📊 Estatísticas das Últimas 100 Rodadas</span>
+          <span style="font-size: 0.75rem; color: #10b981; font-weight: 700;">RTP 97.30%</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; font-size: 0.85rem;">
+          <div>
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 0.25rem;">Distribuição de Cores:</div>
+            <div style="display: flex; gap: 0.5rem; font-weight: 800;">
+              <span style="color: #f87171;">🔴 48.0%</span>
+              <span style="color: #cbd5e1;">⚫ 48.0%</span>
+              <span style="color: #34d399;">🟢 4.0%</span>
+            </div>
+          </div>
+          <div>
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 0.25rem;">Números Quentes (Hot):</div>
+            <div style="font-weight: 800; color: #fbbf24;">🔥 7, 23, 36, 19</div>
+          </div>
+          <div>
+            <div style="color: #94a3b8; font-size: 0.75rem; margin-bottom: 0.25rem;">Números Frios (Cold):</div>
+            <div style="font-weight: 800; color: #94a3b8;">❄️ 0, 11, 28, 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Obrigatório -->
+  <footer class="main-footer">
+    <div class="footer-joselito">
+      <img src="../assets/joselito-perfil.webp" alt="Joselito" class="footer-avatar" onerror="this.src='../assets/joselito-perfil.jpg'">
+      <span style="font-size: 0.85rem; font-weight: 700; color: #fde68a;">Joselito Bet &copy; 2026 &bull; Plataforma Oficial de Apostas VIP</span>
+    </div>
+    <p class="footer-disclaimer">
+      Joselito Bet opera com algoritmos de alta volatilidade. A casa reserva margem matemática operacional. Jogue com responsabilidade.
+    </p>
+    <div class="footer-credits">
+      desenvolvido por <a href="https://siteprofissional.pro" target="_blank" rel="noopener noreferrer" style="color: #3b82f6;">siteprofissional</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../shared/js/rng-engine.js"></script>
+  <script src="../shared/js/audio.js"></script>
+  <script src="../shared/js/wallet.js"></script>
+  <script src="../shared/js/popup-derrota.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

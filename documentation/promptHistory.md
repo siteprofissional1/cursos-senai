@@ -31,3 +31,8 @@ There isn't a GitHub Pages site here.
 If you're trying to publish one, [read the full documentation](https://help.github.com/pages/) to learn how to set up GitHub Pages for your repository, organization, or user account.
 [GitHub Status](https://githubstatus.com/) — [@githubstatus](https://twitter.com/githubstatus)
 ```
+
+### Prompt 6 (09/10/2026)
+```text
+/goal roda um git status e envia o que ta faltando para o git e me da o link para acessar o github pages dos novos que foram adicionados, adiciona no txt que fica os links tambem
+```
