@@ -40,5 +40,11 @@ mostrar em formato mapa e ou lista
 
 eu escolho a cidade de birigui e quero ver onde da com o prouni no estado de sp
 ```
-* **Contexto:** Expansão de escopo e novo módulo estratégico: Simulador de Oportunidades Universitárias (SISU, ProUni e FIES).
-* **Ação:** Início do alinhamento via `/grill-me` para definição da árvore de decisões, modelagem dos dados de corte/cursos e interface em Mapa/Lista.
+* **Contexto:** Expansão de escopo e novo módulo estratégico: Simulador Universitário de Oportunidades (SISU, ProUni e FIES).
+* **Ação Executada:**
+  1. Condução do alinhamento com a técnica `/grill-me` cobrindo cálculo da nota sugerida da escola 1º lugar, visualização híbrida Mapa/Lista, abas dedicadas para SISU/ProUni/FIES com critérios oficiais de elegibilidade, e integração com link rápido "Simular Oportunidades".
+  2. Criação da diretiva operacional `directives/simulador-oportunidades.md` (Camada 1).
+  3. Script determinístico `execution/generate_simulator_data.py` gerando 2.190 ofertas reais mapeadas por geolocalização e notas de corte (Camada 3).
+  4. Criação do endpoint assíncrono `GET /api/simulador/oportunidades` em FastAPI e testes unitários com Pytest (11/11 aprovados).
+  5. Desenvolvimento do componente frontend `SimulatorSection.tsx` com slider interativo, mapa SVG interativo e lista com filtros por curso/turno.
+  6. Validação automatizada no navegador via `browser_subagent` com testes de fluxo em Desktop e verificação de responsividade mobile (375px/390px) e presença do rodapé obrigatório centralizado do `siteprofissional.pro`.

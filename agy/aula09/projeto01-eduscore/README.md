@@ -50,7 +50,14 @@ Desenvolvido com o auxílio do **Google Antigravity** e orquestrado via agentes 
    - **Rankings Top 10 com Explosão:** Reorganização dinâmica por qualquer matéria (`Geral`, `CN`, `CH`, `LC`, `MT`, `Redação`) e *drill-down* inline retrátil.
    - **Explorador e Slide-Over Drawer:** Detalhes cadastrais (endereço, telefone com link `tel:`) e boletim individual de cada estudante.
 
-6. **Automação Turnkey:**
+6. **Simulador Universitário de Oportunidades (SISU • ProUni • FIES):**
+   - **Sincronização Automática:** Ao selecionar qualquer município (ex: *Birigui - SP*), o sistema preenche imediatamente a nota da escola 1º lugar (*Colégio Integrado de Birigui* - 672.5 pts).
+   - **Slider Interativo:** Permite simulações livres entre 400 e 850+ pontos com reset para a nota de referência.
+   - **Critérios Oficiais de Elegibilidade:** Validação de regras regulatórias (450 pontos mínimos no ENEM e nota de Redação acima de zero para ProUni e FIES).
+   - **Visualização Híbrida em Mapa & Lista:** Mapa SVG interativo com polos e cidades onde a nota garante aprovação, e lista detalhada com badges de tipo de bolsa (100% integral vs 50% parcial no ProUni, Pública no SISU e Financiamento FIES).
+   - **Alternância de Escopo:** Alterna com 1 clique entre o estado selecionado (ex: SP) e todo o Brasil.
+
+7. **Automação Turnkey:**
    - `executar.bat`: Inicialização em 1 clique (Backend FastAPI + Frontend Vite + Abertura automática no navegador).
    - `encerrar.bat`: Finalização limpa liberando as portas TCP 8000 e 5173.
 
@@ -154,6 +161,16 @@ Built using **Google Antigravity** and orchestrated with specialized AI agents f
    - Side-by-Side Clustered Columns comparing national vs. local benchmarks across all 5 exam knowledge areas.
    - Top 10 rankings with live subject explosion and inline drill-downs.
    - Slide-over school drawer with verified contact links and student report cards.
+
+5. **University Opportunities Simulator (SISU • ProUni • FIES):**
+   - **Auto-Sync:** Selecting any municipality (e.g. *Birigui - SP*) immediately feeds the top school's score (*Colégio Integrado de Birigui* - 672.5 pts).
+   - **Interactive Score Slider:** Allows custom simulations between 400 and 850+ points with a 1-click reference reset.
+   - **Hybrid Map & List View:** Interactive SVG map pinpoints cities offering approved courses alongside a comprehensive listing with scholarship types (100% full vs 50% partial ProUni, Public SISU, and FIES student financing).
+   - **Scope Toggle:** Switch instantly between the state view (e.g. SP) and national coverage.
+
+6. **Turnkey Automation:**
+   - `executar.bat`: One-click startup for FastAPI and Vite with automated browser launch.
+   - `encerrar.bat`: Graceful cleanup freeing TCP ports 8000 and 5173.
 
 ---
 
