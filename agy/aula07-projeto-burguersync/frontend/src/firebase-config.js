@@ -21,7 +21,7 @@ import {
 
 // Configurações do projeto burguersync777
 const firebaseConfig = {
-  apiKey: "AIzaSyBPbKP80_xE-glAuxcXngmndAdh1ODEdns",
+  apiKey: "COLOQUE_SUA_FIREBASE_API_KEY_AQUI",
   authDomain: "burguersync777.firebaseapp.com",
   projectId: "burguersync777",
   storageBucket: "burguersync777.firebasestorage.app",

@@ -34,3 +34,10 @@ Desktop.ini
 
 # Pasta local
 por-favor-nao-apague/
+
+# Microdados pesados do ENEM - manter apenas local
+agy/aula09/projeto01-eduscore/data/microdados_enem_2025/
+
+# Arquivos grandes mantidos apenas localmente
+gpt/aula13/weights/clip/ViT-B-32.pt
+agy/aula09/projeto01-eduscore/data/processed/eduscore.duckdb
