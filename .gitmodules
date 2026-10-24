@@ -1,0 +1,7 @@
+[submodule "agy/aula10/saudesync"]
+path = agy/aula10/saudesync
+url = https://github.com/siteprofissional1/saudesync.git
+
+[submodule "agy/aula10/smartmachines"]
+path = agy/aula10/smartmachines
+url = https://github.com/siteprofissional1/smartmachines.git
